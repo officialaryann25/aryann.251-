@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IceWorld - Premium Ice Cream</title>
+    
+    <!-- Remix Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav__container">
+            <a href="index.html" class="nav__logo">
+                <i class="ri-ice-cream-fill"></i> IceWorld
+            </a>
+            
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="index.html" class="nav__link active">Home</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#menu" class="nav__link">Menu</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#categories" class="nav__link">Categories</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#contact" class="nav__link">Contact Us</a>
+                    </li>
+                </ul>
+                
+                <div class="nav__actions">
+                    <button class="nav__button" id="cart-button">
+                        <i class="ri-shopping-cart-line"></i>
+                        <span class="cart-count" id="cart-count">0</span>
+                    </button>
+                    <button class="nav__button" id="notification-button">
+                        <i class="ri-notification-3-fill"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="nav__toggle" id="nav-toggle">
+                <i class="ri-menu-line"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero__container">
+            <div class="hero__content">
+                <h1 class="hero__title">Welcome to IceWorld</h1>
+                <p class="hero__description">Discover the finest selection of premium ice cream flavors, handcrafted with love and the freshest ingredients.</p>
+                <a href="#menu" class="hero__button">Explore Menu</a>
+            </div>
+            <div class="hero__image">
+                <i class="ri-ice-cream-fill hero__icon"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu" id="menu">
+        <div class="menu__container">
+            <h2 class="section__title">Our Popular Flavors</h2>
+            <p class="section__subtitle">Indulge in our handpicked selection</p>
+            
+            <div class="menu__grid">
+                <!-- Product 1 -->
+                <div class="product__card">
+                    <div class="product__image">
+                        <i class="ri-ice-cream-fill product__icon"></i>
+                    </div>
+                    <h3 class="product__title">Vanilla Dream</h3>
+                    <p class="product__description">Classic vanilla with Madagascar beans</p>
+                    <div class="product__footer">
+                        <span class="product__price">$5.99</span>
+                        <button class="product__button buy-now-btn" data-name="Vanilla Dream" data-price="5.99" data-image="vanilla">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product__card">
+                    <div class="product__image">
+                        <i class="ri-ice-cream-fill product__icon" style="color: #8B4513;"></i>
+                    </div>
+                    <h3 class="product__title">Chocolate Bliss</h3>
+                    <p class="product__description">Rich dark chocolate delight</p>
+                    <div class="product__footer">
+                        <span class="product__price">$6.99</span>
+                        <button class="product__button buy-now-btn" data-name="Chocolate Bliss" data-price="6.99" data-image="chocolate">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product__card">
+                    <div class="product__image">
+                        <i class="ri-ice-cream-fill product__icon" style="color: #FFC0CB;"></i>
+                    </div>
+                    <h3 class="product__title">Strawberry Delight</h3>
+                    <p class="product__description">Fresh strawberries and cream</p>
+                    <div class="product__footer">
+                        <span class="product__price">$5.99</span>
+                        <button class="product__button buy-now-btn" data-name="Strawberry Delight" data-price="5.99" data-image="strawberry">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product__card">
+                    <div class="product__image">
+                        <i class="ri-ice-cream-fill product__icon" style="color: #90EE90;"></i>
+                    </div>
+                    <h3 class="product__title">Mint Chocolate Chip</h3>
+                    <p class="product__description">Cool mint with chocolate chunks</p>
+                    <div class="product__footer">
+                        <span class="product__price">$6.49</span>
+                        <button class="product__button buy-now-btn" data-name="Mint Chocolate Chip" data-price="6.49" data-image="mint">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 5 -->
+                <div class="product__card">
+                    <div class="product__image">
+                        <i class="ri-ice-cream-fill product__icon" style="color: #FFD700;"></i>
+                    </div>
+                    <h3 class="product__title">Mango Paradise</h3>
+                    <p class="product__description">Tropical mango sensation</p>
+                    <div class="product__footer">
+                        <span class="product__price">$6.99</span>
+                        <button class="product__button buy-now-btn" data-name="Mango Paradise" data-price="6.99" data-image="mango">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 6 -->
+                <div class="product__card">
+                    <div class="product__image">
+                        <i class="ri-ice-cream-fill product__icon" style="color: #DDA0DD;"></i>
+                    </div>
+                    <h3 class="product__title">Cookies & Cream</h3>
+                    <p class="product__description">Vanilla ice cream with cookie pieces</p>
+                    <div class="product__footer">
+                        <span class="product__price">$6.49</span>
+                        <button class="product__button buy-now-btn" data-name="Cookies & Cream" data-price="6.49" data-image="cookies">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories" id="categories">
+        <div class="categories__container">
+            <h2 class="section__title">Browse by Category</h2>
+            <p class="section__subtitle">Find your perfect flavor</p>
+            
+            <div class="categories__grid">
+                <div class="category__card">
+                    <i class="ri-cake-3-line category__icon"></i>
+                    <h3 class="category__title">Classic</h3>
+                    <p class="category__description">Timeless favorites</p>
+                </div>
+                
+                <div class="category__card">
+                    <i class="ri-plant-line category__icon"></i>
+                    <h3 class="category__title">Fruity</h3>
+                    <p class="category__description">Fresh & refreshing</p>
+                </div>
+                
+                <div class="category__card">
+                    <i class="ri-cake-2-line category__icon"></i>
+                    <h3 class="category__title">Premium</h3>
+                    <p class="category__description">Luxurious flavors</p>
+                </div>
+                
+                <div class="category__card">
+                    <i class="ri-leaf-line category__icon"></i>
+                    <h3 class="category__title">Vegan</h3>
+                    <p class="category__description">Plant-based options</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact/Subscribe Section -->
+    <section class="contact" id="contact">
+        <div class="contact__container">
+            <h2 class="section__title">Stay Updated</h2>
+            <p class="section__subtitle">Subscribe to get special offers and new flavor alerts</p>
+            
+            <form class="subscribe__form" id="subscribe-form">
+                <input 
+                    type="email" 
+                    class="subscribe__input" 
+                    placeholder="Enter your email"
+                    id="subscribe-email"
+                    required
+                >
+                <button type="submit" class="subscribe__button">
+                    Subscribe
+                </button>
+            </form>
+            
+            <div class="subscribe__message" id="subscribe-message"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <h3 class="footer__title">
+                        <i class="ri-ice-cream-fill"></i> IceWorld
+                    </h3>
+                    <p class="footer__description">
+                        Premium handcrafted ice cream since 2020. Made with love and the finest ingredients.
+                    </p>
+                </div>
+                
+                <div class="footer__section">
+                    <h4 class="footer__subtitle">Quick Links</h4>
+                    <ul class="footer__links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#categories">Categories</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__section">
+                    <h4 class="footer__subtitle">Follow Us</h4>
+                    <div class="footer__social">
+                        <a href="https://facebook.com/iceworld" class="footer__social-link" target="_blank">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                        <a href="https://instagram.com/iceworld" class="footer__social-link" target="_blank">
+                            <i class="ri-instagram-fill"></i>
+                        </a>
+                        <a href="https://twitter.com/iceworld" class="footer__social-link" target="_blank">
+                            <i class="ri-twitter-fill"></i>
+                        </a>
+                        <a href="https://youtube.com/iceworld" class="footer__social-link" target="_blank">
+                            <i class="ri-youtube-fill"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer__bottom">
+                <p>&copy; 2024 IceWorld. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ScrollReveal JS -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    
+    <!-- Custom JS -->
+    <script src="main.js"></script>
+</body>
+</html>

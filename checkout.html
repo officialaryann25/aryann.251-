@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - IceWorld</title>
+    
+    <!-- Remix Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav__container">
+            <a href="index.html" class="nav__logo">
+                <i class="ri-ice-cream-fill"></i> IceWorld
+            </a>
+            
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="index.html" class="nav__link">Home</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="index.html#menu" class="nav__link">Menu</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="index.html#categories" class="nav__link">Categories</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="index.html#contact" class="nav__link">Contact Us</a>
+                    </li>
+                </ul>
+                
+                <div class="nav__actions">
+                    <button class="nav__button" id="cart-button">
+                        <i class="ri-shopping-cart-line"></i>
+                        <span class="cart-count" id="cart-count">0</span>
+                    </button>
+                    <button class="nav__button" id="notification-button">
+                        <i class="ri-notification-3-fill"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="nav__toggle" id="nav-toggle">
+                <i class="ri-menu-line"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Checkout Page Content -->
+    <section class="checkout-page">
+        <div class="page-container">
+            <h1 class="page-title">Checkout</h1>
+            
+            <div class="checkout-grid">
+                <!-- Customer Information Form -->
+                <div class="checkout-section">
+                    <h3 class="section-title">Customer Information</h3>
+                    <form id="checkout-form">
+                        <div class="form-group">
+                            <label class="form-label" for="customer-name">Full Name *</label>
+                            <input 
+                                type="text" 
+                                class="form-input" 
+                                id="customer-name" 
+                                placeholder="John Doe"
+                                required
+                            >
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="customer-email">Email Address *</label>
+                            <input 
+                                type="email" 
+                                class="form-input" 
+                                id="customer-email" 
+                                placeholder="john@example.com"
+                                required
+                            >
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="customer-phone">Phone Number *</label>
+                            <input 
+                                type="tel" 
+                                class="form-input" 
+                                id="customer-phone" 
+                                placeholder="+1 (555) 123-4567"
+                                required
+                            >
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="customer-address">Delivery Address *</label>
+                            <textarea 
+                                class="form-textarea" 
+                                id="customer-address" 
+                                placeholder="123 Main Street, Apt 4B, City, State, ZIP"
+                                required
+                            ></textarea>
+                        </div>
+                        
+                        <h3 class="section-title" style="margin-top: 2rem;">Payment Method</h3>
+                        <div class="payment-methods">
+                            <div class="payment-method active" data-method="credit-card">
+                                <i class="ri-bank-card-line"></i>
+                                <span>Credit Card</span>
+                            </div>
+                            <div class="payment-method" data-method="debit-card">
+                                <i class="ri-bank-card-2-line"></i>
+                                <span>Debit Card</span>
+                            </div>
+                            <div class="payment-method" data-method="paypal">
+                                <i class="ri-paypal-line"></i>
+                                <span>PayPal</span>
+                            </div>
+                            <div class="payment-method" data-method="cash">
+                                <i class="ri-money-dollar-circle-line"></i>
+                                <span>Cash on Delivery</span>
+                            </div>
+                        </div>
+                        
+                        <div class="cart-actions" style="margin-top: 2rem;">
+                            <a href="cart.html" class="btn btn-secondary">Back to Cart</a>
+                            <button type="submit" class="btn btn-primary">Place Order</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Order Summary -->
+                <div class="checkout-section" id="order-summary">
+                    <!-- Order summary will be rendered here by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <h3 class="footer__title">
+                        <i class="ri-ice-cream-fill"></i> IceWorld
+                    </h3>
+                    <p class="footer__description">
+                        Premium handcrafted ice cream since 2020. Made with love and the finest ingredients.
+                    </p>
+                </div>
+                
+                <div class="footer__section">
+                    <h4 class="footer__subtitle">Quick Links</h4>
+                    <ul class="footer__links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#menu">Menu</a></li>
+                        <li><a href="index.html#categories">Categories</a></li>
+                        <li><a href="index.html#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__section">
+                    <h4 class="footer__subtitle">Follow Us</h4>
+                    <div class="footer__social">
+                        <a href="https://facebook.com/iceworld" class="footer__social-link" target="_blank">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                        <a href="https://instagram.com/iceworld" class="footer__social-link" target="_blank">
+                            <i class="ri-instagram-fill"></i>
+                        </a>
+                        <a href="https://twitter.com/iceworld" class="footer__social-link" target="_blank">
+                            <i class="ri-twitter-fill"></i>
+                        </a>
+                        <a href="https://youtube.com/iceworld" class="footer__social-link" target="_blank">
+                            <i class="ri-youtube-fill"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer__bottom">
+                <p>&copy; 2024 IceWorld. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ScrollReveal JS -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    
+    <!-- Custom JS -->
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - IceWorld</title>
+    
+    <!-- Remix Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav__container">
+            <a href="index.html" class="nav__logo">
+                <i class="ri-ice-cream-fill"></i> IceWorld
+            </a>
+            
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="index.html" class="nav__link">Home</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="index.html#menu" class="nav__link">Menu</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="index.html#categories" class="nav__link">Categories</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="index.html#contact" class="nav__link">Contact Us</a>
+                    </li>
+                </ul>
+                
+                <div class="nav__actions">
+                    <button class="nav__button" id="cart-button">
+                        <i class="ri-shopping-cart-line"></i>
+                        <span class="cart-count" id="cart-count">0</span>
+                    </button>
+                    <button class="nav__button" id="notification-button">
+                        <i class="ri-notification-3-fill"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="nav__toggle" id="nav-toggle">
+                <i class="ri-menu-line"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cart Page Content -->
+    <section class="cart-page">
+        <div class="page-container">
+            <h1 class="page-title">Shopping Cart</h1>
+            
+            <div class="checkout-grid">
+                <div id="cart-items-container">
+                    <!-- Cart items will be rendered here by JavaScript -->
+                </div>
+                
+                <div id="cart-summary">
+                    <!-- Cart summary will be rendered here by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <h3 class="footer__title">
+                        <i class="ri-ice-cream-fill"></i> IceWorld
+                    </h3>
+                    <p class="footer__description">
+                        Premium handcrafted ice cream since 2020. Made with love and the finest ingredients.
+                    </p>
+                </div>
+                
+                <div class="footer__section">
+                    <h4 class="footer__subtitle">Quick Links</h4>
+                    <ul class="footer__links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#menu">Menu</a></li>
+                        <li><a href="index.html#categories">Categories</a></li>
+                        <li><a href="index.html#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__section">
+                    <h4 class="footer__subtitle">Follow Us</h4>
+                    <div class="footer__social">
+                        <a href="https://facebook.com/iceworld" class="footer__social-link" target="_blank">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                        <a href="https://instagram.com/iceworld" class="footer__social-link" target="_blank">
+                            <i class="ri-instagram-fill"></i>
+                        </a>
+                        <a href="https://twitter.com/iceworld" class="footer__social-link" target="_blank">
+                            <i class="ri-twitter-fill"></i>
+                        </a>
+                        <a href="https://youtube.com/iceworld" class="footer__social-link" target="_blank">
+                            <i class="ri-youtube-fill"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer__bottom">
+                <p>&copy; 2024 IceWorld. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ScrollReveal JS -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    
+    <!-- Custom JS -->
+    <script src="main.js"></script>
+</body>
+</html>
