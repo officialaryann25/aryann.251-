@@ -150,64 +150,6 @@ if (typeof ScrollReveal !== 'undefined') {
 }
 
 // ========================================
-// Gallery Lightbox
-// ========================================
-function initGalleryLightbox() {
-  const galleryItems = document.querySelectorAll('.gallery-item');
-  
-  if (galleryItems.length === 0) return;
-  
-  // Create lightbox element
-  const lightbox = document.createElement('div');
-  lightbox.className = 'lightbox';
-  lightbox.innerHTML = `
-    <span class="lightbox-close">&times;</span>
-    <div class="lightbox-content">
-      <img src="" alt="Gallery Image">
-    </div>
-  `;
-  document.body.appendChild(lightbox);
-  
-  const lightboxImg = lightbox.querySelector('img');
-  const closeBtn = lightbox.querySelector('.lightbox-close');
-  
-  // Open lightbox
-  galleryItems.forEach(item => {
-    item.addEventListener('click', () => {
-      const img = item.querySelector('img');
-      lightboxImg.src = img.src;
-      lightboxImg.alt = img.alt;
-      lightbox.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    });
-  });
-  
-  // Close lightbox
-  closeBtn.addEventListener('click', () => {
-    lightbox.classList.remove('active');
-    document.body.style.overflow = 'auto';
-  });
-  
-  lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) {
-      lightbox.classList.remove('active');
-      document.body.style.overflow = 'auto';
-    }
-  });
-  
-  // Close on ESC key
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-      lightbox.classList.remove('active');
-      document.body.style.overflow = 'auto';
-    }
-  });
-}
-
-// Initialize lightbox when DOM is ready
-document.addEventListener('DOMContentLoaded', initGalleryLightbox);
-
-// ========================================
 // Category Filter (Menu Page)
 // ========================================
 function initCategoryFilter() {
