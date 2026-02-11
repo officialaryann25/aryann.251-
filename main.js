@@ -434,16 +434,11 @@ console.log('%c🍦 Welcome to IceWorld! 🍦', 'font-size: 24px; color: #ed8613
 console.log('%cCrafting Premium Ice Cream Experiences', 'font-size: 14px; color: #767268;');
 
 // ========================================
-// Smooth Page Load Animation
+// Smooth Page Load Animation (CSS-based)
 // ========================================
-window.addEventListener('load', () => {
-  document.body.style.opacity = '0';
-  document.body.style.transition = 'opacity 0.5s ease';
-  
-  // Fade in page
-  setTimeout(() => {
-    document.body.style.opacity = '1';
-  }, 100);
+document.addEventListener('DOMContentLoaded', () => {
+  // Remove the loading class after DOM is ready
+  document.body.classList.remove('page-loading');
 });
 
 // ========================================
@@ -461,12 +456,25 @@ document.addEventListener('DOMContentLoaded', () => {
         this.style.transform = '';
       }, 200);
       
-      // Show feedback (optional)
+      // Show accessible feedback
       const originalText = this.textContent;
+      const originalAriaLabel = this.getAttribute('aria-label') || originalText;
+      
       this.textContent = '✓ Added!';
+      this.setAttribute('aria-label', 'Item added to cart');
+      
+      // Announce to screen readers
+      const announcement = document.createElement('div');
+      announcement.setAttribute('role', 'status');
+      announcement.setAttribute('aria-live', 'polite');
+      announcement.className = 'sr-only';
+      announcement.textContent = 'Item added to cart';
+      document.body.appendChild(announcement);
       
       setTimeout(() => {
         this.textContent = originalText;
+        this.setAttribute('aria-label', originalAriaLabel);
+        document.body.removeChild(announcement);
       }, 1500);
     });
   });
