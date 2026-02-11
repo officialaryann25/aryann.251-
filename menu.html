@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>Our Menu - Premium Ice Cream Flavors | IceWorld</title>
+  <meta name="description" content="Explore IceWorld's extensive menu of premium ice cream flavors. From classic to innovative, discover your perfect scoop today.">
+  <meta name="keywords" content="ice cream menu, flavors, premium ice cream, artisanal flavors, IceWorld menu">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="IceWorld Menu - Premium Ice Cream Flavors">
+  <meta property="og:description" content="Discover our premium ice cream collection">
+  <meta property="og:type" content="website">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍦</text></svg>">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  
+  <!-- Navigation Bar -->
+  <header>
+    <nav>
+      <a href="index.html" class="logo">
+        <i class="fas fa-ice-cream"></i>
+        IceWorld
+      </a>
+      
+      <ul id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html" class="active">Menu</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      
+      <div class="nav-icons">
+        <i class="fas fa-shopping-cart"></i>
+        <i class="fas fa-bell"></i>
+        <i class="fas fa-bars" id="menu-btn"></i>
+      </div>
+    </nav>
+  </header>
+  
+  <!-- Hero Section -->
+  <section class="hero" style="min-height: 50vh; padding-top: 100px;">
+    <div class="container text-center">
+      <h1 style="font-size: 3.5rem; margin-bottom: 1rem;">Our Premium Menu</h1>
+      <p style="font-size: 1.2rem; color: var(--text-light); max-width: 600px; margin: 0 auto;">
+        Explore our handcrafted collection of premium ice cream flavors
+      </p>
+    </div>
+  </section>
+  
+  <!-- Category Filters -->
+  <section class="section" style="padding-top: 2rem;">
+    <div class="container">
+      <div class="category-filters">
+        <button class="filter-btn active" data-category="all">All Flavors</button>
+        <button class="filter-btn" data-category="popular">Popular</button>
+        <button class="filter-btn" data-category="premium">Premium</button>
+        <button class="filter-btn" data-category="seasonal">Seasonal</button>
+        <button class="filter-btn" data-category="special">Special</button>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Products Grid -->
+  <section class="section" style="padding-top: 2rem;">
+    <div class="container">
+      <div class="grid grid-3">
+        
+        <!-- Product 1 - Popular -->
+        <div class="product-card" data-category="popular">
+          <div class="product-image">
+            <span class="product-badge">Popular</span>
+            <img src="assets/popular-1.png" alt="Chocolate Dream" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 300 250%22%3E%3Crect fill=%22%234a3728%22 width=%22300%22 height=%22250%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2260%22 fill=%22white%22 text-anchor=%22middle%22 dy=%22.3em%22%3EChocolate Dream%3C/text%3E%3C/svg%3E'">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Chocolate Dream</h3>
+            <p class="product-description">
+              Rich Belgian chocolate with premium cocoa chunks
+            </p>
+            <div class="product-footer">
+              <span class="product-price">₹199</span>
+              <button class="btn btn-primary product-btn">
+                <i class="fas fa-shopping-cart"></i>
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 2 - Popular -->
+        <div class="product-card" data-category="popular">
+          <div class="product-image">
+            <span class="product-badge">Popular</span>
+            <img src="assets/popular-2.png" alt="Strawberry Bliss" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 300 250%22%3E%3Crect fill=%22%23fde6f2%22 width=%22300%22 height=%22250%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2260%22 fill=%22%23333%22 text-anchor=%22middle%22 dy=%22.3em%22%3EStrawberry Bliss%3C/text%3E%3C/svg%3E'">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Strawberry Bliss</h3>
+            <p class="product-description">
+              Fresh strawberries in creamy perfection
+            </p>
+            <div class="product-footer">
+              <span class="product-price">₹179</span>
+              <button class="btn btn-primary product-btn">
+                <i class="fas fa-shopping-cart"></i>
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 3 - Popular -->
+        <div class="product-card" data-category="popular">
+          <div class="product-image">
+            <span class="product-badge">Popular</span>
+            <img src="assets/popular-3.png" alt="Vanilla Supreme" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 300 250%22%3E%3Crect fill=%22%23fff8f0%22 width=%22300%22 height=%22250%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2260%22 fill=%22%23333%22 text-anchor=%22middle%22 dy=%22.3em%22%3EVanilla Supreme%3C/text%3E%3C/svg%3E'">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Vanilla Supreme</h3>
+            <p class="product-description">
+              Madagascar vanilla beans in luxurious cream
+            </p>
+            <div class="product-footer">
+              <span class="product-price">₹169</span>
+              <button class="btn btn-primary product-btn">
+                <i class="fas fa-shopping-cart"></i>
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 4 - Premium -->
+        <div class="product-card" data-category="premium">
+          <div class="product-image">
+            <span class="product-badge" style="background: var(--luxury-gold);">Premium</span>
+            <img src="assets/banner.jpg" alt="Gold Leaf Delight" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 300 250%22%3E%3Crect fill=%22%23d4af37%22 width=%22300%22 height=%22250%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2260%22 fill=%22white%22 text-anchor=%22middle%22 dy=%22.3em%22%3EGold Leaf%3C/text%3E%3C/svg%3E'">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Gold Leaf Delight</h3>
+            <p class="product-description">
+              Saffron-infused with edible 24k gold flakes
+            </p>
+            <div class="product-footer">
+              <span class="product-price">₹499</span>
+              <button class="btn btn-primary product-btn">
+                <i class="fas fa-shopping-cart"></i>
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 5 - Premium -->
+        <div class="product-card" data-category="premium">
+          <div class="product-image">
+            <span class="product-badge" style="background: var(--luxury-gold);">Premium</span>
+            <img src="assets/discover-1.jpg" alt="Truffle Indulgence" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 300 250%22%3E%3Crect fill=%22%234a3728%22 width=%22300%22 height=%22250%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2260%22 fill=%22white%22 text-anchor=%22middle%22 dy=%22.3em%22%3ETruffle%3C/text%3E%3C/svg%3E'">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Truffle Indulgence</h3>
+            <p class="product-description">
+              Dark chocolate with real truffle pieces
+            </p>
+            <div class="product-footer">
+              <span class="product-price">₹399</span>
+              <button class="btn btn-primary product-btn">
+                <i class="fas fa-shopping-cart"></i>
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 6 - Premium -->
+        <div class="product-card" data-category="premium">
+          <div class="product-image">
+            <span class="product-badge" style="background: var(--luxury-gold);">Premium</span>
+            <img src="assets/discover-2.jpg" alt="Pistachio Royale" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 300 250%22%3E%3Crect fill=%22%2393c47d%22 width=%22300%22 height=%22250%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2260%22 fill=%22white%22 text-anchor=%22middle%22 dy=%22.3em%22%3EPistachio%3C/text%3E%3C/svg%3E'">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Pistachio Royale</h3>
+            <p class="product-description">
+              Premium Iranian pistachios and rose water
+            </p>
+            <div class="product-footer">
+              <span class="product-price">₹349</span>
+              <button class="btn btn-primary product-btn">
+                <i class="fas fa-shopping-cart"></i>
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 7 - Seasonal -->
+        <div class="product-card" data-category="seasonal">
+          <div class="product-image">
+            <span class="product-badge" style="background: #28a745;">Seasonal</span>
+            <img src="assets/banner-1.png" alt="Mango Tango" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 300 250%22%3E%3Crect fill=%22%23ffb347%22 width=%22300%22 height=%22250%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2260%22 fill=%22white%22 text-anchor=%22middle%22 dy=%22.3em%22%3E🥭%3C/text%3E%3C/svg%3E'">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Mango Tango</h3>
+            <p class="product-description">
+              Fresh Alphonso mangoes in summer delight
+            </p>
+            <div class="product-footer">
+              <span class="product-price">₹189</span>
+              <button class="btn btn-primary product-btn">
+                <i class="fas fa-shopping-cart"></i>
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 8 - Seasonal -->
+        <div class="product-card" data-category="seasonal">
+          <div class="product-image">
+            <span class="product-badge" style="background: #28a745;">Seasonal</span>
+            <img src="assets/discover-3.jpg" alt="Pumpkin Spice" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 300 250%22%3E%3Crect fill=%22%23ff7518%22 width=%22300%22 height=%22250%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2260%22 fill=%22white%22 text-anchor=%22middle%22 dy=%22.3em%22%3E🎃%3C/text%3E%3C/svg%3E'">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Pumpkin Spice</h3>
+            <p class="product-description">
+              Warm autumn flavors with cinnamon notes
+            </p>
+            <div class="product-footer">
+              <span class="product-price">₹209</span>
+              <button class="btn btn-primary product-btn">
+                <i class="fas fa-shopping-cart"></i>
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 9 - Seasonal -->
+        <div class="product-card" data-category="seasonal">
+          <div class="product-image">
+            <span class="product-badge" style="background: #28a745;">Seasonal</span>
+            <img src="assets/banner-2.png" alt="Berry Blast" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 300 250%22%3E%3Crect fill=%22%23dc143c%22 width=%22300%22 height=%22250%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2260%22 fill=%22white%22 text-anchor=%22middle%22 dy=%22.3em%22%3E🫐%3C/text%3E%3C/svg%3E'">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Berry Blast</h3>
+            <p class="product-description">
+              Mixed berries with cream cheese swirl
+            </p>
+            <div class="product-footer">
+              <span class="product-price">₹219</span>
+              <button class="btn btn-primary product-btn">
+                <i class="fas fa-shopping-cart"></i>
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 10 - Special -->
+        <div class="product-card" data-category="special">
+          <div class="product-image">
+            <span class="product-badge" style="background: #dc3545;">Special</span>
+            <img src="assets/banner-3.png" alt="Birthday Cake" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 300 250%22%3E%3Crect fill=%22%23fde6f2%22 width=%22300%22 height=%22250%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2260%22 text-anchor=%22middle%22 dy=%22.3em%22%3E🎂%3C/text%3E%3C/svg%3E'">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Birthday Cake</h3>
+            <p class="product-description">
+              Vanilla cake batter with rainbow sprinkles
+            </p>
+            <div class="product-footer">
+              <span class="product-price">₹229</span>
+              <button class="btn btn-primary product-btn">
+                <i class="fas fa-shopping-cart"></i>
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 11 - Special -->
+        <div class="product-card" data-category="special">
+          <div class="product-image">
+            <span class="product-badge" style="background: #dc3545;">Special</span>
+            <img src="assets/popular-1.png" alt="Cookie Monster" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 300 250%22%3E%3Crect fill=%22%234a3728%22 width=%22300%22 height=%22250%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2260%22 fill=%22white%22 text-anchor=%22middle%22 dy=%22.3em%22%3E🍪%3C/text%3E%3C/svg%3E'">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Cookie Monster</h3>
+            <p class="product-description">
+              Cookie dough chunks and chocolate chips
+            </p>
+            <div class="product-footer">
+              <span class="product-price">₹239</span>
+              <button class="btn btn-primary product-btn">
+                <i class="fas fa-shopping-cart"></i>
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 12 - Special -->
+        <div class="product-card" data-category="special">
+          <div class="product-image">
+            <span class="product-badge" style="background: #dc3545;">Special</span>
+            <img src="assets/popular-2.png" alt="Caramel Swirl" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 300 250%22%3E%3Crect fill=%22%23d4af37%22 width=%22300%22 height=%22250%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2260%22 fill=%22white%22 text-anchor=%22middle%22 dy=%22.3em%22%3E🍮%3C/text%3E%3C/svg%3E'">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Caramel Swirl</h3>
+            <p class="product-description">
+              Salted caramel ribbons in vanilla base
+            </p>
+            <div class="product-footer">
+              <span class="product-price">₹249</span>
+              <button class="btn btn-primary product-btn">
+                <i class="fas fa-shopping-cart"></i>
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+  
+  <!-- Call to Action -->
+  <section class="section" style="background: var(--bg-gradient-1); padding: 3rem 0;">
+    <div class="container text-center">
+      <h2 style="margin-bottom: 1rem;">Can't Decide?</h2>
+      <p style="font-size: 1.1rem; color: var(--text-light); margin-bottom: 2rem;">
+        Contact us for personalized recommendations or visit our store to taste samples
+      </p>
+      <a href="contact.html" class="btn btn-primary">
+        <i class="fas fa-phone"></i>
+        Contact Us
+      </a>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <i class="fas fa-ice-cream"></i>
+            IceWorld
+          </div>
+          <p class="footer-text">
+            Crafting premium ice cream experiences since 2020. Quality, passion, and artisanal excellence in every scoop.
+          </p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <div class="footer-contact">
+            <div class="footer-contact-item">
+              <i class="fas fa-user"></i>
+              <div>
+                <strong>MAHI SEHRAWAT</strong><br>
+                <a href="tel:+918750141860">+91 8750141860</a><br>
+                <a href="mailto:MAHISEHRAWAT2006@GMAIL.COM">MAHISEHRAWAT2006@GMAIL.COM</a>
+              </div>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fas fa-user"></i>
+              <div>
+                <strong>Priyanshi</strong><br>
+                <a href="tel:+918368573180">+91 8368573180</a><br>
+                <a href="mailto:priyadaksh007@gmail.com">priyadaksh007@gmail.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Newsletter</h3>
+          <p class="footer-text">
+            Subscribe for exclusive offers and updates
+          </p>
+          <form class="newsletter-form">
+            <input type="email" class="newsletter-input" placeholder="Your email" required>
+            <button type="submit" class="newsletter-btn">
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 IceWorld. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- ScrollReveal JS -->
+  <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
+  
+  <!-- Custom JS -->
+  <script src="main.js"></script>
+  
+</body>
+</html>
