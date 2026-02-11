@@ -57,55 +57,96 @@ function setActiveNavLink() {
 document.addEventListener('DOMContentLoaded', setActiveNavLink);
 
 // ========================================
-// Sticky Header on Scroll
+// Enhanced Sticky Header on Scroll
 // ========================================
 window.addEventListener('scroll', () => {
   const header = document.querySelector('header');
   if (header) {
-    if (window.scrollY > 100) {
-      header.style.background = 'rgba(255, 255, 255, 0.95)';
-      header.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.15)';
+    if (window.scrollY > 50) {
+      header.classList.add('scrolled');
     } else {
-      header.style.background = 'rgba(255, 255, 255, 0.7)';
-      header.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.1)';
+      header.classList.remove('scrolled');
     }
   }
 });
 
 // ========================================
-// ScrollReveal Animations
+// Enhanced ScrollReveal Animations
 // ========================================
 if (typeof ScrollReveal !== 'undefined') {
   const sr = ScrollReveal({
     origin: 'bottom',
-    distance: '60px',
-    duration: 2000,
-    delay: 200,
-    reset: false
+    distance: '40px',
+    duration: 1000,
+    delay: 150,
+    easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
+    reset: false,
+    mobile: true,
+    opacity: 0,
+    scale: 0.98
   });
 
-  // Home page animations
-  sr.reveal('.hero-text', { origin: 'left', delay: 300 });
-  sr.reveal('.hero-image', { origin: 'right', delay: 400 });
+  // Hero animations - sequential and elegant
+  sr.reveal('.hero-text', { 
+    origin: 'left', 
+    delay: 200,
+    distance: '60px',
+    duration: 1200
+  });
   
-  // Section headers
-  sr.reveal('.section-header', { delay: 200 });
+  sr.reveal('.hero-image', { 
+    origin: 'right', 
+    delay: 400,
+    distance: '60px',
+    duration: 1200
+  });
   
-  // Cards with stagger effect
-  sr.reveal('.card', { interval: 200 });
-  sr.reveal('.product-card', { interval: 200 });
-  sr.reveal('.gallery-item', { interval: 100 });
-  sr.reveal('.contact-card', { interval: 200 });
-  sr.reveal('.owner-card', { interval: 300 });
+  // Section headers - fade in from bottom
+  sr.reveal('.section-header', { 
+    delay: 100,
+    distance: '30px'
+  });
   
-  // Stats
-  sr.reveal('.stat-item', { interval: 150 });
+  // Cards with elegant stagger effect
+  sr.reveal('.card', { 
+    interval: 150,
+    distance: '30px',
+    scale: 0.95
+  });
   
-  // Forms
-  sr.reveal('.form-group', { interval: 100 });
+  sr.reveal('.product-card', { 
+    interval: 150,
+    distance: '30px',
+    scale: 0.96
+  });
   
-  // Footer
-  sr.reveal('.footer-section', { interval: 200 });
+  sr.reveal('.contact-card', { 
+    interval: 200,
+    distance: '30px'
+  });
+  
+  sr.reveal('.owner-card', { 
+    interval: 250,
+    distance: '40px'
+  });
+  
+  // Stats with slight scale
+  sr.reveal('.stat-item', { 
+    interval: 120,
+    scale: 0.9
+  });
+  
+  // Forms - subtle entrance
+  sr.reveal('.form-group', { 
+    interval: 80,
+    distance: '20px'
+  });
+  
+  // Footer sections
+  sr.reveal('.footer-section', { 
+    interval: 150,
+    distance: '30px'
+  });
 }
 
 // ========================================
@@ -391,3 +432,42 @@ document.addEventListener('DOMContentLoaded', initNewsletter);
 // ========================================
 console.log('%c🍦 Welcome to IceWorld! 🍦', 'font-size: 24px; color: #ed8613; font-weight: bold;');
 console.log('%cCrafting Premium Ice Cream Experiences', 'font-size: 14px; color: #767268;');
+
+// ========================================
+// Smooth Page Load Animation
+// ========================================
+window.addEventListener('load', () => {
+  document.body.style.opacity = '0';
+  document.body.style.transition = 'opacity 0.5s ease';
+  
+  // Fade in page
+  setTimeout(() => {
+    document.body.style.opacity = '1';
+  }, 100);
+});
+
+// ========================================
+// Add to Cart Button Animation
+// ========================================
+document.addEventListener('DOMContentLoaded', () => {
+  const addToCartBtns = document.querySelectorAll('.product-btn, [class*="btn"][class*="cart"]');
+  
+  addToCartBtns.forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      // Add animation class
+      this.style.transform = 'scale(0.95)';
+      
+      setTimeout(() => {
+        this.style.transform = '';
+      }, 200);
+      
+      // Show feedback (optional)
+      const originalText = this.textContent;
+      this.textContent = '✓ Added!';
+      
+      setTimeout(() => {
+        this.textContent = originalText;
+      }, 1500);
+    });
+  });
+});
