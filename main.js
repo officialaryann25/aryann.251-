@@ -233,12 +233,25 @@ function initFormValidation() {
       });
       
       if (isValid) {
-        // Show success message
-        alert('Thank you! Your message has been sent successfully.');
-        form.reset();
-        inputs.forEach(input => input.classList.remove('form-success'));
+        // Show success message - inline instead of alert
+        const successMsg = document.createElement('div');
+        successMsg.style.cssText = 'background: #28a745; color: white; padding: 1rem; border-radius: 8px; margin-top: 1rem; text-align: center;';
+        successMsg.textContent = 'Thank you! Your message has been sent successfully.';
+        form.appendChild(successMsg);
+        
+        setTimeout(() => {
+          successMsg.remove();
+          form.reset();
+          inputs.forEach(input => input.classList.remove('form-success'));
+        }, 3000);
       } else {
-        alert('Please fill in all required fields correctly.');
+        // Show error message - inline instead of alert
+        const errorMsg = document.createElement('div');
+        errorMsg.style.cssText = 'background: #dc3545; color: white; padding: 1rem; border-radius: 8px; margin-top: 1rem; text-align: center;';
+        errorMsg.textContent = 'Please fill in all required fields correctly.';
+        form.appendChild(errorMsg);
+        
+        setTimeout(() => errorMsg.remove(), 3000);
       }
     });
   });
@@ -344,11 +357,27 @@ function initNewsletter() {
       const input = newsletterForm.querySelector('.newsletter-input');
       const email = input.value.trim();
       
+      // Remove any existing messages
+      const existingMsg = newsletterForm.querySelector('.newsletter-msg');
+      if (existingMsg) existingMsg.remove();
+      
+      const msg = document.createElement('div');
+      msg.className = 'newsletter-msg';
+      msg.style.cssText = 'padding: 0.5rem; border-radius: 4px; margin-top: 0.5rem; text-align: center; font-size: 0.9rem;';
+      
       if (email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        alert('Thank you for subscribing to our newsletter!');
+        msg.style.background = '#28a745';
+        msg.style.color = 'white';
+        msg.textContent = 'Thank you for subscribing!';
+        newsletterForm.appendChild(msg);
         input.value = '';
+        setTimeout(() => msg.remove(), 3000);
       } else {
-        alert('Please enter a valid email address.');
+        msg.style.background = '#dc3545';
+        msg.style.color = 'white';
+        msg.textContent = 'Please enter a valid email address.';
+        newsletterForm.appendChild(msg);
+        setTimeout(() => msg.remove(), 3000);
       }
     });
   }
