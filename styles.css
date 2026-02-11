@@ -1152,32 +1152,62 @@ footer {
 }
 
 /* ========================================
-   Category Filters
+   Premium Category Filters
    ======================================== */
 .category-filters {
   display: flex;
   justify-content: center;
-  gap: 1rem;
-  margin-bottom: 3rem;
+  gap: 0.75rem;
+  margin-bottom: var(--space-xl);
   flex-wrap: wrap;
 }
 
 .filter-btn {
-  padding: 0.75rem 1.5rem;
+  padding: 0.875rem 2rem;
   background: var(--white);
-  color: var(--text-dark);
-  border: 2px solid var(--extra-light);
-  border-radius: var(--radius-medium);
+  color: var(--text-medium);
+  border: 2px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius-full);
   cursor: pointer;
   font-weight: 500;
-  transition: var(--transition-fast);
+  font-size: 0.9375rem;
+  letter-spacing: 0.02em;
+  transition: all var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.filter-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: var(--primary-color);
+  transform: translate(-50%, -50%);
+  transition: width 0.5s, height 0.5s;
+}
+
+.filter-btn:hover::before,
+.filter-btn.active::before {
+  width: 300px;
+  height: 300px;
 }
 
 .filter-btn:hover,
 .filter-btn.active {
-  background: var(--primary-color);
   color: var(--white);
   border-color: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-soft);
+}
+
+.filter-btn:hover *,
+.filter-btn.active * {
+  position: relative;
+  z-index: 1;
 }
 
 /* ========================================
@@ -1217,45 +1247,40 @@ footer {
 }
 
 /* ========================================
-   Responsive Design
+   Premium Responsive Design
    ======================================== */
 
-/* Tablets */
+/* Large Tablets & Small Desktops */
 @media (max-width: 1024px) {
-  h1 {
-    font-size: 3rem;
+  .container {
+    padding: 0 var(--space-md);
   }
   
-  h2 {
-    font-size: 2rem;
+  .section {
+    padding: var(--space-2xl) 0;
   }
   
   .hero-content {
-    gap: 2rem;
-  }
-  
-  .hero-text h1 {
-    font-size: 3rem;
-  }
-  
-  .grid-4 {
-    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
   }
 }
 
+/* Tablets */
 @media (max-width: 768px) {
-  /* Navigation */
+  /* Enhanced Navigation */
   #nav-links {
     position: fixed;
-    top: 80px;
+    top: 85px;
     left: -100%;
     width: 100%;
+    max-width: 100%;
     background: var(--white);
     flex-direction: column;
-    padding: 2rem;
-    box-shadow: var(--shadow-medium);
-    transition: var(--transition-fast);
-    align-items: flex-start;
+    padding: var(--space-lg);
+    box-shadow: var(--shadow-strong);
+    transition: left var(--transition-smooth);
+    align-items: stretch;
+    border-radius: 0 0 var(--radius-xl) var(--radius-xl);
   }
   
   #nav-links.active {
@@ -1264,82 +1289,90 @@ footer {
   
   #nav-links a {
     width: 100%;
-    padding: 1rem;
+    padding: 1rem 1.5rem;
     border-bottom: 1px solid var(--extra-light);
+    border-radius: var(--radius-medium);
+    margin-bottom: 0.5rem;
+  }
+  
+  #nav-links a:last-child {
+    border-bottom: none;
   }
   
   #menu-btn {
     display: block;
   }
   
-  /* Hero */
+  /* Hero Adjustments */
+  .hero {
+    padding-top: 120px;
+    padding-bottom: var(--space-2xl);
+  }
+  
   .hero-content {
     grid-template-columns: 1fr;
     text-align: center;
-  }
-  
-  .hero-text h1 {
-    font-size: 2.5rem;
+    gap: var(--space-xl);
   }
   
   .hero-text p {
-    margin: 0 auto 2rem;
+    margin: 0 auto var(--space-lg);
   }
   
   .btn-group {
     justify-content: center;
   }
   
-  /* Grids */
-  .grid-2,
-  .grid-3,
-  .grid-4 {
-    grid-template-columns: 1fr;
+  /* Section Spacing */
+  .section {
+    padding: var(--space-xl) 0;
   }
   
-  /* Footer */
+  .section-header {
+    margin-bottom: var(--space-lg);
+  }
+  
+  /* Footer Responsive */
   .footer-content {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: var(--space-lg);
   }
 }
 
+/* Mobile Devices */
 @media (max-width: 540px) {
   .container {
-    padding: 0 1rem;
+    padding: 0 var(--space-sm);
   }
   
   .section {
-    padding: 3rem 0;
-  }
-  
-  h1 {
-    font-size: 2rem;
-  }
-  
-  h2 {
-    font-size: 1.75rem;
-  }
-  
-  .hero-text h1 {
-    font-size: 2rem;
-  }
-  
-  .btn {
-    padding: 0.75rem 1.5rem;
-    font-size: 0.9rem;
+    padding: var(--space-lg) 0;
   }
   
   nav {
-    padding: 1rem;
+    padding: 1rem var(--space-sm);
   }
   
   .logo {
-    font-size: 1.5rem;
+    font-size: 1.625rem;
+  }
+  
+  .btn {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.875rem;
   }
   
   .stat-number {
-    font-size: 2rem;
+    font-size: 2.25rem;
+  }
+  
+  .product-info {
+    padding: 1.25rem;
+  }
+  
+  .product-btn {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.8125rem;
   }
 }
 
