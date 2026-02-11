@@ -195,24 +195,31 @@ if (subscribeForm) {
 }
 
 /*=============== SCROLL REVEAL ANIMATION ===============*/
-const sr = ScrollReveal({
-    origin: 'top',
-    distance: '60px',
-    duration: 2500,
-    delay: 400,
-    reset: false
-});
+if (typeof ScrollReveal !== 'undefined') {
+    const sr = ScrollReveal({
+        origin: 'top',
+        distance: '60px',
+        duration: 2500,
+        delay: 400,
+        reset: false
+    });
 
-sr.reveal('.hero__content, .hero__image', { origin: 'left', interval: 100 });
-sr.reveal('.section__title, .section__subtitle', { origin: 'top' });
-sr.reveal('.product__card', { origin: 'bottom', interval: 100 });
-sr.reveal('.category__card', { origin: 'bottom', interval: 150 });
-sr.reveal('.subscribe__form', { origin: 'bottom' });
-sr.reveal('.footer__content', { origin: 'bottom' });
+    sr.reveal('.hero__content, .hero__image', { origin: 'left', interval: 100 });
+    sr.reveal('.section__title, .section__subtitle', { origin: 'top' });
+    sr.reveal('.product__card', { origin: 'bottom', interval: 100 });
+    sr.reveal('.category__card', { origin: 'bottom', interval: 150 });
+    sr.reveal('.subscribe__form', { origin: 'bottom' });
+    sr.reveal('.footer__content', { origin: 'bottom' });
+}
 
 /*=============== CART PAGE SPECIFIC ===============*/
 if (window.location.pathname.includes('cart.html')) {
-    renderCart();
+    // Use DOMContentLoaded to ensure DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', renderCart);
+    } else {
+        renderCart();
+    }
 }
 
 function renderCart() {
@@ -335,8 +342,15 @@ function renderCart() {
 
 /*=============== CHECKOUT PAGE SPECIFIC ===============*/
 if (window.location.pathname.includes('checkout.html')) {
-    renderCheckout();
-    handleCheckoutForm();
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCheckout();
+            handleCheckoutForm();
+        });
+    } else {
+        renderCheckout();
+        handleCheckoutForm();
+    }
 }
 
 function renderCheckout() {
@@ -446,7 +460,11 @@ function handleCheckoutForm() {
 
 /*=============== ORDER CONFIRMATION PAGE ===============*/
 if (window.location.pathname.includes('order-confirmation.html')) {
-    renderOrderConfirmation();
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', renderOrderConfirmation);
+    } else {
+        renderOrderConfirmation();
+    }
 }
 
 function renderOrderConfirmation() {
@@ -507,7 +525,11 @@ function trackOrder() {
 
 /*=============== NOTIFICATIONS PAGE ===============*/
 if (window.location.pathname.includes('notifications.html')) {
-    renderNotifications();
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', renderNotifications);
+    } else {
+        renderNotifications();
+    }
 }
 
 function renderNotifications() {
