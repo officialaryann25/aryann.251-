@@ -74,8 +74,8 @@ async function hashPassword(value) {
 
 function notify(message) {
   const notice = document.createElement("div");
+  notice.className = "toast";
   notice.textContent = message;
-  notice.style.cssText = "position:fixed;bottom:1rem;left:1rem;background:#2f1d1c;color:#fff;padding:.65rem .9rem;border-radius:999px;z-index:60;box-shadow:0 10px 20px rgba(0,0,0,.2)";
   document.body.appendChild(notice);
   setTimeout(() => notice.remove(), 1800);
 }
@@ -154,7 +154,15 @@ document.getElementById("start-checkout")?.addEventListener("click", () => {
 });
 
 document.getElementById("next-step")?.addEventListener("click", () => {
-  checkoutStep = checkoutStep >= 3 ? 1 : checkoutStep + 1;
+  if (checkoutStep >= 3) {
+    notify("Order placed successfully");
+    checkout?.classList.add("hidden");
+    checkoutStep = 1;
+    setCart([]);
+    renderCart();
+    return;
+  }
+  checkoutStep += 1;
   renderStep();
 });
 
@@ -178,7 +186,7 @@ document.getElementById("login-form")?.addEventListener("submit", async (e) => {
   const data = Object.fromEntries(new FormData(e.target).entries());
   const users = JSON.parse(localStorage.getItem("iceworldUsers") || "[]");
   const hashedInput = await hashPassword(data.password);
-  const found = users.find((u) => u.email === data.email && (u.password === hashedInput || u.password === data.password));
+  const found = users.find((u) => u.email === data.email && u.password === hashedInput);
   if (!found) {
     document.getElementById("login-status").textContent = "Invalid credentials.";
     return;
