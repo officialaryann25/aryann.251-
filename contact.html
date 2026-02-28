@@ -31,6 +31,10 @@
       <li><a href="contact.html" class="active">Contact</a></li>
     </ul>
     <div class="nav__btns">
+      <button class="nav__wishlist" onclick="openWishlist()" title="Wishlist">
+        <i class="ri-heart-line"></i>
+        <span class="wishlist__counter" id="wishlist-count">0</span>
+      </button>
       <button class="nav__cart" onclick="openCart()" title="Cart">
         <i class="ri-shopping-bag-3-line"></i>
         <span class="cart__counter" id="cart-count">0</span>
@@ -43,6 +47,23 @@
       </button>
     </div>
   </nav>
+
+  <!-- WISHLIST DRAWER -->
+  <div class="wishlist-overlay" id="wishlist-overlay"></div>
+  <aside class="wishlist-drawer" id="wishlist-drawer" role="dialog" aria-label="Wishlist">
+    <div class="wishlist-drawer__header">
+      <h2 class="wishlist-drawer__title">Wishlist ❤️</h2>
+      <button class="wishlist-drawer__close" onclick="closeWishlist()" aria-label="Close wishlist">
+        <i class="ri-close-line"></i>
+      </button>
+    </div>
+    <div class="wishlist-drawer__items" id="wishlist-items"></div>
+    <div class="wishlist-drawer__footer">
+      <button class="btn btn--primary wishlist-checkout-btn" onclick="addAllToCart()">
+        Add All to Cart <i class="ri-shopping-bag-line"></i>
+      </button>
+    </div>
+  </aside>
 
   <!-- CART DRAWER -->
   <div class="cart-overlay" id="cart-overlay"></div>
@@ -221,24 +242,15 @@
       </div>
     </section>
 
-    <!-- Map placeholder -->
-    <div style="padding: 0 5% 4rem;">
-      <div style="
-        background: linear-gradient(135deg, rgba(255,107,157,0.1), rgba(168,237,234,0.1));
-        border-radius: 1.5rem;
-        height: 300px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        gap: 1rem;
-        border: 1px solid var(--color-glass-border);
-        text-align: center;
-      ">
-        <div style="font-size: 3rem;">🗺️</div>
-        <h3 style="font-family: var(--font-heading); font-size: 1.5rem;">Find Us in Delhi NCR</h3>
-        <p style="color: var(--color-text-light); font-size: 0.9rem;">Visit our flagship store or order online for delivery</p>
-      </div>
+    <!-- MAP SECTION -->
+    <div class="map-section">
+      <iframe
+        src="https://www.openstreetmap.org/export/embed.html?bbox=77.1290%2C28.5900%2C77.2890%2C28.6600&amp;layer=mapnik&amp;marker=28.6139%2C77.2090"
+        allowfullscreen
+        loading="lazy"
+        title="IceWorld Location – Delhi NCR, India"
+      ></iframe>
+      <div class="map-section__label">📍 IceWorld – Delhi NCR, India</div>
     </div>
   </main>
 
@@ -288,6 +300,11 @@
       <p>Made with love in India 🇮🇳</p>
     </div>
   </footer>
+
+  <!-- BACK TO TOP -->
+  <button class="back-to-top" id="back-to-top" title="Back to top" aria-label="Back to top">
+    <i class="ri-arrow-up-line"></i>
+  </button>
 
   <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>

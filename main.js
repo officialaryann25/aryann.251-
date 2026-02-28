@@ -221,6 +221,47 @@ const Cart = (() => {
 })();
 
 /* ===========================
+   WISHLIST MODULE
+   =========================== */
+const Wishlist = (() => {
+  const STORAGE_KEY = "icecream_wishlist";
+
+  function getItems() {
+    try {
+      return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+    } catch {
+      return [];
+    }
+  }
+
+  function saveItems(items) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+  }
+
+  function getCount() {
+    return getItems().length;
+  }
+
+  function has(id) {
+    return getItems().some((i) => i.id === id);
+  }
+
+  function toggle(product) {
+    const items = getItems();
+    const idx = items.findIndex((i) => i.id === product.id);
+    if (idx > -1) {
+      items.splice(idx, 1);
+    } else {
+      items.push(product);
+    }
+    saveItems(items);
+    return idx === -1; // true = just added (was not in list); false = just removed (was in list)
+  }
+
+  return { getItems, getCount, has, toggle };
+})();
+
+/* ===========================
    AUTH MODULE
    =========================== */
 const Auth = (() => {
@@ -406,6 +447,107 @@ function placeOrder() {
 }
 
 /* ===========================
+   WISHLIST UI
+   =========================== */
+function updateWishlistCounter() {
+  const count = Wishlist.getCount();
+  document.querySelectorAll(".wishlist__counter").forEach((el) => {
+    el.textContent = count;
+    el.style.display = count === 0 ? "none" : "flex";
+  });
+}
+
+function renderWishlistDrawer() {
+  const container = document.getElementById("wishlist-items");
+  if (!container) return;
+
+  const items = Wishlist.getItems();
+  const footer = document.querySelector(".wishlist-drawer__footer");
+
+  if (items.length === 0) {
+    container.innerHTML = `
+      <div class="wishlist-empty">
+        <div class="wishlist-empty-icon">🤍</div>
+        <p>Your wishlist is empty.</p>
+        <p style="font-size:0.8rem;margin-top:0.5rem;">Heart your favourites!</p>
+      </div>`;
+    if (footer) footer.style.display = "none";
+  } else {
+    container.innerHTML = items
+      .map((item) => {
+        const imgHtml = item.image
+          ? `<img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.name)}" />`
+          : item.emoji;
+        return `
+          <div class="wishlist-item">
+            <div class="wishlist-item__img">${imgHtml}</div>
+            <div class="wishlist-item__info">
+              <div class="wishlist-item__name">${escapeHtml(item.name)}</div>
+              <div class="wishlist-item__price">₹${item.price.toLocaleString()}</div>
+            </div>
+            <div class="wishlist-item__actions">
+              <button class="wishlist-item__cart" onclick='addToCart(${JSON.stringify(item)})' title="Add to Cart">
+                <i class="ri-shopping-bag-line"></i>
+              </button>
+              <button class="wishlist-item__remove" onclick='removeFromWishlist(${JSON.stringify(item)})' title="Remove">
+                <i class="ri-delete-bin-line"></i>
+              </button>
+            </div>
+          </div>`;
+      })
+      .join("");
+    if (footer) footer.style.display = "block";
+  }
+}
+
+function openWishlist() {
+  renderWishlistDrawer();
+  document.getElementById("wishlist-drawer")?.classList.add("open");
+  document.getElementById("wishlist-overlay")?.classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+
+function closeWishlist() {
+  document.getElementById("wishlist-drawer")?.classList.remove("open");
+  document.getElementById("wishlist-overlay")?.classList.remove("open");
+  document.body.style.overflow = "";
+}
+
+function toggleWishlist(product) {
+  const added = Wishlist.toggle(product);
+  updateWishlistCounter();
+  showToast(added ? `${product.name} added to wishlist! ❤️` : `${product.name} removed from wishlist.`);
+  document.querySelectorAll(`.btn--wishlist[data-id="${product.id}"]`).forEach((btn) => {
+    btn.classList.toggle("active", added);
+    const icon = btn.querySelector("i");
+    if (icon) icon.className = added ? "ri-heart-fill" : "ri-heart-line";
+    btn.title = added ? "Remove from Wishlist" : "Add to Wishlist";
+  });
+}
+
+function removeFromWishlist(product) {
+  Wishlist.toggle(product); // already in list — toggle removes it
+  updateWishlistCounter();
+  renderWishlistDrawer();
+  showToast(`${product.name} removed from wishlist.`);
+  document.querySelectorAll(`.btn--wishlist[data-id="${product.id}"]`).forEach((btn) => {
+    btn.classList.remove("active");
+    const icon = btn.querySelector("i");
+    if (icon) icon.className = "ri-heart-line";
+    btn.title = "Add to Wishlist";
+  });
+}
+
+function addAllToCart() {
+  const items = Wishlist.getItems();
+  if (!items.length) return;
+  items.forEach((item) => Cart.addItem(item));
+  updateCartCounter();
+  closeWishlist();
+  showToast(`${items.length} item${items.length > 1 ? "s" : ""} added to cart! 🛒`);
+}
+
+/* ===========================
    AUTH NAVBAR STATE
    =========================== */
 function updateNavAuth() {
@@ -548,10 +690,17 @@ function createProductCard(product) {
     ? `<img src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}" loading="lazy" />`
     : `<div class="product__card-emoji">${product.emoji}</div>`;
 
+  const isWishlisted = Wishlist.has(product.id);
+
   return `
     <div class="product__card" data-category="${product.category}" data-aos="fade-up">
       <div class="product__card-image">
         <span class="product__tag product__tag--${product.tag}">${product.tagLabel}</span>
+        <button class="btn--wishlist ${isWishlisted ? "active" : ""}" data-id="${product.id}"
+          onclick='toggleWishlist(${JSON.stringify(product)})'
+          title="${isWishlisted ? "Remove from Wishlist" : "Add to Wishlist"}">
+          <i class="ri-heart-${isWishlisted ? "fill" : "line"}"></i>
+        </button>
         ${imageContent}
       </div>
       <div class="product__card-body">
@@ -659,6 +808,57 @@ function initSubscribeForm() {
 }
 
 /* ===========================
+   MENU PAGE STATE & RENDER
+   =========================== */
+const MenuState = { filter: "all", query: "", sort: "default" };
+
+function getFilteredProducts() {
+  let result = [...products];
+  if (MenuState.filter !== "all") {
+    result = result.filter((p) => p.category === MenuState.filter);
+  }
+  if (MenuState.query) {
+    const q = MenuState.query.toLowerCase();
+    result = result.filter(
+      (p) =>
+        p.name.toLowerCase().includes(q) ||
+        p.desc.toLowerCase().includes(q) ||
+        p.category.toLowerCase().includes(q)
+    );
+  }
+  if (MenuState.sort === "price-asc") result.sort((a, b) => a.price - b.price);
+  else if (MenuState.sort === "price-desc") result.sort((a, b) => b.price - a.price);
+  else if (MenuState.sort === "rating") result.sort((a, b) => b.rating - a.rating || b.reviews - a.reviews);
+  return result;
+}
+
+function renderMenuProducts() {
+  const grid = document.getElementById("menu-grid");
+  if (!grid) return;
+
+  const filtered = getFilteredProducts();
+
+  const countEl = document.getElementById("result-count");
+  if (countEl) {
+    countEl.textContent =
+      MenuState.query || MenuState.filter !== "all"
+        ? `${filtered.length} flavor${filtered.length !== 1 ? "s" : ""} found`
+        : "";
+  }
+
+  grid.innerHTML = filtered.length
+    ? filtered.map(createProductCard).join("")
+    : `<div class="menu__empty">
+        <div class="menu__empty-icon">🔍</div>
+        <p>No flavors found.</p>
+        <p>Try adjusting your search or filter.</p>
+       </div>`;
+
+  initMagneticButtons();
+  if (typeof AOS !== "undefined") AOS.refresh();
+}
+
+/* ===========================
    FILTER TABS (menu.html)
    =========================== */
 function initFilterTabs() {
@@ -666,30 +866,50 @@ function initFilterTabs() {
   const grid = document.getElementById("menu-grid");
   if (!tabs.length || !grid) return;
 
-  // Render all products initially
-  grid.innerHTML = products.map(createProductCard).join("");
-  initMagneticButtons();
+  renderMenuProducts();
 
   tabs.forEach((tab) => {
     tab.addEventListener("click", () => {
       tabs.forEach((t) => t.classList.remove("active"));
       tab.classList.add("active");
-
-      const filter = tab.dataset.filter;
-      const filtered =
-        filter === "all" ? products : products.filter((p) => p.category === filter);
-
-      grid.innerHTML = filtered.length
-        ? filtered.map(createProductCard).join("")
-        : `<div style="text-align:center;padding:3rem;color:var(--color-text-light);">
-            No products in this category yet. 🍦
-           </div>`;
-
-      initMagneticButtons();
-
-      // Re-init AOS if available
-      if (typeof AOS !== "undefined") AOS.refresh();
+      MenuState.filter = tab.dataset.filter;
+      renderMenuProducts();
     });
+  });
+}
+
+/* ===========================
+   SEARCH & SORT (menu.html)
+   =========================== */
+function initSearch() {
+  const searchInput = document.getElementById("product-search");
+  if (!searchInput) return;
+  searchInput.addEventListener("input", () => {
+    MenuState.query = searchInput.value.trim();
+    renderMenuProducts();
+  });
+}
+
+function initSort() {
+  const sortSelect = document.getElementById("sort-select");
+  if (!sortSelect) return;
+  sortSelect.addEventListener("change", () => {
+    MenuState.sort = sortSelect.value;
+    renderMenuProducts();
+  });
+}
+
+/* ===========================
+   BACK TO TOP
+   =========================== */
+function initBackToTop() {
+  const btn = document.getElementById("back-to-top");
+  if (!btn) return;
+  window.addEventListener("scroll", () => {
+    btn.classList.toggle("visible", window.scrollY > 300);
+  });
+  btn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
   });
 }
 
@@ -701,14 +921,19 @@ document.addEventListener("DOMContentLoaded", () => {
   initNav();
   initCounters();
   updateCartCounter();
+  updateWishlistCounter();
   updateNavAuth();
   initScrollReveal();
   initSubscribeForm();
   initFilterTabs();
+  initSearch();
+  initSort();
+  initBackToTop();
   initMagneticButtons();
 
-  // Cart drawer events
+  // Cart & wishlist drawer events
   document.getElementById("cart-overlay")?.addEventListener("click", closeCart);
+  document.getElementById("wishlist-overlay")?.addEventListener("click", closeWishlist);
 
   // AOS init
   if (typeof AOS !== "undefined") {

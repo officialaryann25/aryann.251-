@@ -38,6 +38,10 @@
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <div class="nav__btns">
+      <button class="nav__wishlist" onclick="openWishlist()" title="Wishlist">
+        <i class="ri-heart-line"></i>
+        <span class="wishlist__counter" id="wishlist-count">0</span>
+      </button>
       <button class="nav__cart" onclick="openCart()" title="Cart">
         <i class="ri-shopping-bag-3-line"></i>
         <span class="cart__counter" id="cart-count">0</span>
@@ -50,6 +54,23 @@
       </button>
     </div>
   </nav>
+
+  <!-- WISHLIST DRAWER -->
+  <div class="wishlist-overlay" id="wishlist-overlay"></div>
+  <aside class="wishlist-drawer" id="wishlist-drawer" role="dialog" aria-label="Wishlist">
+    <div class="wishlist-drawer__header">
+      <h2 class="wishlist-drawer__title">Wishlist ❤️</h2>
+      <button class="wishlist-drawer__close" onclick="closeWishlist()" aria-label="Close wishlist">
+        <i class="ri-close-line"></i>
+      </button>
+    </div>
+    <div class="wishlist-drawer__items" id="wishlist-items"></div>
+    <div class="wishlist-drawer__footer">
+      <button class="btn btn--primary wishlist-checkout-btn" onclick="addAllToCart()">
+        Add All to Cart <i class="ri-shopping-bag-line"></i>
+      </button>
+    </div>
+  </aside>
 
   <!-- CART DRAWER -->
   <div class="cart-overlay" id="cart-overlay"></div>
@@ -190,6 +211,49 @@
       <div class="popular__grid" id="popular-grid"></div>
     </section>
 
+    <!-- TESTIMONIALS SECTION -->
+    <section class="section" style="background: rgba(255,245,245,0.4);">
+      <div class="section__top section__top--center">
+        <h2 class="section__header">What Our <span class="highlight">Customers Say</span></h2>
+        <p class="section__description">Real reviews from real ice cream lovers</p>
+      </div>
+      <div class="testimonials__grid">
+        <div class="testimonial__card" data-aos="fade-up">
+          <div class="testimonial__stars">★★★★★</div>
+          <p class="testimonial__text">"The Espresso Crunch is absolutely divine! Creamy, bold, and perfectly balanced. IceWorld has ruined all other ice creams for me."</p>
+          <div class="testimonial__author">
+            <div class="testimonial__avatar">A</div>
+            <div>
+              <div class="testimonial__name">Aryan Sharma</div>
+              <div class="testimonial__location">Delhi NCR</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial__card" data-aos="fade-up" data-aos-delay="100">
+          <div class="testimonial__stars">★★★★★</div>
+          <p class="testimonial__text">"Strawberry Dream is my go-to every weekend. Fresh, natural, and just the right amount of sweet. Best ice cream in the city!"</p>
+          <div class="testimonial__author">
+            <div class="testimonial__avatar">P</div>
+            <div>
+              <div class="testimonial__name">Priya Verma</div>
+              <div class="testimonial__location">Noida</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial__card" data-aos="fade-up" data-aos-delay="200">
+          <div class="testimonial__stars">★★★★★</div>
+          <p class="testimonial__text">"Ordered the Pistachio Bliss and Mocha Velvet — both arrived perfectly cold. Gorgeous packaging. Will definitely order again!"</p>
+          <div class="testimonial__author">
+            <div class="testimonial__avatar">R</div>
+            <div>
+              <div class="testimonial__name">Rohan Gupta</div>
+              <div class="testimonial__location">Gurgaon</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- DISCOVER SECTION -->
     <section class="section" style="background: rgba(255,245,245,0.4);">
       <div class="section__top section__top--center">
@@ -309,7 +373,7 @@
           <li><a href="menu.html">Fruity</a></li>
           <li><a href="menu.html">Chocolate</a></li>
           <li><a href="menu.html">Classics</a></li>
-          <li><a href="menu.html">Seasonal</a></li>
+          <li><a href="menu.html">Coffee</a></li>
         </ul>
       </div>
       <div class="footer__col">
@@ -327,6 +391,11 @@
       <p>Made with love in India 🇮🇳</p>
     </div>
   </footer>
+
+  <!-- BACK TO TOP -->
+  <button class="back-to-top" id="back-to-top" title="Back to top" aria-label="Back to top">
+    <i class="ri-arrow-up-line"></i>
+  </button>
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>

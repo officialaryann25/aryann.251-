@@ -31,6 +31,10 @@
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <div class="nav__btns">
+      <button class="nav__wishlist" onclick="openWishlist()" title="Wishlist">
+        <i class="ri-heart-line"></i>
+        <span class="wishlist__counter" id="wishlist-count">0</span>
+      </button>
       <button class="nav__cart" onclick="openCart()" title="Cart">
         <i class="ri-shopping-bag-3-line"></i>
         <span class="cart__counter" id="cart-count">0</span>
@@ -43,6 +47,23 @@
       </button>
     </div>
   </nav>
+
+  <!-- WISHLIST DRAWER -->
+  <div class="wishlist-overlay" id="wishlist-overlay"></div>
+  <aside class="wishlist-drawer" id="wishlist-drawer" role="dialog" aria-label="Wishlist">
+    <div class="wishlist-drawer__header">
+      <h2 class="wishlist-drawer__title">Wishlist ❤️</h2>
+      <button class="wishlist-drawer__close" onclick="closeWishlist()" aria-label="Close wishlist">
+        <i class="ri-close-line"></i>
+      </button>
+    </div>
+    <div class="wishlist-drawer__items" id="wishlist-items"></div>
+    <div class="wishlist-drawer__footer">
+      <button class="btn btn--primary wishlist-checkout-btn" onclick="addAllToCart()">
+        Add All to Cart <i class="ri-shopping-bag-line"></i>
+      </button>
+    </div>
+  </aside>
 
   <!-- CART DRAWER -->
   <div class="cart-overlay" id="cart-overlay"></div>
@@ -273,6 +294,11 @@
       <p>Made with love in India 🇮🇳</p>
     </div>
   </footer>
+
+  <!-- BACK TO TOP -->
+  <button class="back-to-top" id="back-to-top" title="Back to top" aria-label="Back to top">
+    <i class="ri-arrow-up-line"></i>
+  </button>
 
   <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
