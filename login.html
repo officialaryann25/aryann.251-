@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login – FrostyBliss</title>
+  <meta name="description" content="Sign in to your FrostyBliss account to track orders and manage your preferences." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- PRELOADER -->
+  <div id="preloader">
+    <div class="preloader__scoop">🍦</div>
+    <p class="preloader__text">Loading Sweet Magic…</p>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <div class="login-page">
+    <div class="login__card" data-aos="fade-up">
+
+      <!-- Back to home -->
+      <a href="index.html" style="
+        display:inline-flex;
+        align-items:center;
+        gap:0.5rem;
+        font-size:0.85rem;
+        color:var(--color-text-light);
+        margin-bottom:1.5rem;
+        transition:color 0.3s;
+      " onmouseover="this.style.color='var(--color-primary)'" onmouseout="this.style.color='var(--color-text-light)'">
+        <i class="ri-arrow-left-line"></i> Back to Home
+      </a>
+
+      <div class="login__header">
+        <div class="login__icon">🍦</div>
+        <h1 class="login__title">Welcome Back</h1>
+        <p class="login__subtitle">Sign in to your FrostyBliss account</p>
+      </div>
+
+      <form class="login__form" id="login-form" novalidate>
+        <div class="form__group">
+          <label class="form__label" for="login-email">Email Address</label>
+          <input
+            class="form__input"
+            type="email"
+            id="login-email"
+            placeholder="you@example.com"
+            autocomplete="email"
+            required
+          />
+          <span class="form__error" id="email-error" style="display:none;"></span>
+        </div>
+
+        <div class="form__group">
+          <label class="form__label" for="login-password">Password</label>
+          <div style="position:relative;">
+            <input
+              class="form__input"
+              type="password"
+              id="login-password"
+              placeholder="Minimum 6 characters"
+              autocomplete="current-password"
+              style="width:100%;padding-right:3rem;"
+              required
+            />
+            <button
+              type="button"
+              id="toggle-password"
+              style="
+                position:absolute;
+                right:1rem;
+                top:50%;
+                transform:translateY(-50%);
+                background:none;
+                border:none;
+                cursor:pointer;
+                color:var(--color-text-light);
+                font-size:1.1rem;
+              "
+              aria-label="Toggle password visibility"
+            ><i class="ri-eye-line"></i></button>
+          </div>
+          <span class="form__error" id="password-error" style="display:none;"></span>
+          <a href="#" class="form__forgot">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="btn btn--primary login__submit" id="login-submit">
+          <i class="ri-login-box-line"></i> Sign In
+        </button>
+      </form>
+
+      <div class="login__divider">or continue with</div>
+
+      <div class="login__social">
+        <button class="login__social-btn" onclick="showToast('Google login coming soon!', 'error')">
+          <span>🔵</span> Google
+        </button>
+        <button class="login__social-btn" onclick="showToast('Facebook login coming soon!', 'error')">
+          <span>🔷</span> Facebook
+        </button>
+      </div>
+
+      <p class="login__footer">
+        Don't have an account?
+        <a href="#" onclick="handleSignUp(event)">Create one for free →</a>
+      </p>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="main.js"></script>
+  <script src="login.js"></script>
+  <script>
+    function handleSignUp(e) {
+      e.preventDefault();
+      showToast("Sign up feature coming soon! 🚀");
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      if (typeof AOS !== "undefined") AOS.init({ duration: 800, once: true });
+    });
+  </script>
+</body>
+</html>

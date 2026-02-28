@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FrostyBliss – Experience Frozen Perfection</title>
+  <meta name="description" content="Premium handcrafted ice cream. Discover over 30 exotic flavors made from the finest ingredients." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- RemixIcon -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
+
+  <!-- AOS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- PRELOADER -->
+  <div id="preloader">
+    <div class="preloader__scoop">🍦</div>
+    <p class="preloader__text">Loading Sweet Magic…</p>
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav__logo">Frosty<span>Bliss</span></a>
+    <ul class="nav__links" id="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav__btns">
+      <button class="nav__cart" onclick="openCart()" title="Cart">
+        <i class="ri-shopping-bag-3-line"></i>
+        <span class="cart__counter" id="cart-count">0</span>
+      </button>
+      <a href="login.html" class="btn btn--primary login-nav-btn">
+        <i class="ri-user-line"></i> Login
+      </a>
+      <button class="nav__menu-btn" id="menu-btn">
+        <i class="ri-menu-3-line"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- CART DRAWER -->
+  <div class="cart-overlay" id="cart-overlay"></div>
+  <aside class="cart-drawer" id="cart-drawer" role="dialog" aria-label="Shopping Cart">
+    <div class="cart-drawer__header">
+      <h2 class="cart-drawer__title">Your Cart 🛒</h2>
+      <button class="cart-drawer__close" onclick="closeCart()" aria-label="Close cart">
+        <i class="ri-close-line"></i>
+      </button>
+    </div>
+    <div class="cart-drawer__items" id="cart-items"></div>
+    <div class="cart-drawer__footer">
+      <div class="cart-drawer__summary">
+        <div class="cart-drawer__row">
+          <span>Subtotal</span>
+          <span id="cart-subtotal">₹0</span>
+        </div>
+        <div class="cart-drawer__row">
+          <span>Delivery</span>
+          <span id="cart-delivery">Free</span>
+        </div>
+      </div>
+      <div class="cart-drawer__total">
+        <span>Total</span>
+        <span id="cart-total">₹0</span>
+      </div>
+      <button class="btn btn--primary cart-drawer__checkout" onclick="openCheckout()">
+        Checkout <i class="ri-arrow-right-line"></i>
+      </button>
+    </div>
+  </aside>
+
+  <!-- CHECKOUT MODAL -->
+  <div class="modal-overlay" id="checkout-modal">
+    <div class="modal">
+      <div class="modal__header">
+        <div class="modal__icon">🎉</div>
+        <h2 class="modal__title">Confirm Order</h2>
+        <p class="modal__subtitle">You're about to place your ice cream order!</p>
+      </div>
+      <div class="cart-drawer__summary" style="background:rgba(255,245,245,0.5);padding:1rem;border-radius:0.75rem;">
+        <div class="cart-drawer__row"><span>Total Payable</span><span id="checkout-total">₹0</span></div>
+        <div class="cart-drawer__row"><span>Payment</span><span>Cash on Delivery</span></div>
+      </div>
+      <div class="modal__actions">
+        <button class="btn btn--outline" onclick="closeCheckout()">Cancel</button>
+        <button class="btn btn--primary" onclick="placeOrder()">
+          <i class="ri-check-line"></i> Place Order
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- HERO SECTION -->
+  <main>
+    <section class="hero">
+      <div class="hero__content">
+        <span class="hero__tag">✨ Premium Handcrafted Ice Cream</span>
+        <h1 class="hero__title">
+          Experience<br />
+          <span class="highlight">Frozen</span><br />
+          Perfection
+        </h1>
+        <p class="hero__description">
+          Discover over 30 exotic flavors crafted from the world's finest
+          ingredients. Every scoop is a journey to bliss.
+        </p>
+        <div class="hero__actions">
+          <a href="menu.html" class="btn btn--primary">
+            Explore Menu <i class="ri-arrow-right-line"></i>
+          </a>
+          <a href="about.html" class="btn btn--outline">Our Story</a>
+        </div>
+        <div class="hero__stats">
+          <div class="hero__stat">
+            <span class="hero__stat-number" data-counter="10000" data-suffix="+">0+</span>
+            <span class="hero__stat-label">Happy Customers</span>
+          </div>
+          <div class="hero__stat">
+            <span class="hero__stat-number" data-counter="30" data-suffix="+">0+</span>
+            <span class="hero__stat-label">Exotic Flavors</span>
+          </div>
+          <div class="hero__stat">
+            <span class="hero__stat-number" data-counter="5">0</span>
+            <span class="hero__stat-label">Cities</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero__image">
+        <div class="hero__image-container">
+          <div class="hero__image-bg"></div>
+          <div class="hero__image-emoji">🍨</div>
+          <div class="hero__badge hero__badge--1">
+            🌟 Top Rated
+          </div>
+          <div class="hero__badge hero__badge--2">
+            🚀 Free Delivery
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIVE COUNTER SECTION -->
+    <section class="counter">
+      <div class="counter__item">
+        <div class="counter__number" data-counter="10000" data-suffix="+">10,000+</div>
+        <div class="counter__label">Happy Customers</div>
+      </div>
+      <div class="counter__item">
+        <div class="counter__number" data-counter="30" data-suffix="+">30+</div>
+        <div class="counter__label">Flavors Available</div>
+      </div>
+      <div class="counter__item">
+        <div class="counter__number" data-counter="500" data-suffix="+">500+</div>
+        <div class="counter__label">Orders per Day</div>
+      </div>
+      <div class="counter__item">
+        <div class="counter__number" data-counter="4" data-suffix=".9 ★">4.9 ★</div>
+        <div class="counter__label">Average Rating</div>
+      </div>
+    </section>
+
+    <!-- POPULAR SECTION -->
+    <section class="section">
+      <div class="section__top">
+        <div>
+          <h2 class="section__header">Most <span class="highlight">Popular</span></h2>
+          <p class="section__description">Our fans can't get enough of these.</p>
+        </div>
+        <a href="menu.html" class="btn btn--outline">View All <i class="ri-arrow-right-line"></i></a>
+      </div>
+      <div class="popular__grid" id="popular-grid"></div>
+    </section>
+
+    <!-- DISCOVER SECTION -->
+    <section class="section" style="background: rgba(255,245,245,0.4);">
+      <div class="section__top section__top--center">
+        <h2 class="section__header">Discover <span class="highlight">Our Craft</span></h2>
+        <p class="section__description">What makes FrostyBliss truly special</p>
+      </div>
+      <div class="discover__grid">
+        <div class="discover__card">
+          <div class="discover__card-emoji">🥛</div>
+          <div class="discover__card__content">
+            <h4>Pure Ingredients</h4>
+            <h3>Farm-Fresh Dairy</h3>
+            <p class="section__description">We source only the freshest milk and cream from local farms, ensuring every scoop is pure and natural.</p>
+            <a href="about.html" class="btn btn--outline discover__card__btn">Learn More</a>
+          </div>
+        </div>
+        <div class="discover__card">
+          <div class="discover__card-emoji">👩‍🍳</div>
+          <div class="discover__card__content">
+            <h4>Expert Craftsmanship</h4>
+            <h3>Handcrafted Daily</h3>
+            <p class="section__description">Every batch is made fresh daily by our skilled artisans using traditional churning methods.</p>
+            <a href="menu.html" class="btn btn--outline discover__card__btn">See Menu</a>
+          </div>
+        </div>
+        <div class="discover__card">
+          <div class="discover__card-emoji">🌿</div>
+          <div class="discover__card__content">
+            <h4>Natural Flavors</h4>
+            <h3>Zero Artificial Colors</h3>
+            <p class="section__description">All our colors and flavors come from real fruits, nuts, and herbs. No artificial additives ever.</p>
+            <a href="menu.html" class="btn btn--outline discover__card__btn">Explore Flavors</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BANNER SECTION -->
+    <section class="banner">
+      <div class="banner__inner">
+        <div class="banner__content">
+          <h2 class="section__header">Why Choose <span class="highlight">FrostyBliss?</span></h2>
+          <p class="section__description">
+            We don't just make ice cream — we craft memories, one scoop at a time.
+            Premium ingredients, artisan techniques, and a passion for sweetness.
+          </p>
+          <a href="menu.html" class="btn btn--primary">Order Now <i class="ri-arrow-right-line"></i></a>
+        </div>
+        <div class="banner__cards">
+          <div class="banner__card">
+            <div class="banner__card-icon">🚀</div>
+            <h3>Fast Delivery</h3>
+            <p>Within 30 minutes</p>
+          </div>
+          <div class="banner__card">
+            <div class="banner__card-icon">🌡️</div>
+            <h3>Cold Chain</h3>
+            <p>Perfect temperature</p>
+          </div>
+          <div class="banner__card">
+            <div class="banner__card-icon">♻️</div>
+            <h3>Eco Packaging</h3>
+            <p>100% biodegradable</p>
+          </div>
+          <div class="banner__card">
+            <div class="banner__card-icon">🏆</div>
+            <h3>Award Winning</h3>
+            <p>Best in city 2024</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUBSCRIBE SECTION -->
+    <section class="subscribe">
+      <div class="subscribe__content">
+        <h2 class="section__header">Get <span class="highlight">Sweet Deals</span></h2>
+        <p class="section__description">
+          Subscribe and be the first to know about new flavors, exclusive discounts,
+          and seasonal specials delivered straight to your inbox.
+        </p>
+        <form class="subscribe__form" novalidate>
+          <input type="email" placeholder="Enter your email address" required />
+          <button type="submit" class="btn btn--primary">Subscribe</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <div class="footer__logo">Frosty<span>Bliss</span></div>
+        <p class="footer__desc">
+          Crafting premium handmade ice cream with love and the finest ingredients since 2020.
+        </p>
+        <div class="footer__socials">
+          <a href="#" class="footer__social-link" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+          <a href="#" class="footer__social-link" aria-label="Twitter/X"><i class="ri-twitter-x-line"></i></a>
+          <a href="#" class="footer__social-link" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
+          <a href="#" class="footer__social-link" aria-label="YouTube"><i class="ri-youtube-line"></i></a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Flavors</h4>
+        <ul>
+          <li><a href="menu.html">Fruity</a></li>
+          <li><a href="menu.html">Chocolate</a></li>
+          <li><a href="menu.html">Classics</a></li>
+          <li><a href="menu.html">Seasonal</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="contact.html">Help Center</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Track Order</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2025 FrostyBliss. Crafted with 🍦 by Mahi Sehrawat & Priyanshi.</p>
+      <p>Made with love in India 🇮🇳</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="main.js"></script>
+  <script>
+    // Render popular products on home page (first 4)
+    document.addEventListener("DOMContentLoaded", () => {
+      const grid = document.getElementById("popular-grid");
+      if (grid) {
+        const popular = products.filter(p => p.tag === "bestseller" || p.tag === "popular").slice(0, 4);
+        grid.innerHTML = popular.map(createProductCard).join("");
+        initMagneticButtons();
+      }
+
+      // Update checkout total when modal opens
+      const origOpen = openCheckout;
+      window.openCheckout = function() {
+        const total = Cart.getSubtotal() + (Cart.getSubtotal() > 0 ? 49 : 0);
+        const el = document.getElementById("checkout-total");
+        if (el) el.textContent = `₹${total.toLocaleString()}`;
+        origOpen();
+      };
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact – FrostyBliss</title>
+  <meta name="description" content="Get in touch with FrostyBliss. We'd love to hear from you!" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- PRELOADER -->
+  <div id="preloader">
+    <div class="preloader__scoop">🍦</div>
+    <p class="preloader__text">Loading Sweet Magic…</p>
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav__logo">Frosty<span>Bliss</span></a>
+    <ul class="nav__links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <div class="nav__btns">
+      <button class="nav__cart" onclick="openCart()" title="Cart">
+        <i class="ri-shopping-bag-3-line"></i>
+        <span class="cart__counter" id="cart-count">0</span>
+      </button>
+      <a href="login.html" class="btn btn--primary login-nav-btn">
+        <i class="ri-user-line"></i> Login
+      </a>
+      <button class="nav__menu-btn" id="menu-btn">
+        <i class="ri-menu-3-line"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- CART DRAWER -->
+  <div class="cart-overlay" id="cart-overlay"></div>
+  <aside class="cart-drawer" id="cart-drawer" role="dialog" aria-label="Shopping Cart">
+    <div class="cart-drawer__header">
+      <h2 class="cart-drawer__title">Your Cart 🛒</h2>
+      <button class="cart-drawer__close" onclick="closeCart()" aria-label="Close cart">
+        <i class="ri-close-line"></i>
+      </button>
+    </div>
+    <div class="cart-drawer__items" id="cart-items"></div>
+    <div class="cart-drawer__footer">
+      <div class="cart-drawer__summary">
+        <div class="cart-drawer__row"><span>Subtotal</span><span id="cart-subtotal">₹0</span></div>
+        <div class="cart-drawer__row"><span>Delivery</span><span id="cart-delivery">Free</span></div>
+      </div>
+      <div class="cart-drawer__total">
+        <span>Total</span>
+        <span id="cart-total">₹0</span>
+      </div>
+      <button class="btn btn--primary cart-drawer__checkout" onclick="openCheckout()">
+        Checkout <i class="ri-arrow-right-line"></i>
+      </button>
+    </div>
+  </aside>
+
+  <!-- CHECKOUT MODAL -->
+  <div class="modal-overlay" id="checkout-modal">
+    <div class="modal">
+      <div class="modal__header">
+        <div class="modal__icon">🎉</div>
+        <h2 class="modal__title">Confirm Order</h2>
+        <p class="modal__subtitle">You're about to place your ice cream order!</p>
+      </div>
+      <div class="cart-drawer__summary" style="background:rgba(255,245,245,0.5);padding:1rem;border-radius:0.75rem;">
+        <div class="cart-drawer__row"><span>Total Payable</span><span id="checkout-total">₹0</span></div>
+        <div class="cart-drawer__row"><span>Payment</span><span>Cash on Delivery</span></div>
+      </div>
+      <div class="modal__actions">
+        <button class="btn btn--outline" onclick="closeCheckout()">Cancel</button>
+        <button class="btn btn--primary" onclick="placeOrder()">
+          <i class="ri-check-line"></i> Place Order
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <main>
+    <section class="contact">
+      <div class="contact__grid">
+        <!-- Contact Info -->
+        <div class="contact__info" data-aos="fade-right">
+          <h2>Get in <span class="highlight">Touch</span></h2>
+          <p class="section__description">
+            Have a question, feedback, or just want to say hello? We'd love to hear from you.
+            Our team is available 7 days a week.
+          </p>
+
+          <div class="contact__info-cards">
+            <div class="contact__info-card">
+              <div class="contact__info-card-icon">
+                <i class="ri-user-star-line"></i>
+              </div>
+              <div class="contact__info-card-content">
+                <h4>Mahi Sehrawat — Founder</h4>
+                <p><a href="tel:+918750141860">+91 87501 41860</a></p>
+                <p><a href="mailto:mahisehrawat2006@gmail.com">mahisehrawat2006@gmail.com</a></p>
+              </div>
+            </div>
+
+            <div class="contact__info-card">
+              <div class="contact__info-card-icon">
+                <i class="ri-user-star-line"></i>
+              </div>
+              <div class="contact__info-card-content">
+                <h4>Priyanshi — Co-Founder</h4>
+                <p><a href="tel:+918368573180">+91 83685 73180</a></p>
+                <p><a href="mailto:priyadaksh007@gmail.com">priyadaksh007@gmail.com</a></p>
+              </div>
+            </div>
+
+            <div class="contact__info-card">
+              <div class="contact__info-card-icon">
+                <i class="ri-time-line"></i>
+              </div>
+              <div class="contact__info-card-content">
+                <h4>Working Hours</h4>
+                <p>Monday – Saturday: 10:00 AM – 8:00 PM</p>
+                <p>Sunday: 11:00 AM – 6:00 PM</p>
+              </div>
+            </div>
+
+            <div class="contact__info-card">
+              <div class="contact__info-card-icon">
+                <i class="ri-map-pin-line"></i>
+              </div>
+              <div class="contact__info-card-content">
+                <h4>Location</h4>
+                <p>Delhi NCR, India 🇮🇳</p>
+                <p>Delivery across major cities</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact__form-card" data-aos="fade-left">
+          <h3 class="contact__form-title">Send Us a Message 💌</h3>
+          <form class="contact__form" id="contact-form" novalidate>
+            <div class="form__group">
+              <label class="form__label" for="contact-name">Full Name *</label>
+              <input
+                class="form__input"
+                type="text"
+                id="contact-name"
+                placeholder="e.g. Rahul Sharma"
+                required
+              />
+              <span class="form__error" id="name-error" style="display:none;"></span>
+            </div>
+
+            <div class="form__group">
+              <label class="form__label" for="contact-email">Email Address *</label>
+              <input
+                class="form__input"
+                type="email"
+                id="contact-email"
+                placeholder="e.g. rahul@example.com"
+                required
+              />
+              <span class="form__error" id="email-error" style="display:none;"></span>
+            </div>
+
+            <div class="form__group">
+              <label class="form__label" for="contact-phone">Phone Number</label>
+              <input
+                class="form__input"
+                type="tel"
+                id="contact-phone"
+                placeholder="e.g. +91 98765 43210"
+              />
+              <span class="form__error" id="phone-error" style="display:none;"></span>
+            </div>
+
+            <div class="form__group">
+              <label class="form__label" for="contact-subject">Subject *</label>
+              <input
+                class="form__input"
+                type="text"
+                id="contact-subject"
+                placeholder="e.g. Order inquiry"
+                required
+              />
+              <span class="form__error" id="subject-error" style="display:none;"></span>
+            </div>
+
+            <div class="form__group">
+              <label class="form__label" for="contact-message">Message *</label>
+              <textarea
+                class="form__input form__input--textarea"
+                id="contact-message"
+                placeholder="Write your message here…"
+                required
+              ></textarea>
+              <span class="form__error" id="message-error" style="display:none;"></span>
+            </div>
+
+            <button type="submit" class="btn btn--primary">
+              Send Message <i class="ri-send-plane-line"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Map placeholder -->
+    <div style="padding: 0 5% 4rem;">
+      <div style="
+        background: linear-gradient(135deg, rgba(255,107,157,0.1), rgba(168,237,234,0.1));
+        border-radius: 1.5rem;
+        height: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 1rem;
+        border: 1px solid var(--color-glass-border);
+        text-align: center;
+      ">
+        <div style="font-size: 3rem;">🗺️</div>
+        <h3 style="font-family: var(--font-heading); font-size: 1.5rem;">Find Us in Delhi NCR</h3>
+        <p style="color: var(--color-text-light); font-size: 0.9rem;">Visit our flagship store or order online for delivery</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <div class="footer__logo">Frosty<span>Bliss</span></div>
+        <p class="footer__desc">Crafting premium handmade ice cream with love since 2020.</p>
+        <div class="footer__socials">
+          <a href="#" class="footer__social-link" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+          <a href="#" class="footer__social-link" aria-label="Twitter/X"><i class="ri-twitter-x-line"></i></a>
+          <a href="#" class="footer__social-link" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
+          <a href="#" class="footer__social-link" aria-label="YouTube"><i class="ri-youtube-line"></i></a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Flavors</h4>
+        <ul>
+          <li><a href="menu.html">Fruity</a></li>
+          <li><a href="menu.html">Chocolate</a></li>
+          <li><a href="menu.html">Classics</a></li>
+          <li><a href="menu.html">Seasonal</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="contact.html">Help Center</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Track Order</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2025 FrostyBliss. Crafted with 🍦 by Mahi Sehrawat & Priyanshi.</p>
+      <p>Made with love in India 🇮🇳</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="main.js"></script>
+  <script>
+    /* Contact Form Validation */
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("contact-form");
+      if (!form) return;
+
+      const NAME_REGEX = /^[a-zA-Z\s]{2,60}$/;
+      const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const PHONE_REGEX = /^[\+\d\s\-\(\)]{7,15}$/;
+      const MIN_MSG = 10;
+
+      function setFieldError(inputId, errorId, message) {
+        const input = document.getElementById(inputId);
+        const error = document.getElementById(errorId);
+        if (!input || !error) return;
+        input.classList.add("error");
+        error.innerHTML = `<i class="ri-error-warning-line"></i> ${message}`;
+        error.style.display = "flex";
+      }
+
+      function clearFieldError(inputId, errorId) {
+        const input = document.getElementById(inputId);
+        const error = document.getElementById(errorId);
+        if (!input || !error) return;
+        input.classList.remove("error");
+        error.textContent = "";
+        error.style.display = "none";
+      }
+
+      function validateField(inputId, errorId) {
+        const input = document.getElementById(inputId);
+        const value = input ? input.value.trim() : "";
+
+        if (inputId === "contact-name") {
+          if (!value) return setFieldError(inputId, errorId, "Name is required."), false;
+          if (!NAME_REGEX.test(value)) return setFieldError(inputId, errorId, "Name must be 2–60 letters only."), false;
+        }
+        if (inputId === "contact-email") {
+          if (!value) return setFieldError(inputId, errorId, "Email is required."), false;
+          if (!EMAIL_REGEX.test(value)) return setFieldError(inputId, errorId, "Please enter a valid email address."), false;
+        }
+        if (inputId === "contact-phone" && value) {
+          if (!PHONE_REGEX.test(value)) return setFieldError(inputId, errorId, "Please enter a valid phone number."), false;
+        }
+        if (inputId === "contact-subject") {
+          if (!value) return setFieldError(inputId, errorId, "Subject is required."), false;
+          if (value.length < 3) return setFieldError(inputId, errorId, "Subject must be at least 3 characters."), false;
+        }
+        if (inputId === "contact-message") {
+          if (!value) return setFieldError(inputId, errorId, "Message is required."), false;
+          if (value.length < MIN_MSG) return setFieldError(inputId, errorId, `Message must be at least ${MIN_MSG} characters.`), false;
+        }
+
+        clearFieldError(inputId, errorId);
+        return true;
+      }
+
+      // Real-time validation
+      [
+        ["contact-name", "name-error"],
+        ["contact-email", "email-error"],
+        ["contact-phone", "phone-error"],
+        ["contact-subject", "subject-error"],
+        ["contact-message", "message-error"],
+      ].forEach(([inputId, errorId]) => {
+        const input = document.getElementById(inputId);
+        input?.addEventListener("blur", () => validateField(inputId, errorId));
+        input?.addEventListener("input", () => {
+          if (input.classList.contains("error")) validateField(inputId, errorId);
+        });
+      });
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const results = [
+          validateField("contact-name", "name-error"),
+          validateField("contact-email", "email-error"),
+          validateField("contact-phone", "phone-error"),
+          validateField("contact-subject", "subject-error"),
+          validateField("contact-message", "message-error"),
+        ];
+
+        if (results.every(Boolean)) {
+          const btn = form.querySelector("button[type=submit]");
+          btn.disabled = true;
+          btn.innerHTML = `<i class="ri-loader-4-line"></i> Sending…`;
+          setTimeout(() => {
+            showToast("Message sent! We'll get back to you soon. 💌");
+            form.reset();
+            btn.disabled = false;
+            btn.innerHTML = `Send Message <i class="ri-send-plane-line"></i>`;
+          }, 1200);
+        } else {
+          showToast("Please fix the errors above.", "error");
+        }
+      });
+
+      // Update checkout total
+      const origOpen = openCheckout;
+      window.openCheckout = function() {
+        const total = Cart.getSubtotal() + (Cart.getSubtotal() > 0 ? 49 : 0);
+        const el = document.getElementById("checkout-total");
+        if (el) el.textContent = `₹${total.toLocaleString()}`;
+        origOpen();
+      };
+    });
+  </script>
+</body>
+</html>
