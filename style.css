@@ -441,6 +441,19 @@ nav.scrolled {
   z-index: 1;
 }
 
+/* Real photo in hero */
+.hero__main-img {
+  width: 90%;
+  height: 90%;
+  object-fit: cover;
+  border-radius: 50%;
+  position: relative;
+  z-index: 1;
+  animation: float 3s ease-in-out infinite;
+  box-shadow: 0 24px 60px rgba(255, 107, 157, 0.35);
+  border: 6px solid rgba(255, 255, 255, 0.7);
+}
+
 .hero__badge {
   position: absolute;
   background: white;
@@ -560,6 +573,21 @@ nav.scrolled {
   justify-content: center;
 }
 
+/* Real product photo styles */
+.product__card-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.product__card:hover .product__card-image img {
+  transform: scale(1.1);
+  filter: brightness(1.1);
+}
+
 .product__card-emoji {
   font-size: 6rem;
   transition: transform 0.4s ease, filter 0.4s ease;
@@ -595,6 +623,16 @@ nav.scrolled {
 
 .product__tag--seasonal {
   background: #f59e0b;
+  color: white;
+}
+
+.product__tag--coffee {
+  background: #7c5c3e;
+  color: white;
+}
+
+.product__tag--classic {
+  background: #6366f1;
   color: white;
 }
 

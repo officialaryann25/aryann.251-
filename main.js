@@ -9,6 +9,7 @@ const products = [
     price: 299,
     oldPrice: 349,
     emoji: "🍓",
+    image: "https://images.unsplash.com/photo-1488900128323-21503983a07e?w=400&h=280&fit=crop&auto=format",
     tag: "bestseller",
     tagLabel: "Best Seller",
     rating: 5,
@@ -22,6 +23,7 @@ const products = [
     price: 349,
     oldPrice: null,
     emoji: "🍫",
+    image: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&h=280&fit=crop&auto=format",
     tag: "popular",
     tagLabel: "Popular",
     rating: 5,
@@ -35,6 +37,7 @@ const products = [
     price: 279,
     oldPrice: 319,
     emoji: "🥭",
+    image: "https://images.unsplash.com/photo-1560008581-09826d1de69e?w=400&h=280&fit=crop&auto=format",
     tag: "new",
     tagLabel: "New",
     rating: 4,
@@ -48,6 +51,7 @@ const products = [
     price: 329,
     oldPrice: null,
     emoji: "🌿",
+    image: "https://images.unsplash.com/photo-1570197571499-166b36435e9f?w=400&h=280&fit=crop&auto=format",
     tag: "seasonal",
     tagLabel: "Seasonal",
     rating: 4,
@@ -61,6 +65,7 @@ const products = [
     price: 399,
     oldPrice: 449,
     emoji: "🌰",
+    image: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=400&h=280&fit=crop&auto=format",
     tag: "bestseller",
     tagLabel: "Best Seller",
     rating: 5,
@@ -74,6 +79,7 @@ const products = [
     price: 249,
     oldPrice: null,
     emoji: "🍦",
+    image: "https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=400&h=280&fit=crop&auto=format",
     tag: "classic",
     tagLabel: "Classic",
     rating: 4,
@@ -87,6 +93,7 @@ const products = [
     price: 379,
     oldPrice: 419,
     emoji: "🫐",
+    image: "https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=280&fit=crop&auto=format",
     tag: "new",
     tagLabel: "New",
     rating: 5,
@@ -100,11 +107,54 @@ const products = [
     price: 319,
     oldPrice: null,
     emoji: "🍬",
+    image: "https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=400&h=280&fit=crop&auto=format",
     tag: "popular",
     tagLabel: "Popular",
     rating: 4,
     reviews: 74,
     category: "classic",
+  },
+  {
+    id: 9,
+    name: "Espresso Crunch",
+    desc: "Bold single-origin espresso ice cream laced with dark chocolate shards and a caramel drizzle.",
+    price: 369,
+    oldPrice: 409,
+    emoji: "☕",
+    image: "https://images.unsplash.com/photo-1559703248-dcaaec9fab78?w=400&h=280&fit=crop&auto=format",
+    tag: "bestseller",
+    tagLabel: "Best Seller",
+    rating: 5,
+    reviews: 89,
+    category: "coffee",
+  },
+  {
+    id: 10,
+    name: "Mocha Velvet",
+    desc: "Silky mocha ice cream swirled with fudge ribbons and topped with cocoa nibs.",
+    price: 349,
+    oldPrice: null,
+    emoji: "☕",
+    image: "https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=400&h=280&fit=crop&auto=format",
+    tag: "new",
+    tagLabel: "New",
+    rating: 5,
+    reviews: 52,
+    category: "coffee",
+  },
+  {
+    id: 11,
+    name: "Cold Brew Caramel",
+    desc: "Smooth cold-brew coffee ice cream ribbon-swirled with salted caramel sauce.",
+    price: 389,
+    oldPrice: 429,
+    emoji: "☕",
+    image: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&h=280&fit=crop&auto=format",
+    tag: "popular",
+    tagLabel: "Popular",
+    rating: 4,
+    reviews: 66,
+    category: "coffee",
   },
 ];
 
@@ -481,20 +531,32 @@ function initCounters() {
 /* ===========================
    PRODUCT CARD RENDERER
    =========================== */
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/"/g, "&quot;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
 function createProductCard(product) {
   const stars = Array.from({ length: 5 }, (_, i) =>
     `<i class="${i < Math.floor(product.rating) ? "ri-star-fill" : "ri-star-line"}"></i>`
   ).join("");
 
+  const imageContent = product.image
+    ? `<img src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}" loading="lazy" />`
+    : `<div class="product__card-emoji">${product.emoji}</div>`;
+
   return `
     <div class="product__card" data-category="${product.category}" data-aos="fade-up">
       <div class="product__card-image">
         <span class="product__tag product__tag--${product.tag}">${product.tagLabel}</span>
-        <div class="product__card-emoji">${product.emoji}</div>
+        ${imageContent}
       </div>
       <div class="product__card-body">
-        <h3 class="product__card-name">${product.name}</h3>
-        <p class="product__card-desc">${product.desc}</p>
+        <h3 class="product__card-name">${escapeHtml(product.name)}</h3>
+        <p class="product__card-desc">${escapeHtml(product.desc)}</p>
         <div class="product__rating">
           ${stars}
           <span>(${product.reviews})</span>
