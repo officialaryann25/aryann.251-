@@ -383,8 +383,9 @@ function updateNavAuth() {
               <i class="ri-logout-box-r-line"></i> Logout
             </div>
           </div>`;
-        if (cartBtn) {
-          container.insertBefore(profileMenu, cartBtn);
+        const insertRef = container.querySelector(".nav__cart") || container.querySelector(".nav__menu-btn");
+        if (insertRef) {
+          container.insertBefore(profileMenu, insertRef);
         } else {
           container.appendChild(profileMenu);
         }

@@ -11,6 +11,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <!-- Page-specific styles -->
+  <style>
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--color-text-light);
+      margin-bottom: 1.5rem;
+      transition: color 0.3s;
+    }
+    .back-link:hover {
+      color: var(--color-primary);
+    }
+  </style>
 </head>
 <body>
 
@@ -27,15 +42,7 @@
     <div class="login__card" data-aos="fade-up">
 
       <!-- Back to home -->
-      <a href="index.html" style="
-        display:inline-flex;
-        align-items:center;
-        gap:0.5rem;
-        font-size:0.85rem;
-        color:var(--color-text-light);
-        margin-bottom:1.5rem;
-        transition:color 0.3s;
-      " onmouseover="this.style.color='var(--color-primary)'" onmouseout="this.style.color='var(--color-text-light)'">
+      <a href="index.html" class="back-link">
         <i class="ri-arrow-left-line"></i> Back to Home
       </a>
 

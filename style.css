@@ -705,10 +705,6 @@ nav.scrolled {
   height: 200px;
   object-fit: cover;
   transition: transform 0.4s ease;
-  font-size: 5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .discover__card:hover img {
@@ -1345,7 +1341,7 @@ footer {
 
 .form__input.error {
   border-color: var(--color-error);
-  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15), 0 0 12px rgba(239, 68, 68, 0.2);
   animation: shake 0.4s ease;
 }
 
@@ -1749,10 +1745,7 @@ footer {
   margin-top: var(--space-xs);
 }
 
-.form__input.error {
-  border-color: var(--color-error) !important;
-  box-shadow: 0 0 0 3px rgba(239,68,68,0.15), 0 0 12px rgba(239,68,68,0.2) !important;
-}
+/* Duplicate removed – see .form__input.error in the Login Page section above */
 
 /* ===========================
    PROFILE DROPDOWN
