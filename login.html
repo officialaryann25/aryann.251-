@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IceWorld | Login</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="auth-page">
+  <main class="auth-card glass">
+    <h1>Welcome Back</h1>
+    <p>Login to continue your premium IceWorld experience.</p>
+    <form id="login-form">
+      <label>Email<input type="email" name="email" required /></label>
+      <label>Password<input type="password" name="password" required minlength="6" /></label>
+      <button class="btn btn--full" type="submit">Login</button>
+      <p class="status" id="login-status"></p>
+    </form>
+    <p class="auth-link">New here? <a href="signup.html">Create an account</a></p>
+    <p class="auth-link"><a href="index.html">Back to Home</a></p>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IceWorld | Contact</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="particles" aria-hidden="true"></div>
+  <nav class="nav">
+    <div class="nav__header">
+      <a class="logo" href="index.html">IceWorld</a>
+      <button class="nav__menu__btn" id="menu-btn" aria-label="Open menu"><i class="ri-menu-3-line"></i></button>
+    </div>
+    <ul class="nav__links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav__btns"></div>
+  </nav>
+
+  <main class="section top-space">
+    <div class="section__heading">
+      <h1 class="reveal">Contact IceWorld</h1>
+      <p class="reveal">Let's craft your next indulgent celebration.</p>
+    </div>
+    <div class="contact-layout">
+      <form class="glass reveal contact-form" id="contact-form">
+        <label>Name<input type="text" name="name" required /></label>
+        <label>Email<input type="email" name="email" required /></label>
+        <label>Message<textarea name="message" rows="5" required></textarea></label>
+        <button class="btn" type="submit">Send Message</button>
+        <p id="contact-status" class="status"></p>
+      </form>
+      <iframe
+        class="map reveal"
+        title="IceWorld location"
+        src="https://www.google.com/maps?q=New+Delhi&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__grid">
+      <div>
+        <h3>IceWorld</h3>
+        <p>Luxury scoops, timeless delight.</p>
+      </div>
+      <div>
+        <p><strong>Mahi Sehrawat</strong> | +91 8750141860 | mahisehrawat2006@gmail.com</p>
+        <p><strong>Priyanshi</strong> | +91 8368573180 | priyadaksh007@gmail.com</p>
+      </div>
+      <div class="socials">
+        <a href="#" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+        <a href="#" aria-label="Facebook"><i class="ri-facebook-circle-line"></i></a>
+        <a href="#" aria-label="Twitter"><i class="ri-twitter-x-line"></i></a>
+      </div>
+    </div>
+    <p class="footer__bar" id="footer-copy"></p>
+  </footer>
+
+  <aside class="cart-sidebar" id="cart-sidebar" aria-label="Cart panel">
+    <div class="cart-sidebar__header">
+      <h3>Your Cart</h3>
+      <button class="icon-btn" id="close-cart" aria-label="Close cart"><i class="ri-close-line"></i></button>
+    </div>
+    <ul id="cart-items"></ul>
+    <div class="cart-total">Total: ₹<span id="cart-total">0</span></div>
+    <button class="btn btn--full" id="start-checkout">Checkout</button>
+    <div class="checkout hidden" id="checkout">
+      <div class="steps"><span class="active">1</span><span>2</span><span>3</span></div>
+      <div id="checkout-content"></div>
+      <button class="btn btn--full" id="next-step">Next</button>
+    </div>
+  </aside>
+  <button class="cart-fab" id="open-cart" aria-label="Open cart"><i class="ri-shopping-bag-3-line"></i><span id="cart-count">0</span></button>
+
+  <script src="script.js"></script>
+</body>
+</html>
