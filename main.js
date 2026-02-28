@@ -8,6 +8,11 @@ if (navToggle && navLinks) {
 const cartKey = "iceworldCart";
 const getCart = () => JSON.parse(localStorage.getItem(cartKey) || "[]");
 const setCart = (items) => localStorage.setItem(cartKey, JSON.stringify(items));
+const hashValue = async (value) => {
+  const data = new TextEncoder().encode(value);
+  const digest = await crypto.subtle.digest("SHA-256", data);
+  return Array.from(new Uint8Array(digest), (b) => b.toString(16).padStart(2, "0")).join("");
+};
 
 function updateCartCount() {
   document.querySelectorAll("[data-cart-count]").forEach((el) => {
@@ -66,13 +71,11 @@ function getSession() {
 
 function setSession(user) {
   localStorage.setItem("userSession", JSON.stringify(user));
-  localStorage.setItem("isLoggedIn", "true");
 }
 
 function logoutUser() {
   localStorage.removeItem("userSession");
-  localStorage.removeItem("isLoggedIn");
-  location.href = "login.html";
+  location.replace("login.html");
 }
 window.logoutUser = logoutUser;
 
@@ -80,9 +83,26 @@ function bindAuthUI() {
   const authSlot = document.getElementById("authSlot");
   if (!authSlot) return;
   const session = getSession();
-  authSlot.innerHTML = session
-    ? `<span>Hi, ${session.name}</span><button class="btn btn--ghost" onclick="logoutUser()">Logout</button>`
-    : `<a href="login.html" class="btn btn--ghost">Login</a><a href="signup.html" class="btn btn--primary">Signup</a>`;
+  authSlot.replaceChildren();
+  if (session) {
+    const greeting = document.createElement("span");
+    greeting.textContent = `Hi, ${session.name}`;
+    const logoutBtn = document.createElement("button");
+    logoutBtn.className = "btn btn--ghost";
+    logoutBtn.textContent = "Logout";
+    logoutBtn.addEventListener("click", logoutUser);
+    authSlot.append(greeting, logoutBtn);
+    return;
+  }
+  const loginLink = document.createElement("a");
+  loginLink.href = "login.html";
+  loginLink.className = "btn btn--ghost";
+  loginLink.textContent = "Login";
+  const signupLink = document.createElement("a");
+  signupLink.href = "signup.html";
+  signupLink.className = "btn btn--primary";
+  signupLink.textContent = "Signup";
+  authSlot.append(loginLink, signupLink);
 }
 
 const loginForm = document.getElementById("loginForm");
@@ -95,8 +115,9 @@ if (loginForm) {
     const users = JSON.parse(localStorage.getItem("users") || "[]");
     button.disabled = true;
     button.innerHTML = `<span class="spinner"></span> Signing in...`;
-    setTimeout(() => {
-      const user = users.find((u) => u.email === email && u.password === password);
+    setTimeout(async () => {
+      const passwordHash = await hashValue(password);
+      const user = users.find((u) => u.email === email && u.passwordHash === passwordHash);
       if (!user) {
         showToast("Invalid credentials");
         button.disabled = false;
@@ -112,14 +133,15 @@ if (loginForm) {
 
 const signupForm = document.getElementById("signupForm");
 if (signupForm) {
-  signupForm.addEventListener("submit", (e) => {
+  signupForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     const name = signupForm.name.value.trim();
     const email = signupForm.email.value.trim();
     const password = signupForm.password.value.trim();
+    if (password.length < 6) return showToast("Password must be at least 6 characters");
     const users = JSON.parse(localStorage.getItem("users") || "[]");
     if (users.some((u) => u.email === email)) return showToast("Email already registered");
-    users.push({ name, email, password });
+    users.push({ name, email, passwordHash: await hashValue(password) });
     localStorage.setItem("users", JSON.stringify(users));
     setSession({ name, email });
     location.href = "index.html";
@@ -137,8 +159,14 @@ if (contactForm) {
 
 const heroVisual = document.getElementById("heroVisual");
 if (heroVisual) {
+  let ticking = false;
   window.addEventListener("scroll", () => {
-    heroVisual.style.setProperty("--parallax", `${Math.min(window.scrollY * 0.2, 70)}px`);
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      heroVisual.style.setProperty("--parallax", `${Math.min(window.scrollY * 0.2, 70)}px`);
+      ticking = false;
+    });
   });
 }
 

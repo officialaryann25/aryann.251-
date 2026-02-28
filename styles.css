@@ -218,7 +218,7 @@ img {
 }
 
 .glass {
-  background: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.55);
   border: 1px solid rgba(255, 255, 255, 0.35);
   border-radius: 20px;
   backdrop-filter: blur(14px);
