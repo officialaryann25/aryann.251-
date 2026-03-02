@@ -18,6 +18,7 @@ const BRAND = {
 
 const $ = (s) => document.querySelector(s);
 const $$ = (s) => document.querySelectorAll(s);
+const esc = (v) => String(v).replace(/[&<>"']/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
 
 const store = {
   get(key, fallback) { try { return JSON.parse(localStorage.getItem(key)) ?? fallback; } catch { return fallback; } },
@@ -149,8 +150,8 @@ function renderCards(target, items) {
   if (!host) return;
   host.innerHTML = items.map((p) => `
     <article class="rounded-2xl bg-white/70 dark:bg-slate-800/70 backdrop-blur p-4 shadow hover:-translate-y-1 transition">
-      <img src="${p.image}" alt="${p.name}" class="w-full h-48 object-cover rounded-xl" />
-      <div class="mt-3 flex justify-between items-start gap-2"><h3 class="font-semibold">${p.name}</h3><button aria-label="Toggle wishlist" data-wishlist="${p.id}" class="text-slate-500">❤</button></div>
+      <img src="${esc(p.image)}" alt="${esc(p.name)}" class="w-full h-48 object-cover rounded-xl" />
+      <div class="mt-3 flex justify-between items-start gap-2"><h3 class="font-semibold">${esc(p.name)}</h3><button aria-label="Toggle wishlist" data-wishlist="${p.id}" class="text-slate-500">❤</button></div>
       <p class="text-sm text-slate-600 dark:text-slate-300">₹${p.price}</p>
       <div class="flex gap-2 mt-3"><button data-product-id="${p.id}" class="quick-view-btn px-3 py-2 rounded-lg bg-white dark:bg-slate-700 border">Quick View</button><button data-add-cart="${p.id}" class="px-3 py-2 rounded-lg bg-gradient-to-r from-pink-500 to-rose-400 text-white">Add to Cart</button></div>
     </article>`).join('');
@@ -203,7 +204,7 @@ function renderCartPage() {
   function draw() {
     const cart = store.get('iceworld_cart', []);
     const enriched = cart.map((i) => ({ ...PRODUCTS.find((p) => p.id === i.id), qty: i.qty })).filter((i) => i.id);
-    host.innerHTML = enriched.length ? enriched.map((i) => `<div class="flex gap-4 p-4 rounded-xl bg-white dark:bg-slate-800"><img src="${i.image}" alt="${i.name}" class="w-20 h-20 rounded-lg object-cover"/><div class="flex-1"><h3 class="font-semibold">${i.name}</h3><p>₹${i.price}</p><div class="flex items-center gap-2 mt-2"><button data-qty="${i.id}" data-op="dec" class="px-2 border rounded">-</button><span>${i.qty}</span><button data-qty="${i.id}" data-op="inc" class="px-2 border rounded">+</button><button data-remove="${i.id}" class="ml-4 text-red-500">Remove</button></div></div></div>`).join('') : '<p>Your cart is empty.</p>';
+    host.innerHTML = enriched.length ? enriched.map((i) => `<div class="flex gap-4 p-4 rounded-xl bg-white dark:bg-slate-800"><img src="${esc(i.image)}" alt="${esc(i.name)}" class="w-20 h-20 rounded-lg object-cover"/><div class="flex-1"><h3 class="font-semibold">${esc(i.name)}</h3><p>₹${i.price}</p><div class="flex items-center gap-2 mt-2"><button data-qty="${i.id}" data-op="dec" class="px-2 border rounded">-</button><span>${i.qty}</span><button data-qty="${i.id}" data-op="inc" class="px-2 border rounded">+</button><button data-remove="${i.id}" class="ml-4 text-red-500">Remove</button></div></div></div>`).join('') : '<p>Your cart is empty.</p>';
     subtotalEl.textContent = `₹${enriched.reduce((t, i) => t + i.price * i.qty, 0)}`;
     updateCounters();
   }
@@ -230,7 +231,7 @@ function initCheckout() {
   const summary = $('#orderSummary');
   const items = store.get('iceworld_cart', []).map((i) => ({ ...PRODUCTS.find((p) => p.id === i.id), qty: i.qty })).filter((i) => i.id);
   const total = items.reduce((t, i) => t + i.price * i.qty, 0);
-  summary.innerHTML = items.map((i) => `<p class="flex justify-between"><span>${i.name} x${i.qty}</span><span>₹${i.price * i.qty}</span></p>`).join('') + `<hr class="my-3"/><p class="flex justify-between font-semibold"><span>Total</span><span>₹${total}</span></p>`;
+  summary.innerHTML = items.map((i) => `<p class="flex justify-between"><span>${esc(i.name)} x${i.qty}</span><span>₹${i.price * i.qty}</span></p>`).join('') + `<hr class="my-3"/><p class="flex justify-between font-semibold"><span>Total</span><span>₹${total}</span></p>`;
   $('#placeOrderBtn')?.addEventListener('click', () => $('#orderModal')?.classList.remove('hidden'));
   $('#closeOrderModal')?.addEventListener('click', () => $('#orderModal')?.classList.add('hidden'));
   $('#applyPromo')?.addEventListener('click', () => showToast('Promo applied (demo)'));
