@@ -1,0 +1,183 @@
+/* =====================================================
+   BloomLux — Custom Styles
+   Supplementary styles alongside Tailwind CSS
+   ===================================================== */
+
+/* Google Fonts imported in HTML */
+.font-playfair { font-family: 'Playfair Display', serif; }
+
+/* ── Smooth Scroll ── */
+html { scroll-behavior: smooth; }
+
+/* ── Loading Screen ── */
+#page-loader {
+  position: fixed;
+  inset: 0;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease;
+}
+.dark #page-loader { background: #111827; }
+
+.loader-flower {
+  font-size: 3rem;
+  animation: pulse-flower 1s ease-in-out infinite;
+}
+
+@keyframes pulse-flower {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.7; }
+}
+
+/* ── Scroll Animations ── */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+[data-animate].animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Hero Slider ── */
+#hero-slider { position: relative; overflow: hidden; }
+
+/* ── Sticky Header Transition ── */
+header {
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+/* ── Back to Top ── */
+#back-to-top {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+#back-to-top:hover { transform: translateY(-3px); }
+
+/* ── Product Card Hover ── */
+.group:hover { box-shadow: 0 20px 40px rgba(244, 63, 94, 0.15); }
+
+/* ── Category Card ── */
+.category-card img {
+  transition: transform 0.5s ease;
+}
+.category-card:hover img { transform: scale(1.08); }
+
+/* ── Custom Scrollbar ── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #f1f5f9; }
+::-webkit-scrollbar-thumb { background: #f43f5e; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #e11d48; }
+.dark ::-webkit-scrollbar-track { background: #1f2937; }
+
+/* ── Price Slider ── */
+input[type="range"] {
+  -webkit-appearance: none;
+  height: 4px;
+  background: #f43f5e;
+  border-radius: 2px;
+  outline: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  background: #f43f5e;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 0 3px rgba(244, 63, 94, 0.2);
+}
+
+/* ── Testimonial Card ── */
+.testimonial-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(0,0,0,0.1);
+}
+
+/* ── Newsletter Input Focus ── */
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(244, 63, 94, 0.2);
+}
+
+/* ── Modal Backdrop ── */
+#quick-view-modal, #success-modal {
+  animation: fadeIn 0.2s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ── Button active states ── */
+button:active { transform: scale(0.97); }
+
+/* ── Hamburger Lines ── */
+.hamburger-line {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: currentColor;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  border-radius: 1px;
+}
+
+/* ── Footer ── */
+footer a { transition: color 0.2s ease; }
+
+/* ── Form validation ── */
+input:invalid:not(:placeholder-shown) { border-color: #f43f5e; }
+input:valid:not(:placeholder-shown) { border-color: #10b981; }
+
+/* ── Responsive image gallery ── */
+.thumbnail-grid img {
+  transition: ring 0.2s ease, transform 0.2s ease;
+}
+.thumbnail-grid img:hover { transform: scale(1.03); }
+
+/* ── Timeline ── */
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 12px;
+  background: #f43f5e;
+  border-radius: 50%;
+  top: 0;
+}
+
+/* ── Map container ── */
+.map-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+}
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ── Dark mode transitions ── */
+*, *::before, *::after {
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+/* Exceptions – don't animate layout-affecting props */
+img, svg, button, a {
+  transition: none;
+}
+button {
+  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+}
+a {
+  transition: color 0.2s ease, opacity 0.2s ease;
+}

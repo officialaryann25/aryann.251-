@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Shop fresh flowers, bouquets, roses, and gift hampers at BloomLux. Filter by category, price, and occasion.">
+  <title>Shop — BloomLux Flower Delivery</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/custom.css">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { poppins: ['Poppins','sans-serif'], playfair: ['Playfair Display','serif'] } } }
+    }
+  </script>
+</head>
+<body class="font-poppins bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+
+<div id="page-loader" aria-hidden="true"><div class="text-center"><div class="loader-flower">🌸</div></div></div>
+
+<!-- HEADER (shared) -->
+<header class="sticky top-0 z-50 bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center h-16 gap-4">
+      <a href="index.html" class="flex-shrink-0 font-playfair text-2xl font-bold text-rose-500">🌸 BloomLux</a>
+      <nav class="hidden lg:flex items-center gap-1 ml-6">
+        <a href="index.html" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-rose-500 hover:bg-rose-50 dark:hover:bg-gray-800 transition-colors">Home</a>
+        <div class="relative group">
+          <button class="px-3 py-2 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-rose-500 hover:bg-rose-50 dark:hover:bg-gray-800 transition-colors flex items-center gap-1">Categories<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></button>
+          <div class="absolute top-full left-0 mt-1 w-52 bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-100 dark:border-gray-700 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 p-2">
+            <a href="shop.html?cat=birthday" class="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-gray-700 dark:text-gray-300 hover:bg-rose-50 dark:hover:bg-gray-700 hover:text-rose-500">🎂 Birthday</a>
+            <a href="shop.html?cat=anniversary" class="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-gray-700 dark:text-gray-300 hover:bg-rose-50 dark:hover:bg-gray-700 hover:text-rose-500">💑 Anniversary</a>
+            <a href="shop.html?cat=roses" class="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-gray-700 dark:text-gray-300 hover:bg-rose-50 dark:hover:bg-gray-700 hover:text-rose-500">🌹 Roses</a>
+            <a href="shop.html?cat=orchids" class="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-gray-700 dark:text-gray-300 hover:bg-rose-50 dark:hover:bg-gray-700 hover:text-rose-500">🌺 Luxury Collection</a>
+            <a href="shop.html?cat=bouquets" class="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-gray-700 dark:text-gray-300 hover:bg-rose-50 dark:hover:bg-gray-700 hover:text-rose-500">💐 Bouquets</a>
+            <a href="shop.html?cat=hampers" class="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-gray-700 dark:text-gray-300 hover:bg-rose-50 dark:hover:bg-gray-700 hover:text-rose-500">🎁 Hampers</a>
+          </div>
+        </div>
+        <a href="shop.html" class="px-3 py-2 rounded-lg text-sm font-medium text-rose-500 bg-rose-50 dark:bg-gray-800">Shop</a>
+        <a href="about.html" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-rose-500 hover:bg-rose-50 dark:hover:bg-gray-800 transition-colors">About</a>
+        <a href="contact.html" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-rose-500 hover:bg-rose-50 dark:hover:bg-gray-800 transition-colors">Contact</a>
+      </nav>
+      <div class="hidden md:flex flex-1 max-w-sm relative ml-4">
+        <input data-search-input type="search" placeholder="Search flowers..." aria-label="Search" class="w-full pl-10 pr-4 py-2 rounded-full border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-rose-400 dark:text-white placeholder-gray-400">
+        <svg class="absolute left-3 top-2.5 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        <div class="absolute top-full left-0 right-0 mt-1 bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-100 dark:border-gray-700 z-50 hidden"></div>
+      </div>
+      <div class="ml-auto flex items-center gap-1">
+        <button data-dark-toggle aria-label="Toggle dark mode" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-300"><span data-dark-icon></span></button>
+        <a href="#" aria-label="Wishlist" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 relative text-gray-600 dark:text-gray-300">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+          <span data-wishlist-badge class="hidden absolute -top-1 -right-1 bg-rose-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center font-bold">0</span>
+        </a>
+        <a href="cart.html" aria-label="Cart" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 relative text-gray-600 dark:text-gray-300">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+          <span data-cart-badge class="hidden absolute -top-1 -right-1 bg-rose-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center font-bold">0</span>
+        </a>
+        <button id="mobile-menu-btn" aria-label="Open menu" aria-expanded="false" class="lg:hidden p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-300">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 p-4 space-y-1">
+    <a href="index.html" class="block px-4 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-rose-50 hover:text-rose-500 font-medium">Home</a>
+    <a href="shop.html" class="block px-4 py-2 rounded-lg text-rose-500 bg-rose-50 font-medium">Shop</a>
+    <a href="about.html" class="block px-4 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-rose-50 hover:text-rose-500 font-medium">About</a>
+    <a href="contact.html" class="block px-4 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-rose-50 hover:text-rose-500 font-medium">Contact</a>
+    <a href="cart.html" class="block px-4 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-rose-50 hover:text-rose-500 font-medium">🛒 Cart</a>
+  </div>
+</header>
+
+<!-- Page Banner -->
+<section class="relative bg-gradient-to-r from-rose-50 to-pink-50 dark:from-gray-800 dark:to-gray-900 py-12 border-b border-rose-100 dark:border-gray-700">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav aria-label="Breadcrumb" class="text-sm text-gray-500 mb-3">
+      <a href="index.html" class="hover:text-rose-500 transition-colors">Home</a>
+      <span class="mx-2">›</span>
+      <span class="text-gray-700 dark:text-gray-300">Shop</span>
+    </nav>
+    <h1 class="font-playfair text-4xl font-bold text-gray-900 dark:text-white">All Flowers & Gifts</h1>
+    <p class="text-gray-500 dark:text-gray-400 mt-2">Discover our complete collection of premium floral arrangements</p>
+  </div>
+</section>
+
+<!-- SHOP LAYOUT -->
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+  <div class="flex flex-col lg:flex-row gap-8">
+
+    <!-- Sidebar Filters -->
+    <aside class="lg:w-64 flex-shrink-0" aria-label="Product filters">
+      <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm p-6 sticky top-24">
+        <h2 class="font-semibold text-gray-900 dark:text-white mb-5 text-lg">Filters</h2>
+
+        <!-- Category Filter -->
+        <div class="mb-6">
+          <h3 class="font-semibold text-gray-700 dark:text-gray-300 mb-3 text-sm uppercase tracking-wide">Category</h3>
+          <div class="flex flex-wrap gap-2">
+            <button data-filter-cat="all" class="px-3 py-1.5 rounded-full text-sm border border-gray-200 dark:border-gray-600 transition-colors bg-rose-500 text-white border-rose-500">All</button>
+            <button data-filter-cat="roses" class="px-3 py-1.5 rounded-full text-sm border border-gray-200 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:border-rose-400 transition-colors">Roses</button>
+            <button data-filter-cat="lilies" class="px-3 py-1.5 rounded-full text-sm border border-gray-200 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:border-rose-400 transition-colors">Lilies</button>
+            <button data-filter-cat="orchids" class="px-3 py-1.5 rounded-full text-sm border border-gray-200 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:border-rose-400 transition-colors">Orchids</button>
+            <button data-filter-cat="bouquets" class="px-3 py-1.5 rounded-full text-sm border border-gray-200 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:border-rose-400 transition-colors">Bouquets</button>
+            <button data-filter-cat="hampers" class="px-3 py-1.5 rounded-full text-sm border border-gray-200 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:border-rose-400 transition-colors">Hampers</button>
+            <button data-filter-cat="cakes" class="px-3 py-1.5 rounded-full text-sm border border-gray-200 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:border-rose-400 transition-colors">Cakes</button>
+          </div>
+        </div>
+
+        <!-- Price Range -->
+        <div class="mb-6">
+          <h3 class="font-semibold text-gray-700 dark:text-gray-300 mb-3 text-sm uppercase tracking-wide">Price Range</h3>
+          <div class="flex justify-between text-sm text-gray-500 mb-2">
+            <span id="price-min-label">₹0</span>
+            <span id="price-max-label">₹2000</span>
+          </div>
+          <input id="price-min" data-price-min type="range" min="0" max="2000" value="0" step="50" class="w-full mb-2" aria-label="Minimum price">
+          <input id="price-max" data-price-max type="range" min="0" max="2000" value="2000" step="50" class="w-full" aria-label="Maximum price">
+        </div>
+
+        <!-- Occasion Filter -->
+        <div class="mb-6">
+          <h3 class="font-semibold text-gray-700 dark:text-gray-300 mb-3 text-sm uppercase tracking-wide">Occasion</h3>
+          <div class="space-y-2">
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" class="rounded text-rose-500 focus:ring-rose-400" checked> <span class="text-sm text-gray-600 dark:text-gray-300">Birthday</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" class="rounded text-rose-500 focus:ring-rose-400" checked> <span class="text-sm text-gray-600 dark:text-gray-300">Anniversary</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" class="rounded text-rose-500 focus:ring-rose-400" checked> <span class="text-sm text-gray-600 dark:text-gray-300">Sympathy</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" class="rounded text-rose-500 focus:ring-rose-400"> <span class="text-sm text-gray-600 dark:text-gray-300">Congratulations</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Delivery Type -->
+        <div>
+          <h3 class="font-semibold text-gray-700 dark:text-gray-300 mb-3 text-sm uppercase tracking-wide">Delivery Type</h3>
+          <div class="space-y-2">
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="radio" name="delivery" class="text-rose-500" checked> <span class="text-sm text-gray-600 dark:text-gray-300">All</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="radio" name="delivery" class="text-rose-500"> <span class="text-sm text-gray-600 dark:text-gray-300">Same Day</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="radio" name="delivery" class="text-rose-500"> <span class="text-sm text-gray-600 dark:text-gray-300">Standard (2–3 days)</span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Product Grid Area -->
+    <div class="flex-1">
+      <!-- Toolbar -->
+      <div class="flex items-center justify-between mb-6 flex-wrap gap-3">
+        <p class="text-sm text-gray-500 dark:text-gray-400">Showing <span class="font-semibold text-gray-900 dark:text-white">12</span> products</p>
+        <select id="sort-select" aria-label="Sort products" class="border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 dark:text-white rounded-xl px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-rose-400">
+          <option value="default">Sort: Featured</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+          <option value="name">Name A–Z</option>
+          <option value="rating">Top Rated</option>
+        </select>
+      </div>
+
+      <!-- Grid -->
+      <div id="shop-grid" class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-5"></div>
+
+      <!-- Pagination UI -->
+      <div class="flex items-center justify-center gap-2 mt-12">
+        <button aria-label="Previous page" class="w-9 h-9 rounded-full border border-gray-200 dark:border-gray-700 flex items-center justify-center hover:border-rose-400 transition-colors text-gray-600 dark:text-gray-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        </button>
+        <button class="w-9 h-9 rounded-full bg-rose-500 text-white text-sm font-semibold">1</button>
+        <button class="w-9 h-9 rounded-full border border-gray-200 dark:border-gray-700 text-sm text-gray-600 dark:text-gray-300 hover:border-rose-400 transition-colors">2</button>
+        <button class="w-9 h-9 rounded-full border border-gray-200 dark:border-gray-700 text-sm text-gray-600 dark:text-gray-300 hover:border-rose-400 transition-colors">3</button>
+        <span class="text-gray-400">…</span>
+        <button aria-label="Next page" class="w-9 h-9 rounded-full border border-gray-200 dark:border-gray-700 flex items-center justify-center hover:border-rose-400 transition-colors text-gray-600 dark:text-gray-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-gray-300 py-10 mt-16 border-t border-gray-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
+    <a href="index.html" class="font-playfair text-xl font-bold text-white">🌸 BloomLux</a>
+    <div class="flex gap-6 text-sm">
+      <a href="index.html" class="hover:text-rose-400 transition-colors">Home</a>
+      <a href="shop.html" class="hover:text-rose-400 transition-colors">Shop</a>
+      <a href="about.html" class="hover:text-rose-400 transition-colors">About</a>
+      <a href="contact.html" class="hover:text-rose-400 transition-colors">Contact</a>
+    </div>
+    <p class="text-sm text-gray-500">© 2025 BloomLux</p>
+  </div>
+</footer>
+
+<!-- Quick View Modal -->
+<div id="quick-view-modal" class="hidden fixed inset-0 z-[9998] bg-black/60 backdrop-blur-sm items-center justify-center p-4" role="dialog" aria-modal="true">
+  <div class="bg-white dark:bg-gray-900 rounded-2xl max-w-2xl w-full p-6 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+    <button data-modal-close aria-label="Close" class="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
+    <div id="quick-view-body"></div>
+  </div>
+</div>
+
+<button id="back-to-top" aria-label="Back to top" class="fixed bottom-6 right-6 z-40 bg-rose-500 hover:bg-rose-600 text-white p-3 rounded-full shadow-lg opacity-0 transition-opacity">
+  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
+</button>
+
+<script src="assets/js/main.js"></script>
+<script>
+  // Apply URL category filter on load
+  const params = new URLSearchParams(window.location.search);
+  const catParam = params.get('cat');
+  if (catParam) {
+    document.addEventListener('DOMContentLoaded', () => {
+      const btn = document.querySelector(`[data-filter-cat="${catParam}"]`);
+      if (btn) {
+        document.querySelectorAll('[data-filter-cat]').forEach(b => b.classList.remove('bg-rose-500','text-white','border-rose-500'));
+        btn.classList.add('bg-rose-500','text-white','border-rose-500');
+        applyFilters();
+      }
+    });
+  }
+  const btt = document.getElementById('back-to-top');
+  window.addEventListener('scroll', () => { btt.style.pointerEvents = window.scrollY > 400 ? 'auto' : 'none'; });
+</script>
+</body>
+</html>

@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="BloomLux — Premium flower delivery across India. Fresh bouquets, roses, orchids, and gift hampers delivered same day.">
+  <meta name="keywords" content="flower delivery, roses, bouquets, same day delivery, flowers India">
+  <meta property="og:title" content="BloomLux — Luxury Flowers Delivered with Love">
+  <meta property="og:description" content="Premium flower delivery across India. Order fresh blooms online.">
+  <title>BloomLux — Luxury Flowers Delivered with Love</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/custom.css">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { poppins: ['Poppins', 'sans-serif'], playfair: ['Playfair Display', 'serif'] },
+          colors: { rose: { 50:'#fff1f2',100:'#ffe4e6',200:'#fecdd3',300:'#fda4af',400:'#fb7185',500:'#f43f5e',600:'#e11d48',700:'#be123c',800:'#9f1239',900:'#881337' } }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="font-poppins bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors">
+
+<!-- Loading Screen -->
+<div id="page-loader" aria-hidden="true">
+  <div class="text-center">
+    <div class="loader-flower">🌸</div>
+    <p class="mt-3 text-gray-500 dark:text-gray-400 text-sm font-medium">BloomLux</p>
+  </div>
+</div>
+
+<!-- ── HEADER ── -->
+<header class="sticky top-0 z-50 bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center h-16 gap-4">
+
+      <!-- Logo -->
+      <a href="index.html" class="flex-shrink-0 font-playfair text-2xl font-bold text-rose-500">
+        🌸 BloomLux
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex items-center gap-1 ml-6" aria-label="Main navigation">
+        <a href="index.html" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-rose-500 hover:bg-rose-50 dark:hover:bg-gray-800 transition-colors">Home</a>
+        <!-- Categories Dropdown -->
+        <div class="relative group">
+          <button class="px-3 py-2 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-rose-500 hover:bg-rose-50 dark:hover:bg-gray-800 transition-colors flex items-center gap-1" aria-haspopup="true" aria-expanded="false">
+            Categories
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="absolute top-full left-0 mt-1 w-52 bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-100 dark:border-gray-700 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+            <div class="p-2">
+              <a href="shop.html?cat=birthday" class="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-gray-700 dark:text-gray-300 hover:bg-rose-50 dark:hover:bg-gray-700 hover:text-rose-500">🎂 Birthday</a>
+              <a href="shop.html?cat=anniversary" class="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-gray-700 dark:text-gray-300 hover:bg-rose-50 dark:hover:bg-gray-700 hover:text-rose-500">💑 Anniversary</a>
+              <a href="shop.html?cat=roses" class="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-gray-700 dark:text-gray-300 hover:bg-rose-50 dark:hover:bg-gray-700 hover:text-rose-500">🌹 Roses</a>
+              <a href="shop.html?cat=orchids" class="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-gray-700 dark:text-gray-300 hover:bg-rose-50 dark:hover:bg-gray-700 hover:text-rose-500">🌺 Luxury Collection</a>
+              <a href="shop.html?cat=bouquets" class="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-gray-700 dark:text-gray-300 hover:bg-rose-50 dark:hover:bg-gray-700 hover:text-rose-500">💐 Bouquets</a>
+              <a href="shop.html?cat=hampers" class="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-gray-700 dark:text-gray-300 hover:bg-rose-50 dark:hover:bg-gray-700 hover:text-rose-500">🎁 Same Day Delivery</a>
+            </div>
+          </div>
+        </div>
+        <a href="shop.html" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-rose-500 hover:bg-rose-50 dark:hover:bg-gray-800 transition-colors">Shop</a>
+        <a href="about.html" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-rose-500 hover:bg-rose-50 dark:hover:bg-gray-800 transition-colors">About</a>
+        <a href="contact.html" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-rose-500 hover:bg-rose-50 dark:hover:bg-gray-800 transition-colors">Contact</a>
+      </nav>
+
+      <!-- Search -->
+      <div class="hidden md:flex flex-1 max-w-sm relative ml-4">
+        <input data-search-input type="search" placeholder="Search flowers, occasions..." aria-label="Search products"
+          class="w-full pl-10 pr-4 py-2 rounded-full border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-rose-400 dark:text-white placeholder-gray-400">
+        <svg class="absolute left-3 top-2.5 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        <div class="absolute top-full left-0 right-0 mt-1 bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-100 dark:border-gray-700 z-50 hidden" id="search-dropdown"></div>
+      </div>
+
+      <!-- Right Icons -->
+      <div class="ml-auto flex items-center gap-1">
+        <!-- Dark Mode -->
+        <button data-dark-toggle aria-label="Toggle dark mode" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-300">
+          <span data-dark-icon></span>
+        </button>
+        <!-- Wishlist -->
+        <a href="#" aria-label="Wishlist" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-300 relative">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+          <span data-wishlist-badge class="hidden absolute -top-1 -right-1 bg-rose-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center font-bold leading-none">0</span>
+        </a>
+        <!-- Cart -->
+        <a href="cart.html" aria-label="Cart" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-300 relative">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+          <span data-cart-badge class="hidden absolute -top-1 -right-1 bg-rose-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center font-bold leading-none">0</span>
+        </a>
+        <!-- Hamburger -->
+        <button id="mobile-menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" class="lg:hidden p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-300">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900" role="menu">
+    <div class="p-4 space-y-1">
+      <!-- Mobile Search -->
+      <div class="relative mb-3">
+        <input data-search-input type="search" placeholder="Search flowers..." aria-label="Search"
+          class="w-full pl-10 pr-4 py-2 rounded-full border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-rose-400 dark:text-white">
+        <svg class="absolute left-3 top-2.5 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        <div class="absolute top-full left-0 right-0 mt-1 bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-100 dark:border-gray-700 z-50 hidden"></div>
+      </div>
+      <a href="index.html" role="menuitem" class="block px-4 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-rose-50 hover:text-rose-500 font-medium">Home</a>
+      <a href="shop.html" role="menuitem" class="block px-4 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-rose-50 hover:text-rose-500 font-medium">Shop</a>
+      <a href="shop.html?cat=roses" role="menuitem" class="block px-4 py-2 pl-8 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-rose-50 hover:text-rose-500 text-sm">🌹 Roses</a>
+      <a href="shop.html?cat=birthday" role="menuitem" class="block px-4 py-2 pl-8 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-rose-50 hover:text-rose-500 text-sm">🎂 Birthday</a>
+      <a href="shop.html?cat=orchids" role="menuitem" class="block px-4 py-2 pl-8 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-rose-50 hover:text-rose-500 text-sm">🌺 Luxury</a>
+      <a href="about.html" role="menuitem" class="block px-4 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-rose-50 hover:text-rose-500 font-medium">About</a>
+      <a href="contact.html" role="menuitem" class="block px-4 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-rose-50 hover:text-rose-500 font-medium">Contact</a>
+      <a href="cart.html" role="menuitem" class="block px-4 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-rose-50 hover:text-rose-500 font-medium">🛒 Cart</a>
+    </div>
+  </div>
+</header>
+
+<!-- ── HERO SECTION ── -->
+<section class="relative h-[85vh] min-h-[500px]" aria-label="Hero banner">
+  <div id="hero-slider" class="h-full"></div>
+  <!-- Navigation Arrows -->
+  <button id="hero-prev" aria-label="Previous slide" class="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/40 backdrop-blur-sm text-white p-3 rounded-full transition-all">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+  </button>
+  <button id="hero-next" aria-label="Next slide" class="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/40 backdrop-blur-sm text-white p-3 rounded-full transition-all">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+  </button>
+  <!-- Dots -->
+  <div id="hero-dots" class="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2" role="tablist" aria-label="Slide navigation"></div>
+</section>
+
+<!-- ── TRUST BAR ── -->
+<section class="bg-rose-50 dark:bg-gray-800 border-y border-rose-100 dark:border-gray-700 py-4">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+      <div class="flex items-center justify-center gap-2 text-sm text-gray-700 dark:text-gray-300">
+        <svg class="w-5 h-5 text-rose-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <span class="font-medium">Same Day Delivery</span>
+      </div>
+      <div class="flex items-center justify-center gap-2 text-sm text-gray-700 dark:text-gray-300">
+        <svg class="w-5 h-5 text-rose-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+        <span class="font-medium">100% Fresh Flowers</span>
+      </div>
+      <div class="flex items-center justify-center gap-2 text-sm text-gray-700 dark:text-gray-300">
+        <svg class="w-5 h-5 text-rose-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+        <span class="font-medium">Secure Payments</span>
+      </div>
+      <div class="flex items-center justify-center gap-2 text-sm text-gray-700 dark:text-gray-300">
+        <svg class="w-5 h-5 text-rose-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 15v-1a4 4 0 00-4-4H8m0 0l3 3m-3-3l3-3m9 14V5a2 2 0 00-2-2H6a2 2 0 00-2 2v16l4-2 2 1 2-1 2 1 2-1 4 2z"/></svg>
+        <span class="font-medium">Easy Returns</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FEATURED CATEGORIES ── -->
+<section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="text-center mb-12" data-animate>
+    <p class="text-rose-500 font-semibold text-sm uppercase tracking-widest mb-2">Browse by Category</p>
+    <h2 class="font-playfair text-4xl font-bold text-gray-900 dark:text-white">Shop by Occasion</h2>
+  </div>
+  <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+    <!-- Category Cards -->
+    <a href="shop.html?cat=roses" class="category-card group text-center" data-animate>
+      <div class="relative overflow-hidden rounded-2xl mb-3 aspect-square bg-rose-50 dark:bg-gray-800">
+        <img src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?w=400&q=80" alt="Roses" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end justify-center pb-3">
+          <span class="text-white font-semibold text-sm">Roses</span>
+        </div>
+      </div>
+    </a>
+    <a href="shop.html?cat=lilies" class="category-card group text-center" data-animate>
+      <div class="relative overflow-hidden rounded-2xl mb-3 aspect-square bg-pink-50 dark:bg-gray-800">
+        <img src="https://images.unsplash.com/photo-1490750967868-88df5691cc1c?w=400&q=80" alt="Lilies" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end justify-center pb-3">
+          <span class="text-white font-semibold text-sm">Lilies</span>
+        </div>
+      </div>
+    </a>
+    <a href="shop.html?cat=orchids" class="category-card group text-center" data-animate>
+      <div class="relative overflow-hidden rounded-2xl mb-3 aspect-square bg-purple-50 dark:bg-gray-800">
+        <img src="https://images.unsplash.com/photo-1466781783364-36c955e42a7f?w=400&q=80" alt="Orchids" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end justify-center pb-3">
+          <span class="text-white font-semibold text-sm">Orchids</span>
+        </div>
+      </div>
+    </a>
+    <a href="shop.html?cat=bouquets" class="category-card group text-center" data-animate>
+      <div class="relative overflow-hidden rounded-2xl mb-3 aspect-square bg-yellow-50 dark:bg-gray-800">
+        <img src="https://images.unsplash.com/photo-1487530811015-780aab43b23b?w=400&q=80" alt="Bouquets" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end justify-center pb-3">
+          <span class="text-white font-semibold text-sm">Bouquets</span>
+        </div>
+      </div>
+    </a>
+    <a href="shop.html?cat=cakes" class="category-card group text-center" data-animate>
+      <div class="relative overflow-hidden rounded-2xl mb-3 aspect-square bg-amber-50 dark:bg-gray-800">
+        <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=400&q=80" alt="Cakes & Flowers" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end justify-center pb-3">
+          <span class="text-white font-semibold text-sm">Cakes & Flowers</span>
+        </div>
+      </div>
+    </a>
+    <a href="shop.html?cat=hampers" class="category-card group text-center" data-animate>
+      <div class="relative overflow-hidden rounded-2xl mb-3 aspect-square bg-emerald-50 dark:bg-gray-800">
+        <img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=400&q=80" alt="Premium Hampers" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end justify-center pb-3">
+          <span class="text-white font-semibold text-sm">Premium Hampers</span>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ── BEST SELLERS ── -->
+<section class="py-16 bg-gray-50 dark:bg-gray-800/50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between mb-12">
+      <div data-animate>
+        <p class="text-rose-500 font-semibold text-sm uppercase tracking-widest mb-2">Most Loved</p>
+        <h2 class="font-playfair text-4xl font-bold text-gray-900 dark:text-white">Best Sellers</h2>
+      </div>
+      <a href="shop.html" class="hidden md:inline-flex items-center gap-2 text-rose-500 hover:text-rose-600 font-semibold transition-colors">
+        View All
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+    <div id="best-sellers-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
+    <div class="text-center mt-8 md:hidden">
+      <a href="shop.html" class="inline-block border border-rose-500 text-rose-500 hover:bg-rose-500 hover:text-white px-8 py-3 rounded-full font-semibold transition-all duration-300">View All Products</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROMO BANNER ── -->
+<section class="relative py-24 overflow-hidden bg-gray-900">
+  <img src="https://images.unsplash.com/photo-1487530811015-780aab43b23b?w=1400&q=80" alt="Same day flower delivery" class="absolute inset-0 w-full h-full object-cover opacity-30">
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+    <p class="text-rose-400 font-semibold text-sm uppercase tracking-widest mb-4" data-animate>Limited Time Offer</p>
+    <h2 class="font-playfair text-4xl md:text-6xl font-bold mb-6" data-animate>Same Day Delivery<br>Available Now</h2>
+    <p class="text-xl text-gray-300 mb-8 max-w-xl mx-auto" data-animate>Order before 3 PM and get your flowers delivered the same day. Surprise your loved ones today!</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center" data-animate>
+      <a href="shop.html" class="inline-block bg-rose-500 hover:bg-rose-600 text-white px-10 py-4 rounded-full font-bold text-lg transition-all duration-300 hover:scale-105 shadow-xl">Order Now</a>
+      <a href="about.html" class="inline-block bg-white/10 hover:bg-white/20 text-white border border-white/30 px-10 py-4 rounded-full font-semibold text-lg transition-all duration-300 backdrop-blur-sm">Learn More</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="text-center mb-12" data-animate>
+    <p class="text-rose-500 font-semibold text-sm uppercase tracking-widest mb-2">Happy Customers</p>
+    <h2 class="font-playfair text-4xl font-bold text-gray-900 dark:text-white">What They Say</h2>
+  </div>
+  <div class="grid md:grid-cols-3 gap-8">
+    <!-- Testimonial 1 -->
+    <div class="testimonial-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm" data-animate>
+      <div class="flex items-center gap-1 text-yellow-400 mb-4 text-xl" aria-label="5 out of 5 stars">★★★★★</div>
+      <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">"Absolutely stunning arrangement! The flowers were fresh and beautifully presented. My wife was in tears — the good kind! Will definitely order again."</p>
+      <div class="flex items-center gap-3">
+        <img src="https://i.pravatar.cc/48?img=11" alt="Rahul Sharma" class="w-12 h-12 rounded-full object-cover">
+        <div>
+          <p class="font-semibold text-gray-900 dark:text-white">Rahul Sharma</p>
+          <p class="text-sm text-gray-500">Mumbai</p>
+        </div>
+      </div>
+    </div>
+    <!-- Testimonial 2 -->
+    <div class="testimonial-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm" data-animate>
+      <div class="flex items-center gap-1 text-yellow-400 mb-4 text-xl" aria-label="5 out of 5 stars">★★★★★</div>
+      <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">"Ordered the Premium Hamper for our anniversary and it was beyond expectations. The packaging was luxurious and the flowers smelled divine. Highly recommend!"</p>
+      <div class="flex items-center gap-3">
+        <img src="https://i.pravatar.cc/48?img=5" alt="Priya Nair" class="w-12 h-12 rounded-full object-cover">
+        <div>
+          <p class="font-semibold text-gray-900 dark:text-white">Priya Nair</p>
+          <p class="text-sm text-gray-500">Bengaluru</p>
+        </div>
+      </div>
+    </div>
+    <!-- Testimonial 3 -->
+    <div class="testimonial-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm" data-animate>
+      <div class="flex items-center gap-1 text-yellow-400 mb-4 text-xl" aria-label="4 out of 5 stars">★★★★☆</div>
+      <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">"Same day delivery worked perfectly! I forgot my mum's birthday and BloomLux saved the day. The orchids were gorgeous and the customer service was excellent."</p>
+      <div class="flex items-center gap-3">
+        <img src="https://i.pravatar.cc/48?img=33" alt="Arjun Mehta" class="w-12 h-12 rounded-full object-cover">
+        <div>
+          <p class="font-semibold text-gray-900 dark:text-white">Arjun Mehta</p>
+          <p class="text-sm text-gray-500">Delhi</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── NEWSLETTER ── -->
+<section class="py-16 bg-gradient-to-r from-rose-50 to-pink-50 dark:from-gray-800 dark:to-gray-900">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <div data-animate>
+      <p class="text-rose-500 font-semibold text-sm uppercase tracking-widest mb-2">Stay in Bloom</p>
+      <h2 class="font-playfair text-4xl font-bold text-gray-900 dark:text-white mb-4">Get Exclusive Offers</h2>
+      <p class="text-gray-600 dark:text-gray-300 mb-8">Subscribe to our newsletter and be the first to know about seasonal collections, discounts, and floral inspiration.</p>
+      <form data-newsletter-form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+        <input type="email" placeholder="Your email address" required aria-label="Email address"
+          class="flex-1 px-5 py-3 rounded-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-rose-400 text-sm">
+        <button type="submit" class="bg-rose-500 hover:bg-rose-600 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105 text-sm whitespace-nowrap">Subscribe 🌸</button>
+      </form>
+      <p class="text-xs text-gray-400 mt-4">No spam, ever. Unsubscribe anytime.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer class="bg-gray-900 text-gray-300 pt-16 pb-8">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+      <!-- Brand -->
+      <div class="col-span-2 md:col-span-1">
+        <a href="index.html" class="font-playfair text-2xl font-bold text-white mb-4 block">🌸 BloomLux</a>
+        <p class="text-sm text-gray-400 leading-relaxed mb-6">Premium flower delivery across India. Handcrafted with love and delivered with care.</p>
+        <div class="flex gap-3">
+          <a href="#" aria-label="Facebook" class="w-9 h-9 bg-gray-800 hover:bg-rose-500 rounded-full flex items-center justify-center transition-colors">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="#" aria-label="Instagram" class="w-9 h-9 bg-gray-800 hover:bg-rose-500 rounded-full flex items-center justify-center transition-colors">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="#" aria-label="Twitter" class="w-9 h-9 bg-gray-800 hover:bg-rose-500 rounded-full flex items-center justify-center transition-colors">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+          </a>
+          <a href="#" aria-label="YouTube" class="w-9 h-9 bg-gray-800 hover:bg-rose-500 rounded-full flex items-center justify-center transition-colors">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+          </a>
+        </div>
+      </div>
+      <!-- Quick Links -->
+      <div>
+        <h4 class="font-semibold text-white mb-4">Quick Links</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="index.html" class="hover:text-rose-400 transition-colors">Home</a></li>
+          <li><a href="shop.html" class="hover:text-rose-400 transition-colors">Shop</a></li>
+          <li><a href="about.html" class="hover:text-rose-400 transition-colors">About Us</a></li>
+          <li><a href="contact.html" class="hover:text-rose-400 transition-colors">Contact</a></li>
+          <li><a href="cart.html" class="hover:text-rose-400 transition-colors">Cart</a></li>
+        </ul>
+      </div>
+      <!-- Categories -->
+      <div>
+        <h4 class="font-semibold text-white mb-4">Categories</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="shop.html?cat=roses" class="hover:text-rose-400 transition-colors">Roses</a></li>
+          <li><a href="shop.html?cat=lilies" class="hover:text-rose-400 transition-colors">Lilies</a></li>
+          <li><a href="shop.html?cat=orchids" class="hover:text-rose-400 transition-colors">Orchids</a></li>
+          <li><a href="shop.html?cat=bouquets" class="hover:text-rose-400 transition-colors">Bouquets</a></li>
+          <li><a href="shop.html?cat=hampers" class="hover:text-rose-400 transition-colors">Premium Hampers</a></li>
+        </ul>
+      </div>
+      <!-- Contact -->
+      <div>
+        <h4 class="font-semibold text-white mb-4">Contact Info</h4>
+        <ul class="space-y-3 text-sm">
+          <li class="flex items-start gap-2">
+            <svg class="w-4 h-4 mt-0.5 text-rose-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            <span>42 Garden Street, Bandra, Mumbai 400050</span>
+          </li>
+          <li class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-rose-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            <a href="tel:+911234567890" class="hover:text-rose-400 transition-colors">+91 123 456 7890</a>
+          </li>
+          <li class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-rose-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            <a href="mailto:hello@bloomlux.in" class="hover:text-rose-400 transition-colors">hello@bloomlux.in</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-sm text-gray-500">© 2025 BloomLux. All rights reserved. Made with ❤️ in India.</p>
+      <div class="flex gap-4 text-sm text-gray-500">
+        <a href="#" class="hover:text-gray-300 transition-colors">Privacy Policy</a>
+        <a href="#" class="hover:text-gray-300 transition-colors">Terms of Service</a>
+        <a href="#" class="hover:text-gray-300 transition-colors">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ── QUICK VIEW MODAL ── -->
+<div id="quick-view-modal" class="hidden fixed inset-0 z-[9998] bg-black/60 backdrop-blur-sm items-center justify-center p-4" role="dialog" aria-modal="true" aria-label="Quick view">
+  <div class="bg-white dark:bg-gray-900 rounded-2xl max-w-2xl w-full p-6 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+    <button data-modal-close aria-label="Close modal" class="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-500">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+    <div id="quick-view-body"></div>
+  </div>
+</div>
+
+<!-- ── BACK TO TOP ── -->
+<button id="back-to-top" aria-label="Back to top" class="fixed bottom-6 right-6 z-40 bg-rose-500 hover:bg-rose-600 text-white p-3 rounded-full shadow-lg opacity-0 pointer-events-none focus:pointer-events-auto focus:opacity-100 transition-opacity">
+  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
+</button>
+
+<script src="assets/js/main.js"></script>
+<script>
+  // Enable pointer events for back-to-top when visible
+  const btt = document.getElementById('back-to-top');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) btt.style.pointerEvents = 'auto';
+    else btt.style.pointerEvents = 'none';
+  });
+</script>
+</body>
+</html>
