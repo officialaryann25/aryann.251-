@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Checkout — IceWorld flower delivery. Fast and secure delivery across India.">
+  <title>Checkout — IceWorld</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/custom.css">
+  <script>tailwind.config={darkMode:'class',theme:{extend:{fontFamily:{poppins:['Poppins','sans-serif'],playfair:['Playfair Display','serif']}}}}</script>
+</head>
+<body class="font-poppins bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+
+<div id="page-loader" aria-hidden="true"><div class="text-center"><div class="loader-flower">🌸</div></div></div>
+
+<!-- HEADER -->
+<header class="sticky top-0 z-50 bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center h-16 gap-4">
+      <a href="index.html" class="flex-shrink-0 font-playfair text-2xl font-bold text-rose-500">🌸 IceWorld</a>
+      <!-- Checkout Steps -->
+      <div class="hidden md:flex items-center gap-2 ml-6 text-sm">
+        <span class="flex items-center gap-1 text-rose-500 font-semibold"><span class="w-6 h-6 rounded-full bg-rose-500 text-white flex items-center justify-center text-xs font-bold">1</span> Cart</span>
+        <svg class="w-4 h-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        <span class="flex items-center gap-1 text-rose-500 font-semibold"><span class="w-6 h-6 rounded-full bg-rose-500 text-white flex items-center justify-center text-xs font-bold">2</span> Checkout</span>
+        <svg class="w-4 h-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        <span class="flex items-center gap-1 text-gray-400"><span class="w-6 h-6 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-xs font-bold">3</span> Confirmation</span>
+      </div>
+      <div class="ml-auto flex items-center gap-2">
+        <button data-dark-toggle aria-label="Toggle dark mode" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-300"><span data-dark-icon></span></button>
+        <a href="cart.html" class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300 hover:text-rose-500 transition-colors">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>Back to Cart
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- CHECKOUT CONTENT -->
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+  <h1 class="font-playfair text-3xl font-bold text-gray-900 dark:text-white mb-8">Checkout</h1>
+
+  <div class="grid lg:grid-cols-2 gap-10">
+    <!-- LEFT: Form -->
+    <div>
+      <form id="checkout-form" novalidate>
+
+        <!-- Shipping Info -->
+        <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm mb-6">
+          <h2 class="font-semibold text-xl text-gray-900 dark:text-white mb-5 flex items-center gap-2">
+            <span class="w-8 h-8 rounded-full bg-rose-500 text-white flex items-center justify-center text-sm font-bold">1</span>
+            Delivery Information
+          </h2>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="col-span-2 sm:col-span-1">
+              <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" for="full-name">Full Name *</label>
+              <input id="full-name" type="text" placeholder="Rahul Kumar" required aria-required="true"
+                class="w-full border border-gray-200 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-rose-400">
+            </div>
+            <div class="col-span-2 sm:col-span-1">
+              <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" for="phone">Phone Number *</label>
+              <input id="phone" type="tel" placeholder="+91 98765 43210" required aria-required="true"
+                class="w-full border border-gray-200 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-rose-400">
+            </div>
+            <div class="col-span-2">
+              <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" for="email">Email Address *</label>
+              <input id="email" type="email" placeholder="you@example.com" required aria-required="true"
+                class="w-full border border-gray-200 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-rose-400">
+            </div>
+            <div class="col-span-2">
+              <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" for="address">Full Address *</label>
+              <textarea id="address" rows="2" placeholder="House No., Street, Locality" required aria-required="true"
+                class="w-full border border-gray-200 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-rose-400 resize-none"></textarea>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" for="city">City *</label>
+              <select id="city" required class="w-full border border-gray-200 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-rose-400">
+                <option value="">Select City</option>
+                <option>New Delhi</option>
+                <option>Mumbai</option>
+                <option>Bengaluru</option>
+                <option>Hyderabad</option>
+                <option>Chennai</option>
+                <option>Kolkata</option>
+                <option>Pune</option>
+                <option>Ahmedabad</option>
+                <option>Jaipur</option>
+                <option>Lucknow</option>
+                <option>Noida</option>
+                <option>Gurgaon</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" for="pincode">PIN Code *</label>
+              <input id="pincode" type="text" placeholder="110085" maxlength="6" pattern="[0-9]{6}" required
+                class="w-full border border-gray-200 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-rose-400">
+            </div>
+            <div class="col-span-2">
+              <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" for="delivery-date">Preferred Delivery Date *</label>
+              <input id="delivery-date" type="date" required
+                class="w-full border border-gray-200 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-rose-400">
+            </div>
+            <div class="col-span-2">
+              <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" for="note">Gift Message (Optional)</label>
+              <textarea id="note" rows="2" placeholder="Write a personal message for the recipient..."
+                class="w-full border border-gray-200 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-rose-400 resize-none"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- Delivery Options -->
+        <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm mb-6">
+          <h2 class="font-semibold text-xl text-gray-900 dark:text-white mb-5 flex items-center gap-2">
+            <span class="w-8 h-8 rounded-full bg-rose-500 text-white flex items-center justify-center text-sm font-bold">2</span>
+            Delivery Options
+          </h2>
+          <div class="space-y-3">
+            <label class="flex items-center gap-4 p-4 border border-gray-200 dark:border-gray-600 rounded-xl cursor-pointer hover:border-rose-400 transition-colors peer-checked:border-rose-500">
+              <input type="radio" name="delivery-type" value="standard" class="text-rose-500" checked>
+              <div class="flex-1">
+                <p class="font-semibold text-gray-900 dark:text-white">Standard Delivery</p>
+                <p class="text-xs text-gray-500 mt-0.5">Delivered within 2–3 working days</p>
+              </div>
+              <span class="text-rose-500 font-bold text-sm">₹99</span>
+            </label>
+            <label class="flex items-center gap-4 p-4 border border-gray-200 dark:border-gray-600 rounded-xl cursor-pointer hover:border-rose-400 transition-colors">
+              <input type="radio" name="delivery-type" value="express" class="text-rose-500">
+              <div class="flex-1">
+                <p class="font-semibold text-gray-900 dark:text-white">Express Delivery ⚡</p>
+                <p class="text-xs text-gray-500 mt-0.5">Order before 3 PM — Same day delivery</p>
+              </div>
+              <span class="text-rose-500 font-bold text-sm">₹199</span>
+            </label>
+            <label class="flex items-center gap-4 p-4 border border-gray-200 dark:border-gray-600 rounded-xl cursor-pointer hover:border-rose-400 transition-colors">
+              <input type="radio" name="delivery-type" value="midnight" class="text-rose-500">
+              <div class="flex-1">
+                <p class="font-semibold text-gray-900 dark:text-white">Midnight Delivery 🌙</p>
+                <p class="text-xs text-gray-500 mt-0.5">Delivered at midnight to surprise your loved one</p>
+              </div>
+              <span class="text-rose-500 font-bold text-sm">₹299</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Payment Options -->
+        <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm mb-6">
+          <h2 class="font-semibold text-xl text-gray-900 dark:text-white mb-5 flex items-center gap-2">
+            <span class="w-8 h-8 rounded-full bg-rose-500 text-white flex items-center justify-center text-sm font-bold">3</span>
+            Payment Method
+          </h2>
+          <div class="space-y-3">
+            <label class="flex items-center gap-4 p-4 border border-rose-400 bg-rose-50 dark:bg-gray-700 dark:border-rose-500 rounded-xl cursor-pointer">
+              <input type="radio" name="payment" value="upi" class="text-rose-500" checked>
+              <div class="flex-1">
+                <p class="font-semibold text-gray-900 dark:text-white flex items-center gap-2">UPI <span class="bg-green-100 text-green-700 text-xs px-2 py-0.5 rounded-full">Most Popular</span></p>
+                <p class="text-xs text-gray-500 mt-0.5">PhonePe, Google Pay, Paytm, BHIM</p>
+              </div>
+              <span class="text-2xl">📱</span>
+            </label>
+            <label class="flex items-center gap-4 p-4 border border-gray-200 dark:border-gray-600 rounded-xl cursor-pointer hover:border-rose-400 transition-colors">
+              <input type="radio" name="payment" value="card" class="text-rose-500">
+              <div class="flex-1">
+                <p class="font-semibold text-gray-900 dark:text-white">Credit / Debit Card</p>
+                <p class="text-xs text-gray-500 mt-0.5">Visa, Mastercard, RuPay</p>
+              </div>
+              <span class="text-2xl">💳</span>
+            </label>
+            <label class="flex items-center gap-4 p-4 border border-gray-200 dark:border-gray-600 rounded-xl cursor-pointer hover:border-rose-400 transition-colors">
+              <input type="radio" name="payment" value="netbanking" class="text-rose-500">
+              <div class="flex-1">
+                <p class="font-semibold text-gray-900 dark:text-white">Net Banking</p>
+                <p class="text-xs text-gray-500 mt-0.5">All major Indian banks supported</p>
+              </div>
+              <span class="text-2xl">🏦</span>
+            </label>
+            <label class="flex items-center gap-4 p-4 border border-gray-200 dark:border-gray-600 rounded-xl cursor-pointer hover:border-rose-400 transition-colors">
+              <input type="radio" name="payment" value="cod" class="text-rose-500">
+              <div class="flex-1">
+                <p class="font-semibold text-gray-900 dark:text-white">Cash on Delivery</p>
+                <p class="text-xs text-gray-500 mt-0.5">Pay when your flowers arrive</p>
+              </div>
+              <span class="text-2xl">💵</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Promo Code -->
+        <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm mb-6">
+          <h3 class="font-semibold text-gray-900 dark:text-white mb-4">Promo Code</h3>
+          <div class="flex gap-3">
+            <input id="promo-input" type="text" placeholder="Enter code (try BLOOM10)" aria-label="Promo code"
+              class="flex-1 border border-gray-200 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-rose-400 uppercase">
+            <button id="apply-promo" type="button" class="bg-gray-900 dark:bg-white dark:text-gray-900 text-white px-5 py-3 rounded-xl text-sm font-semibold hover:opacity-90 transition-opacity whitespace-nowrap">Apply</button>
+          </div>
+        </div>
+
+        <!-- Place Order Button -->
+        <button type="submit" class="w-full bg-rose-500 hover:bg-rose-600 text-white py-5 rounded-2xl font-bold text-xl transition-all duration-300 hover:scale-[1.02] shadow-xl shadow-rose-200 dark:shadow-rose-900/30 flex items-center justify-center gap-3">
+          🌸 Place Order
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </button>
+        <p class="text-center text-xs text-gray-400 mt-3">🔒 100% secure checkout · No actual charges will be made</p>
+      </form>
+    </div>
+
+    <!-- RIGHT: Order Summary -->
+    <div>
+      <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm sticky top-24">
+        <h2 class="font-semibold text-xl text-gray-900 dark:text-white mb-6 flex items-center gap-2">
+          <span class="w-8 h-8 rounded-full bg-rose-500 text-white flex items-center justify-center text-sm font-bold">✓</span>
+          Order Summary
+        </h2>
+        <div id="checkout-summary" class="mb-4"></div>
+
+        <!-- Secure badges -->
+        <div class="mt-6 pt-6 border-t border-gray-100 dark:border-gray-700">
+          <p class="text-xs text-gray-500 text-center mb-4">Trusted by 50,000+ customers across India</p>
+          <div class="flex items-center justify-center gap-4 flex-wrap">
+            <div class="flex items-center gap-1 text-xs text-gray-500">
+              <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              SSL Secured
+            </div>
+            <div class="flex items-center gap-1 text-xs text-gray-500">
+              <svg class="w-4 h-4 text-blue-500" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"/><path fill-rule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" clip-rule="evenodd"/></svg>
+              UPI / Cards
+            </div>
+            <div class="flex items-center gap-1 text-xs text-gray-500">
+              <span>🇮🇳</span>
+              Made in India
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- Success Modal -->
+<div id="success-modal" class="hidden fixed inset-0 z-[9999] bg-black/60 backdrop-blur-sm items-center justify-center p-4" role="dialog" aria-modal="true" aria-label="Order placed successfully">
+  <div class="bg-white dark:bg-gray-800 rounded-3xl max-w-md w-full p-8 shadow-2xl text-center">
+    <div class="text-6xl mb-4 animate-bounce">🌸</div>
+    <h2 class="font-playfair text-3xl font-bold text-gray-900 dark:text-white mb-3">Order Placed!</h2>
+    <p class="text-gray-600 dark:text-gray-300 mb-2">Thank you for your order. Your flowers will be delivered fresh and on time.</p>
+    <p class="text-sm text-gray-500 mb-6">A confirmation will be sent to your email address.</p>
+    <div class="bg-rose-50 dark:bg-gray-700 rounded-2xl p-4 mb-6 text-left">
+      <p class="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Need help? Contact us:</p>
+      <a href="tel:+918750141860" class="text-sm text-rose-500 hover:text-rose-600 block">📞 +91 87501 41860 (Mahi)</a>
+      <a href="tel:+918368573180" class="text-sm text-rose-500 hover:text-rose-600 block mt-1">📞 +91 83685 73180 (Priyanshi)</a>
+    </div>
+    <button id="close-success" class="w-full bg-rose-500 hover:bg-rose-600 text-white py-3 rounded-full font-semibold transition-colors">Back to Home 🏠</button>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-gray-300 py-8 border-t border-gray-800">
+  <div class="max-w-7xl mx-auto px-4 text-center">
+    <p class="text-sm text-gray-500">© 2025 IceWorld — Made with ❤️ in India | Mahi Sehrawat & Priyanshi</p>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script>
+  // Set min date for delivery
+  document.getElementById('delivery-date').min = new Date(Date.now()+86400000).toISOString().split('T')[0];
+  document.getElementById('delivery-date').value = new Date(Date.now()+86400000).toISOString().split('T')[0];
+</script>
+</body>
+</html>

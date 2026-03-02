@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Your shopping cart — IceWorld flower delivery India.">
+  <title>Cart — IceWorld</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/custom.css">
+  <script>tailwind.config={darkMode:'class',theme:{extend:{fontFamily:{poppins:['Poppins','sans-serif'],playfair:['Playfair Display','serif']}}}}</script>
+</head>
+<body class="font-poppins bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+
+<div id="page-loader" aria-hidden="true"><div class="text-center"><div class="loader-flower">🌸</div></div></div>
+
+<!-- HEADER -->
+<header class="sticky top-0 z-50 bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center h-16 gap-4">
+      <a href="index.html" class="flex-shrink-0 font-playfair text-2xl font-bold text-rose-500">🌸 IceWorld</a>
+      <nav class="hidden lg:flex items-center gap-1 ml-6">
+        <a href="index.html" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-rose-500 hover:bg-rose-50 dark:hover:bg-gray-800 transition-colors">Home</a>
+        <a href="shop.html" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-rose-500 hover:bg-rose-50 dark:hover:bg-gray-800 transition-colors">Shop</a>
+        <a href="about.html" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-rose-500 hover:bg-rose-50 dark:hover:bg-gray-800 transition-colors">About</a>
+        <a href="contact.html" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-rose-500 hover:bg-rose-50 dark:hover:bg-gray-800 transition-colors">Contact</a>
+      </nav>
+      <div class="ml-auto flex items-center gap-1">
+        <button data-dark-toggle aria-label="Toggle dark mode" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-300"><span data-dark-icon></span></button>
+        <a href="cart.html" aria-label="Cart" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 relative text-gray-600 dark:text-gray-300">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+          <span data-cart-badge class="hidden absolute -top-1 -right-1 bg-rose-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center font-bold">0</span>
+        </a>
+        <button id="mobile-menu-btn" aria-label="Open menu" aria-expanded="false" class="lg:hidden p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-300">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 p-4 space-y-1">
+    <a href="index.html" class="block px-4 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-rose-50 hover:text-rose-500">Home</a>
+    <a href="shop.html" class="block px-4 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-rose-50 hover:text-rose-500">Shop</a>
+    <a href="about.html" class="block px-4 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-rose-50 hover:text-rose-500">About</a>
+    <a href="contact.html" class="block px-4 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-rose-50 hover:text-rose-500">Contact</a>
+  </div>
+</header>
+
+<!-- Page Title -->
+<div class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700 py-6">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav aria-label="Breadcrumb" class="text-sm text-gray-500 mb-2">
+      <a href="index.html" class="hover:text-rose-500">Home</a>
+      <span class="mx-2">›</span>
+      <span class="text-gray-700 dark:text-gray-300">Cart</span>
+    </nav>
+    <h1 class="font-playfair text-3xl font-bold text-gray-900 dark:text-white">Shopping Cart 🛒</h1>
+  </div>
+</div>
+
+<!-- CART CONTENT -->
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+  <div class="grid lg:grid-cols-3 gap-8">
+    <!-- Cart Items -->
+    <div class="lg:col-span-2 space-y-4" id="cart-items"></div>
+    <!-- Order Summary -->
+    <div id="cart-summary"></div>
+  </div>
+
+  <!-- Continue Shopping -->
+  <div class="mt-8">
+    <a href="shop.html" class="inline-flex items-center gap-2 text-rose-500 hover:text-rose-600 font-medium transition-colors">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+      Continue Shopping
+    </a>
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-gray-300 py-10 mt-10 border-t border-gray-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
+    <a href="index.html" class="font-playfair text-xl font-bold text-white">🌸 IceWorld</a>
+    <div class="flex gap-6 text-sm">
+      <a href="index.html" class="hover:text-rose-400 transition-colors">Home</a>
+      <a href="shop.html" class="hover:text-rose-400 transition-colors">Shop</a>
+      <a href="about.html" class="hover:text-rose-400 transition-colors">About</a>
+      <a href="contact.html" class="hover:text-rose-400 transition-colors">Contact</a>
+    </div>
+    <p class="text-sm text-gray-500">© 2025 IceWorld — Made with ❤️ in India</p>
+  </div>
+</footer>
+
+<button id="back-to-top" aria-label="Back to top" class="fixed bottom-6 right-6 z-40 bg-rose-500 hover:bg-rose-600 text-white p-3 rounded-full shadow-lg opacity-0 transition-opacity">
+  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
+</button>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

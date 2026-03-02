@@ -1,5 +1,5 @@
 /* =====================================================
-   BloomLux — Main JavaScript
+   IceWorld — Main JavaScript
    Features: Dark Mode, Hero Slider, Cart (localStorage),
              Wishlist (localStorage), Search Autocomplete,
              Quick View Modal, Toast Notifications,
@@ -8,25 +8,25 @@
 
 /* ── Product Data ── */
 const PRODUCTS = [
-  { id: 1, name: "Romantic Red Roses", price: 799, originalPrice: 999, category: "roses", occasion: "anniversary", image: "https://images.unsplash.com/photo-1561181286-d3fee7d55364?w=600&q=80", description: "A stunning bouquet of 12 fresh red roses, symbolising deep love and passion.", badge: "Best Seller", rating: 5 },
-  { id: 2, name: "Pink Lily Delight", price: 649, originalPrice: 849, category: "lilies", occasion: "birthday", image: "https://images.unsplash.com/photo-1490750967868-88df5691cc1c?w=600&q=80", description: "Elegant pink lilies arranged in a premium vase for a graceful gifting experience.", badge: "New", rating: 4 },
+  { id: 1, name: "Romantic Red Roses", price: 799, originalPrice: 999, category: "roses", occasion: "anniversary", image: "https://images.unsplash.com/photo-1561181286-d3fee7d55364?w=600&q=80", description: "A stunning bouquet of 12 fresh red roses, symbolising deep love and passion. Perfect for anniversaries and Valentine's Day.", badge: "Best Seller", rating: 5 },
+  { id: 2, name: "Pink Lily Delight", price: 649, originalPrice: 849, category: "lilies", occasion: "birthday", image: "https://images.unsplash.com/photo-1490750967868-88df5691cc1c?w=600&q=80", description: "Elegant pink lilies arranged in a premium vase for a graceful gifting experience on birthdays.", badge: "New", rating: 4 },
   { id: 3, name: "Orchid Elegance", price: 1199, originalPrice: 1499, category: "orchids", occasion: "luxury", image: "https://images.unsplash.com/photo-1466781783364-36c955e42a7f?w=600&q=80", description: "Exotic purple orchids in a designer pot — a luxurious statement of sophistication.", badge: "Premium", rating: 5 },
-  { id: 4, name: "Rainbow Bouquet", price: 549, originalPrice: 699, category: "bouquets", occasion: "birthday", image: "https://images.unsplash.com/photo-1487530811015-780aab43b23b?w=600&q=80", description: "A vibrant mix of seasonal flowers in a rainbow arrangement to brighten any day.", badge: "Popular", rating: 4 },
+  { id: 4, name: "Diwali Special Bouquet", price: 549, originalPrice: 699, category: "bouquets", occasion: "diwali", image: "https://images.unsplash.com/photo-1487530811015-780aab43b23b?w=600&q=80", description: "A vibrant mix of marigolds and seasonal flowers — a perfect Diwali gift for your loved ones.", badge: "Diwali Special", rating: 4 },
   { id: 5, name: "Sunflower Sunshine", price: 499, originalPrice: 649, category: "bouquets", occasion: "birthday", image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&q=80", description: "Fresh sunflowers bundled with seasonal greens — the perfect cheerful gift.", badge: "", rating: 4 },
-  { id: 6, name: "White Carnation Bliss", price: 399, originalPrice: 499, category: "bouquets", occasion: "sympathy", image: "https://images.unsplash.com/photo-1561181286-d3fee7d55364?w=600&q=80", description: "Pure white carnations representing admiration and undying love.", badge: "", rating: 4 },
-  { id: 7, name: "Premium Hamper Box", price: 1599, originalPrice: 1999, category: "hampers", occasion: "anniversary", image: "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=600&q=80", description: "Luxury hamper with roses, chocolates, and a scented candle for a complete gifting experience.", badge: "Trending", rating: 5 },
-  { id: 8, name: "Cake & Flower Combo", price: 899, originalPrice: 1099, category: "cakes", occasion: "birthday", image: "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=600&q=80", description: "A delightful combo of a fresh cream cake and a bunch of colourful flowers.", badge: "Combo", rating: 4 },
-  { id: 9, name: "Mixed Seasonal Bunch", price: 349, originalPrice: 449, category: "bouquets", occasion: "everyday", image: "https://images.unsplash.com/photo-1563241527-3004b7be0ffd?w=600&q=80", description: "A cheerful mix of seasonal blooms — perfect for any occasion or no occasion at all.", badge: "", rating: 3 },
-  { id: 10, name: "Yellow Rose Bliss", price: 599, originalPrice: 749, category: "roses", occasion: "friendship", image: "https://images.unsplash.com/photo-1548198471-e2e86b6c6e56?w=600&q=80", description: "Bright yellow roses symbolising friendship, joy, and new beginnings.", badge: "", rating: 4 },
-  { id: 11, name: "Lavender Dream", price: 749, originalPrice: 949, category: "orchids", occasion: "luxury", image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=600&q=80", description: "Fragrant lavender stems paired with white daisies in an artisan wrap.", badge: "New", rating: 5 },
-  { id: 12, name: "Tulip Tower", price: 699, originalPrice: 899, category: "bouquets", occasion: "anniversary", image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80", description: "A tall arrangement of Dutch tulips in pastel shades — timeless and refined.", badge: "", rating: 4 },
+  { id: 6, name: "Raksha Bandhan Flowers", price: 399, originalPrice: 499, category: "bouquets", occasion: "rakhi", image: "https://images.unsplash.com/photo-1561181286-d3fee7d55364?w=600&q=80", description: "Beautiful carnations to celebrate the special bond of siblings on Raksha Bandhan.", badge: "Rakhi Special", rating: 4 },
+  { id: 7, name: "Premium Hamper Box", price: 1599, originalPrice: 1999, category: "hampers", occasion: "anniversary", image: "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=600&q=80", description: "Luxury hamper with roses, Indian sweets, and a scented diya for a complete gifting experience.", badge: "Trending", rating: 5 },
+  { id: 8, name: "Cake & Flower Combo", price: 899, originalPrice: 1099, category: "cakes", occasion: "birthday", image: "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=600&q=80", description: "A delightful combo of a fresh eggless cake and a bunch of colourful flowers for birthdays.", badge: "Combo", rating: 4 },
+  { id: 9, name: "Mixed Seasonal Bunch", price: 349, originalPrice: 449, category: "bouquets", occasion: "everyday", image: "https://images.unsplash.com/photo-1563241527-3004b7be0ffd?w=600&q=80", description: "A cheerful mix of seasonal Indian blooms — perfect for any occasion or no occasion at all.", badge: "", rating: 3 },
+  { id: 10, name: "Yellow Rose Bliss", price: 599, originalPrice: 749, category: "roses", occasion: "friendship", image: "https://images.unsplash.com/photo-1548198471-e2e86b6c6e56?w=600&q=80", description: "Bright yellow roses symbolising friendship and new beginnings. Perfect for Friendship Day.", badge: "", rating: 4 },
+  { id: 11, name: "Marigold Pooja Garland", price: 249, originalPrice: 349, category: "orchids", occasion: "pooja", image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=600&q=80", description: "Fresh marigold garlands for daily pooja, temple offerings, and festival decoration.", badge: "New", rating: 5 },
+  { id: 12, name: "Rose & Chocolate Gift", price: 1199, originalPrice: 1499, category: "hampers", occasion: "valentine", image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80", description: "Premium red roses paired with Belgian chocolates in a luxury gift box — perfect for Valentine's Day.", badge: "Valentine", rating: 4 },
 ];
 
 /* ── Hero Slider Images ── */
 const HERO_SLIDES = [
-  { image: "https://images.unsplash.com/photo-1490750967868-88df5691cc1c?w=1400&q=80", heading: "Luxury Flowers Delivered with Love", sub: "Same-day delivery across India", cta: "Shop Now", href: "shop.html" },
-  { image: "https://images.unsplash.com/photo-1487530811015-780aab43b23b?w=1400&q=80", heading: "Celebrate Every Moment", sub: "Handcrafted bouquets for every occasion", cta: "Explore", href: "shop.html" },
-  { image: "https://images.unsplash.com/photo-1561181286-d3fee7d55364?w=1400&q=80", heading: "Roses That Speak Your Heart", sub: "Premium roses, delivered fresh", cta: "Order Today", href: "shop.html" },
+  { image: "https://images.unsplash.com/photo-1490750967868-88df5691cc1c?w=1400&q=80", heading: "Luxury Flowers Delivered with Love", sub: "Same-day delivery across Delhi, Mumbai & Bangalore", cta: "Order Now", href: "shop.html" },
+  { image: "https://images.unsplash.com/photo-1487530811015-780aab43b23b?w=1400&q=80", heading: "Celebrate Every Indian Occasion", sub: "Diwali, Rakhi, Birthdays, Weddings — we have it all", cta: "Explore", href: "shop.html" },
+  { image: "https://images.unsplash.com/photo-1561181286-d3fee7d55364?w=1400&q=80", heading: "Flowers That Speak Your Dil", sub: "Premium fresh flowers, delivered to your door", cta: "Shop Now", href: "shop.html" },
 ];
 
 /* ── Utility ── */
