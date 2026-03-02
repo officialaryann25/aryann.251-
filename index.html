@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Bloom Haven – Luxury Floral Designs for Every Occasion. Premium bouquets crafted with passion and elegance." />
+  <meta name="keywords" content="flower shop, bouquets, luxury floral, bloom haven, flowers delivery" />
+  <meta name="author" content="Bloom Haven" />
+  <meta property="og:title" content="Bloom Haven – Luxury Floral Designs" />
+  <meta property="og:description" content="Premium bouquets crafted with passion and elegance." />
+  <meta property="og:type" content="website" />
+  <title>Bloom Haven – Luxury Floral Designs for Every Occasion</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Font Awesome Icons (free CDN) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plh7eecIS333LgCDM5EBZ+a/fme8JA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== PAGE LOADER ===== -->
+  <div id="loader" class="loader" aria-hidden="true">
+    <div class="loader-inner">
+      <span class="loader-flower">🌸</span>
+      <p>Bloom Haven</p>
+    </div>
+  </div>
+
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <!-- Logo -->
+      <a href="#hero" class="logo" aria-label="Bloom Haven Home">
+        <span class="logo-icon">🌿</span>
+        <span class="logo-text">Bloom Haven</span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#features">Why Us</a>
+        <a href="#catalog">Catalog</a>
+        <a href="#testimonials">Reviews</a>
+        <a href="#order">Order</a>
+      </nav>
+
+      <!-- Cart & Hamburger -->
+      <div class="nav-actions">
+        <button class="cart-btn" id="cartBtn" aria-label="Open cart">
+          <i class="fa-solid fa-basket-shopping" aria-hidden="true"></i>
+          <span class="cart-badge" id="cartBadge" aria-live="polite">0</span>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+      <a href="#about">About</a>
+      <a href="#features">Why Us</a>
+      <a href="#catalog">Catalog</a>
+      <a href="#testimonials">Reviews</a>
+      <a href="#order">Order</a>
+    </nav>
+  </header>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero" id="hero" aria-label="Hero section">
+    <div class="hero-bg-text" aria-hidden="true">Beautiful</div>
+    <div class="container hero-container">
+      <div class="hero-content">
+        <p class="hero-sub fade-in-up">Crafted with passion and elegance</p>
+        <h1 class="hero-title fade-in-up delay-1">
+          Floral Color<br />
+          <span>Combinations</span>
+        </h1>
+        <div class="hero-buttons fade-in-up delay-2">
+          <a href="#catalog" class="btn btn-primary ripple">Explore Catalog</a>
+          <a href="#order" class="btn btn-outline ripple">Order Now</a>
+        </div>
+      </div>
+      <div class="hero-image fade-in-right delay-1">
+        <!-- Flower illustration using CSS + emoji for demo; replace with real image -->
+        <div class="flower-circle" aria-hidden="true">
+          <img
+            src="https://images.unsplash.com/photo-1487530811176-3780de880c2d?w=600&auto=format&fit=crop&q=80"
+            alt="Beautiful floral bouquet arrangement"
+            loading="eager"
+          />
+        </div>
+      </div>
+    </div>
+    <!-- Down Arrow -->
+    <a href="#about" class="scroll-down" aria-label="Scroll to about section">
+      <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+    </a>
+  </section>
+
+  <!-- ===== ABOUT SECTION ===== -->
+  <section class="about section-padding" id="about" aria-labelledby="about-title">
+    <div class="container about-container">
+      <div class="about-image fade-in-left">
+        <img
+          src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&auto=format&fit=crop&q=80"
+          alt="Florist carefully arranging a bouquet with fresh flowers"
+          loading="lazy"
+        />
+      </div>
+      <div class="about-text fade-in-right">
+        <span class="section-tag">Our Story</span>
+        <h2 id="about-title" class="section-title">About Us</h2>
+        <p>
+          At Bloom Haven, we believe every flower tells a story. Founded with a passion for
+          premium floral artistry, we handcraft every bouquet using the freshest blooms sourced
+          directly from sustainable farms. Our expert florists bring creativity and care to each
+          arrangement, ensuring your moments become timeless memories.
+        </p>
+        <p>
+          Whether it's a grand celebration or a simple gesture of love, we design with intention,
+          elegance, and heart.
+        </p>
+        <blockquote>
+          <i class="fa-solid fa-quote-left" aria-hidden="true"></i>
+          Flowers don't need a reason.
+          <i class="fa-solid fa-quote-right" aria-hidden="true"></i>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURES SECTION ===== -->
+  <section class="features section-padding" id="features" aria-labelledby="features-title">
+    <div class="container">
+      <span class="section-tag center">Our Promise</span>
+      <h2 id="features-title" class="section-title center">Why Choose Us</h2>
+      <div class="features-grid">
+        <!-- Card 1 -->
+        <div class="feature-card fade-in-up">
+          <div class="feature-icon" aria-hidden="true">
+            <i class="fa-solid fa-seedling"></i>
+          </div>
+          <h3>Fresh Flowers Daily</h3>
+          <p>We source directly from farms to ensure the freshest blooms reach your doorstep every single day.</p>
+        </div>
+        <!-- Card 2 -->
+        <div class="feature-card fade-in-up delay-1">
+          <div class="feature-icon" aria-hidden="true">
+            <i class="fa-solid fa-truck-fast"></i>
+          </div>
+          <h3>Fast Delivery</h3>
+          <p>Same-day delivery available across the city. Your flowers arrive fresh, on time, every time.</p>
+        </div>
+        <!-- Card 3 -->
+        <div class="feature-card fade-in-up delay-2">
+          <div class="feature-icon" aria-hidden="true">
+            <i class="fa-solid fa-scissors"></i>
+          </div>
+          <h3>Expert Florists</h3>
+          <p>Custom bouquets designed by professional florists who pour creativity and passion into every arrangement.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CATALOG SECTION ===== -->
+  <section class="catalog section-padding" id="catalog" aria-labelledby="catalog-title">
+    <div class="container">
+      <span class="section-tag center">Handpicked for You</span>
+      <h2 id="catalog-title" class="section-title center">Our Collection</h2>
+      <div class="catalog-grid" id="catalogGrid">
+        <!-- Products are injected by script.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DELIVERY SECTION ===== -->
+  <section class="delivery section-padding" id="delivery" aria-labelledby="delivery-title">
+    <div class="container">
+      <span class="section-tag center">We've Got You Covered</span>
+      <h2 id="delivery-title" class="section-title center">Delivery Services</h2>
+      <div class="delivery-grid">
+        <div class="delivery-card fade-in-up">
+          <i class="fa-solid fa-clock" aria-hidden="true"></i>
+          <h3>24/7 Delivery</h3>
+          <p>We deliver at any hour of the day or night, because love doesn't follow a schedule.</p>
+        </div>
+        <div class="delivery-card fade-in-up delay-1">
+          <i class="fa-solid fa-map-location-dot" aria-hidden="true"></i>
+          <h3>Delivery Across City</h3>
+          <p>We cover every corner of the city to make sure your flowers arrive wherever love calls.</p>
+        </div>
+        <div class="delivery-card fade-in-up delay-2">
+          <i class="fa-solid fa-gift" aria-hidden="true"></i>
+          <h3>Free Greeting Card</h3>
+          <p>Every bouquet comes with a complimentary handwritten greeting card for a personal touch.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS SECTION ===== -->
+  <section class="testimonials section-padding" id="testimonials" aria-labelledby="testimonials-title">
+    <div class="container">
+      <span class="section-tag center">Happy Customers</span>
+      <h2 id="testimonials-title" class="section-title center">Customer Reviews</h2>
+      <div class="testimonial-slider" aria-label="Customer testimonials">
+        <div class="testimonials-track" id="testimonialsTrack">
+          <!-- Testimonial 1 -->
+          <div class="testimonial-slide" role="group" aria-label="Testimonial 1 of 3">
+            <div class="testimonial-card">
+              <img
+                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80"
+                alt="Portrait of Priya Sharma"
+                loading="lazy"
+              />
+              <div class="stars" aria-label="5 star rating">
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+              </div>
+              <p>"Absolutely stunning arrangements! I ordered for my wedding anniversary and my husband was speechless. The bouquet was fresh and beautifully designed."</p>
+              <h4>Priya Sharma</h4>
+              <span>Verified Customer</span>
+            </div>
+          </div>
+          <!-- Testimonial 2 -->
+          <div class="testimonial-slide" role="group" aria-label="Testimonial 2 of 3">
+            <div class="testimonial-card">
+              <img
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80"
+                alt="Portrait of Rahul Mehta"
+                loading="lazy"
+              />
+              <div class="stars" aria-label="5 star rating">
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+              </div>
+              <p>"Same-day delivery is a lifesaver! I forgot my mom's birthday and Bloom Haven came through perfectly. The flowers were even more beautiful than the pictures."</p>
+              <h4>Rahul Mehta</h4>
+              <span>Verified Customer</span>
+            </div>
+          </div>
+          <!-- Testimonial 3 -->
+          <div class="testimonial-slide" role="group" aria-label="Testimonial 3 of 3">
+            <div class="testimonial-card">
+              <img
+                src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&auto=format&fit=crop&q=80"
+                alt="Portrait of Ananya Patel"
+                loading="lazy"
+              />
+              <div class="stars" aria-label="5 star rating">
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+              </div>
+              <p>"The Royal Garden bouquet was absolutely breathtaking! Perfect for my office event. Will definitely order again. Premium quality at its best."</p>
+              <h4>Ananya Patel</h4>
+              <span>Verified Customer</span>
+            </div>
+          </div>
+        </div>
+        <!-- Controls -->
+        <button class="slider-btn prev-btn" id="prevBtn" aria-label="Previous testimonial">
+          <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+        </button>
+        <button class="slider-btn next-btn" id="nextBtn" aria-label="Next testimonial">
+          <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+        </button>
+        <!-- Dots -->
+        <div class="slider-dots" role="tablist" aria-label="Testimonial navigation dots">
+          <button class="dot active" data-index="0" role="tab" aria-selected="true" aria-label="Go to testimonial 1"></button>
+          <button class="dot" data-index="1" role="tab" aria-selected="false" aria-label="Go to testimonial 2"></button>
+          <button class="dot" data-index="2" role="tab" aria-selected="false" aria-label="Go to testimonial 3"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ORDER FORM SECTION ===== -->
+  <section class="order section-padding" id="order" aria-labelledby="order-title">
+    <div class="container">
+      <span class="section-tag center">Place Your Order</span>
+      <h2 id="order-title" class="section-title center">Order Your Bouquet</h2>
+      <form class="order-form" id="orderForm" novalidate aria-label="Bouquet order form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fullName">Full Name <span aria-hidden="true">*</span></label>
+            <input type="text" id="fullName" name="fullName" placeholder="Your full name" autocomplete="name" required />
+            <span class="error-msg" id="fullNameError" role="alert" aria-live="polite"></span>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number <span aria-hidden="true">*</span></label>
+            <input type="tel" id="phone" name="phone" placeholder="Your phone number" autocomplete="tel" required />
+            <span class="error-msg" id="phoneError" role="alert" aria-live="polite"></span>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email <span aria-hidden="true">*</span></label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" autocomplete="email" required />
+            <span class="error-msg" id="emailError" role="alert" aria-live="polite"></span>
+          </div>
+          <div class="form-group">
+            <label for="deliveryDate">Delivery Date <span aria-hidden="true">*</span></label>
+            <input type="date" id="deliveryDate" name="deliveryDate" required />
+            <span class="error-msg" id="deliveryDateError" role="alert" aria-live="polite"></span>
+          </div>
+        </div>
+        <div class="form-group full-width">
+          <label for="address">Delivery Address <span aria-hidden="true">*</span></label>
+          <input type="text" id="address" name="address" placeholder="Full delivery address" autocomplete="street-address" required />
+          <span class="error-msg" id="addressError" role="alert" aria-live="polite"></span>
+        </div>
+        <div class="form-group full-width">
+          <label for="bouquet">Bouquet Selection <span aria-hidden="true">*</span></label>
+          <select id="bouquet" name="bouquet" required>
+            <option value="">-- Select a bouquet --</option>
+            <option value="Romantic Roses">Romantic Roses – ₹3,500</option>
+            <option value="Spring Blossom">Spring Blossom – ₹2,800</option>
+            <option value="White Elegance">White Elegance – ₹4,200</option>
+            <option value="Pastel Dream">Pastel Dream – ₹3,900</option>
+            <option value="Classic Love">Classic Love – ₹2,500</option>
+            <option value="Royal Garden">Royal Garden – ₹5,000</option>
+          </select>
+          <span class="error-msg" id="bouquetError" role="alert" aria-live="polite"></span>
+        </div>
+        <div class="form-group full-width">
+          <label for="message">Message Note</label>
+          <textarea id="message" name="message" placeholder="Any special requests or message for the card..." rows="4"></textarea>
+        </div>
+        <div class="form-submit">
+          <button type="submit" class="btn btn-primary ripple" id="submitBtn">
+            <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+            Place Order
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" aria-label="Site footer">
+    <div class="container footer-container">
+      <!-- Brand -->
+      <div class="footer-brand">
+        <a href="#hero" class="logo" aria-label="Bloom Haven Home">
+          <span class="logo-icon">🌿</span>
+          <span class="logo-text">Bloom Haven</span>
+        </a>
+        <p>Luxury Floral Designs for Every Occasion. Crafted with passion and delivered with love.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Follow us on Instagram" rel="noopener noreferrer">
+            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+          </a>
+          <a href="#" aria-label="Follow us on Facebook" rel="noopener noreferrer">
+            <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+          </a>
+          <a href="#" aria-label="Contact us on WhatsApp" rel="noopener noreferrer">
+            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+      <!-- Quick Links -->
+      <div class="footer-links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#features">Why Choose Us</a></li>
+          <li><a href="#catalog">Our Collection</a></li>
+          <li><a href="#testimonials">Reviews</a></li>
+          <li><a href="#order">Order Now</a></li>
+        </ul>
+      </div>
+      <!-- Contact -->
+      <div class="footer-contact">
+        <h3>Contact Us</h3>
+        <ul>
+          <li><i class="fa-solid fa-location-dot" aria-hidden="true"></i> 42, Blossom Street, Garden City</li>
+          <li><i class="fa-solid fa-phone" aria-hidden="true"></i> +91 98765 43210</li>
+          <li><i class="fa-solid fa-envelope" aria-hidden="true"></i> hello@bloomhaven.in</li>
+          <li><i class="fa-solid fa-clock" aria-hidden="true"></i> Mon–Sun: 8am – 10pm</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="year"></span> Bloom Haven. All rights reserved. Made with <span aria-label="love">❤️</span></p>
+    </div>
+  </footer>
+
+  <!-- ===== CART SIDEBAR ===== -->
+  <aside class="cart-sidebar" id="cartSidebar" aria-label="Shopping cart" aria-hidden="true">
+    <div class="cart-header">
+      <h2><i class="fa-solid fa-basket-shopping" aria-hidden="true"></i> Your Cart</h2>
+      <button class="close-cart" id="closeCart" aria-label="Close cart">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+    </div>
+    <div class="cart-items" id="cartItems" aria-live="polite">
+      <!-- Cart items injected by JS -->
+    </div>
+    <div class="cart-footer" id="cartFooter">
+      <div class="cart-total">
+        <span>Total:</span>
+        <span id="cartTotal">₹0</span>
+      </div>
+      <button class="btn btn-primary ripple" id="checkoutBtn">
+        <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
+        Proceed to Checkout
+      </button>
+    </div>
+  </aside>
+
+  <!-- Cart Overlay -->
+  <div class="cart-overlay" id="cartOverlay" aria-hidden="true"></div>
+
+  <!-- ===== PRODUCT MODAL ===== -->
+  <div class="modal" id="productModal" role="dialog" aria-modal="true" aria-labelledby="modalProductName" aria-hidden="true">
+    <div class="modal-content">
+      <button class="close-modal" id="closeModal" aria-label="Close modal">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+      <div class="modal-body">
+        <div class="modal-image">
+          <img id="modalImg" src="" alt="" loading="lazy" />
+        </div>
+        <div class="modal-info">
+          <h2 id="modalProductName"></h2>
+          <p class="modal-price" id="modalPrice"></p>
+          <p class="modal-desc" id="modalDesc"></p>
+          <div class="quantity-selector">
+            <button class="qty-btn" id="qtyMinus" aria-label="Decrease quantity">−</button>
+            <span id="qtyValue" aria-live="polite" aria-label="Quantity">1</span>
+            <button class="qty-btn" id="qtyPlus" aria-label="Increase quantity">+</button>
+          </div>
+          <button class="btn btn-primary ripple" id="modalAddToCart">
+            <i class="fa-solid fa-basket-shopping" aria-hidden="true"></i>
+            Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal Overlay -->
+  <div class="modal-overlay" id="modalOverlay" aria-hidden="true"></div>
+
+  <!-- ===== TOAST NOTIFICATION ===== -->
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- ===== SCROLL TO TOP BUTTON ===== -->
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+    <i class="fa-solid fa-chevron-up" aria-hidden="true"></i>
+  </button>
+
+  <!-- ===== SUCCESS POPUP ===== -->
+  <div class="success-popup" id="successPopup" role="dialog" aria-modal="true" aria-labelledby="successMsg" aria-hidden="true">
+    <div class="success-content">
+      <div class="success-icon" aria-hidden="true">🌸</div>
+      <h2 id="successMsg">Order Placed Successfully!</h2>
+      <p>Thank you for choosing Bloom Haven. We'll contact you shortly.</p>
+      <button class="btn btn-primary ripple" id="closeSuccess">Continue Shopping</button>
+    </div>
+  </div>
+  <div class="success-overlay" id="successOverlay" aria-hidden="true"></div>
+
+  <!-- Main JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
