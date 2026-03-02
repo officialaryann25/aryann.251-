@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product – IceWorld</title>
+  <meta name="description" content="View product details at IceWorld – Premium Ice Cream & Desserts.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍦</text></svg>">
+  <script>
+    (function() {
+      const t = localStorage.getItem('theme');
+      if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) document.documentElement.classList.add('dark');
+    })();
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { poppins: ['Poppins','sans-serif'], playfair: ['"Playfair Display"','serif'] } } }
+    };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family:'Poppins',sans-serif; }
+    .animate-fade-in-up { animation: fadeInUp 0.5s ease-out forwards; }
+    @keyframes fadeInUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+    .line-clamp-1 { overflow:hidden; display:-webkit-box; -webkit-line-clamp:1; -webkit-box-orient:vertical; }
+    .thumb-active { border-color: #F472B6 !important; }
+  </style>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-white transition-colors duration-300">
+
+  <!-- NAVBAR -->
+  <header id="mainHeader" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-b border-pink-100 dark:border-gray-800 transition-all duration-300" role="banner">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
+      <div class="flex items-center justify-between h-16">
+        <a href="index.html" class="flex items-center gap-2" aria-label="IceWorld Home">
+          <span class="text-2xl">🍦</span>
+          <span class="text-xl font-bold bg-gradient-to-r from-pink-500 to-rose-500 bg-clip-text text-transparent" style="font-family:'Playfair Display',serif">IceWorld</span>
+        </a>
+        <div class="hidden md:flex items-center gap-8">
+          <a href="index.html" class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-pink-500 transition-colors">Home</a>
+          <a href="shop.html" class="text-sm font-medium text-pink-500">Shop</a>
+          <a href="about.html" class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-pink-500 transition-colors">About</a>
+          <a href="contact.html" class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-pink-500 transition-colors">Contact</a>
+        </div>
+        <div class="hidden md:flex items-center gap-3">
+          <div class="relative">
+            <input id="searchInput" type="search" placeholder="Search..." aria-label="Search products"
+              class="w-48 pl-9 pr-3 py-2 text-sm rounded-full bg-gray-100 dark:bg-gray-800 border border-transparent focus:border-pink-300 focus:outline-none focus:ring-2 focus:ring-pink-200 transition-all text-gray-700 dark:text-gray-200">
+            <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+            <div id="searchDropdown" class="hidden absolute top-full mt-2 left-0 w-72 bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 overflow-hidden z-50" role="listbox"></div>
+          </div>
+          <a href="shop.html" class="relative p-2 text-gray-600 dark:text-gray-300 hover:text-pink-500 transition-colors" aria-label="Wishlist">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+            <span class="wishlist-count absolute -top-1 -right-1 bg-pink-500 text-white text-xs rounded-full w-4 h-4 items-center justify-center font-bold hidden">0</span>
+          </a>
+          <a href="cart.html" class="relative p-2 text-gray-600 dark:text-gray-300 hover:text-pink-500 transition-colors" aria-label="Cart">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+            <span class="cart-count absolute -top-1 -right-1 bg-rose-500 text-white text-xs rounded-full w-4 h-4 items-center justify-center font-bold hidden">0</span>
+          </a>
+          <button id="darkModeToggle" aria-label="Toggle dark mode" class="p-2 text-gray-600 dark:text-gray-300 hover:text-pink-500 transition-colors rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"></button>
+        </div>
+        <div class="flex items-center gap-2 md:hidden">
+          <a href="cart.html" class="relative p-2 text-gray-600 dark:text-gray-300" aria-label="Cart">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+            <span class="cart-count absolute -top-1 -right-1 bg-rose-500 text-white text-xs rounded-full w-4 h-4 items-center justify-center font-bold hidden">0</span>
+          </a>
+          <button id="mobileMenuBtn" aria-label="Toggle mobile menu" aria-expanded="false" class="p-2 text-gray-600 dark:text-gray-300 rounded-lg">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </div>
+      </div>
+      <div id="mobileMenu" class="hidden md:hidden pb-4 border-t border-pink-100 dark:border-gray-800 mt-2">
+        <div class="flex flex-col gap-1 pt-3">
+          <a href="index.html" class="px-3 py-2 text-sm text-gray-600 dark:text-gray-300 hover:text-pink-500 hover:bg-pink-50 dark:hover:bg-gray-800 rounded-lg transition-colors">Home</a>
+          <a href="shop.html" class="px-3 py-2 text-sm font-medium text-pink-500 rounded-lg">Shop</a>
+          <a href="about.html" class="px-3 py-2 text-sm text-gray-600 dark:text-gray-300 hover:text-pink-500 hover:bg-pink-50 dark:hover:bg-gray-800 rounded-lg transition-colors">About</a>
+          <a href="contact.html" class="px-3 py-2 text-sm text-gray-600 dark:text-gray-300 hover:text-pink-500 hover:bg-pink-50 dark:hover:bg-gray-800 rounded-lg transition-colors">Contact</a>
+          <button id="darkModeToggleMobile" aria-label="Toggle dark mode" class="px-3 py-2 text-left text-sm text-gray-600 dark:text-gray-300 hover:text-pink-500 transition-colors"></button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="pt-20">
+    <!-- Product not found fallback -->
+    <div id="productNotFound" class="hidden min-h-screen flex flex-col items-center justify-center text-center px-4 py-20">
+      <div class="text-7xl mb-6">🍦</div>
+      <h1 class="text-3xl font-bold text-gray-800 dark:text-white mb-4">Product Not Found</h1>
+      <p class="text-gray-500 dark:text-gray-400 mb-8">The product you're looking for doesn't exist.</p>
+      <a href="shop.html" class="bg-gradient-to-r from-pink-500 to-rose-500 text-white font-semibold px-8 py-4 rounded-2xl hover:shadow-lg hover:scale-105 transition-all">Browse All Products</a>
+    </div>
+
+    <!-- Product Detail -->
+    <div id="productDetail" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <!-- Breadcrumb -->
+      <nav aria-label="Breadcrumb" class="mb-8">
+        <ol class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+          <li><a href="index.html" class="hover:text-pink-500 transition-colors">Home</a></li>
+          <li aria-hidden="true">/</li>
+          <li><a href="shop.html" class="hover:text-pink-500 transition-colors">Shop</a></li>
+          <li aria-hidden="true">/</li>
+          <li id="breadcrumbProduct" class="text-gray-800 dark:text-white font-medium" aria-current="page"></li>
+        </ol>
+      </nav>
+
+      <!-- Product Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
+        <!-- Left: Image Gallery -->
+        <div>
+          <div class="relative rounded-3xl overflow-hidden mb-4 bg-gray-50 dark:bg-gray-800 h-96 sm:h-[500px]">
+            <img id="mainImage" src="" alt="" class="w-full h-full object-cover transition-all duration-300">
+            <div id="stockBadge" class="absolute top-4 left-4 hidden">
+              <span class="bg-red-100 text-red-600 text-xs font-bold px-3 py-1 rounded-full">Out of Stock</span>
+            </div>
+          </div>
+          <!-- Thumbnails -->
+          <div id="thumbnails" class="flex gap-3 overflow-x-auto pb-2"></div>
+        </div>
+
+        <!-- Right: Product Info -->
+        <div class="flex flex-col justify-center">
+          <p id="pdCategory" class="text-pink-500 text-sm font-semibold mb-2"></p>
+          <h1 id="pdName" class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-3" style="font-family:'Playfair Display',serif"></h1>
+
+          <!-- Rating -->
+          <div class="flex items-center gap-3 mb-4">
+            <div id="pdRating" class="flex items-center gap-1"></div>
+            <span id="pdReviews" class="text-sm text-gray-500 dark:text-gray-400"></span>
+          </div>
+
+          <!-- Price -->
+          <div class="flex items-baseline gap-3 mb-6">
+            <span id="pdPrice" class="text-4xl font-bold text-gray-900 dark:text-white"></span>
+            <span id="pdOriginalPrice" class="text-xl text-gray-400 line-through"></span>
+            <span id="pdDiscount" class="bg-green-100 text-green-600 text-sm font-semibold px-2 py-0.5 rounded-full"></span>
+          </div>
+
+          <!-- Description -->
+          <p id="pdDescription" class="text-gray-600 dark:text-gray-400 leading-relaxed mb-6"></p>
+
+          <!-- Size Selector -->
+          <div class="mb-6">
+            <h3 class="text-sm font-semibold text-gray-900 dark:text-white mb-3">Select Size</h3>
+            <div id="sizeOptions" class="flex flex-wrap gap-2"></div>
+          </div>
+
+          <!-- Quantity -->
+          <div class="mb-8">
+            <h3 class="text-sm font-semibold text-gray-900 dark:text-white mb-3">Quantity</h3>
+            <div class="flex items-center gap-4">
+              <div class="flex items-center border-2 border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden">
+                <button id="qtyMinus" class="w-10 h-10 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-pink-50 dark:hover:bg-gray-700 transition-colors font-bold" aria-label="Decrease quantity">−</button>
+                <span id="qtyDisplay" class="w-10 text-center font-semibold text-gray-900 dark:text-white">1</span>
+                <button id="qtyPlus" class="w-10 h-10 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-pink-50 dark:hover:bg-gray-700 transition-colors font-bold" aria-label="Increase quantity">+</button>
+              </div>
+              <span id="stockStatus" class="text-sm text-green-500 font-medium"></span>
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div class="flex flex-col sm:flex-row gap-4">
+            <button id="addToCartBtn" class="flex-1 bg-gradient-to-r from-pink-500 to-rose-500 text-white font-bold py-4 rounded-2xl hover:shadow-xl hover:shadow-pink-200 dark:hover:shadow-pink-900/50 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+              Add to Cart
+            </button>
+            <button id="wishlistBtn" class="px-6 py-4 rounded-2xl border-2 border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:border-pink-500 hover:text-pink-500 dark:hover:border-pink-500 dark:hover:text-pink-500 transition-all duration-300 flex items-center justify-center gap-2 font-semibold" aria-label="Add to wishlist">
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              Wishlist
+            </button>
+          </div>
+
+          <!-- Badges -->
+          <div class="flex flex-wrap gap-3 mt-8 pt-8 border-t border-gray-100 dark:border-gray-800">
+            <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+              <span>🚚</span> Same Day Delivery
+            </div>
+            <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+              <span>🌿</span> Fresh Ingredients
+            </div>
+            <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+              <span>✅</span> FSSAI Certified
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Products -->
+      <section aria-labelledby="related-heading">
+        <div class="mb-8">
+          <h2 id="related-heading" class="text-2xl font-bold text-gray-900 dark:text-white" style="font-family:'Playfair Display',serif">You May Also Like</h2>
+        </div>
+        <div id="relatedProducts" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"></div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Quick View Modal -->
+  <div id="quickViewModal" class="hidden fixed inset-0 z-[200] bg-black/50 backdrop-blur-sm items-center justify-center p-4" role="dialog" aria-modal="true" aria-label="Quick view">
+    <div class="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl max-w-lg w-full overflow-hidden">
+      <div class="flex items-center justify-between p-5 border-b border-gray-100 dark:border-gray-700">
+        <h2 class="text-lg font-bold text-gray-900 dark:text-white">Quick View</h2>
+        <button id="quickViewClose" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors" aria-label="Close quick view">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="flex flex-col sm:flex-row gap-5 p-5">
+        <img id="qvImage" src="" alt="" class="w-full sm:w-48 h-48 object-cover rounded-2xl">
+        <div class="flex-1">
+          <p id="qvCategory" class="text-xs text-pink-500 font-medium mb-1"></p>
+          <h3 id="qvName" class="text-xl font-bold text-gray-900 dark:text-white mb-2"></h3>
+          <div id="qvRating" class="mb-2 flex items-center gap-1"></div>
+          <p id="qvPrice" class="text-2xl font-bold text-pink-500 mb-3"></p>
+          <p id="qvDesc" class="text-sm text-gray-600 dark:text-gray-400 mb-4"></p>
+          <div class="flex gap-3">
+            <button id="qvAddToCart" class="flex-1 bg-gradient-to-r from-pink-500 to-rose-500 text-white font-semibold py-3 rounded-xl hover:shadow-lg hover:scale-105 transition-all text-sm">Add to Cart</button>
+            <a id="qvViewProduct" href="#" class="flex-1 text-center border-2 border-pink-500 text-pink-500 font-semibold py-3 rounded-xl hover:bg-pink-50 dark:hover:bg-pink-900/20 transition-colors text-sm">View Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Back to Top -->
+  <button id="backToTop" aria-label="Back to top" class="fixed bottom-6 left-6 z-50 w-12 h-12 bg-gradient-to-r from-pink-500 to-rose-500 text-white rounded-full shadow-lg flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:scale-110">
+    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg>
+  </button>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 dark:bg-black text-gray-300 py-10 mt-10" role="contentinfo">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm text-gray-500">
+      <p>&copy; 2024 IceWorld. All rights reserved. | MAHI SEHRAWAT & Priyanshi</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = parseInt(urlParams.get('id'));
+    const product = PRODUCTS.find(p => p.id === productId);
+
+    let selectedSize = null;
+    let qty = 1;
+
+    if (!product) {
+      document.getElementById('productNotFound').classList.remove('hidden');
+      document.getElementById('productDetail').classList.add('hidden');
+    } else {
+      // Set title
+      document.title = `${product.name} – IceWorld`;
+
+      // Breadcrumb
+      document.getElementById('breadcrumbProduct').textContent = product.name;
+
+      // Main image
+      document.getElementById('mainImage').src = product.images[0];
+      document.getElementById('mainImage').alt = product.name;
+
+      // Stock badge
+      if (!product.inStock) {
+        document.getElementById('stockBadge').classList.remove('hidden');
+      }
+
+      // Thumbnails
+      const thumbs = document.getElementById('thumbnails');
+      thumbs.innerHTML = product.images.map((img, i) => `
+        <button onclick="setMainImage('${img}', this)" class="flex-shrink-0 w-16 h-16 rounded-xl overflow-hidden border-2 ${i === 0 ? 'border-pink-400 thumb-active' : 'border-gray-200 dark:border-gray-700'} hover:border-pink-400 transition-colors" aria-label="View image ${i+1}">
+          <img src="${img}" alt="${product.name} view ${i+1}" class="w-full h-full object-cover">
+        </button>`).join('');
+
+      // Info
+      document.getElementById('pdCategory').textContent = product.category;
+      document.getElementById('pdName').textContent = product.name;
+      document.getElementById('pdDescription').textContent = product.description;
+      document.getElementById('pdPrice').textContent = `₹${product.price}`;
+
+      if (product.originalPrice) {
+        document.getElementById('pdOriginalPrice').textContent = `₹${product.originalPrice}`;
+        const disc = Math.round((1 - product.price / product.originalPrice) * 100);
+        document.getElementById('pdDiscount').textContent = `${disc}% OFF`;
+      }
+
+      // Rating
+      document.getElementById('pdRating').innerHTML = getStarsSVG(product.rating);
+      document.getElementById('pdReviews').textContent = `${product.rating} (${product.reviews} reviews)`;
+
+      // Stock status
+      document.getElementById('stockStatus').textContent = product.inStock ? '✓ In Stock' : '✗ Out of Stock';
+      document.getElementById('stockStatus').className = product.inStock
+        ? 'text-sm text-green-500 font-medium'
+        : 'text-sm text-red-500 font-medium';
+
+      // Sizes
+      selectedSize = product.sizes[0];
+      document.getElementById('sizeOptions').innerHTML = product.sizes.map(size => `
+        <button onclick="selectSize('${size}', this)"
+          class="px-4 py-2 rounded-xl border-2 text-sm font-medium transition-all ${size === selectedSize ? 'border-pink-500 text-pink-500 bg-pink-50 dark:bg-pink-900/20' : 'border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-pink-300'}"
+          aria-pressed="${size === selectedSize}">
+          ${size}
+        </button>`).join('');
+
+      // Quantity
+      document.getElementById('qtyMinus').addEventListener('click', () => {
+        if (qty > 1) { qty--; document.getElementById('qtyDisplay').textContent = qty; }
+      });
+      document.getElementById('qtyPlus').addEventListener('click', () => {
+        qty++;
+        document.getElementById('qtyDisplay').textContent = qty;
+      });
+
+      // Add to cart
+      document.getElementById('addToCartBtn').addEventListener('click', () => {
+        if (!product.inStock) { showToast('This product is out of stock', 'error'); return; }
+        addToCart(product, selectedSize, qty);
+      });
+
+      // Wishlist
+      const wishBtn = document.getElementById('wishlistBtn');
+      function updateWishBtn() {
+        if (isInWishlist(product.id)) {
+          wishBtn.classList.add('border-pink-500', 'text-pink-500');
+          wishBtn.classList.remove('border-gray-200', 'dark:border-gray-700', 'text-gray-600');
+          wishBtn.querySelector('svg').classList.add('text-pink-500');
+        } else {
+          wishBtn.classList.remove('border-pink-500', 'text-pink-500');
+          wishBtn.classList.add('border-gray-200', 'text-gray-600');
+        }
+      }
+      updateWishBtn();
+      wishBtn.addEventListener('click', () => {
+        toggleWishlist(product.id);
+        updateWishBtn();
+      });
+
+      // Related products
+      const related = PRODUCTS.filter(p => p.id !== product.id && p.category === product.category).slice(0, 4);
+      const relatedFallback = related.length < 4 ? [...related, ...PRODUCTS.filter(p => p.id !== product.id && !related.includes(p)).slice(0, 4 - related.length)] : related;
+      document.getElementById('relatedProducts').innerHTML = relatedFallback.map(p => renderProductCard(p)).join('');
+      updateWishlistButtons();
+    }
+
+    function setMainImage(src, btn) {
+      document.getElementById('mainImage').src = src;
+      document.querySelectorAll('#thumbnails button').forEach(b => {
+        b.classList.remove('border-pink-400', 'thumb-active');
+        b.classList.add('border-gray-200', 'dark:border-gray-700');
+      });
+      btn.classList.add('border-pink-400', 'thumb-active');
+      btn.classList.remove('border-gray-200');
+    }
+
+    function selectSize(size, btn) {
+      selectedSize = size;
+      document.querySelectorAll('#sizeOptions button').forEach(b => {
+        b.className = 'px-4 py-2 rounded-xl border-2 text-sm font-medium transition-all border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-pink-300';
+        b.setAttribute('aria-pressed', 'false');
+      });
+      btn.className = 'px-4 py-2 rounded-xl border-2 text-sm font-medium transition-all border-pink-500 text-pink-500 bg-pink-50 dark:bg-pink-900/20';
+      btn.setAttribute('aria-pressed', 'true');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IceWorld – Premium Ice Cream &amp; Desserts</title>
+  <meta name="description" content="IceWorld – Handcrafted premium ice cream, cakes, sundaes and desserts made with love. Order online for same-day delivery.">
+  <meta name="keywords" content="ice cream, premium ice cream, ice cream cakes, sundaes, desserts, IceWorld">
+  <meta name="author" content="IceWorld">
+  <meta property="og:title" content="IceWorld – Premium Ice Cream &amp; Desserts">
+  <meta property="og:description" content="Handcrafted ice cream made with love. Order now!">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍦</text></svg>">
+  <script>
+    // Prevent flash of wrong theme
+    (function() {
+      const t = localStorage.getItem('theme');
+      if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { poppins: ['Poppins', 'sans-serif'], playfair: ['"Playfair Display"', 'serif'] },
+          colors: {
+            brand: { pink: '#F472B6', rose: '#F43F5E', cream: '#FFF8F0', brown: '#8B5E3C' }
+          },
+          animation: {
+            'fade-in-up': 'fadeInUp 0.6s ease-out forwards',
+            'float': 'float 3s ease-in-out infinite',
+          },
+          keyframes: {
+            fadeInUp: { '0%': { opacity: '0', transform: 'translateY(30px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+            float: { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } }
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Poppins', sans-serif; }
+    .animate-fade-in-up { animation: fadeInUp 0.6s ease-out forwards; }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    .line-clamp-1 { overflow: hidden; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; }
+    .line-clamp-2 { overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+    /* Loading bar */
+    #loader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #FFF0F5, #FFF8F0); z-index: 9999; display: flex; align-items: center; justify-content: center; transition: opacity 0.5s; }
+    #loader.hidden { opacity: 0; pointer-events: none; }
+    .hero-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1s ease; }
+    .hero-slide.active { opacity: 1; }
+  </style>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FoodEstablishment",
+    "name": "IceWorld",
+    "description": "Premium handcrafted ice cream and desserts",
+    "email": ["MAHISEHRAWAT2006@GMAIL.COM", "priyadaksh007@gmail.com"],
+    "telephone": ["+91 8750141860", "+91 8368573180"],
+    "servesCuisine": "Ice Cream & Desserts",
+    "priceRange": "₹₹"
+  }
+  </script>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-white transition-colors duration-300">
+
+  <!-- Page Loader -->
+  <div id="loader" role="status" aria-label="Loading">
+    <div class="text-center">
+      <div class="text-6xl mb-4 animate-bounce">🍦</div>
+      <p class="text-pink-500 font-semibold text-lg">Loading IceWorld...</p>
+    </div>
+  </div>
+
+  <!-- ===== NAVBAR ===== -->
+  <header id="mainHeader" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-b border-pink-100 dark:border-gray-800 transition-all duration-300" role="banner">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2 font-playfair" aria-label="IceWorld Home">
+          <span class="text-2xl">🍦</span>
+          <span class="text-xl font-bold bg-gradient-to-r from-pink-500 to-rose-500 bg-clip-text text-transparent" style="font-family:'Playfair Display',serif">IceWorld</span>
+        </a>
+
+        <!-- Desktop Nav Links -->
+        <div class="hidden md:flex items-center gap-8">
+          <a href="index.html" class="text-sm font-medium text-pink-500 hover:text-pink-600 transition-colors">Home</a>
+          <a href="shop.html" class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-pink-500 dark:hover:text-pink-400 transition-colors">Shop</a>
+          <a href="about.html" class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-pink-500 dark:hover:text-pink-400 transition-colors">About</a>
+          <a href="contact.html" class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-pink-500 dark:hover:text-pink-400 transition-colors">Contact</a>
+        </div>
+
+        <!-- Search + Icons -->
+        <div class="hidden md:flex items-center gap-3">
+          <!-- Search -->
+          <div class="relative">
+            <input id="searchInput" type="search" placeholder="Search ice cream..." aria-label="Search products"
+              class="w-48 lg:w-64 pl-9 pr-3 py-2 text-sm rounded-full bg-gray-100 dark:bg-gray-800 border border-transparent focus:border-pink-300 dark:focus:border-pink-600 focus:outline-none focus:ring-2 focus:ring-pink-200 dark:focus:ring-pink-900 transition-all text-gray-700 dark:text-gray-200">
+            <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+            <div id="searchDropdown" class="hidden absolute top-full mt-2 left-0 w-72 bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 overflow-hidden z-50" role="listbox" aria-label="Search results"></div>
+          </div>
+
+          <!-- Wishlist -->
+          <a href="shop.html" class="relative p-2 text-gray-600 dark:text-gray-300 hover:text-pink-500 transition-colors" aria-label="Wishlist">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+            <span class="wishlist-count absolute -top-1 -right-1 bg-pink-500 text-white text-xs rounded-full w-4 h-4 items-center justify-center font-bold hidden">0</span>
+          </a>
+
+          <!-- Cart -->
+          <a href="cart.html" class="relative p-2 text-gray-600 dark:text-gray-300 hover:text-pink-500 transition-colors" aria-label="Shopping cart">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+            <span class="cart-count absolute -top-1 -right-1 bg-rose-500 text-white text-xs rounded-full w-4 h-4 items-center justify-center font-bold hidden">0</span>
+          </a>
+
+          <!-- Dark Mode -->
+          <button id="darkModeToggle" aria-label="Toggle dark mode" class="p-2 text-gray-600 dark:text-gray-300 hover:text-pink-500 transition-colors rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"></button>
+        </div>
+
+        <!-- Mobile right side -->
+        <div class="flex items-center gap-2 md:hidden">
+          <a href="cart.html" class="relative p-2 text-gray-600 dark:text-gray-300" aria-label="Cart">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+            <span class="cart-count absolute -top-1 -right-1 bg-rose-500 text-white text-xs rounded-full w-4 h-4 items-center justify-center font-bold hidden">0</span>
+          </a>
+          <button id="mobileMenuBtn" aria-label="Toggle mobile menu" aria-expanded="false" class="p-2 text-gray-600 dark:text-gray-300 hover:text-pink-500 transition-colors rounded-lg">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobileMenu" class="hidden md:hidden pb-4 border-t border-pink-100 dark:border-gray-800 mt-2">
+        <div class="flex flex-col gap-1 pt-3">
+          <a href="index.html" class="px-3 py-2 text-sm font-medium text-pink-500 rounded-lg">Home</a>
+          <a href="shop.html" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-pink-500 hover:bg-pink-50 dark:hover:bg-gray-800 rounded-lg transition-colors">Shop</a>
+          <a href="about.html" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-pink-500 hover:bg-pink-50 dark:hover:bg-gray-800 rounded-lg transition-colors">About</a>
+          <a href="contact.html" class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-pink-500 hover:bg-pink-50 dark:hover:bg-gray-800 rounded-lg transition-colors">Contact</a>
+          <div class="flex items-center gap-3 px-3 py-2">
+            <a href="shop.html" aria-label="Wishlist" class="text-gray-600 dark:text-gray-300 hover:text-pink-500">
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+            </a>
+            <button id="darkModeToggleMobile" aria-label="Toggle dark mode" class="text-gray-600 dark:text-gray-300 hover:text-pink-500 transition-colors"></button>
+          </div>
+          <!-- Mobile Search -->
+          <div class="relative px-3 mt-1">
+            <input type="search" placeholder="Search ice cream..." aria-label="Search products"
+              class="w-full pl-9 pr-3 py-2 text-sm rounded-full bg-gray-100 dark:bg-gray-800 border border-transparent focus:border-pink-300 focus:outline-none transition-all text-gray-700 dark:text-gray-200">
+            <svg class="absolute left-6 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ===== HERO SECTION ===== -->
+    <section class="relative min-h-screen flex items-center overflow-hidden" aria-label="Hero banner">
+      <!-- Slides -->
+      <div class="absolute inset-0" aria-hidden="true">
+        <div class="hero-slide active" style="background: linear-gradient(135deg, #FFF0F5 0%, #FFF8F0 50%, #FCE7F3 100%);">
+          <img src="https://images.unsplash.com/photo-1570197788417-0e82375c9371?w=1920&h=1080&fit=crop" alt="" class="w-full h-full object-cover opacity-20">
+        </div>
+        <div class="hero-slide" style="background: linear-gradient(135deg, #FFF8E7 0%, #FFF0E7 50%, #FDEBD0 100%);">
+          <img src="https://images.unsplash.com/photo-1488900128323-21503983a07e?w=1920&h=1080&fit=crop" alt="" class="w-full h-full object-cover opacity-20">
+        </div>
+        <div class="hero-slide" style="background: linear-gradient(135deg, #F0F4FF 0%, #EDE9FE 50%, #FCE7F3 100%);">
+          <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=1920&h=1080&fit=crop" alt="" class="w-full h-full object-cover opacity-20">
+        </div>
+      </div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 flex flex-col lg:flex-row items-center gap-12">
+        <!-- Text Content -->
+        <div class="flex-1 text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 bg-pink-100 dark:bg-pink-900/30 text-pink-600 dark:text-pink-300 text-sm font-medium px-4 py-2 rounded-full mb-6 animate-fade-in-up">
+            <span>🍦</span> Premium Handcrafted Ice Cream
+          </div>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white leading-tight mb-6 animate-fade-in-up" style="font-family:'Playfair Display',serif; animation-delay:0.1s">
+            Handcrafted Ice Cream<br>
+            <span class="bg-gradient-to-r from-pink-500 to-rose-500 bg-clip-text text-transparent">Made with Love</span>
+          </h1>
+          <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-lg mx-auto lg:mx-0 animate-fade-in-up" style="animation-delay:0.2s">
+            Discover our world of premium handcrafted ice creams, cakes, and sundaes. Made with the freshest ingredients, delivered to your door.
+          </p>
+          <div class="flex flex-wrap gap-4 justify-center lg:justify-start animate-fade-in-up" style="animation-delay:0.3s">
+            <a href="shop.html" class="bg-gradient-to-r from-pink-500 to-rose-500 text-white font-semibold px-8 py-4 rounded-2xl hover:shadow-lg hover:shadow-pink-200 dark:hover:shadow-pink-900 hover:scale-105 transition-all duration-300 inline-flex items-center gap-2">
+              Order Now
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+            <a href="about.html" class="bg-white dark:bg-gray-800 text-gray-800 dark:text-white font-semibold px-8 py-4 rounded-2xl border-2 border-gray-200 dark:border-gray-700 hover:border-pink-300 hover:text-pink-500 transition-all duration-300 inline-flex items-center gap-2">
+              Our Story
+            </a>
+          </div>
+          <!-- Stats -->
+          <div class="flex gap-8 mt-10 justify-center lg:justify-start animate-fade-in-up" style="animation-delay:0.4s">
+            <div class="text-center">
+              <p class="text-2xl font-bold text-gray-900 dark:text-white">50+</p>
+              <p class="text-xs text-gray-500 dark:text-gray-400">Flavours</p>
+            </div>
+            <div class="w-px bg-gray-200 dark:bg-gray-700"></div>
+            <div class="text-center">
+              <p class="text-2xl font-bold text-gray-900 dark:text-white">10K+</p>
+              <p class="text-xs text-gray-500 dark:text-gray-400">Happy Customers</p>
+            </div>
+            <div class="w-px bg-gray-200 dark:bg-gray-700"></div>
+            <div class="text-center">
+              <p class="text-2xl font-bold text-gray-900 dark:text-white">4.9★</p>
+              <p class="text-xs text-gray-500 dark:text-gray-400">Rating</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Image -->
+        <div class="flex-1 flex justify-center animate-fade-in-up" style="animation-delay:0.2s; animation: float 3s ease-in-out infinite">
+          <div class="relative w-72 h-72 sm:w-96 sm:h-96">
+            <div class="absolute inset-0 bg-gradient-to-br from-pink-200 to-rose-200 rounded-full opacity-30 blur-3xl"></div>
+            <img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=600&h=600&fit=crop"
+              alt="Premium ice cream scoop"
+              class="relative z-10 w-full h-full object-cover rounded-[40%] shadow-2xl"
+              style="animation: float 3s ease-in-out infinite">
+          </div>
+        </div>
+      </div>
+
+      <!-- Slider Dots -->
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-10" role="tablist" aria-label="Hero slides">
+        <button class="hero-dot w-8 h-2 rounded-full bg-pink-500 transition-all" data-slide="0" role="tab" aria-selected="true" aria-label="Slide 1"></button>
+        <button class="hero-dot w-2 h-2 rounded-full bg-pink-200 transition-all" data-slide="1" role="tab" aria-selected="false" aria-label="Slide 2"></button>
+        <button class="hero-dot w-2 h-2 rounded-full bg-pink-200 transition-all" data-slide="2" role="tab" aria-selected="false" aria-label="Slide 3"></button>
+      </div>
+    </section>
+
+    <!-- ===== FEATURED CATEGORIES ===== -->
+    <section class="py-20 bg-gradient-to-b from-white to-pink-50 dark:from-gray-900 dark:to-gray-800" aria-labelledby="categories-heading">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12 fade-on-scroll">
+          <span class="inline-block text-pink-500 text-sm font-semibold uppercase tracking-wider mb-2">Categories</span>
+          <h2 id="categories-heading" class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white" style="font-family:'Playfair Display',serif">Explore Our World</h2>
+          <p class="mt-3 text-gray-500 dark:text-gray-400 max-w-xl mx-auto">From classic tubs to elaborate cakes — there's something for every ice cream lover.</p>
+        </div>
+
+        <div id="categoriesGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+      </div>
+    </section>
+
+    <!-- ===== BEST SELLERS ===== -->
+    <section class="py-20 bg-white dark:bg-gray-900" aria-labelledby="bestsellers-heading">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12 fade-on-scroll">
+          <span class="inline-block text-pink-500 text-sm font-semibold uppercase tracking-wider mb-2">Top Picks</span>
+          <h2 id="bestsellers-heading" class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white" style="font-family:'Playfair Display',serif">Best Sellers</h2>
+          <p class="mt-3 text-gray-500 dark:text-gray-400">Our most loved flavours — tried, tested and adored by thousands.</p>
+        </div>
+
+        <div id="bestSellersGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+
+        <div class="text-center mt-10">
+          <a href="shop.html" class="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500 to-rose-500 text-white font-semibold px-8 py-4 rounded-2xl hover:shadow-lg hover:scale-105 transition-all duration-300">
+            View All Products
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== WHY CHOOSE US ===== -->
+    <section class="py-20 bg-gradient-to-b from-pink-50 to-white dark:from-gray-800 dark:to-gray-900" aria-labelledby="why-heading">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12 fade-on-scroll">
+          <span class="inline-block text-pink-500 text-sm font-semibold uppercase tracking-wider mb-2">Our Promise</span>
+          <h2 id="why-heading" class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white" style="font-family:'Playfair Display',serif">Why Choose IceWorld?</h2>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="text-center p-8 bg-white dark:bg-gray-800 rounded-3xl shadow-sm hover:shadow-md transition-shadow fade-on-scroll">
+            <div class="text-5xl mb-4">🌿</div>
+            <h3 class="font-bold text-gray-900 dark:text-white mb-2">Fresh Ingredients</h3>
+            <p class="text-sm text-gray-500 dark:text-gray-400">Sourced daily from trusted local farms. No artificial preservatives.</p>
+          </div>
+          <div class="text-center p-8 bg-white dark:bg-gray-800 rounded-3xl shadow-sm hover:shadow-md transition-shadow fade-on-scroll">
+            <div class="text-5xl mb-4">⚡</div>
+            <h3 class="font-bold text-gray-900 dark:text-white mb-2">Same Day Delivery</h3>
+            <p class="text-sm text-gray-500 dark:text-gray-400">Order before 2 PM and get it delivered fresh the same day.</p>
+          </div>
+          <div class="text-center p-8 bg-white dark:bg-gray-800 rounded-3xl shadow-sm hover:shadow-md transition-shadow fade-on-scroll">
+            <div class="text-5xl mb-4">✨</div>
+            <h3 class="font-bold text-gray-900 dark:text-white mb-2">Premium Quality</h3>
+            <p class="text-sm text-gray-500 dark:text-gray-400">Crafted with love using the finest Belgian chocolate and real fruits.</p>
+          </div>
+          <div class="text-center p-8 bg-white dark:bg-gray-800 rounded-3xl shadow-sm hover:shadow-md transition-shadow fade-on-scroll">
+            <div class="text-5xl mb-4">🧴</div>
+            <h3 class="font-bold text-gray-900 dark:text-white mb-2">Hygienic Packaging</h3>
+            <p class="text-sm text-gray-500 dark:text-gray-400">FSSAI certified. Tamper-proof, food-grade packaging every time.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section class="py-20 bg-white dark:bg-gray-900" aria-labelledby="testimonials-heading">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12 fade-on-scroll">
+          <span class="inline-block text-pink-500 text-sm font-semibold uppercase tracking-wider mb-2">Reviews</span>
+          <h2 id="testimonials-heading" class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white" style="font-family:'Playfair Display',serif">What Our Customers Say</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="bg-gradient-to-br from-pink-50 to-rose-50 dark:from-gray-800 dark:to-gray-800 p-6 rounded-3xl border border-pink-100 dark:border-gray-700 fade-on-scroll">
+            <div class="flex items-center gap-1 mb-4">
+              <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+            <p class="text-gray-700 dark:text-gray-300 text-sm italic mb-4">"The Chocolate Fudge Supreme is absolutely divine! It's rich, creamy and the packaging was perfect. IceWorld has ruined all other ice creams for me!"</p>
+            <div class="flex items-center gap-3">
+              <img src="https://picsum.photos/seed/user1/40/40" alt="Customer Priya S." class="w-10 h-10 rounded-full object-cover">
+              <div>
+                <p class="font-semibold text-sm text-gray-900 dark:text-white">Priya S.</p>
+                <p class="text-xs text-gray-500 dark:text-gray-400">Delhi</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gradient-to-br from-rose-50 to-orange-50 dark:from-gray-800 dark:to-gray-800 p-6 rounded-3xl border border-rose-100 dark:border-gray-700 fade-on-scroll">
+            <div class="flex items-center gap-1 mb-4">
+              <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+            <p class="text-gray-700 dark:text-gray-300 text-sm italic mb-4">"Ordered the birthday cake for my daughter — she was ecstatic! Delivered on time, looked beautiful. Will definitely order again."</p>
+            <div class="flex items-center gap-3">
+              <img src="https://picsum.photos/seed/user2/40/40" alt="Customer Rahul M." class="w-10 h-10 rounded-full object-cover">
+              <div>
+                <p class="font-semibold text-sm text-gray-900 dark:text-white">Rahul M.</p>
+                <p class="text-xs text-gray-500 dark:text-gray-400">Mumbai</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-gray-800 dark:to-gray-800 p-6 rounded-3xl border border-purple-100 dark:border-gray-700 fade-on-scroll">
+            <div class="flex items-center gap-1 mb-4">
+              <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+            <p class="text-gray-700 dark:text-gray-300 text-sm italic mb-4">"The Mango Sorbet is everything! 100% natural and bursting with flavour. IceWorld is now my go-to for all occasions."</p>
+            <div class="flex items-center gap-3">
+              <img src="https://picsum.photos/seed/user3/40/40" alt="Customer Sneha K." class="w-10 h-10 rounded-full object-cover">
+              <div>
+                <p class="font-semibold text-sm text-gray-900 dark:text-white">Sneha K.</p>
+                <p class="text-xs text-gray-500 dark:text-gray-400">Bangalore</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== NEWSLETTER ===== -->
+    <section class="py-20 bg-gradient-to-r from-pink-500 to-rose-500" aria-labelledby="newsletter-heading">
+      <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center">
+        <div class="text-5xl mb-4">📩</div>
+        <h2 id="newsletter-heading" class="text-3xl sm:text-4xl font-bold text-white mb-4" style="font-family:'Playfair Display',serif">Get Sweet Deals</h2>
+        <p class="text-pink-100 mb-8">Subscribe for exclusive offers, new flavour alerts, and seasonal specials straight to your inbox.</p>
+        <form id="newsletterForm" class="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto" novalidate>
+          <input type="email" id="newsletterEmail" placeholder="Enter your email address" aria-label="Email address for newsletter" required
+            class="flex-1 px-5 py-4 rounded-2xl text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-white/30 transition-all text-sm">
+          <button type="submit" class="bg-white text-pink-500 font-bold px-8 py-4 rounded-2xl hover:bg-pink-50 hover:scale-105 transition-all duration-300 whitespace-nowrap">
+            Subscribe
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-gray-900 dark:bg-black text-gray-300 pt-16 pb-8" role="contentinfo">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 pb-10 border-b border-gray-800">
+        <!-- Brand -->
+        <div>
+          <a href="index.html" class="flex items-center gap-2 mb-4" aria-label="IceWorld">
+            <span class="text-2xl">🍦</span>
+            <span class="text-xl font-bold text-white" style="font-family:'Playfair Display',serif">IceWorld</span>
+          </a>
+          <p class="text-sm text-gray-400 mb-4 leading-relaxed">Premium handcrafted ice cream and desserts, made with love and the finest ingredients.</p>
+          <div class="flex gap-3">
+            <a href="#" aria-label="Instagram" class="w-9 h-9 bg-gray-800 rounded-full flex items-center justify-center hover:bg-pink-500 transition-colors">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="#" aria-label="Facebook" class="w-9 h-9 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-500 transition-colors">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="#" aria-label="Twitter / X" class="w-9 h-9 bg-gray-800 rounded-full flex items-center justify-center hover:bg-sky-500 transition-colors">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h3 class="text-white font-semibold mb-4">Quick Links</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="index.html" class="hover:text-pink-400 transition-colors">Home</a></li>
+            <li><a href="shop.html" class="hover:text-pink-400 transition-colors">Shop</a></li>
+            <li><a href="cart.html" class="hover:text-pink-400 transition-colors">Cart</a></li>
+            <li><a href="about.html" class="hover:text-pink-400 transition-colors">About Us</a></li>
+            <li><a href="contact.html" class="hover:text-pink-400 transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Owner 1 -->
+        <div>
+          <h3 class="text-white font-semibold mb-4">Owner 1</h3>
+          <address class="not-italic text-sm space-y-2 text-gray-400">
+            <p class="text-gray-300 font-medium">MAHI SEHRAWAT</p>
+            <p><a href="tel:+918750141860" class="hover:text-pink-400 transition-colors">+91 8750141860</a></p>
+            <p><a href="mailto:MAHISEHRAWAT2006@GMAIL.COM" class="hover:text-pink-400 transition-colors break-all">MAHISEHRAWAT2006@GMAIL.COM</a></p>
+          </address>
+        </div>
+
+        <!-- Contact Owner 2 -->
+        <div>
+          <h3 class="text-white font-semibold mb-4">Owner 2</h3>
+          <address class="not-italic text-sm space-y-2 text-gray-400">
+            <p class="text-gray-300 font-medium">Priyanshi</p>
+            <p><a href="tel:+918368573180" class="hover:text-pink-400 transition-colors">+91 8368573180</a></p>
+            <p><a href="mailto:priyadaksh007@gmail.com" class="hover:text-pink-400 transition-colors">priyadaksh007@gmail.com</a></p>
+          </address>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 text-sm text-gray-500">
+        <p>&copy; 2024 IceWorld. All rights reserved. Made with ❤️ by MAHI SEHRAWAT & Priyanshi</p>
+        <p>Crafted with 🍦 &amp; Tailwind CSS</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== QUICK VIEW MODAL ===== -->
+  <div id="quickViewModal" class="hidden fixed inset-0 z-[200] bg-black/50 backdrop-blur-sm items-center justify-center p-4" role="dialog" aria-modal="true" aria-label="Quick view">
+    <div class="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl max-w-lg w-full overflow-hidden">
+      <div class="flex items-center justify-between p-5 border-b border-gray-100 dark:border-gray-700">
+        <h2 class="text-lg font-bold text-gray-900 dark:text-white">Quick View</h2>
+        <button id="quickViewClose" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors" aria-label="Close quick view">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="flex flex-col sm:flex-row gap-5 p-5">
+        <img id="qvImage" src="" alt="" class="w-full sm:w-48 h-48 object-cover rounded-2xl">
+        <div class="flex-1">
+          <p id="qvCategory" class="text-xs text-pink-500 font-medium mb-1"></p>
+          <h3 id="qvName" class="text-xl font-bold text-gray-900 dark:text-white mb-2"></h3>
+          <div id="qvRating" class="mb-2 flex items-center gap-1"></div>
+          <p id="qvPrice" class="text-2xl font-bold text-pink-500 mb-3"></p>
+          <p id="qvDesc" class="text-sm text-gray-600 dark:text-gray-400 mb-4"></p>
+          <div class="flex gap-3">
+            <button id="qvAddToCart" class="flex-1 bg-gradient-to-r from-pink-500 to-rose-500 text-white font-semibold py-3 rounded-xl hover:shadow-lg hover:scale-105 transition-all duration-300 text-sm">Add to Cart</button>
+            <a id="qvViewProduct" href="#" class="flex-1 text-center border-2 border-pink-500 text-pink-500 font-semibold py-3 rounded-xl hover:bg-pink-50 dark:hover:bg-pink-900/20 transition-colors text-sm">View Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Back to Top -->
+  <button id="backToTop" aria-label="Back to top" class="fixed bottom-6 left-6 z-50 w-12 h-12 bg-gradient-to-r from-pink-500 to-rose-500 text-white rounded-full shadow-lg flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:scale-110">
+    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg>
+  </button>
+
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    // Page Loader
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('loader').classList.add('hidden');
+      }, 500);
+    });
+
+    // Hero Slider
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.hero-slide');
+    const dots = document.querySelectorAll('.hero-dot');
+
+    function goToSlide(n) {
+      slides[currentSlide].classList.remove('active');
+      dots[currentSlide].classList.replace('w-8', 'w-2');
+      dots[currentSlide].classList.replace('bg-pink-500', 'bg-pink-200');
+      dots[currentSlide].setAttribute('aria-selected', 'false');
+      currentSlide = (n + slides.length) % slides.length;
+      slides[currentSlide].classList.add('active');
+      dots[currentSlide].classList.replace('w-2', 'w-8');
+      dots[currentSlide].classList.replace('bg-pink-200', 'bg-pink-500');
+      dots[currentSlide].setAttribute('aria-selected', 'true');
+    }
+
+    dots.forEach((dot, i) => dot.addEventListener('click', () => goToSlide(i)));
+    setInterval(() => goToSlide(currentSlide + 1), 4000);
+
+    // Render Categories
+    const categoriesGrid = document.getElementById('categoriesGrid');
+    if (categoriesGrid && typeof CATEGORIES !== 'undefined') {
+      categoriesGrid.innerHTML = CATEGORIES.map(cat => `
+        <a href="shop.html?category=${encodeURIComponent(cat.name)}"
+          class="group relative overflow-hidden rounded-3xl h-48 shadow-md hover:shadow-xl transition-all duration-300 fade-on-scroll block">
+          <img src="${cat.image}" alt="${cat.name}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+          <div class="absolute inset-0 flex flex-col items-center justify-end pb-6">
+            <span class="text-3xl mb-2">${cat.icon}</span>
+            <h3 class="text-white font-bold text-base">${cat.name}</h3>
+            <span class="text-pink-300 text-xs mt-1 opacity-0 group-hover:opacity-100 transition-opacity">Shop Now →</span>
+          </div>
+        </a>`).join('');
+    }
+
+    // Render Best Sellers
+    const bestSellersGrid = document.getElementById('bestSellersGrid');
+    if (bestSellersGrid && typeof PRODUCTS !== 'undefined') {
+      const featured = PRODUCTS.filter(p => p.featured).slice(0, 8);
+      bestSellersGrid.innerHTML = featured.map(p => renderProductCard(p)).join('');
+      // Re-init observer
+      document.querySelectorAll('.fade-on-scroll').forEach(el => observer.observe(el));
+      updateWishlistButtons();
+    }
+
+    // Newsletter
+    document.getElementById('newsletterForm')?.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = document.getElementById('newsletterEmail').value;
+      if (!email || !email.includes('@')) { showToast('Please enter a valid email', 'error'); return; }
+      this.reset();
+      showToast('🎉 You\'re subscribed! Welcome to IceWorld!');
+    });
+  </script>
+</body>
+</html>

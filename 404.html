@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found – IceWorld</title>
+  <meta name="description" content="Oops! The page you're looking for doesn't exist. Return to IceWorld home.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍦</text></svg>">
+  <script>
+    (function() {
+      const t = localStorage.getItem('theme');
+      if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) document.documentElement.classList.add('dark');
+    })();
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { poppins: ['Poppins','sans-serif'], playfair: ['"Playfair Display"','serif'] },
+        animation: { 'float': 'float 3s ease-in-out infinite', 'wiggle': 'wiggle 1s ease-in-out infinite' },
+        keyframes: { float: { '0%,100%': { transform:'translateY(0)' }, '50%': { transform:'translateY(-15px)' } }, wiggle: { '0%,100%': { transform:'rotate(-3deg)' }, '50%': { transform:'rotate(3deg)' } } }
+      } }
+    };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family:'Poppins',sans-serif; }
+    @keyframes float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-15px); } }
+    @keyframes fadeInUp { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
+    .animate-fade-in-up { animation: fadeInUp 0.6s ease-out forwards; }
+    .float-anim { animation: float 3s ease-in-out infinite; }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-pink-50 via-white to-rose-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 min-h-screen flex flex-col transition-colors duration-300">
+
+  <!-- Minimal Navbar -->
+  <header class="py-4 px-6 flex items-center justify-between" role="banner">
+    <a href="index.html" class="flex items-center gap-2" aria-label="IceWorld Home">
+      <span class="text-2xl">🍦</span>
+      <span class="text-xl font-bold bg-gradient-to-r from-pink-500 to-rose-500 bg-clip-text text-transparent" style="font-family:'Playfair Display',serif">IceWorld</span>
+    </a>
+    <button id="darkModeToggle" aria-label="Toggle dark mode" class="p-2 text-gray-600 dark:text-gray-300 hover:text-pink-500 transition-colors rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"></button>
+  </header>
+
+  <!-- 404 Content -->
+  <main class="flex-1 flex items-center justify-center px-4 py-20" role="main">
+    <div class="text-center max-w-2xl">
+      <!-- Giant 404 -->
+      <div class="relative mb-8">
+        <div class="text-[140px] sm:text-[200px] font-black text-transparent bg-gradient-to-r from-pink-200 to-rose-200 dark:from-pink-900/50 dark:to-rose-900/50 bg-clip-text leading-none select-none" aria-hidden="true">
+          404
+        </div>
+        <!-- Floating ice cream illustration -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 float-anim" aria-hidden="true">
+          <div class="text-7xl sm:text-9xl">🍦</div>
+        </div>
+      </div>
+
+      <div class="animate-fade-in-up">
+        <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4" style="font-family:'Playfair Display',serif">
+          Oops! Scoop Not Found
+        </h1>
+        <p class="text-lg text-gray-500 dark:text-gray-400 mb-3">
+          Looks like this page melted away! 🍦
+        </p>
+        <p class="text-gray-400 dark:text-gray-500 mb-10">
+          The page you're looking for doesn't exist or has been moved. Let's get you back to the good stuff.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="index.html" class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-pink-500 to-rose-500 text-white font-bold px-8 py-4 rounded-2xl hover:shadow-xl hover:shadow-pink-200 dark:hover:shadow-pink-900/50 hover:scale-105 transition-all duration-300">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+            Back to Home
+          </a>
+          <a href="shop.html" class="inline-flex items-center justify-center gap-2 bg-white dark:bg-gray-800 text-gray-800 dark:text-white font-bold px-8 py-4 rounded-2xl border-2 border-gray-200 dark:border-gray-700 hover:border-pink-300 hover:text-pink-500 transition-all duration-300">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+            Browse Products
+          </a>
+        </div>
+
+        <!-- Fun flavour suggestions -->
+        <div class="mt-12 pt-10 border-t border-gray-200 dark:border-gray-700">
+          <p class="text-sm text-gray-400 dark:text-gray-500 mb-5">While you're here, check out these popular flavours:</p>
+          <div class="flex flex-wrap gap-3 justify-center">
+            <a href="product.html?id=1" class="px-4 py-2 bg-pink-100 dark:bg-pink-900/30 text-pink-600 dark:text-pink-400 rounded-full text-sm font-medium hover:bg-pink-200 dark:hover:bg-pink-900/50 transition-colors">🍦 Classic Vanilla</a>
+            <a href="product.html?id=3" class="px-4 py-2 bg-rose-100 dark:bg-rose-900/30 text-rose-600 dark:text-rose-400 rounded-full text-sm font-medium hover:bg-rose-200 dark:hover:bg-rose-900/50 transition-colors">🍫 Chocolate Fudge</a>
+            <a href="product.html?id=5" class="px-4 py-2 bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 rounded-full text-sm font-medium hover:bg-orange-200 dark:hover:bg-orange-900/50 transition-colors">🎂 Birthday Cake</a>
+            <a href="product.html?id=8" class="px-4 py-2 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 rounded-full text-sm font-medium hover:bg-green-200 dark:hover:bg-green-900/50 transition-colors">🌰 Pistachio Royale</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-6 text-center text-sm text-gray-400 dark:text-gray-600" role="contentinfo">
+    <p>&copy; 2024 IceWorld. Made with ❤️ by MAHI SEHRAWAT & Priyanshi</p>
+  </footer>
+
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

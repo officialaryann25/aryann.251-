@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop – IceWorld Premium Ice Cream</title>
+  <meta name="description" content="Browse our full range of premium ice creams, cakes, sundaes and desserts at IceWorld.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍦</text></svg>">
+  <script>
+    (function() {
+      const t = localStorage.getItem('theme');
+      if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) document.documentElement.classList.add('dark');
+    })();
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { poppins: ['Poppins','sans-serif'], playfair: ['"Playfair Display"','serif'] } } }
+    };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family:'Poppins',sans-serif; }
+    .animate-fade-in-up { animation: fadeInUp 0.5s ease-out forwards; }
+    @keyframes fadeInUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+    .line-clamp-1 { overflow:hidden; display:-webkit-box; -webkit-line-clamp:1; -webkit-box-orient:vertical; }
+  </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-white transition-colors duration-300">
+
+  <!-- NAVBAR -->
+  <header id="mainHeader" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-b border-pink-100 dark:border-gray-800 transition-all duration-300" role="banner">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
+      <div class="flex items-center justify-between h-16">
+        <a href="index.html" class="flex items-center gap-2" aria-label="IceWorld Home">
+          <span class="text-2xl">🍦</span>
+          <span class="text-xl font-bold bg-gradient-to-r from-pink-500 to-rose-500 bg-clip-text text-transparent" style="font-family:'Playfair Display',serif">IceWorld</span>
+        </a>
+        <div class="hidden md:flex items-center gap-8">
+          <a href="index.html" class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-pink-500 transition-colors">Home</a>
+          <a href="shop.html" class="text-sm font-medium text-pink-500">Shop</a>
+          <a href="about.html" class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-pink-500 transition-colors">About</a>
+          <a href="contact.html" class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-pink-500 transition-colors">Contact</a>
+        </div>
+        <div class="hidden md:flex items-center gap-3">
+          <div class="relative">
+            <input id="searchInput" type="search" placeholder="Search..." aria-label="Search products"
+              class="w-48 pl-9 pr-3 py-2 text-sm rounded-full bg-gray-100 dark:bg-gray-800 border border-transparent focus:border-pink-300 focus:outline-none focus:ring-2 focus:ring-pink-200 transition-all text-gray-700 dark:text-gray-200">
+            <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+            <div id="searchDropdown" class="hidden absolute top-full mt-2 left-0 w-72 bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 overflow-hidden z-50" role="listbox"></div>
+          </div>
+          <a href="shop.html" class="relative p-2 text-gray-600 dark:text-gray-300 hover:text-pink-500 transition-colors" aria-label="Wishlist">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+            <span class="wishlist-count absolute -top-1 -right-1 bg-pink-500 text-white text-xs rounded-full w-4 h-4 items-center justify-center font-bold hidden">0</span>
+          </a>
+          <a href="cart.html" class="relative p-2 text-gray-600 dark:text-gray-300 hover:text-pink-500 transition-colors" aria-label="Cart">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+            <span class="cart-count absolute -top-1 -right-1 bg-rose-500 text-white text-xs rounded-full w-4 h-4 items-center justify-center font-bold hidden">0</span>
+          </a>
+          <button id="darkModeToggle" aria-label="Toggle dark mode" class="p-2 text-gray-600 dark:text-gray-300 hover:text-pink-500 transition-colors rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"></button>
+        </div>
+        <div class="flex items-center gap-2 md:hidden">
+          <a href="cart.html" class="relative p-2 text-gray-600 dark:text-gray-300" aria-label="Cart">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+            <span class="cart-count absolute -top-1 -right-1 bg-rose-500 text-white text-xs rounded-full w-4 h-4 items-center justify-center font-bold hidden">0</span>
+          </a>
+          <button id="mobileMenuBtn" aria-label="Toggle mobile menu" aria-expanded="false" class="p-2 text-gray-600 dark:text-gray-300 rounded-lg">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </div>
+      </div>
+      <div id="mobileMenu" class="hidden md:hidden pb-4 border-t border-pink-100 dark:border-gray-800 mt-2">
+        <div class="flex flex-col gap-1 pt-3">
+          <a href="index.html" class="px-3 py-2 text-sm text-gray-600 dark:text-gray-300 hover:text-pink-500 hover:bg-pink-50 dark:hover:bg-gray-800 rounded-lg transition-colors">Home</a>
+          <a href="shop.html" class="px-3 py-2 text-sm font-medium text-pink-500 rounded-lg">Shop</a>
+          <a href="about.html" class="px-3 py-2 text-sm text-gray-600 dark:text-gray-300 hover:text-pink-500 hover:bg-pink-50 dark:hover:bg-gray-800 rounded-lg transition-colors">About</a>
+          <a href="contact.html" class="px-3 py-2 text-sm text-gray-600 dark:text-gray-300 hover:text-pink-500 hover:bg-pink-50 dark:hover:bg-gray-800 rounded-lg transition-colors">Contact</a>
+          <button id="darkModeToggleMobile" aria-label="Toggle dark mode" class="px-3 py-2 text-left text-sm text-gray-600 dark:text-gray-300 hover:text-pink-500 transition-colors"></button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Page Header -->
+  <div class="pt-16 bg-gradient-to-r from-pink-500 to-rose-500">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <nav aria-label="Breadcrumb" class="mb-4">
+        <ol class="flex items-center gap-2 text-sm text-pink-200">
+          <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+          <li aria-hidden="true">/</li>
+          <li class="text-white font-medium" aria-current="page">Shop</li>
+        </ol>
+      </nav>
+      <h1 class="text-3xl sm:text-4xl font-bold text-white mb-2" style="font-family:'Playfair Display',serif">Our Ice Cream Shop</h1>
+      <p class="text-pink-100">Discover <span id="totalCount">12</span> delicious flavours</p>
+    </div>
+  </div>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div class="flex flex-col lg:flex-row gap-8">
+
+      <!-- Sidebar Filters -->
+      <aside class="w-full lg:w-64 flex-shrink-0" aria-label="Product filters">
+        <!-- Mobile Filter Toggle -->
+        <button id="filterToggle" class="lg:hidden w-full flex items-center justify-between bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-sm mb-4 font-semibold text-gray-800 dark:text-white" aria-expanded="false" aria-controls="filterPanel">
+          <span class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 010 2H4a1 1 0 01-1-1zm3 4a1 1 0 011-1h10a1 1 0 010 2H7a1 1 0 01-1-1zm4 4a1 1 0 011-1h2a1 1 0 010 2h-2a1 1 0 01-1-1z"/></svg>
+            Filters
+          </span>
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+
+        <div id="filterPanel" class="hidden lg:block space-y-5">
+          <!-- Category -->
+          <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm">
+            <h3 class="font-semibold text-gray-900 dark:text-white mb-4">Category</h3>
+            <div class="space-y-2" id="categoryFilters">
+              <label class="flex items-center gap-3 cursor-pointer group">
+                <input type="radio" name="category" value="all" checked class="w-4 h-4 text-pink-500 border-gray-300 focus:ring-pink-500">
+                <span class="text-sm text-gray-700 dark:text-gray-300 group-hover:text-pink-500 transition-colors">All Categories</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Price Range -->
+          <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm">
+            <h3 class="font-semibold text-gray-900 dark:text-white mb-4">Price Range</h3>
+            <input type="range" id="priceRange" min="0" max="2000" value="2000" step="50"
+              class="w-full accent-pink-500" aria-label="Maximum price filter">
+            <div class="flex justify-between text-xs text-gray-500 dark:text-gray-400 mt-2">
+              <span>₹0</span>
+              <span id="priceRangeValue" class="text-pink-500 font-semibold">Up to ₹2000</span>
+            </div>
+          </div>
+
+          <!-- Rating Filter -->
+          <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm">
+            <h3 class="font-semibold text-gray-900 dark:text-white mb-4">Minimum Rating</h3>
+            <div class="space-y-2">
+              <label class="flex items-center gap-3 cursor-pointer group">
+                <input type="radio" name="rating" value="0" checked class="w-4 h-4 text-pink-500 border-gray-300 focus:ring-pink-500">
+                <span class="text-sm text-gray-700 dark:text-gray-300 group-hover:text-pink-500 transition-colors">All Ratings</span>
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer group">
+                <input type="radio" name="rating" value="4" class="w-4 h-4 text-pink-500 border-gray-300 focus:ring-pink-500">
+                <span class="text-sm text-yellow-500">★★★★</span><span class="text-sm text-gray-500 dark:text-gray-400">& up</span>
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer group">
+                <input type="radio" name="rating" value="4.5" class="w-4 h-4 text-pink-500 border-gray-300 focus:ring-pink-500">
+                <span class="text-sm text-yellow-500">★★★★½</span><span class="text-sm text-gray-500 dark:text-gray-400">& up</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Availability -->
+          <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm">
+            <h3 class="font-semibold text-gray-900 dark:text-white mb-4">Availability</h3>
+            <label class="flex items-center justify-between cursor-pointer">
+              <span class="text-sm text-gray-700 dark:text-gray-300">In Stock Only</span>
+              <div class="relative">
+                <input type="checkbox" id="inStockOnly" class="sr-only" role="switch" aria-checked="false">
+                <div id="toggleBg" class="w-10 h-6 rounded-full bg-gray-300 dark:bg-gray-600 transition-colors"></div>
+                <div id="toggleDot" class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full shadow transition-transform"></div>
+              </div>
+            </label>
+          </div>
+
+          <!-- Reset -->
+          <button id="resetFilters" class="w-full py-3 rounded-2xl border-2 border-pink-500 text-pink-500 font-semibold hover:bg-pink-50 dark:hover:bg-pink-900/20 transition-colors text-sm">
+            Reset Filters
+          </button>
+        </div>
+      </aside>
+
+      <!-- Product Grid Area -->
+      <div class="flex-1">
+        <!-- Sort + Count Bar -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
+          <p class="text-sm text-gray-600 dark:text-gray-400">
+            Showing <span id="showingCount" class="font-semibold text-gray-900 dark:text-white">12</span> products
+          </p>
+          <div class="flex items-center gap-3">
+            <label for="sortSelect" class="text-sm text-gray-600 dark:text-gray-400 whitespace-nowrap">Sort by:</label>
+            <select id="sortSelect" aria-label="Sort products"
+              class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl px-3 py-2 text-sm text-gray-700 dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500">
+              <option value="default">Featured</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="rating">Highest Rated</option>
+              <option value="name">Name A-Z</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Products Grid -->
+        <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5"></div>
+
+        <!-- No Results -->
+        <div id="noResults" class="hidden text-center py-20">
+          <div class="text-6xl mb-4">🍦</div>
+          <h3 class="text-xl font-bold text-gray-700 dark:text-gray-300 mb-2">No products found</h3>
+          <p class="text-gray-500 dark:text-gray-400 mb-6">Try adjusting your filters.</p>
+          <button onclick="document.getElementById('resetFilters').click()" class="bg-gradient-to-r from-pink-500 to-rose-500 text-white font-semibold px-6 py-3 rounded-xl hover:shadow-lg transition-all">
+            Reset Filters
+          </button>
+        </div>
+
+        <!-- Pagination -->
+        <div id="pagination" class="flex items-center justify-center gap-2 mt-10"></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 dark:bg-black text-gray-300 py-10 mt-10" role="contentinfo">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-6 border-b border-gray-800">
+        <a href="index.html" class="flex items-center gap-2" aria-label="IceWorld">
+          <span class="text-xl">🍦</span>
+          <span class="font-bold text-white" style="font-family:'Playfair Display',serif">IceWorld</span>
+        </a>
+        <div class="flex gap-6 text-sm">
+          <a href="index.html" class="hover:text-pink-400 transition-colors">Home</a>
+          <a href="shop.html" class="hover:text-pink-400 transition-colors">Shop</a>
+          <a href="about.html" class="hover:text-pink-400 transition-colors">About</a>
+          <a href="contact.html" class="hover:text-pink-400 transition-colors">Contact</a>
+          <a href="cart.html" class="hover:text-pink-400 transition-colors">Cart</a>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6 text-sm text-gray-400">
+        <address class="not-italic">
+          <p class="text-gray-300 font-medium mb-1">MAHI SEHRAWAT</p>
+          <p><a href="tel:+918750141860" class="hover:text-pink-400">+91 8750141860</a></p>
+          <p><a href="mailto:MAHISEHRAWAT2006@GMAIL.COM" class="hover:text-pink-400">MAHISEHRAWAT2006@GMAIL.COM</a></p>
+        </address>
+        <address class="not-italic">
+          <p class="text-gray-300 font-medium mb-1">Priyanshi</p>
+          <p><a href="tel:+918368573180" class="hover:text-pink-400">+91 8368573180</a></p>
+          <p><a href="mailto:priyadaksh007@gmail.com" class="hover:text-pink-400">priyadaksh007@gmail.com</a></p>
+        </address>
+      </div>
+      <p class="text-center text-xs text-gray-600 mt-6">&copy; 2024 IceWorld. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Quick View Modal -->
+  <div id="quickViewModal" class="hidden fixed inset-0 z-[200] bg-black/50 backdrop-blur-sm items-center justify-center p-4" role="dialog" aria-modal="true" aria-label="Quick view">
+    <div class="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl max-w-lg w-full overflow-hidden">
+      <div class="flex items-center justify-between p-5 border-b border-gray-100 dark:border-gray-700">
+        <h2 class="text-lg font-bold text-gray-900 dark:text-white">Quick View</h2>
+        <button id="quickViewClose" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors" aria-label="Close quick view">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="flex flex-col sm:flex-row gap-5 p-5">
+        <img id="qvImage" src="" alt="" class="w-full sm:w-48 h-48 object-cover rounded-2xl">
+        <div class="flex-1">
+          <p id="qvCategory" class="text-xs text-pink-500 font-medium mb-1"></p>
+          <h3 id="qvName" class="text-xl font-bold text-gray-900 dark:text-white mb-2"></h3>
+          <div id="qvRating" class="mb-2 flex items-center gap-1"></div>
+          <p id="qvPrice" class="text-2xl font-bold text-pink-500 mb-3"></p>
+          <p id="qvDesc" class="text-sm text-gray-600 dark:text-gray-400 mb-4"></p>
+          <div class="flex gap-3">
+            <button id="qvAddToCart" class="flex-1 bg-gradient-to-r from-pink-500 to-rose-500 text-white font-semibold py-3 rounded-xl hover:shadow-lg hover:scale-105 transition-all text-sm">Add to Cart</button>
+            <a id="qvViewProduct" href="#" class="flex-1 text-center border-2 border-pink-500 text-pink-500 font-semibold py-3 rounded-xl hover:bg-pink-50 dark:hover:bg-pink-900/20 transition-colors text-sm">View Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Back to Top -->
+  <button id="backToTop" aria-label="Back to top" class="fixed bottom-6 left-6 z-50 w-12 h-12 bg-gradient-to-r from-pink-500 to-rose-500 text-white rounded-full shadow-lg flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:scale-110">
+    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg>
+  </button>
+
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    const ITEMS_PER_PAGE = 9;
+    let currentPage = 1;
+    let filteredProducts = [...PRODUCTS];
+
+    // Read URL params
+    const urlParams = new URLSearchParams(window.location.search);
+    const urlCategory = urlParams.get('category');
+
+    // Build category filters
+    const cats = ['All Categories', ...new Set(PRODUCTS.map(p => p.category))];
+    const categoryFilters = document.getElementById('categoryFilters');
+    categoryFilters.innerHTML = cats.map((cat, i) => `
+      <label class="flex items-center gap-3 cursor-pointer group">
+        <input type="radio" name="category" value="${i === 0 ? 'all' : cat}"
+          ${(urlCategory === cat) || (i === 0 && !urlCategory) ? 'checked' : ''}
+          class="w-4 h-4 text-pink-500 border-gray-300 focus:ring-pink-500">
+        <span class="text-sm text-gray-700 dark:text-gray-300 group-hover:text-pink-500 transition-colors">${cat}</span>
+      </label>`).join('');
+
+    function getFilters() {
+      const cat = document.querySelector('input[name="category"]:checked')?.value || 'all';
+      const maxPrice = parseInt(document.getElementById('priceRange').value);
+      const minRating = parseFloat(document.querySelector('input[name="rating"]:checked')?.value || '0');
+      const inStock = document.getElementById('inStockOnly').checked;
+      return { cat, maxPrice, minRating, inStock };
+    }
+
+    function applyFilters() {
+      const { cat, maxPrice, minRating, inStock } = getFilters();
+      const sort = document.getElementById('sortSelect').value;
+
+      filteredProducts = PRODUCTS.filter(p => {
+        if (cat !== 'all' && p.category !== cat) return false;
+        if (p.price > maxPrice) return false;
+        if (p.rating < minRating) return false;
+        if (inStock && !p.inStock) return false;
+        return true;
+      });
+
+      if (sort === 'price-asc') filteredProducts.sort((a, b) => a.price - b.price);
+      else if (sort === 'price-desc') filteredProducts.sort((a, b) => b.price - a.price);
+      else if (sort === 'rating') filteredProducts.sort((a, b) => b.rating - a.rating);
+      else if (sort === 'name') filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
+
+      document.getElementById('showingCount').textContent = filteredProducts.length;
+      document.getElementById('totalCount').textContent = filteredProducts.length;
+      currentPage = 1;
+      renderPage();
+    }
+
+    function renderPage() {
+      const start = (currentPage - 1) * ITEMS_PER_PAGE;
+      const pageProducts = filteredProducts.slice(start, start + ITEMS_PER_PAGE);
+      const grid = document.getElementById('productsGrid');
+      const noResults = document.getElementById('noResults');
+
+      if (pageProducts.length === 0) {
+        grid.innerHTML = '';
+        noResults.classList.remove('hidden');
+      } else {
+        noResults.classList.add('hidden');
+        grid.innerHTML = pageProducts.map(p => renderProductCard(p)).join('');
+        updateWishlistButtons();
+      }
+      renderPagination();
+    }
+
+    function renderPagination() {
+      const totalPages = Math.ceil(filteredProducts.length / ITEMS_PER_PAGE);
+      const pagination = document.getElementById('pagination');
+      if (totalPages <= 1) { pagination.innerHTML = ''; return; }
+
+      let html = '';
+      // Prev
+      html += `<button onclick="goPage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}
+        class="w-9 h-9 rounded-full flex items-center justify-center border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:border-pink-500 hover:text-pink-500 disabled:opacity-40 disabled:cursor-not-allowed transition-colors" aria-label="Previous page">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+      </button>`;
+
+      for (let i = 1; i <= totalPages; i++) {
+        html += `<button onclick="goPage(${i})"
+          class="w-9 h-9 rounded-full flex items-center justify-center text-sm font-semibold transition-colors ${i === currentPage
+            ? 'bg-gradient-to-r from-pink-500 to-rose-500 text-white'
+            : 'border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:border-pink-500 hover:text-pink-500'}"
+          aria-label="Page ${i}" ${i === currentPage ? 'aria-current="page"' : ''}>${i}</button>`;
+      }
+
+      // Next
+      html += `<button onclick="goPage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''}
+        class="w-9 h-9 rounded-full flex items-center justify-center border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:border-pink-500 hover:text-pink-500 disabled:opacity-40 disabled:cursor-not-allowed transition-colors" aria-label="Next page">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+      </button>`;
+
+      pagination.innerHTML = html;
+    }
+
+    function goPage(n) {
+      const total = Math.ceil(filteredProducts.length / ITEMS_PER_PAGE);
+      if (n < 1 || n > total) return;
+      currentPage = n;
+      renderPage();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Event listeners
+    document.querySelectorAll('input[name="category"], input[name="rating"]').forEach(el => el.addEventListener('change', applyFilters));
+    document.getElementById('sortSelect').addEventListener('change', applyFilters);
+    document.getElementById('priceRange').addEventListener('input', function() {
+      document.getElementById('priceRangeValue').textContent = `Up to ₹${this.value}`;
+      applyFilters();
+    });
+
+    // Toggle switch
+    const inStockToggle = document.getElementById('inStockOnly');
+    const toggleBg = document.getElementById('toggleBg');
+    const toggleDot = document.getElementById('toggleDot');
+    inStockToggle.addEventListener('change', function() {
+      if (this.checked) {
+        toggleBg.classList.replace('bg-gray-300', 'bg-pink-500');
+        toggleDot.style.transform = 'translateX(16px)';
+        this.setAttribute('aria-checked', 'true');
+      } else {
+        toggleBg.classList.replace('bg-pink-500', 'bg-gray-300');
+        toggleDot.style.transform = 'translateX(0)';
+        this.setAttribute('aria-checked', 'false');
+      }
+      applyFilters();
+    });
+
+    // Reset filters
+    document.getElementById('resetFilters').addEventListener('click', () => {
+      document.querySelector('input[name="category"][value="all"]').checked = true;
+      document.querySelector('input[name="rating"][value="0"]').checked = true;
+      document.getElementById('priceRange').value = 2000;
+      document.getElementById('priceRangeValue').textContent = 'Up to ₹2000';
+      inStockToggle.checked = false;
+      toggleBg.classList.replace('bg-pink-500', 'bg-gray-300');
+      toggleDot.style.transform = 'translateX(0)';
+      document.getElementById('sortSelect').value = 'default';
+      applyFilters();
+    });
+
+    // Mobile filter toggle
+    document.getElementById('filterToggle').addEventListener('click', function() {
+      const panel = document.getElementById('filterPanel');
+      const isHidden = panel.classList.contains('hidden');
+      panel.classList.toggle('hidden', !isHidden);
+      this.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
+    });
+
+    // Init
+    applyFilters();
+  </script>
+</body>
+</html>
