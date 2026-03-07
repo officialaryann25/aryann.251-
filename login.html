@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login – Floria Premium Flower Delivery</title>
+  <meta name="description" content="Login or create your Floria account to enjoy exclusive offers and easy order tracking." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-page="login">
+
+  <div id="toast-container"></div>
+
+  <!-- Simple header -->
+  <header style="background:var(--white);border-bottom:1px solid var(--border);padding:14px 24px;position:fixed;top:0;left:0;right:0;z-index:100;">
+    <div style="max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;">
+      <a href="index.html" style="font-family:var(--font-main);font-size:1.8rem;font-weight:700;color:var(--primary);letter-spacing:0.05em;">Floria</a>
+      <a href="index.html" style="font-size:0.88rem;color:var(--gray);display:flex;align-items:center;gap:6px;">
+        <i class="fas fa-arrow-left"></i> Back to Shop
+      </a>
+    </div>
+  </header>
+
+  <main class="auth-page" style="padding-top: 80px;">
+    <div class="auth-container">
+      <!-- Aside decoration -->
+      <div class="auth-aside">
+        <div class="auth-aside-flower">🌸</div>
+        <div class="auth-aside-logo">Floria</div>
+        <p class="auth-aside-tagline">
+          Your gateway to premium flowers,<br>same-day delivery, and exclusive offers.
+        </p>
+        <div style="margin-top:32px;display:flex;flex-direction:column;gap:12px;width:100%;">
+          <div style="display:flex;align-items:center;gap:10px;color:rgba(255,255,255,0.8);font-size:0.88rem;">
+            <i class="fas fa-check-circle" style="color:rgba(255,255,255,0.9);"></i>
+            Track your orders easily
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;color:rgba(255,255,255,0.8);font-size:0.88rem;">
+            <i class="fas fa-check-circle" style="color:rgba(255,255,255,0.9);"></i>
+            Save your favourite blooms
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;color:rgba(255,255,255,0.8);font-size:0.88rem;">
+            <i class="fas fa-check-circle" style="color:rgba(255,255,255,0.9);"></i>
+            Exclusive member discounts
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;color:rgba(255,255,255,0.8);font-size:0.88rem;">
+            <i class="fas fa-check-circle" style="color:rgba(255,255,255,0.9);"></i>
+            Fast checkout experience
+          </div>
+        </div>
+      </div>
+
+      <!-- Main form area -->
+      <div class="auth-main">
+        <!-- Tabs -->
+        <div class="auth-tabs">
+          <button class="auth-tab active" data-tab="login-form">Sign In</button>
+          <button class="auth-tab" data-tab="register-form">Create Account</button>
+        </div>
+
+        <!-- Login Form -->
+        <form class="auth-form active" id="login-form" novalidate>
+          <div class="form-group">
+            <label class="form-label" for="login-email">Email Address</label>
+            <input type="email" class="form-input" id="login-email" placeholder="you@example.com" autocomplete="email" />
+            <span class="form-error" id="login-email-error"></span>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="login-password">
+              Password
+              <a href="#" style="float:right;font-size:0.8rem;color:var(--primary);" onclick="showToast('Password reset link sent to your email!','info');return false;">Forgot password?</a>
+            </label>
+            <div style="position:relative;">
+              <input type="password" class="form-input" id="login-password" placeholder="Enter your password" autocomplete="current-password" />
+              <button type="button" style="position:absolute;right:14px;top:50%;transform:translateY(-50%);background:none;color:var(--gray);font-size:0.9rem;" onclick="togglePasswordVisibility('login-password', this)">
+                <i class="far fa-eye"></i>
+              </button>
+            </div>
+            <span class="form-error" id="login-pass-error"></span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:20px;">
+            <input type="checkbox" id="remember-me" style="width:16px;height:16px;accent-color:var(--primary);" />
+            <label for="remember-me" style="font-size:0.88rem;color:var(--gray);">Remember me</label>
+          </div>
+          <button type="submit" class="form-submit-btn">
+            <i class="fas fa-sign-in-alt"></i> Sign In to Floria
+          </button>
+
+          <div class="auth-divider">or continue with</div>
+          <div class="auth-social-btns">
+            <button type="button" class="auth-social-btn" onclick="showToast('Google sign-in coming soon!','info')">
+              <i class="fab fa-google" style="color:#ea4335;"></i> Google
+            </button>
+            <button type="button" class="auth-social-btn" onclick="showToast('Facebook sign-in coming soon!','info')">
+              <i class="fab fa-facebook-f" style="color:#1877f2;"></i> Facebook
+            </button>
+          </div>
+        </form>
+
+        <!-- Register Form -->
+        <form class="auth-form" id="register-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="reg-name">Full Name</label>
+              <input type="text" class="form-input" id="reg-name" placeholder="Your full name" autocomplete="name" />
+              <span class="form-error" id="reg-name-error"></span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="reg-phone">Phone Number</label>
+              <input type="tel" class="form-input" id="reg-phone" placeholder="+91 XXXXX XXXXX" autocomplete="tel" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="reg-email">Email Address</label>
+            <input type="email" class="form-input" id="reg-email" placeholder="you@example.com" autocomplete="email" />
+            <span class="form-error" id="reg-email-error"></span>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="reg-password">Password</label>
+              <div style="position:relative;">
+                <input type="password" class="form-input" id="reg-password" placeholder="Minimum 6 characters" autocomplete="new-password" />
+                <button type="button" style="position:absolute;right:14px;top:50%;transform:translateY(-50%);background:none;color:var(--gray);font-size:0.9rem;" onclick="togglePasswordVisibility('reg-password', this)">
+                  <i class="far fa-eye"></i>
+                </button>
+              </div>
+              <span class="form-error" id="reg-pass-error"></span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="reg-confirm">Confirm Password</label>
+              <input type="password" class="form-input" id="reg-confirm" placeholder="Re-enter password" autocomplete="new-password" />
+              <span class="form-error" id="reg-confirm-error"></span>
+            </div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:20px;">
+            <input type="checkbox" id="agree-terms" style="width:16px;height:16px;accent-color:var(--primary);margin-top:2px;" />
+            <label for="agree-terms" style="font-size:0.85rem;color:var(--gray);line-height:1.5;">
+              I agree to the <a href="#" style="color:var(--primary);">Terms of Service</a> and <a href="#" style="color:var(--primary);">Privacy Policy</a>
+            </label>
+          </div>
+          <button type="submit" class="form-submit-btn">
+            <i class="fas fa-user-plus"></i> Create Account
+          </button>
+
+          <div class="auth-divider">or sign up with</div>
+          <div class="auth-social-btns">
+            <button type="button" class="auth-social-btn" onclick="showToast('Google sign-up coming soon!','info')">
+              <i class="fab fa-google" style="color:#ea4335;"></i> Google
+            </button>
+            <button type="button" class="auth-social-btn" onclick="showToast('Facebook sign-up coming soon!','info')">
+              <i class="fab fa-facebook-f" style="color:#1877f2;"></i> Facebook
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/script.js"></script>
+  <script>
+    function togglePasswordVisibility(inputId, btn) {
+      const input = document.getElementById(inputId);
+      const icon = btn.querySelector('i');
+      if (input.type === 'password') {
+        input.type = 'text';
+        icon.className = 'far fa-eye-slash';
+      } else {
+        input.type = 'password';
+        icon.className = 'far fa-eye';
+      }
+    }
+  </script>
+
+  <!-- WhatsApp Floating Button -->
+  <a id="whatsapp-float" href="https://wa.me/918750141860" target="_blank" rel="noopener" title="Chat on WhatsApp">
+    <img src="https://github.com/user-attachments/assets/e323d7a2-94f6-419d-a4f4-888f4331fe6c" alt="WhatsApp" />
+    <span class="wa-tooltip">Chat with us!</span>
+  </a>
+</body>
+</html>

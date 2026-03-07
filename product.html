@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product – Floria Premium Flower Delivery</title>
+  <meta name="description" content="View product details and add to cart." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-page="product">
+
+  <div id="toast-container"></div>
+  <div id="overlay"></div>
+
+  <!-- ============================
+       SIDE MENU
+       ============================ -->
+  <nav id="side-menu" role="navigation" aria-label="Side navigation">
+    <div class="side-menu-header">
+      <span class="side-menu-logo">Floria</span>
+      <button class="close-menu-btn" onclick="closeMenu()" aria-label="Close menu">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="side-menu-body">
+      <div class="side-menu-item" onclick="window.location.href='index.html'"><i class="fas fa-home"></i> Home</div>
+      <div class="side-menu-item" onclick="window.location.href='login.html'"><i class="fas fa-user"></i> My Account</div>
+      <div class="side-menu-item" onclick="openCart()"><i class="fas fa-shopping-bag"></i> My Cart</div>
+    </div>
+  </nav>
+
+  <!-- ============================
+       HEADER
+       ============================ -->
+  <header id="main-header">
+    <div class="header-top">
+      🌸 Free delivery on orders above ₹2000 &nbsp;|&nbsp; Same Day Delivery Available
+    </div>
+    <div class="header-main">
+      <div class="header-left">
+        <button class="hamburger-btn" onclick="openMenu()" aria-label="Open menu">
+          <i class="fas fa-bars"></i>
+        </button>
+        <a href="index.html" class="logo">
+          <span class="logo-text">Floria</span>
+          <span class="logo-tagline">Premium Blooms</span>
+        </a>
+      </div>
+      <div class="header-search">
+        <a href="index.html" class="search-wrapper" style="display:flex;align-items:center;text-decoration:none;">
+          <input type="text" placeholder="Search for flowers..." style="pointer-events:none;" tabindex="-1" />
+          <button class="search-btn" aria-label="Search"><i class="fas fa-search"></i></button>
+        </a>
+      </div>
+      <div class="header-right">
+        <a href="login.html" class="header-icon-btn" title="Login">
+          <i class="far fa-user"></i>
+          <span>Login</span>
+        </a>
+        <button class="header-icon-btn" onclick="openCart()" title="Cart" id="cart-btn">
+          <div style="position:relative;display:inline-block;">
+            <i class="fas fa-shopping-bag"></i>
+            <span class="cart-badge" id="cart-badge-count" style="display:none;">0</span>
+          </div>
+          <span>Cart</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================
+       CART SIDEBAR
+       ============================ -->
+  <aside id="cart-sidebar" aria-label="Shopping cart">
+    <div class="cart-sidebar-header">
+      <span class="cart-sidebar-title">My Cart</span>
+      <button class="cart-close-btn" onclick="closeCart()" aria-label="Close cart">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="cart-items-list" id="cart-items-list"></div>
+    <div class="cart-sidebar-footer">
+      <div class="cart-total-row">
+        <span class="cart-total-label">Total</span>
+        <span class="cart-total-amount" id="cart-sidebar-total">₹0</span>
+      </div>
+      <button class="btn-checkout" onclick="proceedToCheckout()">
+        <i class="fas fa-lock"></i> Secure Checkout
+      </button>
+      <a href="cart.html" class="btn-view-cart">View Full Cart</a>
+    </div>
+  </aside>
+
+  <!-- ============================
+       PRODUCT DETAIL CONTENT
+       ============================ -->
+  <main class="product-detail-page">
+    <div class="container">
+      <div id="product-detail-content">
+        <!-- Dynamically rendered by JS -->
+        <div style="text-align:center;padding:80px 20px;">
+          <div class="spinner"></div>
+          <p style="margin-top:12px;color:var(--gray);">Loading product details...</p>
+        </div>
+      </div>
+
+      <!-- Related Products -->
+      <div style="margin-top:64px;" data-lazy>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;">
+          <div>
+            <div class="badge">You May Also Like</div>
+            <h2 style="font-family:var(--font-main);font-size:2rem;font-weight:600;margin-top:8px;">Related Products</h2>
+          </div>
+        </div>
+        <div class="products-grid" id="related-products-grid" style="grid-template-columns:repeat(4,1fr);"></div>
+      </div>
+
+      <!-- Customer Reviews -->
+      <div style="margin-top:64px;background:var(--white);border-radius:var(--radius);padding:40px;box-shadow:var(--shadow-sm);">
+        <h2 style="font-family:var(--font-main);font-size:1.8rem;font-weight:600;margin-bottom:24px;">Customer Reviews</h2>
+        <div style="display:grid;grid-template-columns:200px 1fr;gap:40px;">
+          <div style="text-align:center;padding:20px;background:var(--light-gray);border-radius:var(--radius);">
+            <div style="font-family:var(--font-main);font-size:3.5rem;font-weight:700;color:var(--primary);">4.7</div>
+            <div style="display:flex;justify-content:center;gap:3px;margin:8px 0;">
+              <i class="fas fa-star" style="color:var(--gold);"></i>
+              <i class="fas fa-star" style="color:var(--gold);"></i>
+              <i class="fas fa-star" style="color:var(--gold);"></i>
+              <i class="fas fa-star" style="color:var(--gold);"></i>
+              <i class="fas fa-star-half-alt" style="color:var(--gold);"></i>
+            </div>
+            <div style="font-size:0.82rem;color:var(--gray);">Based on 328 reviews</div>
+          </div>
+          <div>
+            <div id="review-list">
+              <div style="padding:20px 0;border-bottom:1px solid var(--border);">
+                <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+                  <div style="display:flex;align-items:center;gap:10px;">
+                    <div style="width:36px;height:36px;border-radius:50%;background:var(--accent-light);display:flex;align-items:center;justify-content:center;font-weight:600;color:var(--primary);">S</div>
+                    <span style="font-weight:600;font-size:0.9rem;">Sneha Kapoor</span>
+                  </div>
+                  <div style="display:flex;gap:2px;">
+                    <i class="fas fa-star" style="color:var(--gold);font-size:0.8rem;"></i>
+                    <i class="fas fa-star" style="color:var(--gold);font-size:0.8rem;"></i>
+                    <i class="fas fa-star" style="color:var(--gold);font-size:0.8rem;"></i>
+                    <i class="fas fa-star" style="color:var(--gold);font-size:0.8rem;"></i>
+                    <i class="fas fa-star" style="color:var(--gold);font-size:0.8rem;"></i>
+                  </div>
+                </div>
+                <p style="font-size:0.9rem;color:var(--gray);line-height:1.6;">Absolutely stunning! The flowers were fresh and beautifully arranged. Delivery was on time and the packaging was premium. Will definitely order again! 🌸</p>
+              </div>
+              <div style="padding:20px 0;border-bottom:1px solid var(--border);">
+                <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+                  <div style="display:flex;align-items:center;gap:10px;">
+                    <div style="width:36px;height:36px;border-radius:50%;background:#e8f4fd;display:flex;align-items:center;justify-content:center;font-weight:600;color:#1a6fa0;">R</div>
+                    <span style="font-weight:600;font-size:0.9rem;">Rahul Sharma</span>
+                  </div>
+                  <div style="display:flex;gap:2px;">
+                    <i class="fas fa-star" style="color:var(--gold);font-size:0.8rem;"></i>
+                    <i class="fas fa-star" style="color:var(--gold);font-size:0.8rem;"></i>
+                    <i class="fas fa-star" style="color:var(--gold);font-size:0.8rem;"></i>
+                    <i class="fas fa-star" style="color:var(--gold);font-size:0.8rem;"></i>
+                    <i class="far fa-star" style="color:var(--gold);font-size:0.8rem;"></i>
+                  </div>
+                </div>
+                <p style="font-size:0.9rem;color:var(--gray);line-height:1.6;">Ordered for my wife's anniversary and she absolutely loved it. The quality of flowers was top-notch. Floria never disappoints!</p>
+              </div>
+              <div style="padding:20px 0;">
+                <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+                  <div style="display:flex;align-items:center;gap:10px;">
+                    <div style="width:36px;height:36px;border-radius:50%;background:#f0fff4;display:flex;align-items:center;justify-content:center;font-weight:600;color:#2d7a47;">P</div>
+                    <span style="font-weight:600;font-size:0.9rem;">Priya Mehta</span>
+                  </div>
+                  <div style="display:flex;gap:2px;">
+                    <i class="fas fa-star" style="color:var(--gold);font-size:0.8rem;"></i>
+                    <i class="fas fa-star" style="color:var(--gold);font-size:0.8rem;"></i>
+                    <i class="fas fa-star" style="color:var(--gold);font-size:0.8rem;"></i>
+                    <i class="fas fa-star" style="color:var(--gold);font-size:0.8rem;"></i>
+                    <i class="fas fa-star" style="color:var(--gold);font-size:0.8rem;"></i>
+                  </div>
+                </div>
+                <p style="font-size:0.9rem;color:var(--gray);line-height:1.6;">The best flower delivery service I've ever used! The blooms were fresh for over a week. Packaging was elegant and the fragrance was heavenly. 5 stars!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ============================
+       FOOTER (simplified)
+       ============================ -->
+  <footer id="main-footer">
+    <div class="footer-main" style="grid-template-columns:1fr 1fr 1fr;gap:32px;">
+      <div class="footer-brand">
+        <div class="footer-logo">Floria</div>
+        <p>Premium flower delivery crafted with love.</p>
+        <div class="footer-social">
+          <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Quick Links</div>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="cart.html">Cart</a>
+          <a href="login.html">My Account</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <div class="footer-contact-item"><i class="fas fa-phone"></i><a href="tel:+918750141860" style="color:rgba(255,255,255,0.75);">+91 8750141860</a></div>
+        <div class="footer-contact-item"><i class="fas fa-envelope"></i><a href="mailto:mahisehrawat2006@gmail.com" style="color:rgba(255,255,255,0.75);font-size:0.8rem;">mahisehrawat2006@gmail.com</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-bottom-text">© 2025 Floria. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+
+  <!-- WhatsApp Floating Button -->
+  <a id="whatsapp-float" href="https://wa.me/918750141860" target="_blank" rel="noopener" title="Chat on WhatsApp">
+    <img src="https://github.com/user-attachments/assets/e323d7a2-94f6-419d-a4f4-888f4331fe6c" alt="WhatsApp" />
+    <span class="wa-tooltip">Chat with us!</span>
+  </a>
+</body>
+</html>
