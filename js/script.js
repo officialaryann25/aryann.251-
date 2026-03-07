@@ -11,21 +11,21 @@
    PRODUCT DATA  (mirrors HTML data attributes)
    ============================================================ */
 const PRODUCTS = [
-  { id: 1,  name: 'Double Vanilla Dream',      price: 4.99,  category: 'classic',    popularity: 98, img: 'images/prod-vanilla.svg',       desc: 'Rich double-churned vanilla with Madagascar vanilla bean specks.' },
-  { id: 2,  name: 'Fresh Strawberry Swirl',    price: 5.49,  category: 'classic',    popularity: 95, img: 'images/prod-strawberry.svg',    desc: 'Real strawberry pieces swirled into creamy vanilla base.' },
-  { id: 3,  name: 'Chocolate Fudge Sundae',    price: 8.99,  category: 'sundae',     popularity: 92, img: 'images/prod-choc-sundae.svg',   desc: 'Three scoops, hot fudge, whipped cream, nuts, and a cherry.' },
-  { id: 4,  name: 'Oreo Crunch Milkshake',     price: 6.99,  category: 'milkshake',  popularity: 88, img: 'images/prod-milkshake.svg',     desc: 'Thick creamy milkshake blended with whole Oreo cookies.' },
-  { id: 5,  name: 'Pistachio Gelato',          price: 5.99,  category: 'gelato',     popularity: 85, img: 'images/prod-pistachio.svg',     desc: 'Authentic Sicilian-style pistachio gelato with real nuts.' },
-  { id: 6,  name: 'Mango Tango Sorbet',        price: 4.49,  category: 'sorbet',     popularity: 80, img: 'images/prod-mango-sorbet.svg',  desc: 'Dairy-free sorbet made with 100% real Alphonso mangoes.' },
-  { id: 7,  name: 'Belgian Waffle Stack',      price: 10.99, category: 'waffle',     popularity: 78, img: 'images/prod-waffle-stack.svg', desc: 'Two crispy waffles, three scoops, and your choice of sauces.' },
-  { id: 8,  name: 'Triple Choco Blast',        price: 5.99,  category: 'classic',    popularity: 75, img: 'images/prod-chocolate.svg',     desc: 'Dark, milk, and white chocolate blended into every scoop.' },
-  { id: 9,  name: 'Mint Choc Chip',            price: 5.29,  category: 'classic',    popularity: 70, img: 'images/prod-mint.svg',          desc: 'Cool peppermint cream loaded with rich chocolate chips.' },
-  { id: 10, name: 'Rainbow Sprinkle Sundae',   price: 9.49,  category: 'sundae',     popularity: 83, img: 'images/prod-rainbow-sundae.svg',desc: 'A colourful explosion of flavours, toppings and sprinkles.' },
-  { id: 11, name: 'Banana Split Classic',      price: 7.99,  category: 'sundae',     popularity: 76, img: 'images/prod-banana-split.svg', desc: 'Fresh banana, three ice cream flavours, sauces and toppings.' },
-  { id: 12, name: 'Strawberry Bliss Shake',    price: 7.49,  category: 'milkshake',  popularity: 72, img: 'images/prod-straw-shake.svg',  desc: 'Fresh strawberries whipped into a silky smooth shake.' },
-  { id: 13, name: 'Hazelnut Espresso Gelato',  price: 6.49,  category: 'gelato',     popularity: 68, img: 'images/prod-hazelnut.svg',      desc: 'Bold espresso meets creamy hazelnut in every spoonful.' },
-  { id: 14, name: 'Raspberry Lemon Sorbet',    price: 4.29,  category: 'sorbet',     popularity: 65, img: 'images/prod-raspberry.svg',     desc: 'Tangy raspberries with a hint of zesty lemon. Dairy-free.' },
-  { id: 15, name: 'Nutella Crepe Delight',     price: 9.99,  category: 'waffle',     popularity: 60, img: 'images/prod-crepe.svg',         desc: 'Thin French crepe filled with Nutella and a scoop of gelato.' },
+  { id: 1,  name: 'Double Vanilla Dream',      price: 419,  category: 'classic',    popularity: 98, img: 'images/prod-vanilla.svg',       desc: 'Rich double-churned vanilla with Madagascar vanilla bean specks.' },
+  { id: 2,  name: 'Fresh Strawberry Swirl',    price: 459,  category: 'classic',    popularity: 95, img: 'images/prod-strawberry.svg',    desc: 'Real strawberry pieces swirled into creamy vanilla base.' },
+  { id: 3,  name: 'Chocolate Fudge Sundae',    price: 749,  category: 'sundae',     popularity: 92, img: 'images/prod-choc-sundae.svg',   desc: 'Three scoops, hot fudge, whipped cream, nuts, and a cherry.' },
+  { id: 4,  name: 'Oreo Crunch Milkshake',     price: 579,  category: 'milkshake',  popularity: 88, img: 'images/prod-milkshake.svg',     desc: 'Thick creamy milkshake blended with whole Oreo cookies.' },
+  { id: 5,  name: 'Pistachio Gelato',          price: 499,  category: 'gelato',     popularity: 85, img: 'images/prod-pistachio.svg',     desc: 'Authentic Sicilian-style pistachio gelato with real nuts.' },
+  { id: 6,  name: 'Mango Tango Sorbet',        price: 379,  category: 'sorbet',     popularity: 80, img: 'images/prod-mango-sorbet.svg',  desc: 'Dairy-free sorbet made with 100% real Alphonso mangoes.' },
+  { id: 7,  name: 'Belgian Waffle Stack',      price: 919, category: 'waffle',     popularity: 78, img: 'images/prod-waffle-stack.svg', desc: 'Two crispy waffles, three scoops, and your choice of sauces.' },
+  { id: 8,  name: 'Triple Choco Blast',        price: 499,  category: 'classic',    popularity: 75, img: 'images/prod-chocolate.svg',     desc: 'Dark, milk, and white chocolate blended into every scoop.' },
+  { id: 9,  name: 'Mint Choc Chip',            price: 439,  category: 'classic',    popularity: 70, img: 'images/prod-mint.svg',          desc: 'Cool peppermint cream loaded with rich chocolate chips.' },
+  { id: 10, name: 'Rainbow Sprinkle Sundae',   price: 789,  category: 'sundae',     popularity: 83, img: 'images/prod-rainbow-sundae.svg',desc: 'A colourful explosion of flavours, toppings and sprinkles.' },
+  { id: 11, name: 'Banana Split Classic',      price: 659,  category: 'sundae',     popularity: 76, img: 'images/prod-banana-split.svg', desc: 'Fresh banana, three ice cream flavours, sauces and toppings.' },
+  { id: 12, name: 'Strawberry Bliss Shake',    price: 619,  category: 'milkshake',  popularity: 72, img: 'images/prod-straw-shake.svg',  desc: 'Fresh strawberries whipped into a silky smooth shake.' },
+  { id: 13, name: 'Hazelnut Espresso Gelato',  price: 539,  category: 'gelato',     popularity: 68, img: 'images/prod-hazelnut.svg',      desc: 'Bold espresso meets creamy hazelnut in every spoonful.' },
+  { id: 14, name: 'Raspberry Lemon Sorbet',    price: 359,  category: 'sorbet',     popularity: 65, img: 'images/prod-raspberry.svg',     desc: 'Tangy raspberries with a hint of zesty lemon. Dairy-free.' },
+  { id: 15, name: 'Nutella Crepe Delight',     price: 829,  category: 'waffle',     popularity: 60, img: 'images/prod-crepe.svg',         desc: 'Thin French crepe filled with Nutella and a scoop of gelato.' },
 ];
 
 /* ============================================================
@@ -43,12 +43,12 @@ function clamp(value, min, max) {
 }
 
 /**
- * Format a number as US dollar string.
+ * Format a number as Indian Rupee string.
  * @param {number} amount
  * @returns {string}
  */
 function formatCurrency(amount) {
-  return '$' + amount.toFixed(2);
+  return '₹' + Math.round(amount).toLocaleString('en-IN');
 }
 
 /**
@@ -389,7 +389,7 @@ const resultsInfo    = document.getElementById('filter-results-info');
 /** Current filter state */
 const filterState = {
   category:    'all',
-  maxPrice:    20,
+  maxPrice:    2000,
   sort:        'popularity',
   searchQuery: '',
 };
@@ -457,7 +457,7 @@ function applyFilters(overrides = {}) {
 
   // Results info
   if (resultsInfo) {
-    if (category !== 'all' || searchQuery || maxPrice < 20) {
+    if (category !== 'all' || searchQuery || maxPrice < 2000) {
       resultsInfo.textContent = `Showing ${visibleCount} product${visibleCount !== 1 ? 's' : ''}`;
     } else {
       resultsInfo.textContent = '';
@@ -480,12 +480,12 @@ function applyFilters(overrides = {}) {
 
   const resetFilters = () => {
     filterCategory.value = 'all';
-    filterPrice.value    = 20;
+    filterPrice.value    = 2000;
     filterSort.value     = 'popularity';
-    if (priceDisplay) priceDisplay.textContent = '$20';
+    if (priceDisplay) priceDisplay.textContent = '₹2,000';
     const searchInput = document.getElementById('search-input');
     if (searchInput) searchInput.value = '';
-    applyFilters({ category: 'all', maxPrice: 20, sort: 'popularity', searchQuery: '' });
+    applyFilters({ category: 'all', maxPrice: 2000, sort: 'popularity', searchQuery: '' });
   };
 
   if (filterResetBtn) filterResetBtn.addEventListener('click', resetFilters);
