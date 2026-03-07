@@ -2048,7 +2048,7 @@
         <i class="fas fa-search fa-3x" aria-hidden="true"></i>
         <h3>No results found</h3>
         <p>Try a different search term or adjust the filters.</p>
-        <button onclick="resetFilters()">Clear Filters</button>
+        <button id="empty-state-reset">Clear Filters</button>
       </div>
 
     </div><!-- /.container -->
@@ -2320,7 +2320,11 @@
         });
       });
 
-      // Global reset function (used by empty state button)
+      // Empty-state "Clear Filters" button
+      const resetBtn = document.getElementById('empty-state-reset');
+      if (resetBtn) resetBtn.addEventListener('click', () => resetFilters());
+
+      // Global reset function (exposed for external callers)
       window.resetFilters = function () {
         currentFilter   = 'all';
         currentSearch   = '';
