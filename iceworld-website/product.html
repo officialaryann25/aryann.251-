@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IceWorld – Strawberry Dream</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <p>🍦 Free delivery on orders over $30! Use code <strong>SWEET10</strong> for 10% off your first order 🍦</p>
+  </div>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo">
+        <span class="logo__icon">🍦</span>
+        <span class="logo__text">IceWorld</span>
+      </a>
+
+      <nav class="nav" id="nav">
+        <ul class="nav__list">
+          <li><a href="index.html" class="nav__link">Home</a></li>
+          <li><a href="shop.html" class="nav__link active">Shop</a></li>
+          <li><a href="shop.html?category=flavours" class="nav__link">Flavours</a></li>
+          <li><a href="shop.html?category=sundaes" class="nav__link">Sundaes</a></li>
+          <li><a href="shop.html?category=milkshakes" class="nav__link">Milkshakes</a></li>
+          <li><a href="shop.html?category=cakes" class="nav__link">Ice Cream Cakes</a></li>
+          <li><a href="shop.html?category=offers" class="nav__link">Offers</a></li>
+          <li><a href="about.html" class="nav__link">About</a></li>
+          <li><a href="contact.html" class="nav__link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__actions">
+        <button class="icon-btn" id="searchToggle" aria-label="Search">
+          <i class="fas fa-search"></i>
+        </button>
+        <a href="login.html" class="icon-btn" aria-label="Login">
+          <i class="fas fa-user"></i>
+        </a>
+        <button class="icon-btn wishlist-btn" aria-label="Wishlist">
+          <i class="fas fa-heart"></i>
+          <span class="badge" id="wishlistCount">0</span>
+        </button>
+        <a href="cart.html" class="icon-btn cart-btn" aria-label="Cart">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="badge" id="cartCount">0</span>
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="search-bar" id="searchBar">
+      <div class="container">
+        <input type="text" id="searchInput" placeholder="Search for ice cream flavours, cakes, sundaes…" />
+        <button id="searchBtn"><i class="fas fa-search"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <h1>Product Details</h1>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li>Strawberry Dream</li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+
+  <main class="container product-detail-layout">
+
+    <!-- Product Images -->
+    <div class="product-gallery">
+      <div class="product-gallery__main">
+        <img src="https://placehold.co/600x500/f9b4c8/c2185b?text=Strawberry+Dream" alt="Strawberry Dream" id="mainProductImage" />
+        <button class="wishlist-toggle card-action-btn product-wishlist-btn" data-id="1" aria-label="Add to wishlist">
+          <i class="fas fa-heart"></i>
+        </button>
+      </div>
+      <div class="product-gallery__thumbs">
+        <button class="thumb active" onclick="changeMainImage(this)" data-src="https://placehold.co/600x500/f9b4c8/c2185b?text=Strawberry+Dream">
+          <img src="https://placehold.co/120x100/f9b4c8/c2185b?text=View+1" alt="View 1" />
+        </button>
+        <button class="thumb" onclick="changeMainImage(this)" data-src="https://placehold.co/600x500/ffcdd2/c62828?text=Strawberry+Angle+2">
+          <img src="https://placehold.co/120x100/ffcdd2/c62828?text=View+2" alt="View 2" />
+        </button>
+        <button class="thumb" onclick="changeMainImage(this)" data-src="https://placehold.co/600x500/ef9a9a/b71c1c?text=Strawberry+Angle+3">
+          <img src="https://placehold.co/120x100/ef9a9a/b71c1c?text=View+3" alt="View 3" />
+        </button>
+      </div>
+    </div>
+
+    <!-- Product Info -->
+    <div class="product-info">
+      <span class="product-info__category">Flavours</span>
+      <h1 class="product-info__title">Strawberry Dream</h1>
+
+      <div class="product-info__rating">
+        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+        <span class="rating-count">4.5 (128 reviews)</span>
+      </div>
+
+      <div class="product-info__price">
+        <span class="price price--lg">$4.99</span>
+        <span class="price-note">per scoop</span>
+      </div>
+
+      <p class="product-info__description">
+        Indulge in the pure, sweet magic of our Strawberry Dream – handcrafted with fresh, sun-ripened strawberries 
+        blended into the creamiest vanilla base. Each scoop is packed with real strawberry pieces for an authentic 
+        taste that takes you straight to summer. No artificial flavours, no shortcuts – just pure, blissful joy in every bite.
+      </p>
+
+      <div class="product-info__features">
+        <div class="feature-tag"><i class="fas fa-leaf"></i> No Artificial Flavours</div>
+        <div class="feature-tag"><i class="fas fa-seedling"></i> Vegetarian Friendly</div>
+        <div class="feature-tag"><i class="fas fa-snowflake"></i> Made Fresh Daily</div>
+        <div class="feature-tag"><i class="fas fa-award"></i> Award Winning</div>
+      </div>
+
+      <div class="product-info__options">
+        <div class="option-group">
+          <label for="scoopSize">Size / Serving</label>
+          <select id="scoopSize">
+            <option value="single">Single Scoop ($4.99)</option>
+            <option value="double">Double Scoop ($7.99)</option>
+            <option value="triple">Triple Scoop ($10.99)</option>
+            <option value="pint">Pint (500ml) ($12.99)</option>
+          </select>
+        </div>
+        <div class="option-group">
+          <label>Topping</label>
+          <div class="topping-options">
+            <label class="topping-chip"><input type="checkbox" value="sprinkles" /> Sprinkles</label>
+            <label class="topping-chip"><input type="checkbox" value="fudge" /> Hot Fudge</label>
+            <label class="topping-chip"><input type="checkbox" value="cream" /> Whipped Cream</label>
+            <label class="topping-chip"><input type="checkbox" value="cherry" /> Cherry</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-info__quantity">
+        <label for="quantity">Quantity</label>
+        <div class="qty-control">
+          <button class="qty-btn" id="qtyMinus" aria-label="Decrease quantity">–</button>
+          <input type="number" id="quantity" value="1" min="1" max="20" readonly />
+          <button class="qty-btn" id="qtyPlus" aria-label="Increase quantity">+</button>
+        </div>
+      </div>
+
+      <div class="product-info__cta">
+        <button class="btn btn--primary btn--lg add-to-cart"
+          data-id="1"
+          data-name="Strawberry Dream"
+          data-price="4.99"
+          data-image="https://placehold.co/400x300/f9b4c8/c2185b?text=Strawberry+Dream">
+          <i class="fas fa-shopping-cart"></i> Add to Cart
+        </button>
+        <a href="cart.html" class="btn btn--outline btn--lg">
+          <i class="fas fa-bolt"></i> Buy Now
+        </a>
+      </div>
+
+      <div class="product-info__meta">
+        <p><strong>SKU:</strong> IW-FL-001</p>
+        <p><strong>Category:</strong> <a href="shop.html?category=flavours">Flavours</a></p>
+        <p><strong>Tags:</strong> strawberry, fresh, summer, bestseller</p>
+      </div>
+
+      <div class="product-info__share">
+        <span>Share:</span>
+        <a href="#" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="Share on Pinterest"><i class="fab fa-pinterest-p"></i></a>
+        <a href="#" aria-label="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+
+    <!-- Product Tabs -->
+    <div class="product-tabs">
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="description">Description</button>
+        <button class="tab-btn" data-tab="ingredients">Ingredients</button>
+        <button class="tab-btn" data-tab="reviews">Reviews (128)</button>
+      </div>
+      <div class="tab-panel active" id="tab-description">
+        <h3>About Strawberry Dream</h3>
+        <p>Our Strawberry Dream ice cream is made using a traditional churning method that creates an ultra-smooth, creamy texture. We source our strawberries from local farms during peak season to ensure maximum flavour.</p>
+        <ul>
+          <li>Made with real, fresh strawberries</li>
+          <li>No artificial colours or flavours</li>
+          <li>Gluten-free base</li>
+          <li>Suitable for vegetarians</li>
+          <li>Available as single, double, or triple scoop, or as a pint to take home</li>
+        </ul>
+      </div>
+      <div class="tab-panel" id="tab-ingredients">
+        <h3>Ingredients</h3>
+        <p>Full-cream milk, fresh strawberries (25%), cane sugar, cream, egg yolk, vanilla extract, strawberry purée, stabiliser (guar gum).</p>
+        <h4>Allergen Information</h4>
+        <p>Contains: <strong>Milk, Eggs</strong>. May contain traces of nuts, wheat, and soy. Manufactured in a facility that handles all major allergens.</p>
+        <h4>Nutritional Information (per 100ml)</h4>
+        <table class="nutrition-table">
+          <thead><tr><th>Nutrient</th><th>Per 100ml</th><th>% Daily Value</th></tr></thead>
+          <tbody>
+            <tr><td>Energy</td><td>210 kcal</td><td>10%</td></tr>
+            <tr><td>Fat</td><td>10g</td><td>14%</td></tr>
+            <tr><td>Saturated Fat</td><td>6g</td><td>30%</td></tr>
+            <tr><td>Carbohydrates</td><td>26g</td><td>10%</td></tr>
+            <tr><td>Sugars</td><td>22g</td><td>24%</td></tr>
+            <tr><td>Protein</td><td>3g</td><td>6%</td></tr>
+            <tr><td>Salt</td><td>0.1g</td><td>2%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tab-panel" id="tab-reviews">
+        <h3>Customer Reviews</h3>
+        <div class="review-summary">
+          <div class="review-summary__score">
+            <span class="big-score">4.5</span>
+            <div class="big-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+            <span>Based on 128 reviews</span>
+          </div>
+        </div>
+        <div class="reviews-list">
+          <article class="review-card">
+            <div class="review-card__rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <p>"Absolutely heavenly! The freshest strawberry flavour I've ever had in an ice cream."</p>
+            <div class="review-card__author">
+              <img src="https://placehold.co/50x50/f9b4c8/c2185b?text=SM" alt="Sarah M." />
+              <div><strong>Sarah M.</strong><span>Verified Buyer – 2 weeks ago</span></div>
+            </div>
+          </article>
+          <article class="review-card">
+            <div class="review-card__rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
+            <p>"Very creamy and the strawberry pieces make it special. Would love slightly less sweetness."</p>
+            <div class="review-card__author">
+              <img src="https://placehold.co/50x50/8d4004/fff?text=TK" alt="Tom K." />
+              <div><strong>Tom K.</strong><span>Verified Buyer – 1 month ago</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <!-- Related Products -->
+    <section class="related-products">
+      <div class="section__header">
+        <h2 class="section__title">You May Also Like</h2>
+      </div>
+      <div class="products-grid related-grid">
+        <article class="product-card" data-id="2" data-name="Choco Fudge Sundae" data-price="6.49">
+          <div class="product-card__image">
+            <img src="https://placehold.co/400x300/8d4004/fff?text=Choco+Fudge" alt="Choco Fudge Sundae" loading="lazy" />
+            <div class="product-card__actions">
+              <button class="card-action-btn wishlist-toggle" data-id="2" aria-label="Add to wishlist"><i class="fas fa-heart"></i></button>
+            </div>
+          </div>
+          <div class="product-card__info">
+            <span class="product-card__category">Sundaes</span>
+            <h3><a href="product.html?id=2">Choco Fudge Sundae</a></h3>
+            <div class="product-card__footer">
+              <span class="price">$6.49</span>
+              <button class="btn btn--primary btn--sm add-to-cart" data-id="2" data-name="Choco Fudge Sundae" data-price="6.49" data-image="https://placehold.co/400x300/8d4004/fff?text=Choco+Fudge">Add to Cart</button>
+            </div>
+          </div>
+        </article>
+        <article class="product-card" data-id="3" data-name="Mango Sorbet" data-price="3.99">
+          <div class="product-card__image">
+            <img src="https://placehold.co/400x300/ffd54f/e65100?text=Mango+Sorbet" alt="Mango Sorbet" loading="lazy" />
+            <div class="product-card__actions">
+              <button class="card-action-btn wishlist-toggle" data-id="3" aria-label="Add to wishlist"><i class="fas fa-heart"></i></button>
+            </div>
+          </div>
+          <div class="product-card__info">
+            <span class="product-card__category">Flavours</span>
+            <h3><a href="product.html?id=3">Mango Sorbet</a></h3>
+            <div class="product-card__footer">
+              <span class="price">$3.99</span>
+              <button class="btn btn--primary btn--sm add-to-cart" data-id="3" data-name="Mango Sorbet" data-price="3.99" data-image="https://placehold.co/400x300/ffd54f/e65100?text=Mango+Sorbet">Add to Cart</button>
+            </div>
+          </div>
+        </article>
+        <article class="product-card" data-id="6" data-name="Blueberry Swirl" data-price="4.49">
+          <div class="product-card__image">
+            <img src="https://placehold.co/400x300/ede7f6/4527a0?text=Blueberry+Swirl" alt="Blueberry Swirl" loading="lazy" />
+            <div class="product-card__actions">
+              <button class="card-action-btn wishlist-toggle" data-id="6" aria-label="Add to wishlist"><i class="fas fa-heart"></i></button>
+            </div>
+          </div>
+          <div class="product-card__info">
+            <span class="product-card__category">Flavours</span>
+            <h3><a href="product.html?id=6">Blueberry Swirl</a></h3>
+            <div class="product-card__footer">
+              <span class="price">$4.49</span>
+              <button class="btn btn--primary btn--sm add-to-cart" data-id="6" data-name="Blueberry Swirl" data-price="4.49" data-image="https://placehold.co/400x300/ede7f6/4527a0?text=Blueberry+Swirl">Add to Cart</button>
+            </div>
+          </div>
+        </article>
+        <article class="product-card" data-id="11" data-name="Caramel Crunch" data-price="4.79">
+          <div class="product-card__image">
+            <img src="https://placehold.co/400x300/ffcc80/e65100?text=Caramel+Crunch" alt="Caramel Crunch" loading="lazy" />
+            <div class="product-card__actions">
+              <button class="card-action-btn wishlist-toggle" data-id="11" aria-label="Add to wishlist"><i class="fas fa-heart"></i></button>
+            </div>
+          </div>
+          <div class="product-card__info">
+            <span class="product-card__category">Flavours</span>
+            <h3><a href="product.html?id=11">Caramel Crunch</a></h3>
+            <div class="product-card__footer">
+              <span class="price">$4.79</span>
+              <button class="btn btn--primary btn--sm add-to-cart" data-id="11" data-name="Caramel Crunch" data-price="4.79" data-image="https://placehold.co/400x300/ffcc80/e65100?text=Caramel+Crunch">Add to Cart</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="index.html" class="logo">
+            <span class="logo__icon">🍦</span>
+            <span class="logo__text">IceWorld</span>
+          </a>
+          <p>Crafting joy one scoop at a time since 2010.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+          </div>
+        </div>
+        <div class="footer__links">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="shop.html">All Products</a></li>
+            <li><a href="shop.html?category=flavours">Ice Cream Flavours</a></li>
+            <li><a href="shop.html?category=sundaes">Sundaes</a></li>
+            <li><a href="shop.html?category=milkshakes">Milkshakes</a></li>
+            <li><a href="shop.html?category=cakes">Ice Cream Cakes</a></li>
+          </ul>
+        </div>
+        <div class="footer__links">
+          <h4>Customer Support</h4>
+          <ul>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Shipping Policy</a></li>
+            <li><a href="#">Returns &amp; Refunds</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer__contact">
+          <h4>Contact Us</h4>
+          <ul>
+            <li><i class="fas fa-map-marker-alt"></i> 123 Sweet Street, Ice Town</li>
+            <li><i class="fas fa-phone"></i> <a href="tel:+15551234567">+1 (555) 123-4567</a></li>
+            <li><i class="fas fa-envelope"></i> <a href="mailto:hello@iceworld.com">hello@iceworld.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; <span id="year"></span> IceWorld. All rights reserved.</p>
+        <div class="payment-icons">
+          <i class="fab fa-cc-visa"></i>
+          <i class="fab fa-cc-mastercard"></i>
+          <i class="fab fa-cc-paypal"></i>
+          <i class="fab fa-cc-apple-pay"></i>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
