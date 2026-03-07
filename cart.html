@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Cart — Floria Premium Flower Delivery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="cart">
+
+  <!-- ============================================================
+       OVERLAY
+  ============================================================ -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- ============================================================
+       SIDE MENU
+  ============================================================ -->
+  <nav class="side-menu" id="side-menu">
+    <div class="side-menu-header">
+      <span class="side-menu-logo">Floria</span>
+      <button class="side-menu-close" onclick="closeMenu()" aria-label="Close menu">✕</button>
+    </div>
+    <div class="side-menu-section">
+      <a href="index.html"><span class="menu-icon">🏠</span> Home</a>
+      <a href="index.html#birthday-section"><span class="menu-icon">🎂</span> Birthday Flowers</a>
+      <a href="index.html#anniversary-section"><span class="menu-icon">💕</span> Anniversary Flowers</a>
+      <a href="login.html"><span class="menu-icon">👤</span> Login / Register</a>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       HEADER
+  ============================================================ -->
+  <header class="site-header">
+    <div class="header-inner">
+      <button class="hamburger-btn" onclick="openMenu()" aria-label="Open menu">☰</button>
+      <div class="logo-area">
+        <a href="index.html" class="logo-text">Flori<span>a</span></a>
+      </div>
+      <div style="flex:1"></div>
+      <div class="header-actions">
+        <button class="header-action-btn" onclick="window.location.href='index.html'" aria-label="Home">
+          <span class="btn-icon">🏠</span>
+          <span class="btn-label">Home</span>
+        </button>
+        <button class="header-action-btn" onclick="window.location.href='login.html'" aria-label="Login">
+          <span class="btn-icon">👤</span>
+          <span class="btn-label">Login</span>
+        </button>
+        <button class="header-action-btn" aria-label="Cart">
+          <span class="btn-icon">🛒</span>
+          <span class="btn-label">Cart</span>
+          <span class="cart-count">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       CART PAGE CONTENT
+  ============================================================ -->
+  <main class="cart-page-section">
+    <h1 class="section-title" style="margin-bottom:0.25rem">Your Shopping Cart</h1>
+    <p class="section-subtitle" style="margin-bottom:2rem">Review your items and proceed to checkout</p>
+
+    <!-- Breadcrumb -->
+    <div class="product-breadcrumb" style="margin-bottom:1.5rem">
+      <a href="index.html">Home</a> <span>›</span> <span>Cart</span>
+    </div>
+
+    <div class="cart-page-grid">
+      <!-- Cart table -->
+      <div>
+        <div id="cart-table"></div>
+      </div>
+      <!-- Order summary -->
+      <div id="cart-page-summary"></div>
+    </div>
+  </main>
+
+  <!-- ============================================================
+       FOOTER (compact)
+  ============================================================ -->
+  <footer class="site-footer" style="padding:2rem 1.5rem">
+    <div style="max-width:1400px;margin:0 auto;text-align:center;color:rgba(255,255,255,0.5);font-size:0.8rem">
+      &copy; 2026 Floria. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- Scroll top -->
+  <button class="scroll-top-btn" id="scroll-top-btn" aria-label="Scroll to top">↑</button>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

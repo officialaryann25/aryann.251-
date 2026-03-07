@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Floria — Premium flower delivery. Same-day delivery of fresh, beautiful flowers across India.">
+  <title>Floria — Premium Flower Delivery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="home">
+
+  <!-- ============================================================
+       OVERLAY
+  ============================================================ -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- ============================================================
+       SIDE MENU
+  ============================================================ -->
+  <nav class="side-menu" id="side-menu" aria-label="Main navigation">
+    <div class="side-menu-header">
+      <span class="side-menu-logo">Floria</span>
+      <button class="side-menu-close" onclick="closeMenu()" aria-label="Close menu">✕</button>
+    </div>
+
+    <div class="side-menu-section">
+      <div class="side-menu-section-title">Top Collections</div>
+      <a href="#same-day"><span class="menu-icon">🚚</span> Same Day Delivery</a>
+      <a href="#birthday-section"><span class="menu-icon">🎂</span> Birthday Flowers</a>
+      <a href="#anniversary-section"><span class="menu-icon">💕</span> Anniversary Flowers</a>
+      <a href="#grandgestures-section"><span class="menu-icon">🌹</span> Grand Gestures</a>
+    </div>
+
+    <div class="side-menu-section">
+      <div class="side-menu-section-title">Shop By</div>
+      <a href="#birthday-section"><span class="menu-icon">🎁</span> Collections</a>
+      <a href="#sentiments-section"><span class="menu-icon">🤍</span> Occasions</a>
+      <a href="#sentiments-section"><span class="menu-icon">🌸</span> Soft Sentiments</a>
+      <a href="#blog-section"><span class="menu-icon">🎉</span> Festivals</a>
+      <a href="#vase-section"><span class="menu-icon">💐</span> Flower Type</a>
+      <a href="#footer"><span class="menu-icon">✈️</span> International Cities</a>
+    </div>
+
+    <div class="side-menu-section">
+      <div class="side-menu-section-title">Account</div>
+      <a href="login.html"><span class="menu-icon">👤</span> Login / Register</a>
+      <a href="cart.html"><span class="menu-icon">🛒</span> My Cart</a>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       HEADER
+  ============================================================ -->
+  <header class="site-header">
+    <div class="header-inner">
+      <!-- Hamburger -->
+      <button class="hamburger-btn" onclick="openMenu()" aria-label="Open menu">☰</button>
+
+      <!-- Logo -->
+      <div class="logo-area">
+        <a href="index.html" class="logo-text">Flori<span>a</span></a>
+        <div class="delivery-badge">
+          <span class="flag">🇮🇳</span>
+          <div>
+            <span style="font-size:0.7rem">Delivery to</span>
+            <strong>110043</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- Search bar -->
+      <div class="search-wrap">
+        <input type="text" id="search-input" placeholder="Search for flowers, bouquets..." autocomplete="off">
+        <button class="search-btn" aria-label="Search">🔍</button>
+        <div class="search-results" id="search-results"></div>
+      </div>
+
+      <!-- Mobile search toggle -->
+      <button class="header-action-btn mobile-search-toggle" onclick="toggleMobileSearch()" aria-label="Search">
+        <span class="btn-icon">🔍</span>
+      </button>
+
+      <!-- Header Actions -->
+      <div class="header-actions">
+        <button class="header-action-btn" onclick="showToast('Currency: ₹ INR')" aria-label="Currency">
+          <span class="btn-icon">💰</span>
+          <span class="btn-label">INR</span>
+        </button>
+        <button class="header-action-btn" onclick="showToast('View your wishlist')" aria-label="Wishlist">
+          <span class="btn-icon">❤</span>
+          <span class="btn-label">Wishlist</span>
+        </button>
+        <button class="header-action-btn" onclick="openCartSidebar()" aria-label="Cart">
+          <span class="btn-icon">🛒</span>
+          <span class="btn-label">Cart</span>
+          <span class="cart-count">0</span>
+        </button>
+        <button class="header-action-btn" onclick="window.location.href='login.html'" aria-label="Login">
+          <span class="btn-icon">👤</span>
+          <span class="btn-label">Login</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile search bar -->
+    <div class="mobile-search-bar" id="mobile-search-bar">
+      <input type="text" id="mobile-search-input" placeholder="Search for flowers...">
+    </div>
+  </header>
+
+  <!-- ============================================================
+       CATEGORY NAV BAR
+  ============================================================ -->
+  <nav class="category-nav" aria-label="Categories">
+    <div class="category-nav-inner">
+      <div class="cat-item active" data-target="hero-slider">
+        <span class="cat-icon">👩</span>
+        <span class="cat-label">Women's Day</span>
+      </div>
+      <div class="cat-item" data-target="bestselling">
+        <span class="cat-icon">🚚</span>
+        <span class="cat-label">Same Day Delivery</span>
+      </div>
+      <div class="cat-item" data-target="birthday-section">
+        <span class="cat-icon">🎂</span>
+        <span class="cat-label">Birthday Flowers</span>
+      </div>
+      <div class="cat-item" data-target="anniversary-section">
+        <span class="cat-icon">💕</span>
+        <span class="cat-label">Anniversary Flowers</span>
+      </div>
+      <div class="cat-item" data-target="grandgestures-section">
+        <span class="cat-icon">🌹</span>
+        <span class="cat-label">Grand Gestures</span>
+      </div>
+      <div class="cat-item" data-target="candles-section">
+        <span class="cat-icon">🕯️</span>
+        <span class="cat-label">Candles &amp; Fragrances</span>
+      </div>
+      <div class="cat-item" data-target="vase-section">
+        <span class="cat-icon">🎁</span>
+        <span class="cat-label">Gift Hampers</span>
+      </div>
+      <div class="cat-item" data-target="wedding-section">
+        <span class="cat-icon">🏢</span>
+        <span class="cat-label">Corporate Gifting</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       HERO BANNER SLIDER
+  ============================================================ -->
+  <section id="hero-slider" class="hero-slider" aria-label="Featured promotions">
+    <div class="slides-wrapper" id="slides-wrapper"></div>
+
+    <!-- Arrows -->
+    <button class="slider-arrow prev" onclick="prevSlide()" aria-label="Previous slide">&#8592;</button>
+    <button class="slider-arrow next" onclick="nextSlide()" aria-label="Next slide">&#8594;</button>
+
+    <!-- Dots -->
+    <div class="slider-dots" id="slider-dots"></div>
+  </section>
+
+  <!-- ============================================================
+       BESTSELLING BLOOMS
+  ============================================================ -->
+  <section id="bestselling" class="section">
+    <div class="animate-in">
+      <h2 class="section-title">Bestselling Blooms</h2>
+      <p class="section-subtitle">Floral arrangements that get the most love</p>
+    </div>
+    <div class="product-slider-wrap">
+      <button class="slider-nav-btn slider-prev" onclick="scrollBestselling(-1)" aria-label="Previous">&#8592;</button>
+      <div class="product-slider" id="bestselling-slider"></div>
+      <button class="slider-nav-btn slider-next" onclick="scrollBestselling(1)" aria-label="Next">&#8594;</button>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SOFT SENTIMENTS
+  ============================================================ -->
+  <div class="section-full" id="sentiments-section">
+    <div class="sentiments-section">
+      <div class="animate-in">
+        <h2 class="section-title">Soft Sentiments</h2>
+        <p class="section-subtitle">Say more, with the universal language of flowers</p>
+      </div>
+      <div class="sentiments-grid">
+        <div class="sentiment-card animate-in">
+          <img src="https://picsum.photos/seed/sent-sympathy/400/300" alt="For Sympathy" loading="lazy">
+          <div class="sentiment-label"><div class="for-text">For</div><div class="main-text">Sympathy</div></div>
+        </div>
+        <div class="sentiment-card animate-in">
+          <img src="https://picsum.photos/seed/sent-thankyou/400/300" alt="Thank You" loading="lazy">
+          <div class="sentiment-label"><div class="for-text">Send</div><div class="main-text">Thank You</div></div>
+        </div>
+        <div class="sentiment-card animate-in">
+          <img src="https://picsum.photos/seed/sent-getwellsoon/400/300" alt="Get Well Soon" loading="lazy">
+          <div class="sentiment-label"><div class="for-text">Send</div><div class="main-text">Get Well Soon</div></div>
+        </div>
+        <div class="sentiment-card animate-in">
+          <img src="https://picsum.photos/seed/sent-baby/400/300" alt="Baby Shower" loading="lazy">
+          <div class="sentiment-label"><div class="for-text">For</div><div class="main-text">Baby Shower</div></div>
+        </div>
+        <div class="sentiment-card animate-in">
+          <img src="https://picsum.photos/seed/sent-newhouse/400/300" alt="New Home" loading="lazy">
+          <div class="sentiment-label"><div class="for-text">For</div><div class="main-text">New Home</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       COLLECTIONS SECTION WRAPPER
+  ============================================================ -->
+  <div id="collections">
+
+    <!-- BIRTHDAY COLLECTION -->
+    <div class="collection-section" id="birthday-section">
+      <div class="animate-in">
+        <h2 class="section-title">Birthday Collection</h2>
+        <p class="section-subtitle">Make their day extra special with fresh blooms</p>
+      </div>
+      <div class="product-grid" id="birthday-grid"></div>
+      <button class="load-more-btn" id="load-more-birthday" data-key="birthday" data-offset="8" onclick="loadMore(this)">
+        Load More
+      </button>
+    </div>
+
+    <!-- ANNIVERSARY COLLECTION -->
+    <div class="collection-section" id="anniversary-section" style="background:var(--bg-light)">
+      <div class="animate-in">
+        <h2 class="section-title">Anniversary Collection</h2>
+        <p class="section-subtitle">Celebrate love with stunning floral arrangements</p>
+      </div>
+      <div class="product-grid" id="anniversary-grid"></div>
+      <button class="load-more-btn" id="load-more-anniversary" data-key="anniversary" data-offset="8" onclick="loadMore(this)">
+        Load More
+      </button>
+    </div>
+
+    <!-- GRAND GESTURES -->
+    <div class="collection-section" id="grandgestures-section">
+      <div class="animate-in">
+        <h2 class="section-title">Grand Gestures</h2>
+        <p class="section-subtitle">Bold, lavish arrangements that make a statement</p>
+      </div>
+      <div class="product-grid" id="grandgestures-grid"></div>
+      <button class="load-more-btn" id="load-more-grandgestures" data-key="grandgestures" data-offset="8" onclick="loadMore(this)">
+        Load More
+      </button>
+    </div>
+
+    <!-- VASE ARRANGEMENTS -->
+    <div class="collection-section" id="vase-section" style="background:var(--bg-light)">
+      <div class="animate-in">
+        <h2 class="section-title">Vase Arrangements</h2>
+        <p class="section-subtitle">Elegantly displayed in premium glass vases</p>
+      </div>
+      <div class="product-grid" id="vase-grid"></div>
+      <button class="load-more-btn" id="load-more-vase" data-key="vase" data-offset="8" onclick="loadMore(this)">
+        Load More
+      </button>
+    </div>
+
+    <!-- HAND TIED COLLECTION -->
+    <div class="collection-section" id="handtied-section">
+      <div class="animate-in">
+        <h2 class="section-title">Hand Tied Collection</h2>
+        <p class="section-subtitle">Beautifully hand-crafted bouquets for every occasion</p>
+      </div>
+      <div class="product-grid" id="handtied-grid"></div>
+      <button class="load-more-btn" id="load-more-handtied" data-key="handtied" data-offset="8" onclick="loadMore(this)">
+        Load More
+      </button>
+    </div>
+
+    <!-- WEDDING FLOWERS -->
+    <div class="collection-section" id="wedding-section" style="background:var(--bg-light)">
+      <div class="animate-in">
+        <h2 class="section-title">Wedding Flowers</h2>
+        <p class="section-subtitle">Create magical memories with wedding-perfect flowers</p>
+      </div>
+      <div class="product-grid" id="wedding-grid"></div>
+      <button class="load-more-btn" id="load-more-wedding" data-key="wedding" data-offset="8" onclick="loadMore(this)">
+        Load More
+      </button>
+    </div>
+
+  </div><!-- end #collections -->
+
+  <!-- ============================================================
+       CURATED COLLECTIONS
+  ============================================================ -->
+  <div class="curated-section" id="candles-section">
+    <div class="animate-in">
+      <h2 class="section-title">Curated Collections</h2>
+      <p class="section-subtitle">No matter the occasion, express your love with fresh blooms</p>
+    </div>
+    <div class="curated-grid">
+      <div class="curated-card animate-in">
+        <img src="https://picsum.photos/seed/curated-1/600/400" alt="Romantic Reds" loading="lazy">
+        <div class="curated-card-info">
+          <h3>Romantic Reds</h3>
+          <p>Passionate blooms for passionate hearts</p>
+          <button class="curated-shop-btn" onclick="showToast('Exploring Romantic Reds...')">Shop Now</button>
+        </div>
+      </div>
+      <div class="curated-card animate-in">
+        <img src="https://picsum.photos/seed/curated-2/600/400" alt="Pastel Dreams" loading="lazy">
+        <div class="curated-card-info">
+          <h3>Pastel Dreams</h3>
+          <p>Soft, delicate arrangements in pastel hues</p>
+          <button class="curated-shop-btn" onclick="showToast('Exploring Pastel Dreams...')">Shop Now</button>
+        </div>
+      </div>
+      <div class="curated-card animate-in">
+        <img src="https://picsum.photos/seed/curated-3/600/400" alt="Blue Luxury" loading="lazy">
+        <div class="curated-card-info">
+          <h3>Blue Luxury</h3>
+          <p>Rare blue flowers for extraordinary moments</p>
+          <button class="curated-shop-btn" onclick="showToast('Exploring Blue Luxury...')">Shop Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       SUBSCRIPTION BANNER
+  ============================================================ -->
+  <div class="subscription-banner" id="subscription">
+    <img src="https://picsum.photos/seed/subscription-banner/900/400" alt="Floral subscription" loading="lazy">
+    <div class="sub-content">
+      <p style="font-size:0.75rem;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:0.4rem">Weekly Subscription</p>
+      <h2>Styled Stems</h2>
+      <p>To your door every week.<br>A refined floral ritual, renewed every week.</p>
+      <button class="sub-btn" onclick="showToast('🌸 Subscription coming soon!')">SUBSCRIBE NOW</button>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       BLOG SECTION
+  ============================================================ -->
+  <div class="blog-section" id="blog-section">
+    <div class="animate-in">
+      <h2 class="section-title">Our Blogs</h2>
+      <p class="section-subtitle">Floral insights, gifting guides and inspiration</p>
+    </div>
+    <div class="blog-grid" id="blog-grid"></div>
+  </div>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="site-footer" id="footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+
+        <!-- Brand column -->
+        <div class="footer-brand">
+          <div class="footer-logo">Flori<span>a</span></div>
+          <p>Premium flower delivery across India. Fresh blooms, same-day delivery, wrapped in elegance.</p>
+          <div class="footer-social">
+            <button class="social-btn" onclick="showToast('Follow us on Instagram!')" aria-label="Instagram">📸</button>
+            <button class="social-btn" onclick="showToast('Follow us on Facebook!')" aria-label="Facebook">📘</button>
+            <button class="social-btn" onclick="showToast('Follow us on Pinterest!')" aria-label="Pinterest">📌</button>
+            <button class="social-btn" onclick="showToast('Follow us on Twitter!')" aria-label="Twitter">🐦</button>
+          </div>
+        </div>
+
+        <!-- Recipient column -->
+        <div class="footer-col">
+          <h4>Flowers by Recipient</h4>
+          <ul>
+            <li><a href="#">Flowers for Him</a></li>
+            <li><a href="#">Flowers for Her</a></li>
+            <li><a href="#">Flowers for Mom</a></li>
+            <li><a href="#">Flowers for Dad</a></li>
+            <li><a href="#">Flowers for Friends</a></li>
+            <li><a href="#">Corporate Gifting</a></li>
+          </ul>
+        </div>
+
+        <!-- International column -->
+        <div class="footer-col">
+          <h4>International Delivery</h4>
+          <ul>
+            <li><a href="#">Send Flowers to UK</a></li>
+            <li><a href="#">Send Flowers to Canada</a></li>
+            <li><a href="#">Send Flowers to Germany</a></li>
+            <li><a href="#">Send Flowers to Singapore</a></li>
+            <li><a href="#">Send Flowers to Australia</a></li>
+            <li><a href="#">Send Flowers to USA</a></li>
+          </ul>
+        </div>
+
+        <!-- Help column -->
+        <div class="footer-col">
+          <h4>Help &amp; Info</h4>
+          <ul>
+            <li><a href="#">Track Your Order</a></li>
+            <li><a href="#">Delivery Information</a></li>
+            <li><a href="#">Returns Policy</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms &amp; Conditions</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact column -->
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+
+          <div class="footer-contact-item">
+            <span class="contact-icon">👤</span>
+            <div>
+              <strong>Mahi Sehrawat</strong>
+              <a href="tel:+918750141860">+91 8750141860</a><br>
+              <a href="mailto:mahisehrawat2006@gmail.com">mahisehrawat2006@gmail.com</a>
+            </div>
+          </div>
+
+          <div class="footer-contact-item">
+            <span class="contact-icon">👤</span>
+            <div>
+              <strong>Priyanshi</strong>
+              <a href="tel:+918368573180">+91 8368573180</a><br>
+              <a href="mailto:priyadaksh007@gmail.com">priyadaksh007@gmail.com</a>
+            </div>
+          </div>
+
+          <div class="footer-contact-item">
+            <span class="contact-icon">📍</span>
+            <div>
+              <strong>Floria Store</strong>
+              New Delhi — 110043, India
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end footer-top -->
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 Floria. All rights reserved.</span>
+        <span>Made with 🌸 by Mahi Sehrawat &amp; Priyanshi</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       CART SIDEBAR
+  ============================================================ -->
+  <aside class="cart-sidebar" id="cart-sidebar" aria-label="Shopping cart">
+    <div class="cart-sidebar-header">
+      <h3>🛒 Your Cart</h3>
+      <button class="cart-sidebar-close" onclick="closeCartSidebar()" aria-label="Close cart">✕</button>
+    </div>
+    <div class="cart-items-list" id="cart-items-list">
+      <div class="cart-empty">
+        <div class="empty-icon">🛒</div>
+        <p>Your cart is empty</p>
+      </div>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-subtotal">
+        <span>Subtotal</span>
+        <span id="cart-sidebar-subtotal">₹ 0</span>
+      </div>
+      <div class="cart-subtotal">
+        <span>Delivery</span>
+        <span id="cart-shipping">₹ 199</span>
+      </div>
+      <div class="cart-total">
+        <span>Total</span>
+        <span id="cart-sidebar-total">₹ 0</span>
+      </div>
+      <button class="checkout-btn" onclick="window.location.href='cart.html'">VIEW CART &amp; CHECKOUT</button>
+      <button class="continue-shopping" onclick="closeCartSidebar()">Continue Shopping</button>
+    </div>
+  </aside>
+
+  <!-- ============================================================
+       QUICK VIEW MODAL
+  ============================================================ -->
+  <div class="modal-overlay" id="quick-view-modal" onclick="if(event.target===this)closeQuickView()">
+  </div>
+
+  <!-- ============================================================
+       SCROLL TO TOP
+  ============================================================ -->
+  <button class="scroll-top-btn" id="scroll-top-btn" aria-label="Scroll to top">↑</button>
+
+  <!-- ============================================================
+       SCRIPTS
+  ============================================================ -->
+  <script src="js/script.js"></script>
+</body>
+</html>
