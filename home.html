@@ -1,0 +1,2336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IceWorld – Handcrafted Ice Cream</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* =========================================================
+       CSS CUSTOM PROPERTIES
+    ========================================================= */
+    :root {
+      --primary: #ff6b9d;
+      --primary-dark: #e84d85;
+      --secondary: #5c2a0f;
+      --accent: #ffb347;
+      --accent-dark: #e8962e;
+      --bg-light: #fff8f0;
+      --bg-mid: #f5ede5;
+      --text-dark: #1a1a2e;
+      --text-mid: #4a4a6a;
+      --text-light: #7a7a9a;
+      --white: #ffffff;
+      --border-radius: 16px;
+      --border-radius-sm: 8px;
+      --shadow-sm: 0 2px 12px rgba(255, 107, 157, 0.12);
+      --shadow-md: 0 8px 32px rgba(255, 107, 157, 0.18);
+      --shadow-lg: 0 16px 48px rgba(255, 107, 157, 0.25);
+      --transition: 0.3s ease;
+      --font-body: 'Poppins', sans-serif;
+      --font-heading: 'Montserrat', sans-serif;
+    }
+
+    /* =========================================================
+       KEYFRAME ANIMATIONS
+    ========================================================= */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-60px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(60px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0px) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-18px) rotate(8deg);
+      }
+      100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.07); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes sparkle {
+      0% { opacity: 0; transform: scale(0.5); }
+      50% { opacity: 1; transform: scale(1.2); }
+      100% { opacity: 0; transform: scale(0.5); }
+    }
+
+    @keyframes marqueeScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    @keyframes spinLoader {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes preloaderFadeOut {
+      from { opacity: 1; }
+      to { opacity: 0; }
+    }
+
+    /* =========================================================
+       RESET & BASE
+    ========================================================= */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: color var(--transition);
+    }
+
+    ul { list-style: none; }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* =========================================================
+       PRELOADER
+    ========================================================= */
+    .preloader {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #ff6b9d 0%, #ffb347 50%, #fff8f0 100%);
+      transition: opacity 0.5s ease;
+    }
+
+    .preloader-inner {
+      text-align: center;
+      color: var(--white);
+    }
+
+    .preloader-inner i {
+      color: var(--white);
+      margin-bottom: 1rem;
+      display: block;
+      filter: drop-shadow(0 4px 16px rgba(92, 42, 15, 0.3));
+    }
+
+    .preloader-inner p {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--white);
+      animation: pulse 1.5s infinite;
+    }
+
+    /* =========================================================
+       HEADER
+    ========================================================= */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--white);
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow var(--transition);
+    }
+
+    .header.scrolled {
+      box-shadow: var(--shadow-md);
+    }
+
+    .header-top {
+      background: var(--secondary);
+      color: var(--white);
+      padding: 0.5rem 0;
+      font-size: 0.8rem;
+    }
+
+    .header-top .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .header-top-left,
+    .header-top-right {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    .header-top-left span,
+    .header-top-right span {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      opacity: 0.9;
+    }
+
+    .header-top-left i,
+    .header-top-right i {
+      color: var(--accent);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 0.6rem;
+    }
+
+    .social-links a {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 0.75rem;
+      transition: background var(--transition), transform var(--transition);
+    }
+
+    .social-links a:hover {
+      background: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .navbar {
+      padding: 0.75rem 0;
+    }
+
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--secondary);
+    }
+
+    .logo-icon {
+      color: var(--primary);
+      font-size: 1.8rem;
+    }
+
+    .logo-accent {
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .nav-links li {
+      position: relative;
+    }
+
+    .nav-link {
+      padding: 0.5rem 0.85rem;
+      border-radius: var(--border-radius-sm);
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      transition: all var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--primary);
+      background: rgba(255, 107, 157, 0.08);
+    }
+
+    .nav-link.active {
+      font-weight: 600;
+    }
+
+    .has-dropdown:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: calc(100% + 0.5rem);
+      left: 0;
+      background: var(--white);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-lg);
+      padding: 0.75rem 0;
+      min-width: 200px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all var(--transition);
+      z-index: 100;
+    }
+
+    .dropdown-menu li a {
+      display: block;
+      padding: 0.5rem 1.25rem;
+      font-size: 0.875rem;
+      color: var(--text-mid);
+      transition: all var(--transition);
+    }
+
+    .dropdown-menu li a:hover {
+      color: var(--primary);
+      background: var(--bg-light);
+      padding-left: 1.75rem;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: none;
+      background: var(--bg-light);
+      color: var(--text-dark);
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      transition: all var(--transition);
+    }
+
+    .btn-icon:hover {
+      background: var(--primary);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    .btn-icon .badge {
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      background: var(--accent);
+      color: var(--secondary);
+      font-size: 0.65rem;
+      font-weight: 700;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text-dark);
+      border-radius: 2px;
+      transition: all var(--transition);
+    }
+
+    /* =========================================================
+       HERO SECTION
+    ========================================================= */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      background: radial-gradient(ellipse at top left, #ff6b9d 0%, #ffb347 45%, #fff8f0 80%);
+      text-align: center;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at bottom right, rgba(255, 107, 157, 0.35) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 780px;
+      padding: 2rem 1.5rem;
+      animation: fadeInUp 0.9s ease both;
+    }
+
+    .hero-content h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2.2rem, 6vw, 4.2rem);
+      font-weight: 900;
+      line-height: 1.15;
+      color: var(--secondary);
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-content h1 span {
+      color: var(--white);
+      -webkit-text-stroke: 2px var(--primary);
+      text-shadow: 3px 3px 0 var(--primary);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      font-weight: 400;
+      color: var(--secondary);
+      margin-bottom: 2.5rem;
+      opacity: 0.9;
+      animation: fadeInUp 0.9s 0.2s ease both;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeInUp 0.9s 0.4s ease both;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 2rem;
+      border-radius: 50px;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.03em;
+      cursor: pointer;
+      transition: all var(--transition);
+      text-decoration: none;
+      border: 2px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: var(--white);
+      box-shadow: 0 6px 24px rgba(255, 107, 157, 0.45);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 32px rgba(255, 107, 157, 0.55);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--secondary);
+      border-color: var(--secondary);
+    }
+
+    .btn-outline:hover {
+      background: var(--secondary);
+      color: var(--white);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Floating hero icons */
+    .hero-float-icons {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .hero-float-icons .float-icon {
+      position: absolute;
+      font-size: 2.5rem;
+      animation: float 4s ease-in-out infinite;
+      opacity: 0.75;
+      user-select: none;
+    }
+
+    .hero-float-icons .float-icon:nth-child(1) {
+      top: 12%;
+      left: 8%;
+      animation-delay: 0s;
+      font-size: 3rem;
+    }
+
+    .hero-float-icons .float-icon:nth-child(2) {
+      top: 20%;
+      right: 10%;
+      animation-delay: 0.6s;
+      font-size: 2.8rem;
+    }
+
+    .hero-float-icons .float-icon:nth-child(3) {
+      bottom: 22%;
+      left: 6%;
+      animation-delay: 1.2s;
+      font-size: 2.4rem;
+    }
+
+    .hero-float-icons .float-icon:nth-child(4) {
+      bottom: 18%;
+      right: 8%;
+      animation-delay: 1.8s;
+      font-size: 2.6rem;
+    }
+
+    .hero-float-icons .float-icon:nth-child(5) {
+      top: 55%;
+      left: 3%;
+      animation-delay: 2.4s;
+      font-size: 2rem;
+    }
+
+    .hero-float-icons .float-icon:nth-child(6) {
+      top: 40%;
+      right: 4%;
+      animation-delay: 0.9s;
+      font-size: 2.2rem;
+    }
+
+    /* =========================================================
+       ANNOUNCEMENT BAR
+    ========================================================= */
+    .announcement-bar {
+      background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: var(--white);
+      padding: 0.65rem 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .marquee-wrapper {
+      display: inline-flex;
+      animation: marqueeScroll 28s linear infinite;
+    }
+
+    .marquee-content {
+      display: inline-flex;
+      align-items: center;
+      gap: 0;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      padding-right: 2rem;
+      white-space: nowrap;
+    }
+
+    /* =========================================================
+       SECTION COMMONS
+    ========================================================= */
+    section {
+      padding: 5rem 0;
+    }
+
+    .section-heading {
+      font-family: var(--font-heading);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800;
+      color: var(--secondary);
+      text-align: center;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .section-subheading {
+      font-size: 1.05rem;
+      color: var(--text-mid);
+      text-align: center;
+      margin-bottom: 3rem;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .section-accent-line {
+      display: block;
+      width: 64px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      border-radius: 4px;
+      margin: 0.75rem auto 2.5rem;
+    }
+
+    /* =========================================================
+       REVEAL ANIMATION
+    ========================================================= */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================================================
+       FEATURES STRIP
+    ========================================================= */
+    .features-strip {
+      background: var(--white);
+      padding: 4rem 0;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
+    .feature-card {
+      background: var(--bg-light);
+      border-radius: var(--border-radius);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      border: 1px solid rgba(255, 107, 157, 0.12);
+      transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+      cursor: default;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-md);
+      background: var(--white);
+    }
+
+    .feature-card .feature-icon {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      display: block;
+      animation: float 5s ease-in-out infinite;
+    }
+
+    .feature-card:nth-child(2) .feature-icon { animation-delay: 0.5s; }
+    .feature-card:nth-child(3) .feature-icon { animation-delay: 1s; }
+    .feature-card:nth-child(4) .feature-icon { animation-delay: 1.5s; }
+
+    .feature-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--secondary);
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-card p {
+      font-size: 0.875rem;
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+
+    /* =========================================================
+       BEST SELLERS
+    ========================================================= */
+    .best-sellers-preview {
+      background: var(--bg-mid);
+      padding: 5rem 0;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .product-card {
+      background: var(--white);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--transition), box-shadow var(--transition);
+      position: relative;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px) scale(1.015);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .product-image-placeholder {
+      width: 100%;
+      height: 200px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-image-placeholder.vanilla {
+      background: linear-gradient(135deg, #fff3c4 0%, #ffe066 50%, #ffd700 100%);
+    }
+
+    .product-image-placeholder.chocolate {
+      background: linear-gradient(135deg, #6b3a2a 0%, #a0522d 50%, #cd853f 100%);
+    }
+
+    .product-image-placeholder.waffle {
+      background: linear-gradient(135deg, #f5deb3 0%, #daa520 50%, #b8860b 100%);
+    }
+
+    .product-image-placeholder.milkshake {
+      background: linear-gradient(135deg, #e8e8e8 0%, #c0c0c0 50%, #a0a0a0 100%);
+    }
+
+    .product-image-placeholder.gelato {
+      background: linear-gradient(135deg, #b5e7a0 0%, #86c665 50%, #5b9e32 100%);
+    }
+
+    .product-image-placeholder.sorbet {
+      background: linear-gradient(135deg, #ffe4b5 0%, #ffa500 50%, #ff8c00 100%);
+    }
+
+    .product-image-placeholder .product-emoji {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 4.5rem;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2));
+    }
+
+    .product-badges {
+      position: absolute;
+      top: 0.75rem;
+      left: 0.75rem;
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+
+    .badge-new,
+    .badge-sale {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.2rem 0.65rem;
+      border-radius: 50px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .badge-sale {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .badge-new {
+      background: var(--accent);
+      color: var(--secondary);
+    }
+
+    .product-wishlist-btn {
+      position: absolute;
+      top: 0.75rem;
+      right: 0.75rem;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.9);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-light);
+      font-size: 0.95rem;
+      transition: all var(--transition);
+      backdrop-filter: blur(4px);
+    }
+
+    .product-wishlist-btn:hover {
+      background: var(--primary);
+      color: var(--white);
+      transform: scale(1.1);
+    }
+
+    .product-body {
+      padding: 1.25rem;
+    }
+
+    .product-category {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--primary);
+      margin-bottom: 0.4rem;
+    }
+
+    .product-name {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--secondary);
+      margin-bottom: 0.4rem;
+    }
+
+    .product-desc {
+      font-size: 0.82rem;
+      color: var(--text-mid);
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+
+    .product-price-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .product-price {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+    }
+
+    .price-current {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .price-old {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      text-decoration: line-through;
+    }
+
+    .btn-add-cart {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.55rem 1rem;
+      background: var(--primary);
+      color: var(--white);
+      border: none;
+      border-radius: 50px;
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition);
+      white-space: nowrap;
+    }
+
+    .btn-add-cart:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(255, 107, 157, 0.4);
+    }
+
+    .view-all-wrap {
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .btn-secondary {
+      background: var(--secondary);
+      color: var(--white);
+      padding: 0.9rem 2.5rem;
+      border-radius: 50px;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-secondary:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* =========================================================
+       HOW IT WORKS
+    ========================================================= */
+    .how-it-works {
+      background: var(--white);
+      padding: 5rem 0;
+    }
+
+    .steps-wrapper {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 0;
+      position: relative;
+    }
+
+    .steps-wrapper::before {
+      content: '';
+      position: absolute;
+      top: 2.25rem;
+      left: calc(12.5% + 1.5rem);
+      right: calc(12.5% + 1.5rem);
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      border-radius: 4px;
+      z-index: 0;
+    }
+
+    .step-item {
+      flex: 1;
+      text-align: center;
+      padding: 0 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-number-bubble {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: var(--white);
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 0.75rem;
+      box-shadow: 0 4px 16px rgba(255, 107, 157, 0.45);
+      transition: transform var(--transition), box-shadow var(--transition);
+      cursor: default;
+    }
+
+    .step-item:hover .step-number-bubble {
+      transform: scale(1.12);
+      box-shadow: 0 8px 24px rgba(255, 107, 157, 0.55);
+    }
+
+    .step-icon {
+      font-size: 2.2rem;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .step-item h3 {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--secondary);
+      margin-bottom: 0.4rem;
+    }
+
+    .step-item p {
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      line-height: 1.5;
+    }
+
+    /* =========================================================
+       TESTIMONIALS
+    ========================================================= */
+    .testimonials {
+      background: var(--bg-mid);
+      padding: 5rem 0;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .testimonial-card {
+      background: var(--white);
+      border-radius: var(--border-radius);
+      padding: 2rem 1.5rem;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .testimonial-card::before {
+      content: '\201C';
+      position: absolute;
+      top: -0.25rem;
+      left: 1.25rem;
+      font-family: Georgia, serif;
+      font-size: 5rem;
+      color: var(--primary);
+      opacity: 0.2;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .testimonial-header {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      margin-bottom: 1rem;
+    }
+
+    .testimonial-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: var(--white);
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 3px 12px rgba(255, 107, 157, 0.35);
+    }
+
+    .testimonial-info h4 {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--secondary);
+      margin-bottom: 0.15rem;
+    }
+
+    .stars {
+      color: var(--accent);
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+    }
+
+    .testimonial-quote {
+      font-size: 0.9rem;
+      color: var(--text-mid);
+      line-height: 1.7;
+      font-style: italic;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* =========================================================
+       LOYALTY SECTION
+    ========================================================= */
+    .loyalty-section {
+      background: var(--white);
+      padding: 5rem 0;
+    }
+
+    .loyalty-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+    }
+
+    .loyalty-card {
+      border-radius: var(--border-radius);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+      transition: transform var(--transition), box-shadow var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .loyalty-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .loyalty-card.vanilla-tier {
+      background: linear-gradient(135deg, #ff9ecc 0%, #ff6b9d 60%, #e84d85 100%);
+    }
+
+    .loyalty-card.chocolate-tier {
+      background: linear-gradient(135deg, #a0522d 0%, #6b3a2a 60%, #4a2010 100%);
+    }
+
+    .loyalty-card.gold-tier {
+      background: linear-gradient(135deg, #ffd700 0%, #ffb347 50%, #e8962e 100%);
+    }
+
+    .loyalty-card::before {
+      content: '';
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      pointer-events: none;
+    }
+
+    .loyalty-card::after {
+      content: '';
+      position: absolute;
+      bottom: -30px;
+      left: -30px;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      pointer-events: none;
+    }
+
+    .loyalty-tier-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      display: block;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+    }
+
+    .loyalty-tier-name {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    .loyalty-tier-desc {
+      font-size: 0.9rem;
+      opacity: 0.92;
+      line-height: 1.65;
+      margin-bottom: 1.75rem;
+    }
+
+    .btn-join {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.7rem 1.75rem;
+      background: rgba(255, 255, 255, 0.22);
+      color: var(--white);
+      border: 2px solid rgba(255, 255, 255, 0.6);
+      border-radius: 50px;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all var(--transition);
+      backdrop-filter: blur(4px);
+      text-decoration: none;
+    }
+
+    .btn-join:hover {
+      background: rgba(255, 255, 255, 0.35);
+      border-color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    /* =========================================================
+       NEWSLETTER
+    ========================================================= */
+    .newsletter-section {
+      background: linear-gradient(135deg, #ff6b9d 0%, #ffb347 60%, #ff6b9d 100%);
+      background-size: 200% 200%;
+      animation: pulse 6s ease-in-out infinite;
+      padding: 5rem 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .newsletter-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+      pointer-events: none;
+    }
+
+    .newsletter-section .section-heading {
+      color: var(--white);
+      position: relative;
+    }
+
+    .newsletter-subtitle {
+      color: rgba(255, 255, 255, 0.92);
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .newsletter-form {
+      display: flex;
+      max-width: 500px;
+      margin: 0 auto 1rem;
+      gap: 0;
+      border-radius: 50px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      position: relative;
+    }
+
+    .newsletter-form input[type="email"] {
+      flex: 1;
+      padding: 1rem 1.5rem;
+      border: none;
+      outline: none;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      background: var(--white);
+      color: var(--text-dark);
+    }
+
+    .newsletter-form button[type="submit"] {
+      padding: 1rem 1.75rem;
+      background: var(--secondary);
+      color: var(--white);
+      border: none;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background var(--transition);
+      white-space: nowrap;
+    }
+
+    .newsletter-form button[type="submit"]:hover {
+      background: #3a1808;
+    }
+
+    .newsletter-privacy {
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.8);
+      position: relative;
+    }
+
+    .success-msg {
+      color: var(--white);
+      font-size: 1.1rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+    .footer {
+      background: var(--secondary);
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .footer-top {
+      padding: 4rem 0 2.5rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 2.5rem;
+    }
+
+    .footer-brand .logo {
+      color: var(--white);
+      margin-bottom: 1rem;
+      display: inline-flex;
+    }
+
+    .footer-brand .logo-icon {
+      color: var(--primary);
+    }
+
+    .footer-brand .logo-accent {
+      color: var(--primary);
+    }
+
+    .footer-brand-desc {
+      font-size: 0.875rem;
+      line-height: 1.7;
+      opacity: 0.8;
+      margin-bottom: 1.25rem;
+    }
+
+    .footer .social-links a {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-heading {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 1.25rem;
+      position: relative;
+      padding-bottom: 0.6rem;
+    }
+
+    .footer-heading::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 32px;
+      height: 3px;
+      background: var(--primary);
+      border-radius: 4px;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-links li a {
+      font-size: 0.875rem;
+      opacity: 0.8;
+      transition: all var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .footer-links li a:hover {
+      opacity: 1;
+      color: var(--primary);
+      transform: translateX(4px);
+    }
+
+    .footer-contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .footer-contact-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.875rem;
+      opacity: 0.85;
+    }
+
+    .footer-contact-list li i {
+      color: var(--primary);
+      width: 18px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .footer-contact-list li a {
+      color: inherit;
+      transition: color var(--transition);
+    }
+
+    .footer-contact-list li a:hover {
+      color: var(--primary);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 1.5rem 0;
+    }
+
+    .footer-bottom-grid {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-copyright {
+      font-size: 0.85rem;
+      opacity: 0.75;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .footer-copyright .fa-heart {
+      color: var(--primary);
+    }
+
+    .footer-legal {
+      display: flex;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-legal li a {
+      font-size: 0.82rem;
+      opacity: 0.7;
+      transition: opacity var(--transition), color var(--transition);
+    }
+
+    .footer-legal li a:hover {
+      opacity: 1;
+      color: var(--primary);
+    }
+
+    /* =========================================================
+       SCROLL TO TOP
+    ========================================================= */
+    .scroll-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: var(--white);
+      border: none;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 24px rgba(255, 107, 157, 0.5);
+      transition: all var(--transition);
+      z-index: 999;
+    }
+
+    .scroll-to-top:hover {
+      background: var(--primary-dark);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 32px rgba(255, 107, 157, 0.6);
+    }
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+    @media (max-width: 1024px) {
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+
+      .steps-wrapper::before {
+        display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-top .container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.4rem;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        box-shadow: var(--shadow-md);
+        z-index: 200;
+        padding: 0.5rem 0;
+      }
+
+      .nav-links.nav-open {
+        display: flex;
+      }
+
+      .nav-link {
+        padding: 0.85rem 1.5rem;
+        border-radius: 0;
+      }
+
+      .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        padding: 0;
+        border-top: 1px solid var(--bg-mid);
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .navbar {
+        position: relative;
+      }
+
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+
+      .hero-float-icons .float-icon {
+        font-size: 1.8rem;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .products-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+
+      .steps-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+      }
+
+      .step-item {
+        max-width: 280px;
+      }
+
+      .testimonials-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .loyalty-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+        border-radius: var(--border-radius);
+        overflow: visible;
+        gap: 0.75rem;
+        background: transparent;
+        box-shadow: none;
+      }
+
+      .newsletter-form input[type="email"],
+      .newsletter-form button[type="submit"] {
+        border-radius: 50px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom-grid {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      section { padding: 3rem 0; }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-float-icons .float-icon:nth-child(5),
+      .hero-float-icons .float-icon:nth-child(6) {
+        display: none;
+      }
+
+      .btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.875rem;
+      }
+
+      .section-heading {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       PRELOADER
+  ============================================================ -->
+  <div id="preloader" class="preloader">
+    <div class="preloader-inner">
+      <i class="fas fa-ice-cream fa-spin fa-4x"></i>
+      <p>Loading Sweetness…</p>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       SHARED HEADER
+  ============================================================ -->
+  <header id="main-header" class="header" role="banner">
+    <div class="header-top">
+      <div class="container">
+        <div class="header-top-left">
+          <span><i class="fas fa-phone-alt"></i> +91 87501 41860</span>
+          <span><i class="fas fa-envelope"></i> mahisehrawat2006@gmail.com</span>
+        </div>
+        <div class="header-top-right">
+          <span><i class="fas fa-clock"></i> Open: 10am – 11pm, 7 days a week</span>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav id="main-nav" class="navbar" role="navigation" aria-label="Main navigation">
+      <div class="container">
+        <a href="index.html" class="logo" aria-label="IceWorld Home">
+          <span class="logo-icon"><i class="fas fa-ice-cream"></i></span>
+          <span class="logo-text">Ice<span class="logo-accent">World</span></span>
+        </a>
+        <ul class="nav-links" id="nav-links" role="list">
+          <li><a href="home.html" class="nav-link active" aria-current="page">Home</a></li>
+          <li class="has-dropdown">
+            <a href="menu.html" class="nav-link">Menu <i class="fas fa-chevron-down"></i></a>
+            <ul class="dropdown-menu" role="list">
+              <li><a href="menu.html#classic-scoops">Classic Scoops</a></li>
+              <li><a href="menu.html#sundaes">Sundaes</a></li>
+              <li><a href="menu.html#milkshakes">Milkshakes</a></li>
+              <li><a href="menu.html#gelato">Gelato</a></li>
+              <li><a href="menu.html#sorbet">Sorbet &amp; Vegan</a></li>
+              <li><a href="menu.html#waffles">Waffles &amp; Crepes</a></li>
+            </ul>
+          </li>
+          <li><a href="best-sellers.html" class="nav-link">Best Sellers</a></li>
+          <li><a href="about.html" class="nav-link">About Us</a></li>
+          <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button class="btn-icon" id="wishlist-btn" aria-label="Wishlist"><i class="fas fa-heart"></i><span class="badge" id="wishlist-count" hidden>0</span></button>
+          <button class="btn-icon" id="cart-btn" aria-label="Shopping cart"><i class="fas fa-shopping-cart"></i><span class="badge" id="cart-count">0</span></button>
+          <button class="hamburger" id="hamburger-btn" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ============================================================
+       HERO SECTION
+  ============================================================ -->
+  <section class="hero" id="hero" aria-label="Hero">
+    <div class="hero-float-icons" aria-hidden="true">
+      <span class="float-icon">🍦</span>
+      <span class="float-icon">🍧</span>
+      <span class="float-icon">🍨</span>
+      <span class="float-icon">🍡</span>
+      <span class="float-icon">🧁</span>
+      <span class="float-icon">🍰</span>
+    </div>
+    <div class="hero-content">
+      <h1>Welcome to <span>IceWorld</span> 🍦</h1>
+      <p class="hero-subtitle">Handcrafted with Love. Scooped with Joy.</p>
+      <div class="hero-cta">
+        <a href="menu.html" class="btn btn-primary"><i class="fas fa-utensils"></i> Explore Menu</a>
+        <a href="menu.html" class="btn btn-outline"><i class="fas fa-shopping-bag"></i> Order Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ANNOUNCEMENT MARQUEE
+  ============================================================ -->
+  <div class="announcement-bar" aria-label="Announcements">
+    <div class="marquee-wrapper" aria-hidden="true">
+      <span class="marquee-content">🍦 Free delivery on orders above ₹2,499 &nbsp;|&nbsp; 🎉 New Flavours every Friday &nbsp;|&nbsp; ❄️ Open 7 days a week &nbsp;|&nbsp; 🌟 Loyalty points on every order &nbsp;|&nbsp; 🎂 Custom cakes available &nbsp;|&nbsp; 🍦 Free delivery on orders above ₹2,499 &nbsp;|&nbsp; 🎉 New Flavours every Friday &nbsp;|&nbsp; ❄️ Open 7 days a week</span>
+      <span class="marquee-content">🍦 Free delivery on orders above ₹2,499 &nbsp;|&nbsp; 🎉 New Flavours every Friday &nbsp;|&nbsp; ❄️ Open 7 days a week &nbsp;|&nbsp; 🌟 Loyalty points on every order &nbsp;|&nbsp; 🎂 Custom cakes available &nbsp;|&nbsp; 🍦 Free delivery on orders above ₹2,499 &nbsp;|&nbsp; 🎉 New Flavours every Friday &nbsp;|&nbsp; ❄️ Open 7 days a week</span>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       FEATURES STRIP
+  ============================================================ -->
+  <section class="features-strip reveal" aria-label="Features">
+    <div class="container">
+      <div class="features-grid">
+
+        <div class="feature-card">
+          <span class="feature-icon">🚚</span>
+          <h3>Free Delivery</h3>
+          <p>On orders above ₹2,499 within city limits. Fast, fresh and right to your doorstep.</p>
+        </div>
+
+        <div class="feature-card">
+          <span class="feature-icon">🌿</span>
+          <h3>Fresh Daily</h3>
+          <p>Made fresh every morning with natural ingredients. No preservatives, just pure goodness.</p>
+        </div>
+
+        <div class="feature-card">
+          <span class="feature-icon">🍦</span>
+          <h3>50+ Flavours</h3>
+          <p>From classic vanilla to exotic sorbets and gelatos. There's something for every palate.</p>
+        </div>
+
+        <div class="feature-card">
+          <span class="feature-icon">🎂</span>
+          <h3>Custom Cakes</h3>
+          <p>Personalized ice cream cakes for every occasion. Birthdays, anniversaries and more!</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       BEST SELLERS PREVIEW
+  ============================================================ -->
+  <section class="best-sellers-preview reveal" id="bestsellers">
+    <div class="container">
+      <h2 class="section-heading">Our Best Sellers</h2>
+      <span class="section-accent-line"></span>
+      <p class="section-subheading">The crowd's all-time favourites — tried, loved, and reordered again and again.</p>
+
+      <div class="products-grid">
+
+        <!-- Product 1: Double Vanilla Dream -->
+        <div class="product-card">
+          <div class="product-image-placeholder vanilla">
+            <span class="product-emoji">🍨</span>
+            <div class="product-badges">
+              <span class="badge-sale">Sale</span>
+            </div>
+            <button class="product-wishlist-btn" aria-label="Add Double Vanilla Dream to wishlist">
+              <i class="fas fa-heart"></i>
+            </button>
+          </div>
+          <div class="product-body">
+            <p class="product-category">Classic</p>
+            <h3 class="product-name">Double Vanilla Dream</h3>
+            <p class="product-desc">Two generous scoops of Madagascar vanilla bean ice cream, topped with caramel drizzle.</p>
+            <div class="product-price-row">
+              <div class="product-price">
+                <span class="price-current">₹419</span>
+                <span class="price-old">₹579</span>
+              </div>
+              <button class="btn-add-cart" aria-label="Add Double Vanilla Dream to cart">
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2: Chocolate Fudge Sundae -->
+        <div class="product-card">
+          <div class="product-image-placeholder chocolate">
+            <span class="product-emoji">🍫</span>
+            <div class="product-badges">
+              <span class="badge-sale">Sale</span>
+            </div>
+            <button class="product-wishlist-btn" aria-label="Add Chocolate Fudge Sundae to wishlist">
+              <i class="fas fa-heart"></i>
+            </button>
+          </div>
+          <div class="product-body">
+            <p class="product-category">Sundae</p>
+            <h3 class="product-name">Chocolate Fudge Sundae</h3>
+            <p class="product-desc">Rich chocolate ice cream loaded with hot fudge, whipped cream, nuts and a cherry on top.</p>
+            <div class="product-price-row">
+              <div class="product-price">
+                <span class="price-current">₹749</span>
+                <span class="price-old">₹999</span>
+              </div>
+              <button class="btn-add-cart" aria-label="Add Chocolate Fudge Sundae to cart">
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3: Belgian Waffle Stack -->
+        <div class="product-card">
+          <div class="product-image-placeholder waffle">
+            <span class="product-emoji">🧇</span>
+            <div class="product-badges">
+              <span class="badge-sale">Sale</span>
+            </div>
+            <button class="product-wishlist-btn" aria-label="Add Belgian Waffle Stack to wishlist">
+              <i class="fas fa-heart"></i>
+            </button>
+          </div>
+          <div class="product-body">
+            <p class="product-category">Waffle</p>
+            <h3 class="product-name">Belgian Waffle Stack</h3>
+            <p class="product-desc">Crispy Belgian waffles stacked with three scoops of your choice, fresh berries and cream.</p>
+            <div class="product-price-row">
+              <div class="product-price">
+                <span class="price-current">₹919</span>
+                <span class="price-old">₹1,159</span>
+              </div>
+              <button class="btn-add-cart" aria-label="Add Belgian Waffle Stack to cart">
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 4: Oreo Crunch Milkshake -->
+        <div class="product-card">
+          <div class="product-image-placeholder milkshake">
+            <span class="product-emoji">🥤</span>
+            <div class="product-badges">
+              <span class="badge-new">New</span>
+            </div>
+            <button class="product-wishlist-btn" aria-label="Add Oreo Crunch Milkshake to wishlist">
+              <i class="fas fa-heart"></i>
+            </button>
+          </div>
+          <div class="product-body">
+            <p class="product-category">Milkshake</p>
+            <h3 class="product-name">Oreo Crunch Milkshake</h3>
+            <p class="product-desc">Thick, creamy vanilla shake blended with crushed Oreos and topped with whipped cream swirl.</p>
+            <div class="product-price-row">
+              <div class="product-price">
+                <span class="price-current">₹579</span>
+              </div>
+              <button class="btn-add-cart" aria-label="Add Oreo Crunch Milkshake to cart">
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 5: Pistachio Gelato -->
+        <div class="product-card">
+          <div class="product-image-placeholder gelato">
+            <span class="product-emoji">🍵</span>
+            <button class="product-wishlist-btn" aria-label="Add Pistachio Gelato to wishlist">
+              <i class="fas fa-heart"></i>
+            </button>
+          </div>
+          <div class="product-body">
+            <p class="product-category">Gelato</p>
+            <h3 class="product-name">Pistachio Gelato</h3>
+            <p class="product-desc">Authentic Italian-style gelato made with premium Sicilian pistachios. Silky and intensely flavourful.</p>
+            <div class="product-price-row">
+              <div class="product-price">
+                <span class="price-current">₹499</span>
+              </div>
+              <button class="btn-add-cart" aria-label="Add Pistachio Gelato to cart">
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 6: Mango Tango Sorbet -->
+        <div class="product-card">
+          <div class="product-image-placeholder sorbet">
+            <span class="product-emoji">🥭</span>
+            <button class="product-wishlist-btn" aria-label="Add Mango Tango Sorbet to wishlist">
+              <i class="fas fa-heart"></i>
+            </button>
+          </div>
+          <div class="product-body">
+            <p class="product-category">Sorbet</p>
+            <h3 class="product-name">Mango Tango Sorbet</h3>
+            <p class="product-desc">Dairy-free, vegan-friendly Alphonso mango sorbet bursting with tropical freshness. Guilt-free delight!</p>
+            <div class="product-price-row">
+              <div class="product-price">
+                <span class="price-current">₹379</span>
+              </div>
+              <button class="btn-add-cart" aria-label="Add Mango Tango Sorbet to cart">
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="view-all-wrap">
+        <a href="menu.html" class="btn-secondary">
+          <i class="fas fa-list-ul"></i> View Full Menu
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       HOW IT WORKS
+  ============================================================ -->
+  <section class="how-it-works reveal" aria-label="How it works">
+    <div class="container">
+      <h2 class="section-heading">How It Works</h2>
+      <span class="section-accent-line"></span>
+      <p class="section-subheading">Getting your favourite ice cream has never been this easy. Four simple steps to frozen bliss.</p>
+
+      <div class="steps-wrapper">
+
+        <div class="step-item">
+          <div class="step-number-bubble">1</div>
+          <span class="step-icon">🔍</span>
+          <h3>Browse Menu</h3>
+          <p>Explore our 50+ handcrafted flavours across classic scoops, sundaes, gelatos, milkshakes and more.</p>
+        </div>
+
+        <div class="step-item">
+          <div class="step-number-bubble">2</div>
+          <span class="step-icon">🛒</span>
+          <h3>Add to Cart</h3>
+          <p>Select your favourites, customise scoops and toppings, then add them to your cart with a single click.</p>
+        </div>
+
+        <div class="step-item">
+          <div class="step-number-bubble">3</div>
+          <span class="step-icon">📍</span>
+          <h3>Choose Delivery</h3>
+          <p>Pick doorstep delivery or in-store pickup at your nearest IceWorld outlet. Real-time order tracking included.</p>
+        </div>
+
+        <div class="step-item">
+          <div class="step-number-bubble">4</div>
+          <span class="step-icon">🍦</span>
+          <h3>Enjoy!</h3>
+          <p>Fresh, handcrafted ice cream delivered right to you. Every scoop made with love and the finest ingredients.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TESTIMONIALS
+  ============================================================ -->
+  <section class="testimonials reveal" aria-label="Customer reviews">
+    <div class="container">
+      <h2 class="section-heading">What Our Customers Say ❤️</h2>
+      <span class="section-accent-line"></span>
+      <p class="section-subheading">Don't just take our word for it — here's what our happy customers have to say about IceWorld.</p>
+
+      <div class="testimonials-grid">
+
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar" aria-hidden="true">RS</div>
+            <div class="testimonial-info">
+              <h4>Rahul S.</h4>
+              <div class="stars" aria-label="5 out of 5 stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <p class="testimonial-quote">"The Double Vanilla Dream is absolutely divine! Best ice cream in town. I drive across the city just to get my weekly fix from IceWorld."</p>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar" aria-hidden="true">PM</div>
+            <div class="testimonial-info">
+              <h4>Priya M.</h4>
+              <div class="stars" aria-label="5 out of 5 stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <p class="testimonial-quote">"The Belgian Waffle Stack is to die for. Worth every rupee! The waffles are perfectly crispy and the ice cream scoops are incredibly generous."</p>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar" aria-hidden="true">AK</div>
+            <div class="testimonial-info">
+              <h4>Amit K.</h4>
+              <div class="stars" aria-label="5 out of 5 stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <p class="testimonial-quote">"Pistachio Gelato is authentic and creamy. My whole family loves it! Reminds me of the gelato we had in Italy. Truly world-class quality right here."</p>
+        </div>
+
+        <!-- Testimonial 4 -->
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar" aria-hidden="true">SR</div>
+            <div class="testimonial-info">
+              <h4>Sneha R.</h4>
+              <div class="stars" aria-label="4.5 out of 5 stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+            </div>
+          </div>
+          <p class="testimonial-quote">"The Mango Sorbet is so refreshing! Perfect for summer and the best part is it's completely dairy-free. My lactose-intolerant friends finally have an option they love!"</p>
+        </div>
+
+        <!-- Testimonial 5 -->
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar" aria-hidden="true">VT</div>
+            <div class="testimonial-info">
+              <h4>Vikram T.</h4>
+              <div class="stars" aria-label="5 out of 5 stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <p class="testimonial-quote">"Chocolate Fudge Sundae is pure heaven. Generous portions and the hot fudge sauce is absolutely incredible. I order this every single weekend without fail."</p>
+        </div>
+
+        <!-- Testimonial 6 -->
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar" aria-hidden="true">AP</div>
+            <div class="testimonial-info">
+              <h4>Ananya P.</h4>
+              <div class="stars" aria-label="5 out of 5 stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <p class="testimonial-quote">"Oreo Milkshake is thick and delicious. My absolute go-to! The delivery is always on time and everything arrives perfectly cold. 10/10 would always recommend!"</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       LOYALTY REWARDS
+  ============================================================ -->
+  <section class="loyalty-section reveal" aria-label="Loyalty program">
+    <div class="container">
+      <h2 class="section-heading">Join Our Sweet Rewards Program 🌟</h2>
+      <span class="section-accent-line"></span>
+      <p class="section-subheading">Every scoop earns you points. Collect enough and treat yourself to free goodies and exclusive perks!</p>
+
+      <div class="loyalty-grid">
+
+        <!-- Vanilla Tier -->
+        <div class="loyalty-card vanilla-tier">
+          <span class="loyalty-tier-icon">🍦</span>
+          <h3 class="loyalty-tier-name">Vanilla Tier</h3>
+          <p class="loyalty-tier-desc">Earn 1 point for every ₹100 spent at IceWorld. Redeem your points for free scoops, exclusive discounts, and sweet birthday surprises.</p>
+          <a href="#" class="btn-join"><i class="fas fa-star"></i> Join Now</a>
+        </div>
+
+        <!-- Chocolate Tier -->
+        <div class="loyalty-card chocolate-tier">
+          <span class="loyalty-tier-icon">🍫</span>
+          <h3 class="loyalty-tier-name">Chocolate Tier</h3>
+          <p class="loyalty-tier-desc">Earn 1.5 points per ₹100 spent. Unlock exclusive member-only discounts, early access to new flavours, and priority customer support.</p>
+          <a href="#" class="btn-join"><i class="fas fa-medal"></i> Join Now</a>
+        </div>
+
+        <!-- Gold Tier -->
+        <div class="loyalty-card gold-tier">
+          <span class="loyalty-tier-icon">🥇</span>
+          <h3 class="loyalty-tier-name">Gold Tier</h3>
+          <p class="loyalty-tier-desc">Earn 2 points per ₹100 spent. Enjoy priority delivery, a free scoop on us every month, invites to exclusive tasting events, and VIP treatment.</p>
+          <a href="#" class="btn-join"><i class="fas fa-crown"></i> Join Now</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       NEWSLETTER
+  ============================================================ -->
+  <section class="newsletter-section reveal" aria-label="Newsletter">
+    <div class="container">
+      <h2 class="section-heading">Get Sweet Deals in Your Inbox 🍬</h2>
+      <p class="newsletter-subtitle">Subscribe for exclusive offers, new flavour alerts, and more!</p>
+      <form class="newsletter-form" aria-label="Email newsletter subscription">
+        <input type="email" placeholder="Enter your email address…" required aria-label="Email address" />
+        <button type="submit"><i class="fas fa-paper-plane"></i> Subscribe</button>
+      </form>
+      <p class="newsletter-privacy"><i class="fas fa-lock"></i> No spam. Unsubscribe anytime.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SHARED FOOTER
+  ============================================================ -->
+  <footer id="main-footer" class="footer" role="contentinfo">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col footer-brand">
+            <a href="index.html" class="logo"><span class="logo-icon"><i class="fas fa-ice-cream"></i></span><span class="logo-text">Ice<span class="logo-accent">World</span></span></a>
+            <p class="footer-brand-desc">Handcrafted ice cream made with love and the finest natural ingredients. Bringing joy one scoop at a time since 2009.</p>
+            <div class="social-links">
+              <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+              <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h3 class="footer-heading">Quick Links</h3>
+            <ul class="footer-links" role="list">
+              <li><a href="home.html">Home</a></li>
+              <li><a href="menu.html">Full Menu</a></li>
+              <li><a href="best-sellers.html">Best Sellers</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="gallery.html">Gallery</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3 class="footer-heading">Categories</h3>
+            <ul class="footer-links" role="list">
+              <li><a href="menu.html#classic-scoops">Classic Scoops</a></li>
+              <li><a href="menu.html#sundaes">Sundaes</a></li>
+              <li><a href="menu.html#milkshakes">Milkshakes</a></li>
+              <li><a href="menu.html#gelato">Gelato</a></li>
+              <li><a href="menu.html#sorbet">Sorbet &amp; Vegan</a></li>
+              <li><a href="menu.html#waffles">Waffles &amp; Crepes</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3 class="footer-heading">Our Owners</h3>
+            <ul class="footer-contact-list" role="list">
+              <li><i class="fas fa-user-tie"></i><span>Mahi Sehrawat</span></li>
+              <li><i class="fas fa-phone-alt"></i><a href="tel:+918750141860">+91 87501 41860</a></li>
+              <li><i class="fas fa-envelope"></i><a href="mailto:mahisehrawat2006@gmail.com">mahisehrawat2006@gmail.com</a></li>
+              <li><i class="fas fa-user-tie"></i><span>Priyanshi</span></li>
+              <li><i class="fas fa-phone-alt"></i><a href="tel:+918368573180">+91 83685 73180</a></li>
+              <li><i class="fas fa-envelope"></i><a href="mailto:priyadaksh007@gmail.com">priyadaksh007@gmail.com</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="footer-bottom-grid">
+          <p class="footer-copyright">&copy; <span class="footer-year"></span> IceWorld. All rights reserved. Made with <i class="fas fa-heart"></i> and ice cream.</p>
+          <ul class="footer-legal" role="list">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to top -->
+  <button id="scroll-to-top" class="scroll-to-top" aria-label="Scroll to top" hidden>
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- External JS -->
+  <script src="js/script.js"></script>
+
+  <!-- Shared inline script -->
+  <script>
+    document.querySelectorAll('.footer-year').forEach(el => el.textContent = new Date().getFullYear());
+    const ham = document.getElementById('hamburger-btn');
+    const navL = document.getElementById('nav-links');
+    if (ham && navL) {
+      ham.addEventListener('click', () => {
+        const open = ham.getAttribute('aria-expanded') === 'true';
+        ham.setAttribute('aria-expanded', String(!open));
+        navL.classList.toggle('nav-open');
+      });
+    }
+    window.addEventListener('scroll', () => {
+      document.getElementById('main-header')?.classList.toggle('scrolled', window.scrollY > 60);
+    });
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); observer.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    const stt = document.getElementById('scroll-to-top');
+    if (stt) {
+      window.addEventListener('scroll', () => { stt.hidden = window.scrollY < 400; });
+      stt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    }
+    document.querySelectorAll('.nav-link').forEach(a => {
+      if (a.getAttribute('href') === location.pathname.split('/').pop() ||
+          (location.pathname.endsWith('/') && a.getAttribute('href') === 'index.html')) {
+        a.classList.add('active');
+      }
+    });
+  </script>
+
+  <!-- Page-specific inline script -->
+  <script>
+    // Preloader
+    window.addEventListener('load', () => {
+      const preloader = document.getElementById('preloader');
+      if (preloader) {
+        preloader.style.opacity = '0';
+        setTimeout(() => preloader.style.display = 'none', 500);
+      }
+    });
+
+    // Newsletter form
+    const newsletterForm = document.querySelector('.newsletter-form');
+    if (newsletterForm) {
+      newsletterForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const input = newsletterForm.querySelector('input[type="email"]');
+        if (input && input.value) {
+          newsletterForm.innerHTML = '<p class="success-msg"><i class="fas fa-check-circle"></i> Thank you for subscribing!</p>';
+        }
+      });
+    }
+
+    // Add to Cart buttons
+    document.querySelectorAll('.btn-add-cart').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const card = this.closest('.product-card');
+        const name = card?.querySelector('.product-name')?.textContent || 'Item';
+        const count = document.getElementById('cart-count');
+        if (count) count.textContent = parseInt(count.textContent || 0) + 1;
+        this.innerHTML = '<i class="fas fa-check"></i> Added!';
+        this.style.background = '#4caf50';
+        setTimeout(() => {
+          this.innerHTML = '<i class="fas fa-shopping-cart"></i> Add to Cart';
+          this.style.background = '';
+        }, 1500);
+      });
+    });
+  </script>
+
+</body>
+</html>
