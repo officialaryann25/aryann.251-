@@ -11,6 +11,18 @@
 const FLOWER_COLORS = ['#f8c8c8','#fde8e8','#f5d5cc','#e8c4d4','#d4b8e0','#c8daf8','#b8e4c8','#f8e4b8','#e4f8b8','#b8f8e4'];
 const CATEGORIES = ['Birthday','Anniversary','Grand Gestures','Vase Arrangements','Hand Tied','Wedding','Same Day','Bestselling'];
 
+// Real flower images provided by the store
+const FLOWER_IMAGES = [
+  'https://github.com/user-attachments/assets/a82c5805-c15e-4e9f-9483-133acb33c096',
+  'https://github.com/user-attachments/assets/b6ab65b6-ae6a-4bdc-a80a-7e2b4a1d9117',
+  'https://github.com/user-attachments/assets/f10be619-29ba-469f-911c-7f08cfed37eb',
+];
+const FLOWER_IMAGE_ALTS = [
+  'Purple orchid arrangement in white bowl',
+  'Purple orchid in dark square pot',
+  'White orchid with pink centres in stone pot',
+];
+
 const FLOWER_NAMES = [
   'The Violet Letter','Isn\'t She Lovely','Queen of Violets','Rosette Charm',
   'Blush Romance','Petal Dreams','Garden of Love','Crimson Kiss',
@@ -47,7 +59,8 @@ function generateProducts(collection, count = 50) {
     collection,
     badge: BADGES[i % BADGES.length],
     color: FLOWER_COLORS[i % FLOWER_COLORS.length],
-    image: null // using color placeholder
+    image: FLOWER_IMAGES[i % FLOWER_IMAGES.length],
+    imageAlt: FLOWER_IMAGE_ALTS[i % FLOWER_IMAGE_ALTS.length]
   }));
 }
 
@@ -88,13 +101,16 @@ function createProductCardHTML(product, showFooter = true) {
   const badgeHTML = product.badge
     ? `<span class="product-card-badge">${product.badge}</span>` : '';
 
-  const imgStyle = `background: linear-gradient(135deg, ${product.color} 0%, ${lightenColor(product.color)} 100%); display:flex; align-items:center; justify-content:center; font-size:3rem;`;
   const flowerEmoji = getFlowerEmoji(product.collection);
+  const imgAlt = product.imageAlt || product.name;
+  const imgContent = product.image
+    ? `<img src="${product.image}" alt="${imgAlt}" loading="lazy" class="product-card-real-img" />`
+    : `<div class="product-card-placeholder" style="background:linear-gradient(135deg,${product.color} 0%,${lightenColor(product.color)} 100%);">${flowerEmoji}</div>`;
 
   return `
     <div class="product-card" data-id="${product.id}" data-name="${product.name}" data-price="${product.price}" data-collection="${product.collection}">
       <div class="product-card-img-wrap">
-        <div style="${imgStyle} width:100%;height:100%;position:absolute;inset:0;">${flowerEmoji}</div>
+        ${imgContent}
         ${badgeHTML}
         <div class="product-card-actions">
           <button class="action-btn wishlist-btn" title="Wishlist" onclick="toggleWishlist('${product.id}', this)">
@@ -639,7 +655,9 @@ function renderProductPage() {
   const container = document.getElementById('product-detail-content');
   if (!container || !product) return;
 
-  const imgStyle = `background:linear-gradient(135deg,${product.color},${lightenColor(product.color)});display:flex;align-items:center;justify-content:center;font-size:6rem;`;
+  const mainImgContent = product.image
+    ? `<img src="${product.image}" alt="${product.name}" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;" />`
+    : `<div style="background:linear-gradient(135deg,${product.color},${lightenColor(product.color)});display:flex;align-items:center;justify-content:center;font-size:6rem;width:100%;height:100%;position:absolute;inset:0;">${getFlowerEmoji(product.collection)}</div>`;
   const oldPrice = Math.floor(product.price * 1.2);
 
   container.innerHTML = `
@@ -652,12 +670,12 @@ function renderProductPage() {
     </div>
     <div class="product-detail-layout">
       <div class="product-gallery">
-        <div class="gallery-main" id="gallery-main">
-          <div id="main-product-img" style="${imgStyle}width:100%;height:100%;position:relative;">${getFlowerEmoji(product.collection)}</div>
+        <div class="gallery-main" id="gallery-main" style="position:relative;">
+          ${mainImgContent}
         </div>
         <div class="gallery-thumbs" id="gallery-thumbs">
-          ${[0,1,2,3].map(i => `
-            <div class="gallery-thumb ${i===0?'active':''}" style="background:linear-gradient(135deg,${product.color},${lightenColor(product.color)});display:flex;align-items:center;justify-content:center;font-size:1.4rem;" onclick="selectThumb(this, '${product.color}')">${getFlowerEmoji(product.collection)}</div>
+          ${FLOWER_IMAGES.map((imgUrl, i) => `
+            <img class="gallery-thumb ${i===0?'active':''}" src="${imgUrl}" alt="${FLOWER_IMAGE_ALTS[i]}" loading="lazy" onclick="selectThumbImg(this, '${imgUrl}', '${FLOWER_IMAGE_ALTS[i]}')" />
           `).join('')}
         </div>
       </div>
@@ -768,6 +786,19 @@ function toggleWishlistDetail(id, btn) {
 function selectThumb(el, color) {
   document.querySelectorAll('.gallery-thumb').forEach(t => t.classList.remove('active'));
   el.classList.add('active');
+}
+
+function selectThumbImg(el, imgUrl, imgAlt) {
+  document.querySelectorAll('.gallery-thumb').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  const mainWrap = document.getElementById('gallery-main');
+  if (mainWrap) {
+    const existing = mainWrap.querySelector('img');
+    if (existing) {
+      existing.src = imgUrl;
+      existing.alt = imgAlt || existing.alt;
+    }
+  }
 }
 
 /* ====================================
