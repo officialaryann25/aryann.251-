@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500">
+  <defs>
+    <radialGradient id="bg3" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#ffd6e8"/>
+      <stop offset="100%" stop-color="#fff8f0"/>
+    </radialGradient>
+    <linearGradient id="cup3" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ffe0ee"/>
+      <stop offset="50%" stop-color="#fff8fc"/>
+      <stop offset="100%" stop-color="#ffe0ee"/>
+    </linearGradient>
+    <radialGradient id="gelato3" cx="40%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#ff9ec4"/>
+      <stop offset="100%" stop-color="#ff3d7f"/>
+    </radialGradient>
+    <filter id="shadow3">
+      <feDropShadow dx="3" dy="6" stdDeviation="8" flood-color="#ff6b9d" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  <rect width="400" height="500" fill="url(#bg3)" rx="20"/>
+  <!-- Background hearts -->
+  <path d="M60,80 Q60,60 80,60 Q100,60 100,80 Q100,100 60,120 Q20,100 20,80 Q20,60 40,60 Q60,60 60,80Z" fill="#ff6b9d" opacity="0.12"/>
+  <path d="M320,350 Q320,335 333,335 Q346,335 346,350 Q346,365 320,378 Q294,365 294,350 Q294,335 307,335 Q320,335 320,350Z" fill="#ff6b9d" opacity="0.12"/>
+  <!-- Decorative dots -->
+  <circle cx="50" cy="200" r="8" fill="#ff6b9d" opacity="0.2"/>
+  <circle cx="350" cy="150" r="10" fill="#ffb347" opacity="0.25"/>
+  <circle cx="340" cy="300" r="6" fill="#ff6b9d" opacity="0.2"/>
+  <circle cx="70" cy="380" r="9" fill="#ffb347" opacity="0.2"/>
+  <!-- Paper cup -->
+  <path d="M140,300 L120,440 Q200,460 280,440 L260,300 Z" fill="url(#cup3)" stroke="#f0c0d8" stroke-width="2" filter="url(#shadow3)"/>
+  <!-- Cup stripes -->
+  <line x1="155" y1="300" x2="135" y2="440" stroke="#ff9ec4" stroke-width="3" opacity="0.4"/>
+  <line x1="178" y1="300" x2="163" y2="440" stroke="#ff9ec4" stroke-width="3" opacity="0.4"/>
+  <line x1="200" y1="300" x2="200" y2="440" stroke="#ff9ec4" stroke-width="3" opacity="0.4"/>
+  <line x1="222" y1="300" x2="237" y2="440" stroke="#ff9ec4" stroke-width="3" opacity="0.4"/>
+  <line x1="244" y1="300" x2="265" y2="440" stroke="#ff9ec4" stroke-width="3" opacity="0.4"/>
+  <!-- Cup rim -->
+  <rect x="132" y="295" width="136" height="18" rx="9" fill="#f8d0e4" stroke="#f0a0c8" stroke-width="1.5"/>
+  <!-- Gelato swirl -->
+  <ellipse cx="200" cy="260" rx="95" ry="80" fill="url(#gelato3)" filter="url(#shadow3)"/>
+  <!-- Swirl lines -->
+  <path d="M125,265 Q155,235 190,258 Q210,232 235,255 Q255,232 278,262" fill="none" stroke="#e0205a" stroke-width="3" opacity="0.5"/>
+  <path d="M130,280 Q162,258 200,274 Q232,255 272,275" fill="none" stroke="#e0205a" stroke-width="2.5" opacity="0.4"/>
+  <!-- Gelato highlight -->
+  <ellipse cx="172" cy="246" rx="22" ry="15" fill="white" opacity="0.3"/>
+  <!-- Strawberry slices -->
+  <g transform="translate(280,240)">
+    <polygon points="0,-28 20,14 -20,14" fill="#e63946"/>
+    <line x1="-15" y1="5" x2="15" y2="5" stroke="#c82030" stroke-width="1.5" opacity="0.5"/>
+    <circle cx="-5" cy="-5" r="2" fill="#ffeb9c"/>
+    <circle cx="5" cy="2" r="2" fill="#ffeb9c"/>
+    <circle cx="0" cy="-12" r="2" fill="#ffeb9c"/>
+    <path d="-5,-36 Q0,-44 5,-36" fill="#4caf50" stroke="#388e3c" stroke-width="1"/>
+  </g>
+  <g transform="translate(100,245)">
+    <polygon points="0,-25 18,12 -18,12" fill="#e63946" opacity="0.9"/>
+    <circle cx="0" cy="-8" r="2" fill="#ffeb9c"/>
+    <circle cx="6" cy="2" r="2" fill="#ffeb9c"/>
+    <circle cx="-6" cy="2" r="2" fill="#ffeb9c"/>
+    <path d="M0,-38 Q4,-46 -4,-38" fill="#4caf50" stroke="#388e3c" stroke-width="1"/>
+  </g>
+  <!-- Mint leaf -->
+  <path d="M200,190 Q220,170 225,185 Q215,200 200,190Z" fill="#4caf50"/>
+  <path d="M200,190 Q180,172 176,186 Q185,200 200,190Z" fill="#66bb6a"/>
+  <line x1="200" y1="190" x2="215" y2="178" stroke="#388e3c" stroke-width="1.5"/>
+  <!-- Small spoon -->
+  <ellipse cx="248" cy="200" rx="8" ry="12" fill="#f0a0c8" transform="rotate(35,248,200)"/>
+  <rect x="244" y="192" width="5" height="40" rx="2.5" fill="#e880b0" transform="rotate(35,246,200)"/>
+  <!-- Sprinkles on top -->
+  <rect x="155" y="215" width="14" height="5" rx="2.5" fill="#ff6b9d" transform="rotate(-20,162,217)"/>
+  <rect x="200" y="200" width="12" height="5" rx="2.5" fill="#7c3aed" transform="rotate(15,206,202)"/>
+  <rect x="228" y="218" width="14" height="5" rx="2.5" fill="#ffb347" transform="rotate(35,235,220)"/>
+  <text x="200" y="492" text-anchor="middle" font-family="Poppins,sans-serif" font-size="14" fill="#5c2a0f" opacity="0.7">Strawberry Gelato Cup</text>
+</svg>
