@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product — Floria Premium Flower Delivery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="product">
+
+  <!-- ============================================================
+       OVERLAY
+  ============================================================ -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- ============================================================
+       SIDE MENU
+  ============================================================ -->
+  <nav class="side-menu" id="side-menu">
+    <div class="side-menu-header">
+      <span class="side-menu-logo">Floria</span>
+      <button class="side-menu-close" onclick="closeMenu()" aria-label="Close menu">✕</button>
+    </div>
+    <div class="side-menu-section">
+      <a href="index.html"><span class="menu-icon">🏠</span> Home</a>
+      <a href="index.html#birthday-section"><span class="menu-icon">🎂</span> Birthday Flowers</a>
+      <a href="index.html#anniversary-section"><span class="menu-icon">💕</span> Anniversary Flowers</a>
+      <a href="cart.html"><span class="menu-icon">🛒</span> My Cart</a>
+      <a href="login.html"><span class="menu-icon">👤</span> Login</a>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       HEADER
+  ============================================================ -->
+  <header class="site-header">
+    <div class="header-inner">
+      <button class="hamburger-btn" onclick="openMenu()" aria-label="Open menu">☰</button>
+      <div class="logo-area">
+        <a href="index.html" class="logo-text">Flori<span>a</span></a>
+      </div>
+      <!-- Search -->
+      <div class="search-wrap">
+        <input type="text" id="search-input" placeholder="Search for flowers..." autocomplete="off">
+        <button class="search-btn" aria-label="Search">🔍</button>
+        <div class="search-results" id="search-results"></div>
+      </div>
+      <div class="header-actions">
+        <button class="header-action-btn" onclick="showToast('View your wishlist')" aria-label="Wishlist">
+          <span class="btn-icon">❤</span>
+          <span class="btn-label">Wishlist</span>
+        </button>
+        <button class="header-action-btn" onclick="openCartSidebar()" aria-label="Cart">
+          <span class="btn-icon">🛒</span>
+          <span class="btn-label">Cart</span>
+          <span class="cart-count">0</span>
+        </button>
+        <button class="header-action-btn" onclick="window.location.href='login.html'" aria-label="Login">
+          <span class="btn-icon">👤</span>
+          <span class="btn-label">Login</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       PRODUCT DETAIL CONTENT
+  ============================================================ -->
+  <main class="product-page-section">
+    <!-- Breadcrumb -->
+    <nav class="product-breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span>›</span>
+      <a href="index.html#collections">Collections</a>
+      <span>›</span>
+      <span id="product-breadcrumb-name">Product</span>
+    </nav>
+
+    <!-- Product detail grid -->
+    <div class="product-detail-grid">
+      <!-- Gallery -->
+      <div class="product-gallery">
+        <img class="product-main-img" id="product-main-img" src="https://picsum.photos/seed/product-main/600/520" alt="Product image">
+        <div class="product-thumbs" id="product-thumbs"></div>
+      </div>
+
+      <!-- Info -->
+      <div class="product-detail-info">
+        <div style="font-size:0.75rem;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:0.5rem">Fresh Flowers</div>
+        <h1 class="product-detail-name" id="product-detail-name">Loading...</h1>
+
+        <div class="product-detail-rating" id="product-detail-rating">
+          <span class="stars">★★★★★</span>
+          <span style="font-size:0.85rem;color:#555">5.0 (0 reviews)</span>
+        </div>
+
+        <div class="product-detail-price" id="product-detail-price">₹ 0</div>
+
+        <p class="product-detail-desc" id="product-detail-desc">Loading product description...</p>
+
+        <!-- Features -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1.5rem">
+          <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.85rem;color:var(--text-mid)">
+            <span style="color:var(--accent)">✓</span> Fresh flowers guaranteed
+          </div>
+          <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.85rem;color:var(--text-mid)">
+            <span style="color:var(--accent)">✓</span> Expert florist arranged
+          </div>
+          <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.85rem;color:var(--text-mid)">
+            <span style="color:var(--accent)">✓</span> Same-day delivery available
+          </div>
+          <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.85rem;color:var(--text-mid)">
+            <span style="color:var(--accent)">✓</span> Premium packaging
+          </div>
+        </div>
+
+        <!-- Add to cart section -->
+        <div class="product-add-section">
+          <div class="qty-control">
+            <button class="qty-btn" id="qty-minus" aria-label="Decrease quantity">−</button>
+            <span class="qty-num" id="product-qty">1</span>
+            <button class="qty-btn" id="qty-plus" aria-label="Increase quantity">+</button>
+          </div>
+          <button class="add-cart-main-btn" id="add-to-cart-main">ADD TO CART</button>
+        </div>
+
+        <!-- Wishlist & Share -->
+        <div style="display:flex;gap:1rem;margin-top:1rem">
+          <button onclick="showToast('♥ Added to wishlist!')" 
+            style="background:none;border:1px solid var(--border);padding:0.6rem 1.2rem;font-size:0.82rem;color:var(--text-mid);cursor:pointer;border-radius:var(--radius);transition:all 0.3s"
+            onmouseover="this.style.borderColor='#e91e63';this.style.color='#e91e63'"
+            onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-mid)'">
+            ♡ Add to Wishlist
+          </button>
+          <button onclick="showToast('🔗 Link copied to clipboard!')"
+            style="background:none;border:1px solid var(--border);padding:0.6rem 1.2rem;font-size:0.82rem;color:var(--text-mid);cursor:pointer;border-radius:var(--radius);transition:all 0.3s"
+            onmouseover="this.style.borderColor='var(--primary)';this.style.color='var(--primary)'"
+            onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-mid)'">
+            ↗ Share
+          </button>
+        </div>
+
+        <!-- Delivery info -->
+        <div style="margin-top:1.5rem;padding:1rem;background:var(--bg-light);border-radius:var(--radius)">
+          <div style="font-size:0.82rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.5rem">Delivery</div>
+          <div style="font-size:0.85rem;color:var(--text-mid);display:flex;flex-direction:column;gap:0.4rem">
+            <span>🚚 Same-day delivery available for orders before 2 PM</span>
+            <span>📦 Free delivery on orders above ₹3,000</span>
+            <span>❄️ Temperature-controlled delivery</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Related Products -->
+    <div style="margin-top:4rem">
+      <h2 class="section-title" style="margin-bottom:0.25rem">You May Also Like</h2>
+      <p class="section-subtitle">More beautiful arrangements from our collection</p>
+      <div class="product-grid" id="related-products-grid"></div>
+    </div>
+  </main>
+
+  <!-- ============================================================
+       FOOTER (compact)
+  ============================================================ -->
+  <footer class="site-footer" style="padding:2rem 1.5rem;margin-top:3rem">
+    <div style="max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem">
+      <div style="font-family:'Playfair Display',serif;font-size:1.4rem;color:#fff;letter-spacing:2px">Flori<span style="color:#e8c5a0">a</span></div>
+      <div style="color:rgba(255,255,255,0.5);font-size:0.8rem">&copy; 2026 Floria. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       CART SIDEBAR
+  ============================================================ -->
+  <aside class="cart-sidebar" id="cart-sidebar">
+    <div class="cart-sidebar-header">
+      <h3>🛒 Your Cart</h3>
+      <button class="cart-sidebar-close" onclick="closeCartSidebar()">✕</button>
+    </div>
+    <div class="cart-items-list" id="cart-items-list">
+      <div class="cart-empty">
+        <div class="empty-icon">🛒</div>
+        <p>Your cart is empty</p>
+      </div>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-subtotal">
+        <span>Subtotal</span>
+        <span id="cart-sidebar-subtotal">₹ 0</span>
+      </div>
+      <div class="cart-subtotal">
+        <span>Delivery</span>
+        <span id="cart-shipping">₹ 199</span>
+      </div>
+      <div class="cart-total">
+        <span>Total</span>
+        <span id="cart-sidebar-total">₹ 0</span>
+      </div>
+      <button class="checkout-btn" onclick="window.location.href='cart.html'">VIEW CART &amp; CHECKOUT</button>
+      <button class="continue-shopping" onclick="closeCartSidebar()">Continue Shopping</button>
+    </div>
+  </aside>
+
+  <!-- Scroll top -->
+  <button class="scroll-top-btn" id="scroll-top-btn" aria-label="Scroll to top">↑</button>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
