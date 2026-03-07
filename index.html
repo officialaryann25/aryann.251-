@@ -1,0 +1,2088 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="IceWorld – Premium ice cream shop offering the finest flavours, desserts, and frozen treats. Order online today!" />
+  <meta name="keywords" content="ice cream, frozen dessert, gelato, sorbet, sundae, IceWorld" />
+  <meta name="author" content="IceWorld" />
+  <title>IceWorld – Premium Ice Cream Shop</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ===================== PRELOADER ===================== -->
+  <div id="preloader" class="preloader" aria-hidden="true">
+    <div class="preloader-inner">
+      <span class="preloader-icon"><i class="fas fa-ice-cream"></i></span>
+      <p class="preloader-text">Loading IceWorld…</p>
+    </div>
+  </div>
+
+  <!-- ===================== HEADER ===================== -->
+  <header id="main-header" class="header" role="banner">
+    <div class="header-top">
+      <div class="container">
+        <div class="header-top-left">
+          <span><i class="fas fa-phone-alt"></i> +1 800-ICE-WORLD</span>
+          <span><i class="fas fa-envelope"></i> hello@iceworld.com</span>
+        </div>
+        <div class="header-top-right">
+          <span><i class="fas fa-clock"></i> Open: 10am – 11pm, 7 days a week</span>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <nav id="main-nav" class="navbar" role="navigation" aria-label="Main navigation">
+      <div class="container">
+        <!-- Logo -->
+        <a href="index.html" class="logo" aria-label="IceWorld Home">
+          <span class="logo-icon"><i class="fas fa-ice-cream"></i></span>
+          <span class="logo-text">Ice<span class="logo-accent">World</span></span>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <ul class="nav-links" id="nav-links" role="list">
+          <li><a href="#home" class="nav-link active" aria-current="page">Home</a></li>
+          <li class="has-dropdown">
+            <a href="#menu" class="nav-link">Menu <i class="fas fa-chevron-down"></i></a>
+            <ul class="dropdown-menu" role="list">
+              <li><a href="#classic-scoops">Classic Scoops</a></li>
+              <li><a href="#sundaes">Sundaes</a></li>
+              <li><a href="#milkshakes">Milkshakes</a></li>
+              <li><a href="#gelato">Gelato</a></li>
+              <li><a href="#sorbet">Sorbet &amp; Vegan</a></li>
+              <li><a href="#waffles">Waffles &amp; Crepes</a></li>
+            </ul>
+          </li>
+          <li><a href="#bestsellers" class="nav-link">Best Sellers</a></li>
+          <li><a href="#about" class="nav-link">About Us</a></li>
+          <li><a href="#gallery" class="nav-link">Gallery</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+
+        <!-- Search Bar -->
+        <div class="nav-search" id="nav-search">
+          <form class="search-form" id="search-form" role="search" aria-label="Product search">
+            <input
+              type="search"
+              id="search-input"
+              class="search-input"
+              placeholder="Search flavours…"
+              aria-label="Search products"
+              autocomplete="off"
+            />
+            <button type="submit" class="search-btn" aria-label="Submit search">
+              <i class="fas fa-search"></i>
+            </button>
+          </form>
+          <div id="search-results" class="search-results" role="listbox" aria-label="Search results" hidden></div>
+        </div>
+
+        <!-- Nav Icons -->
+        <div class="nav-icons">
+          <button class="icon-btn search-toggle-btn" id="search-toggle-btn" aria-label="Toggle search" aria-expanded="false">
+            <i class="fas fa-search"></i>
+          </button>
+          <button class="icon-btn wishlist-btn" id="wishlist-btn" aria-label="Wishlist" aria-haspopup="true">
+            <i class="far fa-heart"></i>
+            <span class="badge" id="wishlist-count" aria-label="Wishlist count">0</span>
+          </button>
+          <button class="icon-btn cart-toggle-btn" id="cart-toggle-btn" aria-label="Shopping cart" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="badge" id="cart-count" aria-label="Cart item count">0</span>
+          </button>
+          <a href="#" class="icon-btn login-btn" id="login-btn" aria-label="Login or My Account">
+            <i class="far fa-user"></i>
+          </a>
+        </div>
+
+        <!-- Hamburger Menu Toggle -->
+        <button class="hamburger" id="hamburger-btn" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="nav-links">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===================== CART SIDEBAR ===================== -->
+  <aside id="cart-sidebar" class="cart-sidebar" role="complementary" aria-label="Shopping cart" aria-hidden="true">
+    <div class="cart-sidebar-header">
+      <h2 class="cart-sidebar-title"><i class="fas fa-shopping-cart"></i> Your Cart</h2>
+      <button class="cart-close-btn" id="cart-close-btn" aria-label="Close cart">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="cart-items-container" id="cart-items-container">
+      <p class="cart-empty-msg" id="cart-empty-msg">
+        <i class="fas fa-ice-cream"></i><br />Your cart is empty. Add some delicious scoops!
+      </p>
+      <ul class="cart-items-list" id="cart-items-list" role="list" aria-label="Cart items"></ul>
+    </div>
+    <div class="cart-footer" id="cart-footer">
+      <div class="cart-subtotal">
+        <span>Subtotal:</span>
+        <span id="cart-subtotal-price">$0.00</span>
+      </div>
+      <div class="cart-tax">
+        <span>Tax (8%):</span>
+        <span id="cart-tax-amount">$0.00</span>
+      </div>
+      <div class="cart-total">
+        <span>Total:</span>
+        <span id="cart-total-price">$0.00</span>
+      </div>
+      <a href="#checkout" class="btn btn-primary btn-full cart-checkout-btn">
+        <i class="fas fa-lock"></i> Secure Checkout
+      </a>
+      <button class="btn btn-outline btn-full cart-continue-btn" id="cart-continue-btn">
+        Continue Shopping
+      </button>
+      <button class="btn btn-danger btn-full cart-clear-btn" id="cart-clear-btn">
+        <i class="fas fa-trash"></i> Clear Cart
+      </button>
+    </div>
+  </aside>
+  <div class="cart-overlay" id="cart-overlay" aria-hidden="true"></div>
+
+  <!-- ===================== WISHLIST MODAL ===================== -->
+  <div id="wishlist-modal" class="modal" role="dialog" aria-modal="true" aria-label="Wishlist" hidden>
+    <div class="modal-overlay" id="wishlist-overlay"></div>
+    <div class="modal-content wishlist-content">
+      <div class="modal-header">
+        <h2><i class="far fa-heart"></i> My Wishlist</h2>
+        <button class="modal-close-btn" id="wishlist-close-btn" aria-label="Close wishlist">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p class="wishlist-empty-msg" id="wishlist-empty-msg">
+          <i class="far fa-heart"></i><br />Your wishlist is empty.
+        </p>
+        <ul class="wishlist-items-list" id="wishlist-items-list" role="list"></ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== LOGIN MODAL ===================== -->
+  <div id="login-modal" class="modal" role="dialog" aria-modal="true" aria-label="Login" hidden>
+    <div class="modal-overlay" id="login-overlay"></div>
+    <div class="modal-content login-content">
+      <div class="modal-header">
+        <h2><i class="far fa-user"></i> <span id="auth-modal-title">Sign In</span></h2>
+        <button class="modal-close-btn" id="login-close-btn" aria-label="Close login modal">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Tabs -->
+        <div class="auth-tabs">
+          <button class="auth-tab active" data-tab="login-tab" aria-selected="true">Sign In</button>
+          <button class="auth-tab" data-tab="register-tab" aria-selected="false">Register</button>
+        </div>
+
+        <!-- Login Form -->
+        <div class="auth-tab-content active" id="login-tab">
+          <form id="login-form" class="auth-form" novalidate>
+            <div class="form-group">
+              <label for="login-email">Email Address</label>
+              <div class="input-icon">
+                <i class="fas fa-envelope"></i>
+                <input type="email" id="login-email" name="email" class="form-control" placeholder="your@email.com" required aria-required="true" />
+              </div>
+              <span class="form-error" id="login-email-error" role="alert"></span>
+            </div>
+            <div class="form-group">
+              <label for="login-password">Password</label>
+              <div class="input-icon">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="login-password" name="password" class="form-control" placeholder="Enter password" required aria-required="true" />
+                <button type="button" class="toggle-password" aria-label="Toggle password visibility">
+                  <i class="far fa-eye"></i>
+                </button>
+              </div>
+              <span class="form-error" id="login-password-error" role="alert"></span>
+            </div>
+            <div class="form-group form-row">
+              <label class="checkbox-label">
+                <input type="checkbox" id="remember-me" name="remember" />
+                <span>Remember me</span>
+              </label>
+              <a href="#" class="forgot-password-link">Forgot Password?</a>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">
+              <i class="fas fa-sign-in-alt"></i> Sign In
+            </button>
+            <div class="social-login">
+              <p>Or sign in with</p>
+              <div class="social-login-btns">
+                <button type="button" class="social-login-btn google-btn"><i class="fab fa-google"></i> Google</button>
+                <button type="button" class="social-login-btn facebook-btn"><i class="fab fa-facebook-f"></i> Facebook</button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <!-- Register Form -->
+        <div class="auth-tab-content" id="register-tab">
+          <form id="register-form" class="auth-form" novalidate>
+            <div class="form-group">
+              <label for="reg-name">Full Name</label>
+              <div class="input-icon">
+                <i class="fas fa-user"></i>
+                <input type="text" id="reg-name" name="name" class="form-control" placeholder="Your full name" required aria-required="true" />
+              </div>
+              <span class="form-error" id="reg-name-error" role="alert"></span>
+            </div>
+            <div class="form-group">
+              <label for="reg-email">Email Address</label>
+              <div class="input-icon">
+                <i class="fas fa-envelope"></i>
+                <input type="email" id="reg-email" name="email" class="form-control" placeholder="your@email.com" required aria-required="true" />
+              </div>
+              <span class="form-error" id="reg-email-error" role="alert"></span>
+            </div>
+            <div class="form-group">
+              <label for="reg-phone">Phone Number</label>
+              <div class="input-icon">
+                <i class="fas fa-phone"></i>
+                <input type="tel" id="reg-phone" name="phone" class="form-control" placeholder="+1 (555) 000-0000" />
+              </div>
+              <span class="form-error" id="reg-phone-error" role="alert"></span>
+            </div>
+            <div class="form-group">
+              <label for="reg-password">Password</label>
+              <div class="input-icon">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="reg-password" name="password" class="form-control" placeholder="Min 8 characters" required aria-required="true" />
+                <button type="button" class="toggle-password" aria-label="Toggle password visibility">
+                  <i class="far fa-eye"></i>
+                </button>
+              </div>
+              <span class="form-error" id="reg-password-error" role="alert"></span>
+            </div>
+            <div class="form-group">
+              <label for="reg-confirm-password">Confirm Password</label>
+              <div class="input-icon">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="reg-confirm-password" name="confirm_password" class="form-control" placeholder="Repeat password" required aria-required="true" />
+              </div>
+              <span class="form-error" id="reg-confirm-password-error" role="alert"></span>
+            </div>
+            <div class="form-group">
+              <label class="checkbox-label">
+                <input type="checkbox" id="reg-terms" name="terms" required aria-required="true" />
+                <span>I agree to the <a href="#">Terms &amp; Conditions</a></span>
+              </label>
+              <span class="form-error" id="reg-terms-error" role="alert"></span>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">
+              <i class="fas fa-user-plus"></i> Create Account
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== TOAST NOTIFICATION ===================== -->
+  <div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- ===================== MAIN CONTENT ===================== -->
+  <main id="main-content" role="main">
+
+    <!-- ===================== HERO SECTION / BANNER SLIDER ===================== -->
+    <section id="home" class="hero-section" aria-label="Hero banner">
+      <div class="hero-slider" id="hero-slider" role="region" aria-label="Featured promotions slider" aria-roledescription="carousel">
+
+        <!-- Slide 1 -->
+        <div class="hero-slide active" data-slide="0" role="group" aria-roledescription="slide" aria-label="Slide 1 of 4">
+          <div class="hero-slide-bg hero-slide-bg-1"></div>
+          <div class="container hero-content">
+            <div class="hero-text" data-animate="fadeInLeft">
+              <span class="hero-tagline">🍦 Summer Special 2026</span>
+              <h1 class="hero-title">Taste the <span class="hero-accent">Magic</span> of IceWorld</h1>
+              <p class="hero-subtitle">
+                Discover over 60 handcrafted flavours made with the finest ingredients.
+                Every scoop is a journey. Every bite is pure joy.
+              </p>
+              <div class="hero-actions">
+                <a href="#menu" class="btn btn-primary btn-lg">
+                  <i class="fas fa-ice-cream"></i> Explore Menu
+                </a>
+                <a href="#bestsellers" class="btn btn-outline btn-lg">
+                  <i class="fas fa-star"></i> Best Sellers
+                </a>
+              </div>
+              <div class="hero-stats">
+                <div class="stat">
+                  <span class="stat-number" data-target="60">0</span><span>+</span>
+                  <span class="stat-label">Flavours</span>
+                </div>
+                <div class="stat">
+                  <span class="stat-number" data-target="15">0</span><span>+</span>
+                  <span class="stat-label">Years</span>
+                </div>
+                <div class="stat">
+                  <span class="stat-number" data-target="50000">0</span><span>+</span>
+                  <span class="stat-label">Happy Customers</span>
+                </div>
+              </div>
+            </div>
+            <div class="hero-image" data-animate="fadeInRight">
+              <div class="hero-img-wrapper">
+                <div class="hero-blob"></div>
+                <img src="images/hero-ice-cream-1.svg" alt="Scoop of strawberry and vanilla ice cream in a waffle cone" class="hero-img" width="480" height="500" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="hero-slide" data-slide="1" role="group" aria-roledescription="slide" aria-label="Slide 2 of 4">
+          <div class="hero-slide-bg hero-slide-bg-2"></div>
+          <div class="container hero-content">
+            <div class="hero-text" data-animate="fadeInLeft">
+              <span class="hero-tagline">🍧 New Arrival</span>
+              <h1 class="hero-title">Exotic <span class="hero-accent">Gelato</span> Collection</h1>
+              <p class="hero-subtitle">
+                Imported Italian-style gelato with authentic recipes and real fruit pieces.
+                Creamy, smooth, and absolutely irresistible.
+              </p>
+              <div class="hero-actions">
+                <a href="#gelato" class="btn btn-primary btn-lg">
+                  <i class="fas fa-star"></i> Try Gelato
+                </a>
+                <a href="#menu" class="btn btn-outline btn-lg">
+                  <i class="fas fa-list"></i> Full Menu
+                </a>
+              </div>
+            </div>
+            <div class="hero-image" data-animate="fadeInRight">
+              <div class="hero-img-wrapper">
+                <div class="hero-blob hero-blob-purple"></div>
+                <img src="images/hero-gelato.svg" alt="Colourful gelato cups" class="hero-img" width="480" height="500" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="hero-slide" data-slide="2" role="group" aria-roledescription="slide" aria-label="Slide 3 of 4">
+          <div class="hero-slide-bg hero-slide-bg-3"></div>
+          <div class="container hero-content">
+            <div class="hero-text" data-animate="fadeInLeft">
+              <span class="hero-tagline">🧇 Weekend Special</span>
+              <h1 class="hero-title">Belgian <span class="hero-accent">Waffle</span> Sundaes</h1>
+              <p class="hero-subtitle">
+                Fresh waffles topped with three scoops, whipped cream, drizzled sauces,
+                and your choice of toppings. Heaven on a plate.
+              </p>
+              <div class="hero-actions">
+                <a href="#waffles" class="btn btn-primary btn-lg">
+                  <i class="fas fa-concierge-bell"></i> Order Now
+                </a>
+                <a href="#contact" class="btn btn-outline btn-lg">
+                  <i class="fas fa-map-marker-alt"></i> Find Us
+                </a>
+              </div>
+            </div>
+            <div class="hero-image" data-animate="fadeInRight">
+              <div class="hero-img-wrapper">
+                <div class="hero-blob hero-blob-orange"></div>
+                <img src="images/hero-waffle.svg" alt="Waffle sundae with ice cream and toppings" class="hero-img" width="480" height="500" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="hero-slide" data-slide="3" role="group" aria-roledescription="slide" aria-label="Slide 4 of 4">
+          <div class="hero-slide-bg hero-slide-bg-4"></div>
+          <div class="container hero-content">
+            <div class="hero-text" data-animate="fadeInLeft">
+              <span class="hero-tagline">🌿 Healthy Choice</span>
+              <h1 class="hero-title">Vegan &amp; <span class="hero-accent">Sorbet</span> Range</h1>
+              <p class="hero-subtitle">
+                Dairy-free, guilt-free, and bursting with natural flavours. Our sorbet and
+                vegan collection is crafted for everyone to enjoy.
+              </p>
+              <div class="hero-actions">
+                <a href="#sorbet" class="btn btn-primary btn-lg">
+                  <i class="fas fa-leaf"></i> Go Vegan
+                </a>
+                <a href="#about" class="btn btn-outline btn-lg">
+                  <i class="fas fa-info-circle"></i> Our Story
+                </a>
+              </div>
+            </div>
+            <div class="hero-image" data-animate="fadeInRight">
+              <div class="hero-img-wrapper">
+                <div class="hero-blob hero-blob-green"></div>
+                <img src="images/hero-sorbet.svg" alt="Colourful sorbets on a tray" class="hero-img" width="480" height="500" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slider Controls -->
+        <button class="slider-btn slider-prev" id="hero-prev" aria-label="Previous slide">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="slider-btn slider-next" id="hero-next" aria-label="Next slide">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <!-- Slider Dots -->
+        <div class="slider-dots" id="hero-dots" role="tablist" aria-label="Slide navigation">
+          <button class="slider-dot active" data-dot="0" role="tab" aria-selected="true" aria-label="Go to slide 1"></button>
+          <button class="slider-dot" data-dot="1" role="tab" aria-selected="false" aria-label="Go to slide 2"></button>
+          <button class="slider-dot" data-dot="2" role="tab" aria-selected="false" aria-label="Go to slide 3"></button>
+          <button class="slider-dot" data-dot="3" role="tab" aria-selected="false" aria-label="Go to slide 4"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== MARQUEE BANNER ===================== -->
+    <div class="marquee-banner" aria-label="Promotional messages">
+      <div class="marquee-track">
+        <span>🍦 Free delivery on orders above $30</span>
+        <span>🎉 Buy 2 get 1 free on Sundaes every Friday</span>
+        <span>⭐ New Summer Mango Tango flavour now available</span>
+        <span>🌿 Vegan options available – ask our staff</span>
+        <span>🎂 Custom ice cream cakes for birthdays &amp; events</span>
+        <span>🍧 Happy Hour 3pm–5pm – 20% off all scoops</span>
+        <span>🍦 Free delivery on orders above $30</span>
+        <span>🎉 Buy 2 get 1 free on Sundaes every Friday</span>
+        <span>⭐ New Summer Mango Tango flavour now available</span>
+        <span>🌿 Vegan options available – ask our staff</span>
+      </div>
+    </div>
+
+    <!-- ===================== FEATURES STRIP ===================== -->
+    <section class="features-strip" aria-label="Our features">
+      <div class="container">
+        <div class="features-grid">
+          <div class="feature-item">
+            <div class="feature-icon"><i class="fas fa-truck"></i></div>
+            <div class="feature-text">
+              <h3>Fast Delivery</h3>
+              <p>30 min or free</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon"><i class="fas fa-seedling"></i></div>
+            <div class="feature-text">
+              <h3>100% Natural</h3>
+              <p>No artificial colours</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon"><i class="fas fa-award"></i></div>
+            <div class="feature-text">
+              <h3>Award Winning</h3>
+              <p>Best Ice Cream 2024</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon"><i class="fas fa-undo"></i></div>
+            <div class="feature-text">
+              <h3>Easy Returns</h3>
+              <p>100% satisfaction guarantee</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon"><i class="fas fa-headset"></i></div>
+            <div class="feature-text">
+              <h3>24/7 Support</h3>
+              <p>Always here for you</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CATEGORY SECTION ===================== -->
+    <section class="categories-section section-padding" aria-label="Product categories">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tagline">Browse by Category</span>
+          <h2 class="section-title">What Are You Craving?</h2>
+          <p class="section-desc">Explore our wide range of frozen treats. There's something for everyone at IceWorld.</p>
+        </div>
+        <div class="categories-grid">
+          <a href="#classic-scoops" class="category-card" data-category="classic">
+            <div class="category-img-wrapper">
+              <img src="images/cat-classic.svg" alt="Classic ice cream scoops" class="category-img" width="200" height="200" loading="lazy" />
+            </div>
+            <div class="category-info">
+              <h3>Classic Scoops</h3>
+              <span>24 items</span>
+            </div>
+          </a>
+          <a href="#sundaes" class="category-card" data-category="sundae">
+            <div class="category-img-wrapper">
+              <img src="images/cat-sundae.svg" alt="Ice cream sundaes" class="category-img" width="200" height="200" loading="lazy" />
+            </div>
+            <div class="category-info">
+              <h3>Sundaes</h3>
+              <span>18 items</span>
+            </div>
+          </a>
+          <a href="#milkshakes" class="category-card" data-category="milkshake">
+            <div class="category-img-wrapper">
+              <img src="images/cat-milkshake.svg" alt="Creamy milkshakes" class="category-img" width="200" height="200" loading="lazy" />
+            </div>
+            <div class="category-info">
+              <h3>Milkshakes</h3>
+              <span>12 items</span>
+            </div>
+          </a>
+          <a href="#gelato" class="category-card" data-category="gelato">
+            <div class="category-img-wrapper">
+              <img src="images/cat-gelato.svg" alt="Italian gelato" class="category-img" width="200" height="200" loading="lazy" />
+            </div>
+            <div class="category-info">
+              <h3>Gelato</h3>
+              <span>16 items</span>
+            </div>
+          </a>
+          <a href="#sorbet" class="category-card" data-category="sorbet">
+            <div class="category-img-wrapper">
+              <img src="images/cat-sorbet.svg" alt="Sorbet and vegan options" class="category-img" width="200" height="200" loading="lazy" />
+            </div>
+            <div class="category-info">
+              <h3>Sorbet &amp; Vegan</h3>
+              <span>10 items</span>
+            </div>
+          </a>
+          <a href="#waffles" class="category-card" data-category="waffle">
+            <div class="category-img-wrapper">
+              <img src="images/cat-waffle.svg" alt="Waffles and crepes" class="category-img" width="200" height="200" loading="lazy" />
+            </div>
+            <div class="category-info">
+              <h3>Waffles &amp; Crepes</h3>
+              <span>8 items</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== BEST SELLERS – PRODUCT CAROUSEL ===================== -->
+    <section id="bestsellers" class="bestsellers-section section-padding" aria-label="Best sellers">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tagline">Crowd Favourites</span>
+          <h2 class="section-title">Best Selling Products</h2>
+          <p class="section-desc">Our most loved ice creams and frozen treats, chosen by thousands of happy customers.</p>
+        </div>
+
+        <div class="product-carousel-wrapper" role="region" aria-label="Best sellers product carousel" aria-roledescription="carousel">
+          <button class="carousel-btn carousel-prev" id="bs-carousel-prev" aria-label="Previous products">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <div class="product-carousel" id="bestsellers-carousel">
+            <div class="product-carousel-track" id="bs-carousel-track">
+
+              <!-- Product 1 -->
+              <div class="product-card" data-id="1" data-category="classic" data-price="4.99" data-popularity="98">
+                <div class="product-img-wrapper">
+                  <span class="product-badge badge-hot">🔥 Hot</span>
+                  <img src="images/prod-vanilla.svg" alt="Double Vanilla Dream ice cream scoop" class="product-img" width="280" height="220" loading="lazy" />
+                  <div class="product-overlay">
+                    <button class="overlay-btn quick-view-btn" data-id="1" aria-label="Quick view Double Vanilla Dream">
+                      <i class="fas fa-eye"></i>
+                    </button>
+                    <button class="overlay-btn add-to-wishlist-btn" data-id="1" aria-label="Add Double Vanilla Dream to wishlist">
+                      <i class="far fa-heart"></i>
+                    </button>
+                    <button class="overlay-btn add-to-cart-overlay-btn" data-id="1" aria-label="Add Double Vanilla Dream to cart">
+                      <i class="fas fa-cart-plus"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="product-info">
+                  <span class="product-category-tag">Classic</span>
+                  <h3 class="product-name">Double Vanilla Dream</h3>
+                  <div class="product-rating" aria-label="Rating: 4.9 out of 5">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="rating-count">(312)</span>
+                  </div>
+                  <div class="product-price-row">
+                    <span class="product-price">$4.99</span>
+                    <span class="product-old-price">$6.99</span>
+                  </div>
+                  <button class="btn btn-primary btn-sm add-to-cart-btn" data-id="1" data-name="Double Vanilla Dream" data-price="4.99" data-img="images/prod-vanilla.svg">
+                    <i class="fas fa-cart-plus"></i> Add to Cart
+                  </button>
+                </div>
+              </div>
+
+              <!-- Product 2 -->
+              <div class="product-card" data-id="2" data-category="classic" data-price="5.49" data-popularity="95">
+                <div class="product-img-wrapper">
+                  <span class="product-badge badge-new">✨ New</span>
+                  <img src="images/prod-strawberry.svg" alt="Fresh Strawberry Swirl ice cream" class="product-img" width="280" height="220" loading="lazy" />
+                  <div class="product-overlay">
+                    <button class="overlay-btn quick-view-btn" data-id="2" aria-label="Quick view Fresh Strawberry Swirl">
+                      <i class="fas fa-eye"></i>
+                    </button>
+                    <button class="overlay-btn add-to-wishlist-btn" data-id="2" aria-label="Add Fresh Strawberry Swirl to wishlist">
+                      <i class="far fa-heart"></i>
+                    </button>
+                    <button class="overlay-btn add-to-cart-overlay-btn" data-id="2" aria-label="Add Fresh Strawberry Swirl to cart">
+                      <i class="fas fa-cart-plus"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="product-info">
+                  <span class="product-category-tag">Classic</span>
+                  <h3 class="product-name">Fresh Strawberry Swirl</h3>
+                  <div class="product-rating" aria-label="Rating: 4.8 out of 5">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="rating-count">(289)</span>
+                  </div>
+                  <div class="product-price-row">
+                    <span class="product-price">$5.49</span>
+                  </div>
+                  <button class="btn btn-primary btn-sm add-to-cart-btn" data-id="2" data-name="Fresh Strawberry Swirl" data-price="5.49" data-img="images/prod-strawberry.svg">
+                    <i class="fas fa-cart-plus"></i> Add to Cart
+                  </button>
+                </div>
+              </div>
+
+              <!-- Product 3 -->
+              <div class="product-card" data-id="3" data-category="sundae" data-price="8.99" data-popularity="92">
+                <div class="product-img-wrapper">
+                  <span class="product-badge badge-sale">💸 Sale</span>
+                  <img src="images/prod-choc-sundae.svg" alt="Chocolate Fudge Sundae with toppings" class="product-img" width="280" height="220" loading="lazy" />
+                  <div class="product-overlay">
+                    <button class="overlay-btn quick-view-btn" data-id="3" aria-label="Quick view Chocolate Fudge Sundae">
+                      <i class="fas fa-eye"></i>
+                    </button>
+                    <button class="overlay-btn add-to-wishlist-btn" data-id="3" aria-label="Add Chocolate Fudge Sundae to wishlist">
+                      <i class="far fa-heart"></i>
+                    </button>
+                    <button class="overlay-btn add-to-cart-overlay-btn" data-id="3" aria-label="Add Chocolate Fudge Sundae to cart">
+                      <i class="fas fa-cart-plus"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="product-info">
+                  <span class="product-category-tag">Sundae</span>
+                  <h3 class="product-name">Chocolate Fudge Sundae</h3>
+                  <div class="product-rating" aria-label="Rating: 5 out of 5">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <span class="rating-count">(451)</span>
+                  </div>
+                  <div class="product-price-row">
+                    <span class="product-price">$8.99</span>
+                    <span class="product-old-price">$11.99</span>
+                  </div>
+                  <button class="btn btn-primary btn-sm add-to-cart-btn" data-id="3" data-name="Chocolate Fudge Sundae" data-price="8.99" data-img="images/prod-choc-sundae.svg">
+                    <i class="fas fa-cart-plus"></i> Add to Cart
+                  </button>
+                </div>
+              </div>
+
+              <!-- Product 4 -->
+              <div class="product-card" data-id="4" data-category="milkshake" data-price="6.99" data-popularity="88">
+                <div class="product-img-wrapper">
+                  <img src="images/prod-milkshake.svg" alt="Oreo Crunch Milkshake" class="product-img" width="280" height="220" loading="lazy" />
+                  <div class="product-overlay">
+                    <button class="overlay-btn quick-view-btn" data-id="4" aria-label="Quick view Oreo Crunch Milkshake">
+                      <i class="fas fa-eye"></i>
+                    </button>
+                    <button class="overlay-btn add-to-wishlist-btn" data-id="4" aria-label="Add Oreo Crunch Milkshake to wishlist">
+                      <i class="far fa-heart"></i>
+                    </button>
+                    <button class="overlay-btn add-to-cart-overlay-btn" data-id="4" aria-label="Add Oreo Crunch Milkshake to cart">
+                      <i class="fas fa-cart-plus"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="product-info">
+                  <span class="product-category-tag">Milkshake</span>
+                  <h3 class="product-name">Oreo Crunch Milkshake</h3>
+                  <div class="product-rating" aria-label="Rating: 4.7 out of 5">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="rating-count">(198)</span>
+                  </div>
+                  <div class="product-price-row">
+                    <span class="product-price">$6.99</span>
+                  </div>
+                  <button class="btn btn-primary btn-sm add-to-cart-btn" data-id="4" data-name="Oreo Crunch Milkshake" data-price="6.99" data-img="images/prod-milkshake.svg">
+                    <i class="fas fa-cart-plus"></i> Add to Cart
+                  </button>
+                </div>
+              </div>
+
+              <!-- Product 5 -->
+              <div class="product-card" data-id="5" data-category="gelato" data-price="5.99" data-popularity="85">
+                <div class="product-img-wrapper">
+                  <span class="product-badge badge-hot">🔥 Hot</span>
+                  <img src="images/prod-pistachio.svg" alt="Pistachio Gelato cup" class="product-img" width="280" height="220" loading="lazy" />
+                  <div class="product-overlay">
+                    <button class="overlay-btn quick-view-btn" data-id="5" aria-label="Quick view Pistachio Gelato">
+                      <i class="fas fa-eye"></i>
+                    </button>
+                    <button class="overlay-btn add-to-wishlist-btn" data-id="5" aria-label="Add Pistachio Gelato to wishlist">
+                      <i class="far fa-heart"></i>
+                    </button>
+                    <button class="overlay-btn add-to-cart-overlay-btn" data-id="5" aria-label="Add Pistachio Gelato to cart">
+                      <i class="fas fa-cart-plus"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="product-info">
+                  <span class="product-category-tag">Gelato</span>
+                  <h3 class="product-name">Pistachio Gelato</h3>
+                  <div class="product-rating" aria-label="Rating: 4.9 out of 5">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="rating-count">(267)</span>
+                  </div>
+                  <div class="product-price-row">
+                    <span class="product-price">$5.99</span>
+                  </div>
+                  <button class="btn btn-primary btn-sm add-to-cart-btn" data-id="5" data-name="Pistachio Gelato" data-price="5.99" data-img="images/prod-pistachio.svg">
+                    <i class="fas fa-cart-plus"></i> Add to Cart
+                  </button>
+                </div>
+              </div>
+
+              <!-- Product 6 -->
+              <div class="product-card" data-id="6" data-category="sorbet" data-price="4.49" data-popularity="80">
+                <div class="product-img-wrapper">
+                  <span class="product-badge badge-new">🌿 Vegan</span>
+                  <img src="images/prod-mango-sorbet.svg" alt="Mango Sorbet bowl" class="product-img" width="280" height="220" loading="lazy" />
+                  <div class="product-overlay">
+                    <button class="overlay-btn quick-view-btn" data-id="6" aria-label="Quick view Mango Tango Sorbet">
+                      <i class="fas fa-eye"></i>
+                    </button>
+                    <button class="overlay-btn add-to-wishlist-btn" data-id="6" aria-label="Add Mango Tango Sorbet to wishlist">
+                      <i class="far fa-heart"></i>
+                    </button>
+                    <button class="overlay-btn add-to-cart-overlay-btn" data-id="6" aria-label="Add Mango Tango Sorbet to cart">
+                      <i class="fas fa-cart-plus"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="product-info">
+                  <span class="product-category-tag">Sorbet</span>
+                  <h3 class="product-name">Mango Tango Sorbet</h3>
+                  <div class="product-rating" aria-label="Rating: 4.6 out of 5">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="rating-count">(143)</span>
+                  </div>
+                  <div class="product-price-row">
+                    <span class="product-price">$4.49</span>
+                  </div>
+                  <button class="btn btn-primary btn-sm add-to-cart-btn" data-id="6" data-name="Mango Tango Sorbet" data-price="4.49" data-img="images/prod-mango-sorbet.svg">
+                    <i class="fas fa-cart-plus"></i> Add to Cart
+                  </button>
+                </div>
+              </div>
+
+              <!-- Product 7 -->
+              <div class="product-card" data-id="7" data-category="waffle" data-price="10.99" data-popularity="78">
+                <div class="product-img-wrapper">
+                  <span class="product-badge badge-sale">💸 Sale</span>
+                  <img src="images/prod-waffle-stack.svg" alt="Belgian Waffle Stack with ice cream" class="product-img" width="280" height="220" loading="lazy" />
+                  <div class="product-overlay">
+                    <button class="overlay-btn quick-view-btn" data-id="7" aria-label="Quick view Belgian Waffle Stack">
+                      <i class="fas fa-eye"></i>
+                    </button>
+                    <button class="overlay-btn add-to-wishlist-btn" data-id="7" aria-label="Add Belgian Waffle Stack to wishlist">
+                      <i class="far fa-heart"></i>
+                    </button>
+                    <button class="overlay-btn add-to-cart-overlay-btn" data-id="7" aria-label="Add Belgian Waffle Stack to cart">
+                      <i class="fas fa-cart-plus"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="product-info">
+                  <span class="product-category-tag">Waffle</span>
+                  <h3 class="product-name">Belgian Waffle Stack</h3>
+                  <div class="product-rating" aria-label="Rating: 4.8 out of 5">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="rating-count">(189)</span>
+                  </div>
+                  <div class="product-price-row">
+                    <span class="product-price">$10.99</span>
+                    <span class="product-old-price">$13.99</span>
+                  </div>
+                  <button class="btn btn-primary btn-sm add-to-cart-btn" data-id="7" data-name="Belgian Waffle Stack" data-price="10.99" data-img="images/prod-waffle-stack.svg">
+                    <i class="fas fa-cart-plus"></i> Add to Cart
+                  </button>
+                </div>
+              </div>
+
+              <!-- Product 8 -->
+              <div class="product-card" data-id="8" data-category="classic" data-price="5.99" data-popularity="75">
+                <div class="product-img-wrapper">
+                  <img src="images/prod-chocolate.svg" alt="Triple Chocolate Scoop" class="product-img" width="280" height="220" loading="lazy" />
+                  <div class="product-overlay">
+                    <button class="overlay-btn quick-view-btn" data-id="8" aria-label="Quick view Triple Choco Blast">
+                      <i class="fas fa-eye"></i>
+                    </button>
+                    <button class="overlay-btn add-to-wishlist-btn" data-id="8" aria-label="Add Triple Choco Blast to wishlist">
+                      <i class="far fa-heart"></i>
+                    </button>
+                    <button class="overlay-btn add-to-cart-overlay-btn" data-id="8" aria-label="Add Triple Choco Blast to cart">
+                      <i class="fas fa-cart-plus"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="product-info">
+                  <span class="product-category-tag">Classic</span>
+                  <h3 class="product-name">Triple Choco Blast</h3>
+                  <div class="product-rating" aria-label="Rating: 4.7 out of 5">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="rating-count">(221)</span>
+                  </div>
+                  <div class="product-price-row">
+                    <span class="product-price">$5.99</span>
+                  </div>
+                  <button class="btn btn-primary btn-sm add-to-cart-btn" data-id="8" data-name="Triple Choco Blast" data-price="5.99" data-img="images/prod-chocolate.svg">
+                    <i class="fas fa-cart-plus"></i> Add to Cart
+                  </button>
+                </div>
+              </div>
+
+            </div><!-- end carousel-track -->
+          </div><!-- end product-carousel -->
+          <button class="carousel-btn carousel-next" id="bs-carousel-next" aria-label="Next products">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div><!-- end carousel-wrapper -->
+
+        <div class="section-footer-link">
+          <a href="#menu" class="btn btn-outline">View All Products <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PROMO BANNER ===================== -->
+    <section class="promo-section section-padding" aria-label="Special promotions">
+      <div class="container">
+        <div class="promo-grid">
+          <div class="promo-card promo-card-large">
+            <div class="promo-content">
+              <span class="promo-tag">Summer Offer</span>
+              <h2>20% Off All <br /><span>Gelato &amp; Sorbet</span></h2>
+              <p>Valid till August 31, 2026</p>
+              <a href="#gelato" class="btn btn-primary">Shop Now</a>
+            </div>
+          </div>
+          <div class="promo-card promo-card-sm">
+            <div class="promo-content">
+              <span class="promo-tag">Weekend Deal</span>
+              <h2>Buy 2<br /><span>Get 1 Free</span></h2>
+              <p>Every Saturday &amp; Sunday</p>
+              <a href="#sundaes" class="btn btn-outline">Order Now</a>
+            </div>
+          </div>
+          <div class="promo-card promo-card-sm promo-card-dark">
+            <div class="promo-content">
+              <span class="promo-tag">Loyalty Reward</span>
+              <h2>Earn Points<br /><span>with Every Scoop</span></h2>
+              <p>Join our IceWorld Rewards</p>
+              <a href="#" class="btn btn-primary">Join Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FULL MENU SECTION ===================== -->
+    <section id="menu" class="menu-section section-padding" aria-label="Full product menu">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tagline">Our Menu</span>
+          <h2 class="section-title">All Products</h2>
+          <p class="section-desc">Browse our full selection of handcrafted frozen delights and use filters to find your perfect treat.</p>
+        </div>
+
+        <!-- Filter Bar -->
+        <div class="filter-bar" id="filter-bar" role="search" aria-label="Product filters">
+          <!-- Category Filter -->
+          <div class="filter-group">
+            <label for="filter-category" class="filter-label">Category</label>
+            <select id="filter-category" class="filter-select" aria-label="Filter by category">
+              <option value="all">All Categories</option>
+              <option value="classic">Classic Scoops</option>
+              <option value="sundae">Sundaes</option>
+              <option value="milkshake">Milkshakes</option>
+              <option value="gelato">Gelato</option>
+              <option value="sorbet">Sorbet &amp; Vegan</option>
+              <option value="waffle">Waffles &amp; Crepes</option>
+            </select>
+          </div>
+
+          <!-- Price Filter -->
+          <div class="filter-group">
+            <label for="filter-price" class="filter-label">Max Price: <span id="price-display">$20</span></label>
+            <input type="range" id="filter-price" class="filter-range" min="1" max="20" value="20" step="0.5" aria-label="Filter by maximum price" aria-valuemin="1" aria-valuemax="20" aria-valuenow="20" />
+          </div>
+
+          <!-- Sort -->
+          <div class="filter-group">
+            <label for="filter-sort" class="filter-label">Sort by</label>
+            <select id="filter-sort" class="filter-select" aria-label="Sort products">
+              <option value="popularity">Popularity</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="name-asc">Name: A–Z</option>
+              <option value="name-desc">Name: Z–A</option>
+            </select>
+          </div>
+
+          <!-- Reset -->
+          <button class="btn btn-outline filter-reset-btn" id="filter-reset-btn">
+            <i class="fas fa-undo"></i> Reset Filters
+          </button>
+        </div>
+
+        <!-- Search Results Info -->
+        <div class="filter-results-info" id="filter-results-info" aria-live="polite" aria-atomic="true"></div>
+
+        <!-- Products Grid -->
+        <div class="products-grid" id="products-grid" role="list" aria-label="Products">
+
+          <!-- Classic Scoops Section -->
+          <div class="product-section-heading" data-section="classic-scoops" id="classic-scoops">
+            <h3><i class="fas fa-ice-cream"></i> Classic Scoops</h3>
+          </div>
+
+          <div class="product-card" role="listitem" data-id="1" data-category="classic" data-price="4.99" data-popularity="98" data-name="Double Vanilla Dream">
+            <div class="product-img-wrapper">
+              <span class="product-badge badge-hot">🔥 Hot</span>
+              <img src="images/prod-vanilla.svg" alt="Double Vanilla Dream ice cream" class="product-img" width="280" height="220" loading="lazy" />
+              <div class="product-overlay">
+                <button class="overlay-btn add-to-wishlist-btn" data-id="1" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                <button class="overlay-btn add-to-cart-overlay-btn" data-id="1" aria-label="Add to cart"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="product-info">
+              <span class="product-category-tag">Classic</span>
+              <h3 class="product-name">Double Vanilla Dream</h3>
+              <div class="product-rating" aria-label="4.9 stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> <span class="rating-count">(312)</span></div>
+              <p class="product-desc">Rich double-churned vanilla with Madagascar vanilla bean specks.</p>
+              <div class="product-price-row"><span class="product-price">$4.99</span><span class="product-old-price">$6.99</span></div>
+              <button class="btn btn-primary btn-sm add-to-cart-btn" data-id="1" data-name="Double Vanilla Dream" data-price="4.99" data-img="images/prod-vanilla.svg">
+                <i class="fas fa-cart-plus"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <div class="product-card" role="listitem" data-id="2" data-category="classic" data-price="5.49" data-popularity="95" data-name="Fresh Strawberry Swirl">
+            <div class="product-img-wrapper">
+              <span class="product-badge badge-new">✨ New</span>
+              <img src="images/prod-strawberry.svg" alt="Fresh Strawberry Swirl" class="product-img" width="280" height="220" loading="lazy" />
+              <div class="product-overlay">
+                <button class="overlay-btn add-to-wishlist-btn" data-id="2" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                <button class="overlay-btn add-to-cart-overlay-btn" data-id="2" aria-label="Add to cart"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="product-info">
+              <span class="product-category-tag">Classic</span>
+              <h3 class="product-name">Fresh Strawberry Swirl</h3>
+              <div class="product-rating" aria-label="4.8 stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> <span class="rating-count">(289)</span></div>
+              <p class="product-desc">Real strawberry pieces swirled into creamy vanilla base.</p>
+              <div class="product-price-row"><span class="product-price">$5.49</span></div>
+              <button class="btn btn-primary btn-sm add-to-cart-btn" data-id="2" data-name="Fresh Strawberry Swirl" data-price="5.49" data-img="images/prod-strawberry.svg">
+                <i class="fas fa-cart-plus"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <div class="product-card" role="listitem" data-id="8" data-category="classic" data-price="5.99" data-popularity="75" data-name="Triple Choco Blast">
+            <div class="product-img-wrapper">
+              <img src="images/prod-chocolate.svg" alt="Triple Choco Blast scoop" class="product-img" width="280" height="220" loading="lazy" />
+              <div class="product-overlay">
+                <button class="overlay-btn add-to-wishlist-btn" data-id="8" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                <button class="overlay-btn add-to-cart-overlay-btn" data-id="8" aria-label="Add to cart"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="product-info">
+              <span class="product-category-tag">Classic</span>
+              <h3 class="product-name">Triple Choco Blast</h3>
+              <div class="product-rating" aria-label="4.7 stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> <span class="rating-count">(221)</span></div>
+              <p class="product-desc">Dark, milk, and white chocolate blended into every scoop.</p>
+              <div class="product-price-row"><span class="product-price">$5.99</span></div>
+              <button class="btn btn-primary btn-sm add-to-cart-btn" data-id="8" data-name="Triple Choco Blast" data-price="5.99" data-img="images/prod-chocolate.svg">
+                <i class="fas fa-cart-plus"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <div class="product-card" role="listitem" data-id="9" data-category="classic" data-price="5.29" data-popularity="70" data-name="Mint Choc Chip">
+            <div class="product-img-wrapper">
+              <img src="images/prod-mint.svg" alt="Mint Choc Chip ice cream" class="product-img" width="280" height="220" loading="lazy" />
+              <div class="product-overlay">
+                <button class="overlay-btn add-to-wishlist-btn" data-id="9" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                <button class="overlay-btn add-to-cart-overlay-btn" data-id="9" aria-label="Add to cart"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="product-info">
+              <span class="product-category-tag">Classic</span>
+              <h3 class="product-name">Mint Choc Chip</h3>
+              <div class="product-rating" aria-label="4.5 stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> <span class="rating-count">(178)</span></div>
+              <p class="product-desc">Cool peppermint cream loaded with rich chocolate chips.</p>
+              <div class="product-price-row"><span class="product-price">$5.29</span></div>
+              <button class="btn btn-primary btn-sm add-to-cart-btn" data-id="9" data-name="Mint Choc Chip" data-price="5.29" data-img="images/prod-mint.svg">
+                <i class="fas fa-cart-plus"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <!-- Sundaes Section -->
+          <div class="product-section-heading" data-section="sundaes" id="sundaes">
+            <h3><i class="fas fa-concierge-bell"></i> Sundaes</h3>
+          </div>
+
+          <div class="product-card" role="listitem" data-id="3" data-category="sundae" data-price="8.99" data-popularity="92" data-name="Chocolate Fudge Sundae">
+            <div class="product-img-wrapper">
+              <span class="product-badge badge-sale">💸 Sale</span>
+              <img src="images/prod-choc-sundae.svg" alt="Chocolate Fudge Sundae" class="product-img" width="280" height="220" loading="lazy" />
+              <div class="product-overlay">
+                <button class="overlay-btn add-to-wishlist-btn" data-id="3" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                <button class="overlay-btn add-to-cart-overlay-btn" data-id="3" aria-label="Add to cart"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="product-info">
+              <span class="product-category-tag">Sundae</span>
+              <h3 class="product-name">Chocolate Fudge Sundae</h3>
+              <div class="product-rating" aria-label="5 stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> <span class="rating-count">(451)</span></div>
+              <p class="product-desc">Three scoops, hot fudge, whipped cream, nuts, and a cherry.</p>
+              <div class="product-price-row"><span class="product-price">$8.99</span><span class="product-old-price">$11.99</span></div>
+              <button class="btn btn-primary btn-sm add-to-cart-btn" data-id="3" data-name="Chocolate Fudge Sundae" data-price="8.99" data-img="images/prod-choc-sundae.svg">
+                <i class="fas fa-cart-plus"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <div class="product-card" role="listitem" data-id="10" data-category="sundae" data-price="9.49" data-popularity="83" data-name="Rainbow Sprinkle Sundae">
+            <div class="product-img-wrapper">
+              <img src="images/prod-rainbow-sundae.svg" alt="Rainbow Sprinkle Sundae" class="product-img" width="280" height="220" loading="lazy" />
+              <div class="product-overlay">
+                <button class="overlay-btn add-to-wishlist-btn" data-id="10" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                <button class="overlay-btn add-to-cart-overlay-btn" data-id="10" aria-label="Add to cart"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="product-info">
+              <span class="product-category-tag">Sundae</span>
+              <h3 class="product-name">Rainbow Sprinkle Sundae</h3>
+              <div class="product-rating" aria-label="4.8 stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> <span class="rating-count">(134)</span></div>
+              <p class="product-desc">A colourful explosion of flavours, toppings and sprinkles.</p>
+              <div class="product-price-row"><span class="product-price">$9.49</span></div>
+              <button class="btn btn-primary btn-sm add-to-cart-btn" data-id="10" data-name="Rainbow Sprinkle Sundae" data-price="9.49" data-img="images/prod-rainbow-sundae.svg">
+                <i class="fas fa-cart-plus"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <div class="product-card" role="listitem" data-id="11" data-category="sundae" data-price="7.99" data-popularity="76" data-name="Banana Split Classic">
+            <div class="product-img-wrapper">
+              <img src="images/prod-banana-split.svg" alt="Banana Split" class="product-img" width="280" height="220" loading="lazy" />
+              <div class="product-overlay">
+                <button class="overlay-btn add-to-wishlist-btn" data-id="11" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                <button class="overlay-btn add-to-cart-overlay-btn" data-id="11" aria-label="Add to cart"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="product-info">
+              <span class="product-category-tag">Sundae</span>
+              <h3 class="product-name">Banana Split Classic</h3>
+              <div class="product-rating" aria-label="4.6 stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> <span class="rating-count">(167)</span></div>
+              <p class="product-desc">Fresh banana, three ice cream flavours, sauces and toppings.</p>
+              <div class="product-price-row"><span class="product-price">$7.99</span></div>
+              <button class="btn btn-primary btn-sm add-to-cart-btn" data-id="11" data-name="Banana Split Classic" data-price="7.99" data-img="images/prod-banana-split.svg">
+                <i class="fas fa-cart-plus"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <!-- Milkshakes Section -->
+          <div class="product-section-heading" data-section="milkshakes" id="milkshakes">
+            <h3><i class="fas fa-blender"></i> Milkshakes</h3>
+          </div>
+
+          <div class="product-card" role="listitem" data-id="4" data-category="milkshake" data-price="6.99" data-popularity="88" data-name="Oreo Crunch Milkshake">
+            <div class="product-img-wrapper">
+              <img src="images/prod-milkshake.svg" alt="Oreo Crunch Milkshake" class="product-img" width="280" height="220" loading="lazy" />
+              <div class="product-overlay">
+                <button class="overlay-btn add-to-wishlist-btn" data-id="4" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                <button class="overlay-btn add-to-cart-overlay-btn" data-id="4" aria-label="Add to cart"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="product-info">
+              <span class="product-category-tag">Milkshake</span>
+              <h3 class="product-name">Oreo Crunch Milkshake</h3>
+              <div class="product-rating" aria-label="4.7 stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> <span class="rating-count">(198)</span></div>
+              <p class="product-desc">Thick creamy milkshake blended with whole Oreo cookies.</p>
+              <div class="product-price-row"><span class="product-price">$6.99</span></div>
+              <button class="btn btn-primary btn-sm add-to-cart-btn" data-id="4" data-name="Oreo Crunch Milkshake" data-price="6.99" data-img="images/prod-milkshake.svg">
+                <i class="fas fa-cart-plus"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <div class="product-card" role="listitem" data-id="12" data-category="milkshake" data-price="7.49" data-popularity="72" data-name="Strawberry Bliss Shake">
+            <div class="product-img-wrapper">
+              <img src="images/prod-straw-shake.svg" alt="Strawberry Bliss Shake" class="product-img" width="280" height="220" loading="lazy" />
+              <div class="product-overlay">
+                <button class="overlay-btn add-to-wishlist-btn" data-id="12" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                <button class="overlay-btn add-to-cart-overlay-btn" data-id="12" aria-label="Add to cart"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="product-info">
+              <span class="product-category-tag">Milkshake</span>
+              <h3 class="product-name">Strawberry Bliss Shake</h3>
+              <div class="product-rating" aria-label="4.5 stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> <span class="rating-count">(112)</span></div>
+              <p class="product-desc">Fresh strawberries whipped into a silky smooth shake.</p>
+              <div class="product-price-row"><span class="product-price">$7.49</span></div>
+              <button class="btn btn-primary btn-sm add-to-cart-btn" data-id="12" data-name="Strawberry Bliss Shake" data-price="7.49" data-img="images/prod-straw-shake.svg">
+                <i class="fas fa-cart-plus"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <!-- Gelato Section -->
+          <div class="product-section-heading" data-section="gelato" id="gelato">
+            <h3><i class="fas fa-globe-europe"></i> Gelato</h3>
+          </div>
+
+          <div class="product-card" role="listitem" data-id="5" data-category="gelato" data-price="5.99" data-popularity="85" data-name="Pistachio Gelato">
+            <div class="product-img-wrapper">
+              <span class="product-badge badge-hot">🔥 Hot</span>
+              <img src="images/prod-pistachio.svg" alt="Pistachio Gelato" class="product-img" width="280" height="220" loading="lazy" />
+              <div class="product-overlay">
+                <button class="overlay-btn add-to-wishlist-btn" data-id="5" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                <button class="overlay-btn add-to-cart-overlay-btn" data-id="5" aria-label="Add to cart"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="product-info">
+              <span class="product-category-tag">Gelato</span>
+              <h3 class="product-name">Pistachio Gelato</h3>
+              <div class="product-rating" aria-label="4.9 stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> <span class="rating-count">(267)</span></div>
+              <p class="product-desc">Authentic Sicilian-style pistachio gelato with real nuts.</p>
+              <div class="product-price-row"><span class="product-price">$5.99</span></div>
+              <button class="btn btn-primary btn-sm add-to-cart-btn" data-id="5" data-name="Pistachio Gelato" data-price="5.99" data-img="images/prod-pistachio.svg">
+                <i class="fas fa-cart-plus"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <div class="product-card" role="listitem" data-id="13" data-category="gelato" data-price="6.49" data-popularity="68" data-name="Hazelnut Espresso Gelato">
+            <div class="product-img-wrapper">
+              <img src="images/prod-hazelnut.svg" alt="Hazelnut Espresso Gelato" class="product-img" width="280" height="220" loading="lazy" />
+              <div class="product-overlay">
+                <button class="overlay-btn add-to-wishlist-btn" data-id="13" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                <button class="overlay-btn add-to-cart-overlay-btn" data-id="13" aria-label="Add to cart"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="product-info">
+              <span class="product-category-tag">Gelato</span>
+              <h3 class="product-name">Hazelnut Espresso Gelato</h3>
+              <div class="product-rating" aria-label="4.7 stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> <span class="rating-count">(143)</span></div>
+              <p class="product-desc">Bold espresso meets creamy hazelnut in every spoonful.</p>
+              <div class="product-price-row"><span class="product-price">$6.49</span></div>
+              <button class="btn btn-primary btn-sm add-to-cart-btn" data-id="13" data-name="Hazelnut Espresso Gelato" data-price="6.49" data-img="images/prod-hazelnut.svg">
+                <i class="fas fa-cart-plus"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <!-- Sorbet & Vegan Section -->
+          <div class="product-section-heading" data-section="sorbet" id="sorbet">
+            <h3><i class="fas fa-leaf"></i> Sorbet &amp; Vegan</h3>
+          </div>
+
+          <div class="product-card" role="listitem" data-id="6" data-category="sorbet" data-price="4.49" data-popularity="80" data-name="Mango Tango Sorbet">
+            <div class="product-img-wrapper">
+              <span class="product-badge badge-new">🌿 Vegan</span>
+              <img src="images/prod-mango-sorbet.svg" alt="Mango Tango Sorbet" class="product-img" width="280" height="220" loading="lazy" />
+              <div class="product-overlay">
+                <button class="overlay-btn add-to-wishlist-btn" data-id="6" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                <button class="overlay-btn add-to-cart-overlay-btn" data-id="6" aria-label="Add to cart"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="product-info">
+              <span class="product-category-tag">Sorbet</span>
+              <h3 class="product-name">Mango Tango Sorbet</h3>
+              <div class="product-rating" aria-label="4.6 stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> <span class="rating-count">(143)</span></div>
+              <p class="product-desc">Dairy-free sorbet made with 100% real Alphonso mangoes.</p>
+              <div class="product-price-row"><span class="product-price">$4.49</span></div>
+              <button class="btn btn-primary btn-sm add-to-cart-btn" data-id="6" data-name="Mango Tango Sorbet" data-price="4.49" data-img="images/prod-mango-sorbet.svg">
+                <i class="fas fa-cart-plus"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <div class="product-card" role="listitem" data-id="14" data-category="sorbet" data-price="4.29" data-popularity="65" data-name="Raspberry Lemon Sorbet">
+            <div class="product-img-wrapper">
+              <img src="images/prod-raspberry.svg" alt="Raspberry Lemon Sorbet" class="product-img" width="280" height="220" loading="lazy" />
+              <div class="product-overlay">
+                <button class="overlay-btn add-to-wishlist-btn" data-id="14" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                <button class="overlay-btn add-to-cart-overlay-btn" data-id="14" aria-label="Add to cart"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="product-info">
+              <span class="product-category-tag">Sorbet</span>
+              <h3 class="product-name">Raspberry Lemon Sorbet</h3>
+              <div class="product-rating" aria-label="4.4 stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> <span class="rating-count">(98)</span></div>
+              <p class="product-desc">Tangy raspberries with a hint of zesty lemon. Dairy-free.</p>
+              <div class="product-price-row"><span class="product-price">$4.29</span></div>
+              <button class="btn btn-primary btn-sm add-to-cart-btn" data-id="14" data-name="Raspberry Lemon Sorbet" data-price="4.29" data-img="images/prod-raspberry.svg">
+                <i class="fas fa-cart-plus"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <!-- Waffles & Crepes Section -->
+          <div class="product-section-heading" data-section="waffles" id="waffles">
+            <h3><i class="fas fa-cookie-bite"></i> Waffles &amp; Crepes</h3>
+          </div>
+
+          <div class="product-card" role="listitem" data-id="7" data-category="waffle" data-price="10.99" data-popularity="78" data-name="Belgian Waffle Stack">
+            <div class="product-img-wrapper">
+              <span class="product-badge badge-sale">💸 Sale</span>
+              <img src="images/prod-waffle-stack.svg" alt="Belgian Waffle Stack" class="product-img" width="280" height="220" loading="lazy" />
+              <div class="product-overlay">
+                <button class="overlay-btn add-to-wishlist-btn" data-id="7" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                <button class="overlay-btn add-to-cart-overlay-btn" data-id="7" aria-label="Add to cart"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="product-info">
+              <span class="product-category-tag">Waffle</span>
+              <h3 class="product-name">Belgian Waffle Stack</h3>
+              <div class="product-rating" aria-label="4.8 stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> <span class="rating-count">(189)</span></div>
+              <p class="product-desc">Two crispy waffles, three scoops, and your choice of sauces.</p>
+              <div class="product-price-row"><span class="product-price">$10.99</span><span class="product-old-price">$13.99</span></div>
+              <button class="btn btn-primary btn-sm add-to-cart-btn" data-id="7" data-name="Belgian Waffle Stack" data-price="10.99" data-img="images/prod-waffle-stack.svg">
+                <i class="fas fa-cart-plus"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <div class="product-card" role="listitem" data-id="15" data-category="waffle" data-price="9.99" data-popularity="60" data-name="Nutella Crepe Delight">
+            <div class="product-img-wrapper">
+              <img src="images/prod-crepe.svg" alt="Nutella Crepe Delight" class="product-img" width="280" height="220" loading="lazy" />
+              <div class="product-overlay">
+                <button class="overlay-btn add-to-wishlist-btn" data-id="15" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                <button class="overlay-btn add-to-cart-overlay-btn" data-id="15" aria-label="Add to cart"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="product-info">
+              <span class="product-category-tag">Waffle</span>
+              <h3 class="product-name">Nutella Crepe Delight</h3>
+              <div class="product-rating" aria-label="4.7 stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> <span class="rating-count">(145)</span></div>
+              <p class="product-desc">Thin French crepe filled with Nutella and a scoop of gelato.</p>
+              <div class="product-price-row"><span class="product-price">$9.99</span></div>
+              <button class="btn btn-primary btn-sm add-to-cart-btn" data-id="15" data-name="Nutella Crepe Delight" data-price="9.99" data-img="images/prod-crepe.svg">
+                <i class="fas fa-cart-plus"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+
+        </div><!-- end products-grid -->
+
+        <!-- No results message -->
+        <div class="no-results" id="no-results" hidden>
+          <i class="fas fa-search"></i>
+          <p>No products found matching your criteria.</p>
+          <button class="btn btn-outline" id="no-results-reset-btn">Clear Filters</button>
+        </div>
+
+      </div>
+    </section>
+
+      <!-- ===================== SEASONAL SPECIAL CALLOUT ===================== -->
+    <section class="seasonal-section section-padding" aria-label="Seasonal specials">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tagline">Limited Time</span>
+          <h2 class="section-title">Summer 2026 Seasonal Specials</h2>
+          <p class="section-desc">These flavours are only here for a short time – grab them before they melt away!</p>
+        </div>
+        <div class="products-grid" aria-label="Seasonal special products">
+
+          <div class="product-card" role="listitem" data-id="16" data-category="classic" data-price="5.79" data-popularity="55" data-name="Peach Bellini Sorbet">
+            <div class="product-img-wrapper">
+              <span class="product-badge badge-hot">🌸 Limited</span>
+              <img src="images/prod-peach.svg" alt="Peach Bellini Sorbet" class="product-img" width="280" height="220" loading="lazy" />
+              <div class="product-overlay">
+                <button class="overlay-btn add-to-wishlist-btn" data-id="16" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                <button class="overlay-btn add-to-cart-overlay-btn" data-id="16" aria-label="Add to cart"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="product-info">
+              <span class="product-category-tag">Seasonal</span>
+              <h3 class="product-name">Peach Bellini Sorbet</h3>
+              <div class="product-rating" aria-label="4.7 stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                <span class="rating-count">(87)</span>
+              </div>
+              <p class="product-desc">Sun-ripened white peach sorbet with a sparkling Prosecco note.</p>
+              <div class="product-price-row"><span class="product-price">$5.79</span></div>
+              <button class="btn btn-primary btn-sm add-to-cart-btn" data-id="16" data-name="Peach Bellini Sorbet" data-price="5.79" data-img="images/prod-peach.svg">
+                <i class="fas fa-cart-plus"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <div class="product-card" role="listitem" data-id="17" data-category="gelato" data-price="6.29" data-popularity="58" data-name="Lychee Rose Gelato">
+            <div class="product-img-wrapper">
+              <span class="product-badge badge-new">🌸 Limited</span>
+              <img src="images/prod-lychee.svg" alt="Lychee Rose Gelato" class="product-img" width="280" height="220" loading="lazy" />
+              <div class="product-overlay">
+                <button class="overlay-btn add-to-wishlist-btn" data-id="17" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                <button class="overlay-btn add-to-cart-overlay-btn" data-id="17" aria-label="Add to cart"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="product-info">
+              <span class="product-category-tag">Seasonal</span>
+              <h3 class="product-name">Lychee Rose Gelato</h3>
+              <div class="product-rating" aria-label="4.8 stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                <span class="rating-count">(61)</span>
+              </div>
+              <p class="product-desc">Delicate lychee gelato infused with Bulgarian rose water.</p>
+              <div class="product-price-row"><span class="product-price">$6.29</span></div>
+              <button class="btn btn-primary btn-sm add-to-cart-btn" data-id="17" data-name="Lychee Rose Gelato" data-price="6.29" data-img="images/prod-lychee.svg">
+                <i class="fas fa-cart-plus"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <div class="product-card" role="listitem" data-id="18" data-category="sundae" data-price="11.49" data-popularity="52" data-name="Tropical Paradise Sundae">
+            <div class="product-img-wrapper">
+              <span class="product-badge badge-sale">🌴 Summer</span>
+              <img src="images/prod-tropical.svg" alt="Tropical Paradise Sundae" class="product-img" width="280" height="220" loading="lazy" />
+              <div class="product-overlay">
+                <button class="overlay-btn add-to-wishlist-btn" data-id="18" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                <button class="overlay-btn add-to-cart-overlay-btn" data-id="18" aria-label="Add to cart"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="product-info">
+              <span class="product-category-tag">Seasonal</span>
+              <h3 class="product-name">Tropical Paradise Sundae</h3>
+              <div class="product-rating" aria-label="4.9 stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                <span class="rating-count">(44)</span>
+              </div>
+              <p class="product-desc">Mango, coconut, and passion fruit scoops with pineapple sauce.</p>
+              <div class="product-price-row"><span class="product-price">$11.49</span><span class="product-old-price">$14.99</span></div>
+              <button class="btn btn-primary btn-sm add-to-cart-btn" data-id="18" data-name="Tropical Paradise Sundae" data-price="11.49" data-img="images/prod-tropical.svg">
+                <i class="fas fa-cart-plus"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <div class="product-card" role="listitem" data-id="19" data-category="milkshake" data-price="7.99" data-popularity="48" data-name="Watermelon Cooler Shake">
+            <div class="product-img-wrapper">
+              <span class="product-badge badge-new">🍉 Seasonal</span>
+              <img src="images/prod-watermelon.svg" alt="Watermelon Cooler Shake" class="product-img" width="280" height="220" loading="lazy" />
+              <div class="product-overlay">
+                <button class="overlay-btn add-to-wishlist-btn" data-id="19" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                <button class="overlay-btn add-to-cart-overlay-btn" data-id="19" aria-label="Add to cart"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="product-info">
+              <span class="product-category-tag">Seasonal</span>
+              <h3 class="product-name">Watermelon Cooler Shake</h3>
+              <div class="product-rating" aria-label="4.6 stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                <span class="rating-count">(53)</span>
+              </div>
+              <p class="product-desc">Refreshing watermelon and coconut milk shake with mint.</p>
+              <div class="product-price-row"><span class="product-price">$7.99</span></div>
+              <button class="btn btn-primary btn-sm add-to-cart-btn" data-id="19" data-name="Watermelon Cooler Shake" data-price="7.99" data-img="images/prod-watermelon.svg">
+                <i class="fas fa-cart-plus"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== HOW IT WORKS ===================== -->
+    <section class="how-it-works-section section-padding" aria-label="How to order">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tagline">Simple & Easy</span>
+          <h2 class="section-title">How to Order</h2>
+          <p class="section-desc">Getting your favourite frozen treats delivered to your door has never been easier.</p>
+        </div>
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-number">01</div>
+            <div class="step-icon"><i class="fas fa-search" aria-hidden="true"></i></div>
+            <h3>Browse Our Menu</h3>
+            <p>Explore over 60 handcrafted flavours, filter by category or price, and find your perfect treat.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">02</div>
+            <div class="step-icon"><i class="fas fa-cart-plus" aria-hidden="true"></i></div>
+            <h3>Add to Cart</h3>
+            <p>Add your chosen items to the cart, adjust quantities, and review your order summary.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">03</div>
+            <div class="step-icon"><i class="fas fa-credit-card" aria-hidden="true"></i></div>
+            <h3>Secure Checkout</h3>
+            <p>Pay safely using Visa, Mastercard, PayPal, Apple Pay, or Google Pay. SSL encrypted.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">04</div>
+            <div class="step-icon"><i class="fas fa-truck" aria-hidden="true"></i></div>
+            <h3>Fast Delivery</h3>
+            <p>We deliver in insulated packaging within 30 minutes. Track your order in real time.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FAQ SECTION ===================== -->
+    <section class="faq-section section-padding" aria-label="Frequently asked questions">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tagline">Got Questions?</span>
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <p class="section-desc">Everything you need to know about IceWorld, our products, and how we operate.</p>
+        </div>
+        <div class="faq-list" id="faq-list">
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1">
+              <span>What ingredients do you use in your ice cream?</span>
+              <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="faq-answer" id="faq-answer-1" hidden>
+              <p>We use only the finest natural ingredients: fresh whole milk and cream from local family farms, real fruit purées and pieces, natural flavour extracts, cane sugar, and free-range eggs. We never use artificial colours, flavours, or preservatives. All allergen information is clearly displayed on each product page.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2">
+              <span>Do you offer vegan or dairy-free options?</span>
+              <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="faq-answer" id="faq-answer-2" hidden>
+              <p>Absolutely! Our Sorbet &amp; Vegan range is 100% dairy-free and vegan-certified. We use coconut milk, oat milk, and cashew milk as bases for our vegan ice cream options. These are clearly labelled with a 🌿 Vegan badge on the menu. We also take cross-contamination seriously and prepare vegan products in a dedicated area.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">
+              <span>How quickly do you deliver, and what area do you cover?</span>
+              <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="faq-answer" id="faq-answer-3" hidden>
+              <p>We offer delivery within a 10-mile radius of our store in Manhattan. Our target delivery time is 30 minutes from order placement. Orders are delivered in insulated cool bags to maintain perfect temperature. If your order takes longer than 45 minutes, we'll refund your delivery fee. Delivery is free on orders over $30.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-4">
+              <span>Can I customise my order or create a bespoke flavour?</span>
+              <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="faq-answer" id="faq-answer-4" hidden>
+              <p>Yes! For in-store orders you can mix and match scoops, choose your cone or cup, and select from 20+ toppings. For custom ice cream cakes and catering orders, please contact us at least 48 hours in advance via our contact form or by phone. We love creating bespoke flavour combinations for birthdays, weddings, and corporate events.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-5">
+              <span>What is the IceWorld Loyalty Rewards programme?</span>
+              <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="faq-answer" id="faq-answer-5" hidden>
+              <p>Every dollar you spend earns 1 IcePoint. Once you've collected 50 IcePoints, you receive a $5 reward voucher automatically. Members also get early access to new flavours, exclusive birthday offers, and double points every Tuesday. Sign up for free via the Register tab in our account section.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-6">
+              <span>Do you cater for events, weddings, and corporate functions?</span>
+              <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="faq-answer" id="faq-answer-6" hidden>
+              <p>Yes, catering is one of our specialities! We can bring our mobile ice cream cart to your event, provide pre-packed artisan cups, or create a stunning custom ice cream cake centrepiece. We've catered for everything from intimate birthday parties to large-scale corporate events for 500+ guests. Contact us for a tailored quote.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-7">
+              <span>How do I apply a discount or promo code?</span>
+              <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="faq-answer" id="faq-answer-7" hidden>
+              <p>Promo codes can be entered at the checkout stage. Click on the "Have a promo code?" link on the checkout page, type your code, and click Apply. Valid codes are automatically deducted from your total. Each code can only be used once per account unless otherwise stated. Subscribe to our newsletter to receive exclusive promo codes first.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-8">
+              <span>What allergens are present in your products?</span>
+              <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="faq-answer" id="faq-answer-8" hidden>
+              <p>Our ice creams may contain milk, eggs, gluten (waffle cones/crepes), nuts (pistachio, hazelnut, almond flavours), peanuts, soy, and other allergens. Each product page lists full ingredient and allergen information. Our kitchen handles all major allergens, so we cannot guarantee a completely allergen-free environment. Please speak with our staff if you have severe allergies.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== LOYALTY PROGRAMME SECTION ===================== -->
+    <section class="loyalty-section section-padding" aria-label="Loyalty rewards programme">
+      <div class="container">
+        <div class="loyalty-grid">
+          <div class="loyalty-content">
+            <span class="section-tagline">Rewards</span>
+            <h2 class="section-title">Join IceWorld Rewards</h2>
+            <p>Every purchase earns you IcePoints. Redeem them for free scoops, discounts, and exclusive member perks.</p>
+            <div class="loyalty-tiers">
+              <div class="loyalty-tier tier-bronze">
+                <div class="tier-icon"><i class="fas fa-medal" aria-hidden="true"></i></div>
+                <div>
+                  <strong>Scooper</strong>
+                  <span>0 – 199 IcePoints</span>
+                  <p>Earn 1pt per $1 spent</p>
+                </div>
+              </div>
+              <div class="loyalty-tier tier-silver">
+                <div class="tier-icon"><i class="fas fa-award" aria-hidden="true"></i></div>
+                <div>
+                  <strong>Sundae Star</strong>
+                  <span>200 – 499 IcePoints</span>
+                  <p>1.5pts per $1 + free birthday scoop</p>
+                </div>
+              </div>
+              <div class="loyalty-tier tier-gold">
+                <div class="tier-icon"><i class="fas fa-crown" aria-hidden="true"></i></div>
+                <div>
+                  <strong>Gelato Gold</strong>
+                  <span>500+ IcePoints</span>
+                  <p>2pts per $1 + priority delivery + monthly free treat</p>
+                </div>
+              </div>
+            </div>
+            <a href="#" class="btn btn-primary btn-lg">
+              <i class="fas fa-user-plus" aria-hidden="true"></i> Join for Free
+            </a>
+          </div>
+          <div class="loyalty-visual" aria-hidden="true">
+            <div class="loyalty-card-mockup">
+              <div class="loyalty-card-top">
+                <span class="loyalty-brand"><i class="fas fa-ice-cream"></i> IceWorld</span>
+                <span class="loyalty-tier-badge">Gelato Gold</span>
+              </div>
+              <div class="loyalty-card-points">
+                <span class="points-label">Your IcePoints</span>
+                <span class="points-value">1,240</span>
+              </div>
+              <div class="loyalty-card-bottom">
+                <span>Member since 2022</span>
+                <span>Sarah M.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <!-- ===================== ABOUT SECTION ===================== -->
+    <section id="about" class="about-section section-padding" aria-label="About IceWorld">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-images">
+            <div class="about-img-main">
+              <img src="images/about-shop.svg" alt="Inside the IceWorld ice cream shop" class="about-img" width="480" height="400" loading="lazy" />
+            </div>
+            <div class="about-img-float">
+              <img src="images/about-making.svg" alt="Handcrafting ice cream" class="about-img" width="200" height="200" loading="lazy" />
+              <div class="about-experience-badge">
+                <span class="badge-number">15</span>
+                <span class="badge-text">Years of Sweetness</span>
+              </div>
+            </div>
+          </div>
+          <div class="about-content">
+            <span class="section-tagline">Our Story</span>
+            <h2 class="section-title">Passion in Every Scoop</h2>
+            <p>
+              IceWorld was founded in 2009 by the Mercer family with a simple dream: to create the most delicious,
+              freshest, and most imaginative ice cream in the world. Starting with a small cart at the local farmers'
+              market, we've grown into a beloved destination for ice cream lovers of all ages.
+            </p>
+            <p>
+              We source our milk and cream from local family farms, use only natural flavourings, and never add artificial
+              preservatives. Every batch is hand-churned in our open kitchen, where you can watch the magic happen.
+            </p>
+            <div class="about-highlights">
+              <div class="highlight">
+                <i class="fas fa-check-circle"></i>
+                <span>Made fresh daily in our open kitchen</span>
+              </div>
+              <div class="highlight">
+                <i class="fas fa-check-circle"></i>
+                <span>No artificial colours or preservatives</span>
+              </div>
+              <div class="highlight">
+                <i class="fas fa-check-circle"></i>
+                <span>Locally sourced dairy from family farms</span>
+              </div>
+              <div class="highlight">
+                <i class="fas fa-check-circle"></i>
+                <span>60+ unique flavours including vegan options</span>
+              </div>
+              <div class="highlight">
+                <i class="fas fa-check-circle"></i>
+                <span>Award-winning recipes since 2012</span>
+              </div>
+            </div>
+            <a href="#menu" class="btn btn-primary">Explore Our Menu</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== TESTIMONIALS ===================== -->
+    <section class="testimonials-section section-padding" aria-label="Customer testimonials">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tagline">What Customers Say</span>
+          <h2 class="section-title">Loved by Thousands</h2>
+        </div>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="testimonial-rating" aria-label="5 stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">
+              "The Pistachio Gelato is absolutely divine. I've never tasted anything like it.
+              IceWorld is now a weekly must-visit for our whole family!"
+            </p>
+            <div class="testimonial-author">
+              <img src="images/avatar-1.svg" alt="Sarah M." class="testimonial-avatar" width="50" height="50" loading="lazy" />
+              <div>
+                <strong>Sarah M.</strong>
+                <span>Regular Customer since 2019</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-rating" aria-label="5 stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">
+              "Ordered the Chocolate Fudge Sundae for my birthday – it was a masterpiece!
+              Delivery was super fast and everything was perfectly packed."
+            </p>
+            <div class="testimonial-author">
+              <img src="images/avatar-2.svg" alt="James K." class="testimonial-avatar" width="50" height="50" loading="lazy" />
+              <div>
+                <strong>James K.</strong>
+                <span>Online Customer</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-rating" aria-label="5 stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">
+              "As someone who is lactose intolerant, I'm so happy IceWorld has an amazing
+              vegan sorbet range. The Mango Tango is my absolute favourite!"
+            </p>
+            <div class="testimonial-author">
+              <img src="images/avatar-3.svg" alt="Priya N." class="testimonial-avatar" width="50" height="50" loading="lazy" />
+              <div>
+                <strong>Priya N.</strong>
+                <span>Loyal Customer</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-rating" aria-label="5 stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">
+              "We ordered a custom ice cream cake for our daughter's 5th birthday.
+              It was stunning and tasted incredible. Thank you IceWorld!"
+            </p>
+            <div class="testimonial-author">
+              <img src="images/avatar-4.svg" alt="The Johnson Family" class="testimonial-avatar" width="50" height="50" loading="lazy" />
+              <div>
+                <strong>The Johnson Family</strong>
+                <span>Event Catering Customer</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== GALLERY ===================== -->
+    <section id="gallery" class="gallery-section section-padding" aria-label="Photo gallery">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tagline">Instagram @IceWorldShop</span>
+          <h2 class="section-title">Our Gallery</h2>
+          <p class="section-desc">Tag us on Instagram to be featured! #IceWorldScoops</p>
+        </div>
+        <div class="gallery-grid">
+          <a href="#" class="gallery-item gallery-item-tall" aria-label="Gallery image 1">
+            <img src="images/gallery-1.svg" alt="Colourful ice cream scoops in a row" class="gallery-img" width="400" height="600" loading="lazy" />
+            <div class="gallery-overlay"><i class="fab fa-instagram"></i></div>
+          </a>
+          <a href="#" class="gallery-item" aria-label="Gallery image 2">
+            <img src="images/gallery-2.svg" alt="Ice cream sundae close-up" class="gallery-img" width="400" height="300" loading="lazy" />
+            <div class="gallery-overlay"><i class="fab fa-instagram"></i></div>
+          </a>
+          <a href="#" class="gallery-item" aria-label="Gallery image 3">
+            <img src="images/gallery-3.svg" alt="Waffle with gelato topping" class="gallery-img" width="400" height="300" loading="lazy" />
+            <div class="gallery-overlay"><i class="fab fa-instagram"></i></div>
+          </a>
+          <a href="#" class="gallery-item gallery-item-wide" aria-label="Gallery image 4">
+            <img src="images/gallery-4.svg" alt="IceWorld shop interior" class="gallery-img" width="800" height="300" loading="lazy" />
+            <div class="gallery-overlay"><i class="fab fa-instagram"></i></div>
+          </a>
+          <a href="#" class="gallery-item" aria-label="Gallery image 5">
+            <img src="images/gallery-5.svg" alt="Milkshake being made" class="gallery-img" width="400" height="300" loading="lazy" />
+            <div class="gallery-overlay"><i class="fab fa-instagram"></i></div>
+          </a>
+          <a href="#" class="gallery-item" aria-label="Gallery image 6">
+            <img src="images/gallery-6.svg" alt="Happy customers with ice cream" class="gallery-img" width="400" height="300" loading="lazy" />
+            <div class="gallery-overlay"><i class="fab fa-instagram"></i></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== NEWSLETTER ===================== -->
+    <section class="newsletter-section" aria-label="Newsletter signup">
+      <div class="container">
+        <div class="newsletter-content">
+          <div class="newsletter-text">
+            <span><i class="fas fa-envelope-open-text"></i></span>
+            <div>
+              <h2>Get Sweet Deals Delivered to Your Inbox</h2>
+              <p>Subscribe for exclusive offers, new flavour alerts, and seasonal promotions.</p>
+            </div>
+          </div>
+          <form id="newsletter-form" class="newsletter-form" novalidate>
+            <div class="newsletter-input-group">
+              <input type="email" id="newsletter-email" class="form-control" placeholder="your@email.com" aria-label="Email address for newsletter" required />
+              <button type="submit" class="btn btn-primary">Subscribe <i class="fas fa-paper-plane"></i></button>
+            </div>
+            <span class="form-error" id="newsletter-email-error" role="alert"></span>
+            <p class="newsletter-privacy">We respect your privacy. Unsubscribe anytime.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACT SECTION ===================== -->
+    <section id="contact" class="contact-section section-padding" aria-label="Contact us">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tagline">Get in Touch</span>
+          <h2 class="section-title">Contact IceWorld</h2>
+          <p class="section-desc">Have a question, feedback, or want to book a catering order? We'd love to hear from you!</p>
+        </div>
+        <div class="contact-grid">
+          <!-- Contact Info -->
+          <div class="contact-info">
+            <div class="contact-info-item">
+              <div class="contact-info-icon"><i class="fas fa-map-marker-alt"></i></div>
+              <div>
+                <h3>Visit Us</h3>
+                <address>
+                  42 Frosty Lane, Dessert District<br />
+                  New York, NY 10001, USA
+                </address>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon"><i class="fas fa-phone-alt"></i></div>
+              <div>
+                <h3>Call Us</h3>
+                <p><a href="tel:+18004239675">+1 800-ICE-WORLD</a></p>
+                <p><a href="tel:+12125550192">+1 (212) 555-0192</a></p>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon"><i class="fas fa-envelope"></i></div>
+              <div>
+                <h3>Email Us</h3>
+                <p><a href="mailto:hello@iceworld.com">hello@iceworld.com</a></p>
+                <p><a href="mailto:orders@iceworld.com">orders@iceworld.com</a></p>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon"><i class="fas fa-clock"></i></div>
+              <div>
+                <h3>Opening Hours</h3>
+                <p>Monday – Friday: 10am – 11pm</p>
+                <p>Saturday – Sunday: 9am – Midnight</p>
+              </div>
+            </div>
+            <div class="contact-social">
+              <h3>Follow Us</h3>
+              <div class="social-links">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="contact-form-wrapper">
+            <form id="contact-form" class="contact-form" novalidate>
+              <div class="form-row-two">
+                <div class="form-group">
+                  <label for="contact-name">Full Name <span aria-hidden="true">*</span></label>
+                  <input type="text" id="contact-name" name="name" class="form-control" placeholder="Your full name" required aria-required="true" />
+                  <span class="form-error" id="contact-name-error" role="alert"></span>
+                </div>
+                <div class="form-group">
+                  <label for="contact-email">Email Address <span aria-hidden="true">*</span></label>
+                  <input type="email" id="contact-email" name="email" class="form-control" placeholder="your@email.com" required aria-required="true" />
+                  <span class="form-error" id="contact-email-error" role="alert"></span>
+                </div>
+              </div>
+              <div class="form-row-two">
+                <div class="form-group">
+                  <label for="contact-phone">Phone Number</label>
+                  <input type="tel" id="contact-phone" name="phone" class="form-control" placeholder="+1 (555) 000-0000" />
+                  <span class="form-error" id="contact-phone-error" role="alert"></span>
+                </div>
+                <div class="form-group">
+                  <label for="contact-subject">Subject <span aria-hidden="true">*</span></label>
+                  <select id="contact-subject" name="subject" class="form-control" required aria-required="true">
+                    <option value="">Select a subject</option>
+                    <option value="order">Order Enquiry</option>
+                    <option value="catering">Catering &amp; Events</option>
+                    <option value="feedback">Feedback</option>
+                    <option value="complaint">Complaint</option>
+                    <option value="other">Other</option>
+                  </select>
+                  <span class="form-error" id="contact-subject-error" role="alert"></span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="contact-message">Message <span aria-hidden="true">*</span></label>
+                <textarea id="contact-message" name="message" class="form-control" rows="6" placeholder="Write your message here…" required aria-required="true"></textarea>
+                <span class="form-error" id="contact-message-error" role="alert"></span>
+              </div>
+              <div class="form-group">
+                <label class="checkbox-label">
+                  <input type="checkbox" id="contact-consent" name="consent" required aria-required="true" />
+                  <span>I agree to be contacted by IceWorld regarding this enquiry.</span>
+                </label>
+                <span class="form-error" id="contact-consent-error" role="alert"></span>
+              </div>
+              <button type="submit" class="btn btn-primary btn-lg" id="contact-submit-btn">
+                <i class="fas fa-paper-plane"></i> Send Message
+              </button>
+            </form>
+          </div>
+
+          <!-- Map Placeholder -->
+          <div class="contact-map">
+            <div class="map-placeholder" role="img" aria-label="Map showing IceWorld location at 42 Frosty Lane, New York">
+              <i class="fas fa-map-marker-alt"></i>
+              <p>42 Frosty Lane, New York</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer id="main-footer" class="footer" role="contentinfo">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+          <!-- Brand Column -->
+          <div class="footer-col footer-brand">
+            <a href="index.html" class="logo" aria-label="IceWorld Home">
+              <span class="logo-icon"><i class="fas fa-ice-cream"></i></span>
+              <span class="logo-text">Ice<span class="logo-accent">World</span></span>
+            </a>
+            <p class="footer-brand-desc">
+              Handcrafted ice cream made with love and the finest natural ingredients.
+              Bringing joy one scoop at a time since 2009.
+            </p>
+            <div class="social-links">
+              <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+              <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="footer-col">
+            <h3 class="footer-heading">Quick Links</h3>
+            <ul class="footer-links" role="list">
+              <li><a href="#home">Home</a></li>
+              <li><a href="#menu">Full Menu</a></li>
+              <li><a href="#bestsellers">Best Sellers</a></li>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#gallery">Gallery</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- Categories -->
+          <div class="footer-col">
+            <h3 class="footer-heading">Categories</h3>
+            <ul class="footer-links" role="list">
+              <li><a href="#classic-scoops">Classic Scoops</a></li>
+              <li><a href="#sundaes">Sundaes</a></li>
+              <li><a href="#milkshakes">Milkshakes</a></li>
+              <li><a href="#gelato">Gelato</a></li>
+              <li><a href="#sorbet">Sorbet &amp; Vegan</a></li>
+              <li><a href="#waffles">Waffles &amp; Crepes</a></li>
+            </ul>
+          </div>
+
+          <!-- Customer Service -->
+          <div class="footer-col">
+            <h3 class="footer-heading">Customer Service</h3>
+            <ul class="footer-links" role="list">
+              <li><a href="#">My Account</a></li>
+              <li><a href="#">Order Tracking</a></li>
+              <li><a href="#">Delivery Info</a></li>
+              <li><a href="#">Returns &amp; Refunds</a></li>
+              <li><a href="#">Loyalty Rewards</a></li>
+              <li><a href="#">Gift Cards</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact Info -->
+          <div class="footer-col">
+            <h3 class="footer-heading">Contact Info</h3>
+            <ul class="footer-contact-list" role="list">
+              <li>
+                <i class="fas fa-map-marker-alt"></i>
+                <span>42 Frosty Lane, New York, NY 10001</span>
+              </li>
+              <li>
+                <i class="fas fa-phone-alt"></i>
+                <a href="tel:+18004239675">+1 800-ICE-WORLD</a>
+              </li>
+              <li>
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:hello@iceworld.com">hello@iceworld.com</a>
+              </li>
+              <li>
+                <i class="fas fa-clock"></i>
+                <span>10am – 11pm daily</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="footer-bottom-grid">
+          <p class="footer-copyright">
+            &copy; <span id="footer-year"></span> IceWorld. All rights reserved. Made with
+            <i class="fas fa-heart" aria-hidden="true"></i> and ice cream.
+          </p>
+          <ul class="footer-legal" role="list">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+            <li><a href="#">Accessibility</a></li>
+          </ul>
+          <div class="payment-methods" aria-label="Accepted payment methods">
+            <i class="fab fa-cc-visa" title="Visa"></i>
+            <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+            <i class="fab fa-cc-amex" title="American Express"></i>
+            <i class="fab fa-cc-paypal" title="PayPal"></i>
+            <i class="fab fa-cc-apple-pay" title="Apple Pay"></i>
+            <i class="fab fa-google-pay" title="Google Pay"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================== SCROLL TO TOP ===================== -->
+  <button id="scroll-to-top" class="scroll-to-top" aria-label="Scroll back to top" hidden>
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- ===================== QUICK VIEW MODAL ===================== -->
+  <div id="quick-view-modal" class="modal" role="dialog" aria-modal="true" aria-label="Product quick view" hidden>
+    <div class="modal-overlay" id="quick-view-overlay"></div>
+    <div class="modal-content quick-view-content">
+      <button class="modal-close-btn" id="quick-view-close-btn" aria-label="Close quick view">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="quick-view-body" id="quick-view-body">
+        <!-- Dynamically populated -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Main JavaScript -->
+  <script src="js/script.js" defer></script>
+
+</body>
+</html>
