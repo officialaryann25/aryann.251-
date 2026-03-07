@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IceWorld – Shop</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <p>🍦 Free delivery on orders over $30! Use code <strong>SWEET10</strong> for 10% off your first order 🍦</p>
+  </div>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo">
+        <span class="logo__icon">🍦</span>
+        <span class="logo__text">IceWorld</span>
+      </a>
+
+      <nav class="nav" id="nav">
+        <ul class="nav__list">
+          <li><a href="index.html" class="nav__link">Home</a></li>
+          <li><a href="shop.html" class="nav__link active">Shop</a></li>
+          <li><a href="shop.html?category=flavours" class="nav__link">Flavours</a></li>
+          <li><a href="shop.html?category=sundaes" class="nav__link">Sundaes</a></li>
+          <li><a href="shop.html?category=milkshakes" class="nav__link">Milkshakes</a></li>
+          <li><a href="shop.html?category=cakes" class="nav__link">Ice Cream Cakes</a></li>
+          <li><a href="shop.html?category=offers" class="nav__link">Offers</a></li>
+          <li><a href="about.html" class="nav__link">About</a></li>
+          <li><a href="contact.html" class="nav__link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__actions">
+        <button class="icon-btn" id="searchToggle" aria-label="Search">
+          <i class="fas fa-search"></i>
+        </button>
+        <a href="login.html" class="icon-btn" aria-label="Login">
+          <i class="fas fa-user"></i>
+        </a>
+        <button class="icon-btn wishlist-btn" aria-label="Wishlist">
+          <i class="fas fa-heart"></i>
+          <span class="badge" id="wishlistCount">0</span>
+        </button>
+        <a href="cart.html" class="icon-btn cart-btn" aria-label="Cart">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="badge" id="cartCount">0</span>
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="search-bar" id="searchBar">
+      <div class="container">
+        <input type="text" id="searchInput" placeholder="Search for ice cream flavours, cakes, sundaes…" />
+        <button id="searchBtn"><i class="fas fa-search"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <h1>Our Ice Cream Shop</h1>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li><a href="index.html">Home</a></li>
+          <li>Shop</li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+
+  <main class="shop-layout container">
+    <!-- Sidebar Filters -->
+    <aside class="shop-sidebar">
+      <div class="sidebar-widget">
+        <h3>Categories</h3>
+        <ul class="filter-list" id="categoryFilter">
+          <li><label><input type="radio" name="category" value="all" checked /> All Products <span>(68)</span></label></li>
+          <li><label><input type="radio" name="category" value="flavours" /> Flavours <span>(24)</span></label></li>
+          <li><label><input type="radio" name="category" value="sundaes" /> Sundaes <span>(12)</span></label></li>
+          <li><label><input type="radio" name="category" value="milkshakes" /> Milkshakes <span>(18)</span></label></li>
+          <li><label><input type="radio" name="category" value="cakes" /> Ice Cream Cakes <span>(8)</span></label></li>
+          <li><label><input type="radio" name="category" value="offers" /> Special Offers <span>(6)</span></label></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-widget">
+        <h3>Price Range</h3>
+        <div class="price-range">
+          <input type="range" id="priceRange" min="0" max="50" value="50" step="1" />
+          <div class="price-range__labels">
+            <span>$0</span>
+            <span id="priceRangeValue">$50</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-widget">
+        <h3>Rating</h3>
+        <ul class="filter-list" id="ratingFilter">
+          <li><label><input type="radio" name="rating" value="0" checked /> All Ratings</label></li>
+          <li><label><input type="radio" name="rating" value="4" />
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> &amp; up
+          </label></li>
+          <li><label><input type="radio" name="rating" value="3" />
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i> &amp; up
+          </label></li>
+        </ul>
+      </div>
+
+      <button class="btn btn--primary btn--full" id="applyFilters">Apply Filters</button>
+      <button class="btn btn--outline btn--full" id="resetFilters">Reset</button>
+    </aside>
+
+    <!-- Products Section -->
+    <section class="shop-products">
+      <div class="shop-toolbar">
+        <p class="results-count">Showing <span id="resultsCount">12</span> products</p>
+        <div class="shop-toolbar__controls">
+          <select id="sortBy" aria-label="Sort by">
+            <option value="popular">Sort by: Popularity</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="rating">Highest Rated</option>
+            <option value="newest">Newest</option>
+          </select>
+          <div class="view-toggle">
+            <button class="view-btn active" data-view="grid" aria-label="Grid view"><i class="fas fa-th"></i></button>
+            <button class="view-btn" data-view="list" aria-label="List view"><i class="fas fa-list"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="products-grid" id="productsGrid">
+
+        <article class="product-card" data-id="1" data-name="Strawberry Dream" data-price="4.99" data-category="flavours" data-rating="4.5" data-popularity="128">
+          <div class="product-card__image">
+            <img src="https://placehold.co/400x300/f9b4c8/c2185b?text=Strawberry+Dream" alt="Strawberry Dream" loading="lazy" />
+            <div class="product-card__badges"><span class="badge--new">New</span></div>
+            <div class="product-card__actions">
+              <button class="card-action-btn wishlist-toggle" data-id="1" aria-label="Add to wishlist"><i class="fas fa-heart"></i></button>
+              <a href="product.html?id=1" class="card-action-btn" aria-label="View product"><i class="fas fa-eye"></i></a>
+            </div>
+          </div>
+          <div class="product-card__info">
+            <span class="product-card__category">Flavours</span>
+            <h3><a href="product.html?id=1">Strawberry Dream</a></h3>
+            <div class="product-card__rating">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+              <span>(128)</span>
+            </div>
+            <div class="product-card__footer">
+              <span class="price">$4.99</span>
+              <button class="btn btn--primary btn--sm add-to-cart" data-id="1" data-name="Strawberry Dream" data-price="4.99" data-image="https://placehold.co/400x300/f9b4c8/c2185b?text=Strawberry+Dream">Add to Cart</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" data-id="2" data-name="Choco Fudge Sundae" data-price="6.49" data-category="sundaes" data-rating="5" data-popularity="256">
+          <div class="product-card__image">
+            <img src="https://placehold.co/400x300/8d4004/fff?text=Choco+Fudge" alt="Choco Fudge Sundae" loading="lazy" />
+            <div class="product-card__badges"><span class="badge--hot">Hot</span></div>
+            <div class="product-card__actions">
+              <button class="card-action-btn wishlist-toggle" data-id="2" aria-label="Add to wishlist"><i class="fas fa-heart"></i></button>
+              <a href="product.html?id=2" class="card-action-btn" aria-label="View product"><i class="fas fa-eye"></i></a>
+            </div>
+          </div>
+          <div class="product-card__info">
+            <span class="product-card__category">Sundaes</span>
+            <h3><a href="product.html?id=2">Choco Fudge Sundae</a></h3>
+            <div class="product-card__rating">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <span>(256)</span>
+            </div>
+            <div class="product-card__footer">
+              <span class="price">$6.49</span>
+              <button class="btn btn--primary btn--sm add-to-cart" data-id="2" data-name="Choco Fudge Sundae" data-price="6.49" data-image="https://placehold.co/400x300/8d4004/fff?text=Choco+Fudge">Add to Cart</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" data-id="3" data-name="Mango Sorbet" data-price="3.99" data-category="flavours" data-rating="4" data-popularity="89">
+          <div class="product-card__image">
+            <img src="https://placehold.co/400x300/ffd54f/e65100?text=Mango+Sorbet" alt="Mango Sorbet" loading="lazy" />
+            <div class="product-card__badges"></div>
+            <div class="product-card__actions">
+              <button class="card-action-btn wishlist-toggle" data-id="3" aria-label="Add to wishlist"><i class="fas fa-heart"></i></button>
+              <a href="product.html?id=3" class="card-action-btn" aria-label="View product"><i class="fas fa-eye"></i></a>
+            </div>
+          </div>
+          <div class="product-card__info">
+            <span class="product-card__category">Flavours</span>
+            <h3><a href="product.html?id=3">Mango Sorbet</a></h3>
+            <div class="product-card__rating">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+              <span>(89)</span>
+            </div>
+            <div class="product-card__footer">
+              <span class="price">$3.99</span>
+              <button class="btn btn--primary btn--sm add-to-cart" data-id="3" data-name="Mango Sorbet" data-price="3.99" data-image="https://placehold.co/400x300/ffd54f/e65100?text=Mango+Sorbet">Add to Cart</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" data-id="4" data-name="Vanilla Bean Shake" data-price="5.49" data-category="milkshakes" data-rating="4.5" data-popularity="174">
+          <div class="product-card__image">
+            <img src="https://placehold.co/400x300/fffde7/f57f17?text=Vanilla+Shake" alt="Vanilla Bean Shake" loading="lazy" />
+            <div class="product-card__badges"><span class="badge--sale">Sale</span></div>
+            <div class="product-card__actions">
+              <button class="card-action-btn wishlist-toggle" data-id="4" aria-label="Add to wishlist"><i class="fas fa-heart"></i></button>
+              <a href="product.html?id=4" class="card-action-btn" aria-label="View product"><i class="fas fa-eye"></i></a>
+            </div>
+          </div>
+          <div class="product-card__info">
+            <span class="product-card__category">Milkshakes</span>
+            <h3><a href="product.html?id=4">Vanilla Bean Shake</a></h3>
+            <div class="product-card__rating">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+              <span>(174)</span>
+            </div>
+            <div class="product-card__footer">
+              <span class="price"><del>$6.49</del> $5.49</span>
+              <button class="btn btn--primary btn--sm add-to-cart" data-id="4" data-name="Vanilla Bean Shake" data-price="5.49" data-image="https://placehold.co/400x300/fffde7/f57f17?text=Vanilla+Shake">Add to Cart</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" data-id="5" data-name="Birthday Cake Blast" data-price="12.99" data-category="cakes" data-rating="5" data-popularity="312">
+          <div class="product-card__image">
+            <img src="https://placehold.co/400x300/fce4ec/c62828?text=Birthday+Cake" alt="Birthday Cake Blast" loading="lazy" />
+            <div class="product-card__badges"><span class="badge--hot">Popular</span></div>
+            <div class="product-card__actions">
+              <button class="card-action-btn wishlist-toggle" data-id="5" aria-label="Add to wishlist"><i class="fas fa-heart"></i></button>
+              <a href="product.html?id=5" class="card-action-btn" aria-label="View product"><i class="fas fa-eye"></i></a>
+            </div>
+          </div>
+          <div class="product-card__info">
+            <span class="product-card__category">Cakes</span>
+            <h3><a href="product.html?id=5">Birthday Cake Blast</a></h3>
+            <div class="product-card__rating">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <span>(312)</span>
+            </div>
+            <div class="product-card__footer">
+              <span class="price">$12.99</span>
+              <button class="btn btn--primary btn--sm add-to-cart" data-id="5" data-name="Birthday Cake Blast" data-price="12.99" data-image="https://placehold.co/400x300/fce4ec/c62828?text=Birthday+Cake">Add to Cart</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" data-id="6" data-name="Blueberry Swirl" data-price="4.49" data-category="flavours" data-rating="4" data-popularity="67">
+          <div class="product-card__image">
+            <img src="https://placehold.co/400x300/ede7f6/4527a0?text=Blueberry+Swirl" alt="Blueberry Swirl" loading="lazy" />
+            <div class="product-card__badges"></div>
+            <div class="product-card__actions">
+              <button class="card-action-btn wishlist-toggle" data-id="6" aria-label="Add to wishlist"><i class="fas fa-heart"></i></button>
+              <a href="product.html?id=6" class="card-action-btn" aria-label="View product"><i class="fas fa-eye"></i></a>
+            </div>
+          </div>
+          <div class="product-card__info">
+            <span class="product-card__category">Flavours</span>
+            <h3><a href="product.html?id=6">Blueberry Swirl</a></h3>
+            <div class="product-card__rating">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+              <span>(67)</span>
+            </div>
+            <div class="product-card__footer">
+              <span class="price">$4.49</span>
+              <button class="btn btn--primary btn--sm add-to-cart" data-id="6" data-name="Blueberry Swirl" data-price="4.49" data-image="https://placehold.co/400x300/ede7f6/4527a0?text=Blueberry+Swirl">Add to Cart</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" data-id="7" data-name="Oreo Milkshake" data-price="5.99" data-category="milkshakes" data-rating="4.5" data-popularity="201">
+          <div class="product-card__image">
+            <img src="https://placehold.co/400x300/212121/fff?text=Oreo+Shake" alt="Oreo Milkshake" loading="lazy" />
+            <div class="product-card__badges"><span class="badge--new">New</span></div>
+            <div class="product-card__actions">
+              <button class="card-action-btn wishlist-toggle" data-id="7" aria-label="Add to wishlist"><i class="fas fa-heart"></i></button>
+              <a href="product.html?id=7" class="card-action-btn" aria-label="View product"><i class="fas fa-eye"></i></a>
+            </div>
+          </div>
+          <div class="product-card__info">
+            <span class="product-card__category">Milkshakes</span>
+            <h3><a href="product.html?id=7">Oreo Milkshake</a></h3>
+            <div class="product-card__rating">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+              <span>(201)</span>
+            </div>
+            <div class="product-card__footer">
+              <span class="price">$5.99</span>
+              <button class="btn btn--primary btn--sm add-to-cart" data-id="7" data-name="Oreo Milkshake" data-price="5.99" data-image="https://placehold.co/400x300/212121/fff?text=Oreo+Shake">Add to Cart</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" data-id="8" data-name="Pistachio Delight" data-price="5.29" data-category="flavours" data-rating="4" data-popularity="95">
+          <div class="product-card__image">
+            <img src="https://placehold.co/400x300/c8e6c9/1b5e20?text=Pistachio" alt="Pistachio Delight" loading="lazy" />
+            <div class="product-card__badges"></div>
+            <div class="product-card__actions">
+              <button class="card-action-btn wishlist-toggle" data-id="8" aria-label="Add to wishlist"><i class="fas fa-heart"></i></button>
+              <a href="product.html?id=8" class="card-action-btn" aria-label="View product"><i class="fas fa-eye"></i></a>
+            </div>
+          </div>
+          <div class="product-card__info">
+            <span class="product-card__category">Flavours</span>
+            <h3><a href="product.html?id=8">Pistachio Delight</a></h3>
+            <div class="product-card__rating">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+              <span>(95)</span>
+            </div>
+            <div class="product-card__footer">
+              <span class="price">$5.29</span>
+              <button class="btn btn--primary btn--sm add-to-cart" data-id="8" data-name="Pistachio Delight" data-price="5.29" data-image="https://placehold.co/400x300/c8e6c9/1b5e20?text=Pistachio">Add to Cart</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" data-id="9" data-name="Rainbow Sundae" data-price="7.99" data-category="sundaes" data-rating="4.5" data-popularity="143">
+          <div class="product-card__image">
+            <img src="https://placehold.co/400x300/fff9c4/f57f17?text=Rainbow+Sundae" alt="Rainbow Sundae" loading="lazy" />
+            <div class="product-card__badges"><span class="badge--hot">Kids Favourite</span></div>
+            <div class="product-card__actions">
+              <button class="card-action-btn wishlist-toggle" data-id="9" aria-label="Add to wishlist"><i class="fas fa-heart"></i></button>
+              <a href="product.html?id=9" class="card-action-btn" aria-label="View product"><i class="fas fa-eye"></i></a>
+            </div>
+          </div>
+          <div class="product-card__info">
+            <span class="product-card__category">Sundaes</span>
+            <h3><a href="product.html?id=9">Rainbow Sundae</a></h3>
+            <div class="product-card__rating">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+              <span>(143)</span>
+            </div>
+            <div class="product-card__footer">
+              <span class="price">$7.99</span>
+              <button class="btn btn--primary btn--sm add-to-cart" data-id="9" data-name="Rainbow Sundae" data-price="7.99" data-image="https://placehold.co/400x300/fff9c4/f57f17?text=Rainbow+Sundae">Add to Cart</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" data-id="10" data-name="Wedding Cake (Tier)" data-price="49.99" data-category="cakes" data-rating="5" data-popularity="78">
+          <div class="product-card__image">
+            <img src="https://placehold.co/400x300/fce4ec/880e4f?text=Wedding+Cake" alt="Wedding Cake" loading="lazy" />
+            <div class="product-card__badges"><span class="badge--new">Premium</span></div>
+            <div class="product-card__actions">
+              <button class="card-action-btn wishlist-toggle" data-id="10" aria-label="Add to wishlist"><i class="fas fa-heart"></i></button>
+              <a href="product.html?id=10" class="card-action-btn" aria-label="View product"><i class="fas fa-eye"></i></a>
+            </div>
+          </div>
+          <div class="product-card__info">
+            <span class="product-card__category">Cakes</span>
+            <h3><a href="product.html?id=10">Wedding Cake (Tier)</a></h3>
+            <div class="product-card__rating">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <span>(78)</span>
+            </div>
+            <div class="product-card__footer">
+              <span class="price">$49.99</span>
+              <button class="btn btn--primary btn--sm add-to-cart" data-id="10" data-name="Wedding Cake (Tier)" data-price="49.99" data-image="https://placehold.co/400x300/fce4ec/880e4f?text=Wedding+Cake">Add to Cart</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" data-id="11" data-name="Caramel Crunch" data-price="4.79" data-category="flavours" data-rating="4.5" data-popularity="110">
+          <div class="product-card__image">
+            <img src="https://placehold.co/400x300/ffcc80/e65100?text=Caramel+Crunch" alt="Caramel Crunch" loading="lazy" />
+            <div class="product-card__badges"></div>
+            <div class="product-card__actions">
+              <button class="card-action-btn wishlist-toggle" data-id="11" aria-label="Add to wishlist"><i class="fas fa-heart"></i></button>
+              <a href="product.html?id=11" class="card-action-btn" aria-label="View product"><i class="fas fa-eye"></i></a>
+            </div>
+          </div>
+          <div class="product-card__info">
+            <span class="product-card__category">Flavours</span>
+            <h3><a href="product.html?id=11">Caramel Crunch</a></h3>
+            <div class="product-card__rating">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+              <span>(110)</span>
+            </div>
+            <div class="product-card__footer">
+              <span class="price">$4.79</span>
+              <button class="btn btn--primary btn--sm add-to-cart" data-id="11" data-name="Caramel Crunch" data-price="4.79" data-image="https://placehold.co/400x300/ffcc80/e65100?text=Caramel+Crunch">Add to Cart</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" data-id="12" data-name="Bubblegum Blast" data-price="3.79" data-category="offers" data-rating="4" data-popularity="135">
+          <div class="product-card__image">
+            <img src="https://placehold.co/400x300/f48fb1/880e4f?text=Bubblegum" alt="Bubblegum Blast" loading="lazy" />
+            <div class="product-card__badges"><span class="badge--sale">30% Off</span></div>
+            <div class="product-card__actions">
+              <button class="card-action-btn wishlist-toggle" data-id="12" aria-label="Add to wishlist"><i class="fas fa-heart"></i></button>
+              <a href="product.html?id=12" class="card-action-btn" aria-label="View product"><i class="fas fa-eye"></i></a>
+            </div>
+          </div>
+          <div class="product-card__info">
+            <span class="product-card__category">Offers</span>
+            <h3><a href="product.html?id=12">Bubblegum Blast</a></h3>
+            <div class="product-card__rating">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+              <span>(135)</span>
+            </div>
+            <div class="product-card__footer">
+              <span class="price"><del>$5.39</del> $3.79</span>
+              <button class="btn btn--primary btn--sm add-to-cart" data-id="12" data-name="Bubblegum Blast" data-price="3.79" data-image="https://placehold.co/400x300/f48fb1/880e4f?text=Bubblegum">Add to Cart</button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- No results message -->
+      <div class="no-results hidden" id="noResults">
+        <i class="fas fa-search"></i>
+        <h3>No products found</h3>
+        <p>Try adjusting your filters or search terms.</p>
+        <button class="btn btn--primary" id="clearFilters">Clear Filters</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="index.html" class="logo">
+            <span class="logo__icon">🍦</span>
+            <span class="logo__text">IceWorld</span>
+          </a>
+          <p>Crafting joy one scoop at a time since 2010. Premium, handmade ice cream delivered to your door.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+          </div>
+        </div>
+        <div class="footer__links">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="shop.html">All Products</a></li>
+            <li><a href="shop.html?category=flavours">Ice Cream Flavours</a></li>
+            <li><a href="shop.html?category=sundaes">Sundaes</a></li>
+            <li><a href="shop.html?category=milkshakes">Milkshakes</a></li>
+            <li><a href="shop.html?category=cakes">Ice Cream Cakes</a></li>
+            <li><a href="shop.html?category=offers">Special Offers</a></li>
+          </ul>
+        </div>
+        <div class="footer__links">
+          <h4>Customer Support</h4>
+          <ul>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Shipping Policy</a></li>
+            <li><a href="#">Returns &amp; Refunds</a></li>
+            <li><a href="#">Track Your Order</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms &amp; Conditions</a></li>
+          </ul>
+        </div>
+        <div class="footer__contact">
+          <h4>Contact Us</h4>
+          <ul>
+            <li><i class="fas fa-map-marker-alt"></i> 123 Sweet Street, Ice Town, IT 45678</li>
+            <li><i class="fas fa-phone"></i> <a href="tel:+15551234567">+1 (555) 123-4567</a></li>
+            <li><i class="fas fa-envelope"></i> <a href="mailto:hello@iceworld.com">hello@iceworld.com</a></li>
+            <li><i class="fas fa-clock"></i> Mon–Sun: 9am – 10pm</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; <span id="year"></span> IceWorld. All rights reserved.</p>
+        <div class="payment-icons">
+          <i class="fab fa-cc-visa"></i>
+          <i class="fab fa-cc-mastercard"></i>
+          <i class="fab fa-cc-paypal"></i>
+          <i class="fab fa-cc-apple-pay"></i>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

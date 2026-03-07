@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IceWorld – Contact Us</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <p>🍦 Free delivery on orders over $30! Use code <strong>SWEET10</strong> for 10% off your first order 🍦</p>
+  </div>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo">
+        <span class="logo__icon">🍦</span>
+        <span class="logo__text">IceWorld</span>
+      </a>
+
+      <nav class="nav" id="nav">
+        <ul class="nav__list">
+          <li><a href="index.html" class="nav__link">Home</a></li>
+          <li><a href="shop.html" class="nav__link">Shop</a></li>
+          <li><a href="shop.html?category=flavours" class="nav__link">Flavours</a></li>
+          <li><a href="shop.html?category=sundaes" class="nav__link">Sundaes</a></li>
+          <li><a href="shop.html?category=milkshakes" class="nav__link">Milkshakes</a></li>
+          <li><a href="shop.html?category=cakes" class="nav__link">Ice Cream Cakes</a></li>
+          <li><a href="shop.html?category=offers" class="nav__link">Offers</a></li>
+          <li><a href="about.html" class="nav__link">About</a></li>
+          <li><a href="contact.html" class="nav__link active">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__actions">
+        <button class="icon-btn" id="searchToggle" aria-label="Search">
+          <i class="fas fa-search"></i>
+        </button>
+        <a href="login.html" class="icon-btn" aria-label="Login">
+          <i class="fas fa-user"></i>
+        </a>
+        <button class="icon-btn wishlist-btn" aria-label="Wishlist">
+          <i class="fas fa-heart"></i>
+          <span class="badge" id="wishlistCount">0</span>
+        </button>
+        <a href="cart.html" class="icon-btn cart-btn" aria-label="Cart">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="badge" id="cartCount">0</span>
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="search-bar" id="searchBar">
+      <div class="container">
+        <input type="text" id="searchInput" placeholder="Search for ice cream flavours, cakes, sundaes…" />
+        <button id="searchBtn"><i class="fas fa-search"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <h1>Contact Us</h1>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li><a href="index.html">Home</a></li>
+          <li>Contact</li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+
+  <main>
+
+    <!-- Contact Info Cards -->
+    <section class="contact-info-section section">
+      <div class="container">
+        <div class="contact-info-grid">
+          <div class="contact-info-card">
+            <div class="contact-info-card__icon"><i class="fas fa-map-marker-alt"></i></div>
+            <h3>Visit Us</h3>
+            <p>123 Sweet Street<br />Ice Town, IT 45678<br />United States</p>
+          </div>
+          <div class="contact-info-card">
+            <div class="contact-info-card__icon"><i class="fas fa-phone"></i></div>
+            <h3>Call Us</h3>
+            <p><a href="tel:+15551234567">+1 (555) 123-4567</a><br /><a href="tel:+15559876543">+1 (555) 987-6543</a></p>
+            <p class="hours">Mon–Sun: 9am – 10pm</p>
+          </div>
+          <div class="contact-info-card">
+            <div class="contact-info-card__icon"><i class="fas fa-envelope"></i></div>
+            <h3>Email Us</h3>
+            <p><a href="mailto:hello@iceworld.com">hello@iceworld.com</a><br /><a href="mailto:support@iceworld.com">support@iceworld.com</a></p>
+            <p class="hours">Response within 24 hours</p>
+          </div>
+          <div class="contact-info-card">
+            <div class="contact-info-card__icon"><i class="fas fa-clock"></i></div>
+            <h3>Opening Hours</h3>
+            <p>Monday – Friday: 9am – 9pm<br />Saturday: 9am – 10pm<br />Sunday: 10am – 8pm</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Form & Map -->
+    <section class="contact-main section">
+      <div class="container contact-main__grid">
+
+        <!-- Contact Form -->
+        <div class="contact-form-wrapper">
+          <h2>Send Us a Message</h2>
+          <p>Have a question, feedback, or want to place a bulk order? We'd love to hear from you!</p>
+
+          <form class="contact-form" id="contactFormEl" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contactName">Full Name <span class="required">*</span></label>
+                <div class="input-wrapper">
+                  <i class="fas fa-user"></i>
+                  <input type="text" id="contactName" name="name" placeholder="Your full name" required />
+                </div>
+                <span class="form-error" id="contactNameError"></span>
+              </div>
+              <div class="form-group">
+                <label for="contactEmail">Email Address <span class="required">*</span></label>
+                <div class="input-wrapper">
+                  <i class="fas fa-envelope"></i>
+                  <input type="email" id="contactEmail" name="email" placeholder="you@example.com" required />
+                </div>
+                <span class="form-error" id="contactEmailError"></span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="contactPhone">Phone Number (Optional)</label>
+              <div class="input-wrapper">
+                <i class="fas fa-phone"></i>
+                <input type="tel" id="contactPhone" name="phone" placeholder="+1 (555) 000-0000" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="contactSubject">Subject <span class="required">*</span></label>
+              <div class="input-wrapper">
+                <i class="fas fa-tag"></i>
+                <select id="contactSubject" name="subject" required>
+                  <option value="">Select a subject</option>
+                  <option value="order">Order Enquiry</option>
+                  <option value="product">Product Question</option>
+                  <option value="delivery">Delivery &amp; Shipping</option>
+                  <option value="bulk">Bulk/Corporate Order</option>
+                  <option value="feedback">Feedback</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <span class="form-error" id="contactSubjectError"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="contactMessage">Message <span class="required">*</span></label>
+              <textarea id="contactMessage" name="message" placeholder="Tell us how we can help you…" rows="6" required></textarea>
+              <span class="form-error" id="contactMessageError"></span>
+            </div>
+
+            <div class="form-group">
+              <label class="checkbox-label">
+                <input type="checkbox" id="contactNewsletter" />
+                <span>Subscribe to our newsletter for offers and updates</span>
+              </label>
+            </div>
+
+            <button type="submit" class="btn btn--primary btn--lg">
+              <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+
+            <div class="form-success hidden" id="contactSuccess">
+              <i class="fas fa-check-circle"></i>
+              <p>Thank you! Your message has been sent. We'll get back to you within 24 hours.</p>
+            </div>
+          </form>
+        </div>
+
+        <!-- Map -->
+        <div class="map-wrapper">
+          <h2>Find Us Here</h2>
+          <p>Visit our flagship store in the heart of Ice Town.</p>
+          <div class="map-container">
+            <iframe
+              src="https://www.openstreetmap.org/export/embed.html?bbox=-74.0060%2C40.7128%2C-73.9960%2C40.7228&amp;layer=mapnik"
+              title="IceWorld Store Location"
+              loading="lazy"
+              allowfullscreen></iframe>
+          </div>
+          <p class="map-address"><i class="fas fa-map-marker-alt"></i> 123 Sweet Street, Ice Town, IT 45678</p>
+
+          <!-- Social Media -->
+          <div class="contact-social">
+            <h3>Follow Us</h3>
+            <div class="social-links">
+              <a href="#" aria-label="Facebook" class="social-link--facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" aria-label="Instagram" class="social-link--instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" aria-label="Twitter" class="social-link--twitter"><i class="fab fa-twitter"></i></a>
+              <a href="#" aria-label="YouTube" class="social-link--youtube"><i class="fab fa-youtube"></i></a>
+              <a href="#" aria-label="Pinterest" class="social-link--pinterest"><i class="fab fa-pinterest-p"></i></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FAQ Snippet -->
+    <section class="faq-section section">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title">Frequently Asked Questions</h2>
+          <p class="section__subtitle">Quick answers to common queries</p>
+        </div>
+        <div class="faq-grid">
+          <details class="faq-item">
+            <summary>Do you offer delivery?</summary>
+            <p>Yes! We offer nationwide delivery. Orders over $30 qualify for free delivery. Standard delivery takes 1–3 business days.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Can I customise a cake for a special occasion?</summary>
+            <p>Absolutely! Contact us at least 5 days in advance with your requirements. We offer custom flavours, sizes and decorations.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Are your products suitable for vegans?</summary>
+            <p>We offer several vegan-friendly options made with oat milk and coconut cream. Look for the vegan tag on our product pages.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Do you cater for allergies?</summary>
+            <p>Please review the allergen information on each product page. Contact us directly if you have specific allergy concerns.</p>
+          </details>
+          <details class="faq-item">
+            <summary>How do I track my order?</summary>
+            <p>Once your order is dispatched, you'll receive an email with tracking information. You can also log into your account to track orders.</p>
+          </details>
+          <details class="faq-item">
+            <summary>What is your return policy?</summary>
+            <p>Due to the perishable nature of our products, we can't accept returns. However, if you're not satisfied, contact us within 24 hours and we'll make it right.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="index.html" class="logo">
+            <span class="logo__icon">🍦</span>
+            <span class="logo__text">IceWorld</span>
+          </a>
+          <p>Crafting joy one scoop at a time since 2010. Premium, handmade ice cream delivered to your door.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+          </div>
+        </div>
+        <div class="footer__links">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="shop.html">All Products</a></li>
+            <li><a href="shop.html?category=flavours">Ice Cream Flavours</a></li>
+            <li><a href="shop.html?category=sundaes">Sundaes</a></li>
+            <li><a href="shop.html?category=milkshakes">Milkshakes</a></li>
+            <li><a href="shop.html?category=cakes">Ice Cream Cakes</a></li>
+            <li><a href="shop.html?category=offers">Special Offers</a></li>
+          </ul>
+        </div>
+        <div class="footer__links">
+          <h4>Customer Support</h4>
+          <ul>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Shipping Policy</a></li>
+            <li><a href="#">Returns &amp; Refunds</a></li>
+            <li><a href="#">Track Your Order</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms &amp; Conditions</a></li>
+          </ul>
+        </div>
+        <div class="footer__contact">
+          <h4>Contact Us</h4>
+          <ul>
+            <li><i class="fas fa-map-marker-alt"></i> 123 Sweet Street, Ice Town, IT 45678</li>
+            <li><i class="fas fa-phone"></i> <a href="tel:+15551234567">+1 (555) 123-4567</a></li>
+            <li><i class="fas fa-envelope"></i> <a href="mailto:hello@iceworld.com">hello@iceworld.com</a></li>
+            <li><i class="fas fa-clock"></i> Mon–Sun: 9am – 10pm</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; <span id="year"></span> IceWorld. All rights reserved.</p>
+        <div class="payment-icons">
+          <i class="fab fa-cc-visa"></i>
+          <i class="fab fa-cc-mastercard"></i>
+          <i class="fab fa-cc-paypal"></i>
+          <i class="fab fa-cc-apple-pay"></i>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

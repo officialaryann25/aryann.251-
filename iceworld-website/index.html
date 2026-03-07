@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IceWorld – Home</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <p>🍦 Free delivery on orders over $30! Use code <strong>SWEET10</strong> for 10% off your first order 🍦</p>
+  </div>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo">
+        <span class="logo__icon">🍦</span>
+        <span class="logo__text">IceWorld</span>
+      </a>
+
+      <nav class="nav" id="nav">
+        <ul class="nav__list">
+          <li><a href="index.html" class="nav__link active">Home</a></li>
+          <li><a href="shop.html" class="nav__link">Shop</a></li>
+          <li><a href="shop.html?category=flavours" class="nav__link">Flavours</a></li>
+          <li><a href="shop.html?category=sundaes" class="nav__link">Sundaes</a></li>
+          <li><a href="shop.html?category=milkshakes" class="nav__link">Milkshakes</a></li>
+          <li><a href="shop.html?category=cakes" class="nav__link">Ice Cream Cakes</a></li>
+          <li><a href="shop.html?category=offers" class="nav__link">Offers</a></li>
+          <li><a href="about.html" class="nav__link">About</a></li>
+          <li><a href="contact.html" class="nav__link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__actions">
+        <button class="icon-btn" id="searchToggle" aria-label="Search">
+          <i class="fas fa-search"></i>
+        </button>
+        <a href="login.html" class="icon-btn" aria-label="Login">
+          <i class="fas fa-user"></i>
+        </a>
+        <button class="icon-btn wishlist-btn" aria-label="Wishlist">
+          <i class="fas fa-heart"></i>
+          <span class="badge" id="wishlistCount">0</span>
+        </button>
+        <a href="cart.html" class="icon-btn cart-btn" aria-label="Cart">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="badge" id="cartCount">0</span>
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="search-bar" id="searchBar">
+      <div class="container">
+        <input type="text" id="searchInput" placeholder="Search for ice cream flavours, cakes, sundaes…" />
+        <button id="searchBtn"><i class="fas fa-search"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Slider -->
+    <section class="hero" aria-label="Hero Banner">
+      <div class="hero__slider" id="heroSlider">
+        <div class="hero__slide hero__slide--1 active">
+          <div class="hero__content">
+            <span class="hero__tag">New Arrival</span>
+            <h1>Summer Bliss<br />Ice Cream Collection</h1>
+            <p>Discover our handcrafted flavours made with the finest ingredients. Pure joy in every scoop!</p>
+            <div class="hero__cta">
+              <a href="shop.html" class="btn btn--primary">Shop Now</a>
+              <a href="about.html" class="btn btn--outline">Our Story</a>
+            </div>
+          </div>
+          <div class="hero__image">
+            <img src="https://placehold.co/600x500/f9b4c8/c2185b?text=Summer+Bliss+🍦" alt="Summer Bliss Ice Cream" />
+          </div>
+        </div>
+        <div class="hero__slide hero__slide--2">
+          <div class="hero__content">
+            <span class="hero__tag">Best Seller</span>
+            <h1>Classic Chocolate<br />Fudge Sundae</h1>
+            <p>Rich, creamy chocolate ice cream loaded with hot fudge, whipped cream, and a cherry on top.</p>
+            <div class="hero__cta">
+              <a href="shop.html?category=sundaes" class="btn btn--primary">Order Now</a>
+              <a href="product.html" class="btn btn--outline">View Details</a>
+            </div>
+          </div>
+          <div class="hero__image">
+            <img src="https://placehold.co/600x500/8d4004/4e2600?text=Chocolate+Fudge+🍫" alt="Chocolate Fudge Sundae" />
+          </div>
+        </div>
+        <div class="hero__slide hero__slide--3">
+          <div class="hero__content">
+            <span class="hero__tag">Limited Edition</span>
+            <h1>Mango Tango<br />Sorbet Delight</h1>
+            <p>Refreshingly tropical mango sorbet crafted from Alphonso mangoes – a burst of sunshine!</p>
+            <div class="hero__cta">
+              <a href="shop.html?category=flavours" class="btn btn--primary">Explore</a>
+              <a href="product.html" class="btn btn--outline">Learn More</a>
+            </div>
+          </div>
+          <div class="hero__image">
+            <img src="https://placehold.co/600x500/ffd54f/e65100?text=Mango+Tango+🥭" alt="Mango Tango Sorbet" />
+          </div>
+        </div>
+      </div>
+      <div class="hero__controls">
+        <button class="hero__prev" id="heroPrev" aria-label="Previous slide"><i class="fas fa-chevron-left"></i></button>
+        <div class="hero__dots" id="heroDots">
+          <button class="hero__dot active" data-index="0"></button>
+          <button class="hero__dot" data-index="1"></button>
+          <button class="hero__dot" data-index="2"></button>
+        </div>
+        <button class="hero__next" id="heroNext" aria-label="Next slide"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories section" id="categories">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title">Browse Categories</h2>
+          <p class="section__subtitle">Find your perfect sweet treat</p>
+        </div>
+        <div class="categories__grid">
+          <a href="shop.html?category=flavours" class="category-card">
+            <div class="category-card__image">
+              <img src="https://placehold.co/300x300/f9b4c8/c2185b?text=🍦+Flavours" alt="Flavours" />
+            </div>
+            <h3>Flavours</h3>
+            <span>24 Items</span>
+          </a>
+          <a href="shop.html?category=sundaes" class="category-card">
+            <div class="category-card__image">
+              <img src="https://placehold.co/300x300/8d4004/fff?text=🍨+Sundaes" alt="Sundaes" />
+            </div>
+            <h3>Sundaes</h3>
+            <span>12 Items</span>
+          </a>
+          <a href="shop.html?category=milkshakes" class="category-card">
+            <div class="category-card__image">
+              <img src="https://placehold.co/300x300/ffd54f/e65100?text=🥤+Milkshakes" alt="Milkshakes" />
+            </div>
+            <h3>Milkshakes</h3>
+            <span>18 Items</span>
+          </a>
+          <a href="shop.html?category=cakes" class="category-card">
+            <div class="category-card__image">
+              <img src="https://placehold.co/300x300/fce4ec/c62828?text=🎂+Ice+Cream+Cakes" alt="Ice Cream Cakes" />
+            </div>
+            <h3>Ice Cream Cakes</h3>
+            <span>8 Items</span>
+          </a>
+          <a href="shop.html?category=offers" class="category-card">
+            <div class="category-card__image">
+              <img src="https://placehold.co/300x300/e8f5e9/2e7d32?text=🏷️+Offers" alt="Special Offers" />
+            </div>
+            <h3>Special Offers</h3>
+            <span>6 Items</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Best Selling Products -->
+    <section class="best-sellers section" id="bestSellers">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title">Best Sellers</h2>
+          <p class="section__subtitle">Our most loved ice cream treats</p>
+          <a href="shop.html" class="btn btn--outline">View All</a>
+        </div>
+        <div class="product-carousel" id="productCarousel">
+          <div class="product-carousel__track" id="carouselTrack">
+
+            <article class="product-card" data-id="1" data-name="Strawberry Dream" data-price="4.99" data-category="flavours">
+              <div class="product-card__image">
+                <img src="https://placehold.co/400x300/f9b4c8/c2185b?text=Strawberry+Dream" alt="Strawberry Dream" loading="lazy" />
+                <div class="product-card__badges">
+                  <span class="badge--new">New</span>
+                </div>
+                <div class="product-card__actions">
+                  <button class="card-action-btn wishlist-toggle" data-id="1" aria-label="Add to wishlist"><i class="fas fa-heart"></i></button>
+                  <a href="product.html?id=1" class="card-action-btn" aria-label="Quick view"><i class="fas fa-eye"></i></a>
+                </div>
+              </div>
+              <div class="product-card__info">
+                <span class="product-card__category">Flavours</span>
+                <h3><a href="product.html?id=1">Strawberry Dream</a></h3>
+                <div class="product-card__rating">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                  <span>(128)</span>
+                </div>
+                <div class="product-card__footer">
+                  <span class="price">$4.99</span>
+                  <button class="btn btn--primary btn--sm add-to-cart" data-id="1" data-name="Strawberry Dream" data-price="4.99" data-image="https://placehold.co/400x300/f9b4c8/c2185b?text=Strawberry+Dream">Add to Cart</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card" data-id="2" data-name="Choco Fudge Sundae" data-price="6.49" data-category="sundaes">
+              <div class="product-card__image">
+                <img src="https://placehold.co/400x300/8d4004/fff?text=Choco+Fudge" alt="Choco Fudge Sundae" loading="lazy" />
+                <div class="product-card__badges">
+                  <span class="badge--hot">Hot</span>
+                </div>
+                <div class="product-card__actions">
+                  <button class="card-action-btn wishlist-toggle" data-id="2" aria-label="Add to wishlist"><i class="fas fa-heart"></i></button>
+                  <a href="product.html?id=2" class="card-action-btn" aria-label="Quick view"><i class="fas fa-eye"></i></a>
+                </div>
+              </div>
+              <div class="product-card__info">
+                <span class="product-card__category">Sundaes</span>
+                <h3><a href="product.html?id=2">Choco Fudge Sundae</a></h3>
+                <div class="product-card__rating">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  <span>(256)</span>
+                </div>
+                <div class="product-card__footer">
+                  <span class="price">$6.49</span>
+                  <button class="btn btn--primary btn--sm add-to-cart" data-id="2" data-name="Choco Fudge Sundae" data-price="6.49" data-image="https://placehold.co/400x300/8d4004/fff?text=Choco+Fudge">Add to Cart</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card" data-id="3" data-name="Mango Sorbet" data-price="3.99" data-category="flavours">
+              <div class="product-card__image">
+                <img src="https://placehold.co/400x300/ffd54f/e65100?text=Mango+Sorbet" alt="Mango Sorbet" loading="lazy" />
+                <div class="product-card__badges"></div>
+                <div class="product-card__actions">
+                  <button class="card-action-btn wishlist-toggle" data-id="3" aria-label="Add to wishlist"><i class="fas fa-heart"></i></button>
+                  <a href="product.html?id=3" class="card-action-btn" aria-label="Quick view"><i class="fas fa-eye"></i></a>
+                </div>
+              </div>
+              <div class="product-card__info">
+                <span class="product-card__category">Flavours</span>
+                <h3><a href="product.html?id=3">Mango Sorbet</a></h3>
+                <div class="product-card__rating">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                  <span>(89)</span>
+                </div>
+                <div class="product-card__footer">
+                  <span class="price">$3.99</span>
+                  <button class="btn btn--primary btn--sm add-to-cart" data-id="3" data-name="Mango Sorbet" data-price="3.99" data-image="https://placehold.co/400x300/ffd54f/e65100?text=Mango+Sorbet">Add to Cart</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card" data-id="4" data-name="Vanilla Bean Shake" data-price="5.49" data-category="milkshakes">
+              <div class="product-card__image">
+                <img src="https://placehold.co/400x300/fffde7/f57f17?text=Vanilla+Shake" alt="Vanilla Bean Shake" loading="lazy" />
+                <div class="product-card__badges">
+                  <span class="badge--sale">Sale</span>
+                </div>
+                <div class="product-card__actions">
+                  <button class="card-action-btn wishlist-toggle" data-id="4" aria-label="Add to wishlist"><i class="fas fa-heart"></i></button>
+                  <a href="product.html?id=4" class="card-action-btn" aria-label="Quick view"><i class="fas fa-eye"></i></a>
+                </div>
+              </div>
+              <div class="product-card__info">
+                <span class="product-card__category">Milkshakes</span>
+                <h3><a href="product.html?id=4">Vanilla Bean Shake</a></h3>
+                <div class="product-card__rating">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                  <span>(174)</span>
+                </div>
+                <div class="product-card__footer">
+                  <span class="price"><del>$6.49</del> $5.49</span>
+                  <button class="btn btn--primary btn--sm add-to-cart" data-id="4" data-name="Vanilla Bean Shake" data-price="5.49" data-image="https://placehold.co/400x300/fffde7/f57f17?text=Vanilla+Shake">Add to Cart</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card" data-id="5" data-name="Birthday Cake Blast" data-price="12.99" data-category="cakes">
+              <div class="product-card__image">
+                <img src="https://placehold.co/400x300/fce4ec/c62828?text=Birthday+Cake" alt="Birthday Cake Blast" loading="lazy" />
+                <div class="product-card__badges">
+                  <span class="badge--hot">Popular</span>
+                </div>
+                <div class="product-card__actions">
+                  <button class="card-action-btn wishlist-toggle" data-id="5" aria-label="Add to wishlist"><i class="fas fa-heart"></i></button>
+                  <a href="product.html?id=5" class="card-action-btn" aria-label="Quick view"><i class="fas fa-eye"></i></a>
+                </div>
+              </div>
+              <div class="product-card__info">
+                <span class="product-card__category">Cakes</span>
+                <h3><a href="product.html?id=5">Birthday Cake Blast</a></h3>
+                <div class="product-card__rating">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  <span>(312)</span>
+                </div>
+                <div class="product-card__footer">
+                  <span class="price">$12.99</span>
+                  <button class="btn btn--primary btn--sm add-to-cart" data-id="5" data-name="Birthday Cake Blast" data-price="12.99" data-image="https://placehold.co/400x300/fce4ec/c62828?text=Birthday+Cake">Add to Cart</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card" data-id="6" data-name="Blueberry Swirl" data-price="4.49" data-category="flavours">
+              <div class="product-card__image">
+                <img src="https://placehold.co/400x300/ede7f6/4527a0?text=Blueberry+Swirl" alt="Blueberry Swirl" loading="lazy" />
+                <div class="product-card__badges"></div>
+                <div class="product-card__actions">
+                  <button class="card-action-btn wishlist-toggle" data-id="6" aria-label="Add to wishlist"><i class="fas fa-heart"></i></button>
+                  <a href="product.html?id=6" class="card-action-btn" aria-label="Quick view"><i class="fas fa-eye"></i></a>
+                </div>
+              </div>
+              <div class="product-card__info">
+                <span class="product-card__category">Flavours</span>
+                <h3><a href="product.html?id=6">Blueberry Swirl</a></h3>
+                <div class="product-card__rating">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                  <span>(67)</span>
+                </div>
+                <div class="product-card__footer">
+                  <span class="price">$4.49</span>
+                  <button class="btn btn--primary btn--sm add-to-cart" data-id="6" data-name="Blueberry Swirl" data-price="4.49" data-image="https://placehold.co/400x300/ede7f6/4527a0?text=Blueberry+Swirl">Add to Cart</button>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+        <div class="carousel-controls">
+          <button class="carousel-btn" id="carouselPrev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+          <button class="carousel-btn" id="carouselNext" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Special Offers -->
+    <section class="offers section" id="offers">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title">Special Offers</h2>
+          <p class="section__subtitle">Treat yourself without breaking the bank</p>
+        </div>
+        <div class="offers__grid">
+          <div class="offer-card offer-card--large">
+            <img src="https://placehold.co/700x400/f9b4c8/c2185b?text=Buy+2+Get+1+Free+🍦" alt="Buy 2 Get 1 Free" />
+            <div class="offer-card__content">
+              <span class="offer-tag">Limited Time</span>
+              <h3>Buy 2 Get 1 Free</h3>
+              <p>On all single scoop flavours. Mix and match your favourites!</p>
+              <a href="shop.html?category=offers" class="btn btn--primary">Grab the Deal</a>
+            </div>
+          </div>
+          <div class="offer-card">
+            <img src="https://placehold.co/400x300/ffd54f/e65100?text=20%25+Off+Cakes" alt="20% Off Cakes" />
+            <div class="offer-card__content">
+              <span class="offer-tag">Weekend Only</span>
+              <h3>20% Off All Cakes</h3>
+              <p>Perfect for celebrations and parties.</p>
+              <a href="shop.html?category=cakes" class="btn btn--outline">Shop Cakes</a>
+            </div>
+          </div>
+          <div class="offer-card">
+            <img src="https://placehold.co/400x300/8d4004/fff?text=Free+Delivery" alt="Free Delivery" />
+            <div class="offer-card__content">
+              <span class="offer-tag">Always On</span>
+              <h3>Free Delivery Over $30</h3>
+              <p>Order more, save more on delivery charges.</p>
+              <a href="shop.html" class="btn btn--outline">Order Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Menu Preview -->
+    <section class="menu-preview section">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title">Our Menu</h2>
+          <p class="section__subtitle">A sneak peek at our delicious offerings</p>
+        </div>
+        <div class="menu__tabs">
+          <button class="menu__tab active" data-tab="scoops">Scoops</button>
+          <button class="menu__tab" data-tab="sundaes">Sundaes</button>
+          <button class="menu__tab" data-tab="shakes">Shakes</button>
+          <button class="menu__tab" data-tab="cakes">Cakes</button>
+        </div>
+        <div class="menu__content">
+          <div class="menu__panel active" id="tab-scoops">
+            <div class="menu-items">
+              <div class="menu-item">
+                <img src="https://placehold.co/80x80/f9b4c8/c2185b?text=🍦" alt="Single Scoop" />
+                <div>
+                  <h4>Single Scoop</h4>
+                  <p>One scoop of your favourite flavour</p>
+                </div>
+                <span class="menu-item__price">$2.99</span>
+              </div>
+              <div class="menu-item">
+                <img src="https://placehold.co/80x80/ffd54f/e65100?text=🍦🍦" alt="Double Scoop" />
+                <div>
+                  <h4>Double Scoop</h4>
+                  <p>Two scoops of your choice</p>
+                </div>
+                <span class="menu-item__price">$4.99</span>
+              </div>
+              <div class="menu-item">
+                <img src="https://placehold.co/80x80/8d4004/fff?text=🍦🍦🍦" alt="Triple Scoop" />
+                <div>
+                  <h4>Triple Scoop</h4>
+                  <p>Three scoops for the ultimate treat</p>
+                </div>
+                <span class="menu-item__price">$6.99</span>
+              </div>
+            </div>
+          </div>
+          <div class="menu__panel" id="tab-sundaes">
+            <div class="menu-items">
+              <div class="menu-item">
+                <img src="https://placehold.co/80x80/8d4004/fff?text=🍨" alt="Classic Sundae" />
+                <div>
+                  <h4>Classic Sundae</h4>
+                  <p>Vanilla with hot fudge and whipped cream</p>
+                </div>
+                <span class="menu-item__price">$5.99</span>
+              </div>
+              <div class="menu-item">
+                <img src="https://placehold.co/80x80/f9b4c8/c2185b?text=🍓" alt="Strawberry Sundae" />
+                <div>
+                  <h4>Strawberry Delight</h4>
+                  <p>Fresh strawberry sauce over vanilla ice cream</p>
+                </div>
+                <span class="menu-item__price">$6.49</span>
+              </div>
+            </div>
+          </div>
+          <div class="menu__panel" id="tab-shakes">
+            <div class="menu-items">
+              <div class="menu-item">
+                <img src="https://placehold.co/80x80/ffd54f/e65100?text=🥤" alt="Classic Shake" />
+                <div>
+                  <h4>Classic Milkshake</h4>
+                  <p>Thick and creamy – choose your flavour</p>
+                </div>
+                <span class="menu-item__price">$4.99</span>
+              </div>
+              <div class="menu-item">
+                <img src="https://placehold.co/80x80/8d4004/fff?text=🍫🥤" alt="Chocolate Shake" />
+                <div>
+                  <h4>Chocolate Thunder</h4>
+                  <p>Double chocolate with brownie pieces</p>
+                </div>
+                <span class="menu-item__price">$5.99</span>
+              </div>
+            </div>
+          </div>
+          <div class="menu__panel" id="tab-cakes">
+            <div class="menu-items">
+              <div class="menu-item">
+                <img src="https://placehold.co/80x80/fce4ec/c62828?text=🎂" alt="Birthday Cake" />
+                <div>
+                  <h4>Birthday Cake (6")</h4>
+                  <p>Custom ice cream birthday cake</p>
+                </div>
+                <span class="menu-item__price">$24.99</span>
+              </div>
+              <div class="menu-item">
+                <img src="https://placehold.co/80x80/fce4ec/c62828?text=🎂🎂" alt="Party Cake" />
+                <div>
+                  <h4>Party Cake (10")</h4>
+                  <p>Feeds up to 20 guests</p>
+                </div>
+                <span class="menu-item__price">$44.99</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Customer Reviews -->
+    <section class="reviews section">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title">What Our Customers Say</h2>
+          <p class="section__subtitle">Don't just take our word for it</p>
+        </div>
+        <div class="reviews__grid">
+          <article class="review-card">
+            <div class="review-card__rating">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p>"The best ice cream I've ever had! The Strawberry Dream is absolutely divine. Fresh, creamy and bursting with real strawberry flavour."</p>
+            <div class="review-card__author">
+              <img src="https://placehold.co/50x50/f9b4c8/c2185b?text=SM" alt="Sarah M." />
+              <div>
+                <strong>Sarah M.</strong>
+                <span>Verified Buyer</span>
+              </div>
+            </div>
+          </article>
+          <article class="review-card">
+            <div class="review-card__rating">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p>"Ordered the birthday cake for my daughter's party and everyone was blown away! Beautiful presentation and incredibly delicious."</p>
+            <div class="review-card__author">
+              <img src="https://placehold.co/50x50/ffd54f/e65100?text=JD" alt="James D." />
+              <div>
+                <strong>James D.</strong>
+                <span>Verified Buyer</span>
+              </div>
+            </div>
+          </article>
+          <article class="review-card">
+            <div class="review-card__rating">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+            </div>
+            <p>"Fast delivery and everything arrived perfectly frozen. The Mango Sorbet is like summer in a cup! Will definitely order again."</p>
+            <div class="review-card__author">
+              <img src="https://placehold.co/50x50/8d4004/fff?text=PL" alt="Priya L." />
+              <div>
+                <strong>Priya L.</strong>
+                <span>Verified Buyer</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Instagram Gallery -->
+    <section class="instagram section">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title">Follow Us on Instagram</h2>
+          <p class="section__subtitle"><a href="#" target="_blank" rel="noopener">@iceworld_official</a> – Tag us for a chance to be featured!</p>
+        </div>
+        <div class="instagram__grid">
+          <a href="#" class="instagram__item" aria-label="Instagram post 1">
+            <img src="https://placehold.co/300x300/f9b4c8/c2185b?text=📸+1" alt="Instagram post" loading="lazy" />
+            <div class="instagram__overlay"><i class="fab fa-instagram"></i></div>
+          </a>
+          <a href="#" class="instagram__item" aria-label="Instagram post 2">
+            <img src="https://placehold.co/300x300/8d4004/fff?text=📸+2" alt="Instagram post" loading="lazy" />
+            <div class="instagram__overlay"><i class="fab fa-instagram"></i></div>
+          </a>
+          <a href="#" class="instagram__item" aria-label="Instagram post 3">
+            <img src="https://placehold.co/300x300/ffd54f/e65100?text=📸+3" alt="Instagram post" loading="lazy" />
+            <div class="instagram__overlay"><i class="fab fa-instagram"></i></div>
+          </a>
+          <a href="#" class="instagram__item" aria-label="Instagram post 4">
+            <img src="https://placehold.co/300x300/fce4ec/c62828?text=📸+4" alt="Instagram post" loading="lazy" />
+            <div class="instagram__overlay"><i class="fab fa-instagram"></i></div>
+          </a>
+          <a href="#" class="instagram__item" aria-label="Instagram post 5">
+            <img src="https://placehold.co/300x300/ede7f6/4527a0?text=📸+5" alt="Instagram post" loading="lazy" />
+            <div class="instagram__overlay"><i class="fab fa-instagram"></i></div>
+          </a>
+          <a href="#" class="instagram__item" aria-label="Instagram post 6">
+            <img src="https://placehold.co/300x300/e8f5e9/2e7d32?text=📸+6" alt="Instagram post" loading="lazy" />
+            <div class="instagram__overlay"><i class="fab fa-instagram"></i></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+      <div class="container">
+        <div class="newsletter__inner">
+          <div class="newsletter__text">
+            <h2>Subscribe & Save 15%</h2>
+            <p>Join our sweet community and get exclusive offers, new flavour alerts and more!</p>
+          </div>
+          <form class="newsletter__form" id="newsletterForm" novalidate>
+            <input type="email" id="newsletterEmail" placeholder="Enter your email address" required />
+            <button type="submit" class="btn btn--primary">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="index.html" class="logo">
+            <span class="logo__icon">🍦</span>
+            <span class="logo__text">IceWorld</span>
+          </a>
+          <p>Crafting joy one scoop at a time since 2010. Premium, handmade ice cream delivered to your door.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+          </div>
+        </div>
+        <div class="footer__links">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="shop.html">All Products</a></li>
+            <li><a href="shop.html?category=flavours">Ice Cream Flavours</a></li>
+            <li><a href="shop.html?category=sundaes">Sundaes</a></li>
+            <li><a href="shop.html?category=milkshakes">Milkshakes</a></li>
+            <li><a href="shop.html?category=cakes">Ice Cream Cakes</a></li>
+            <li><a href="shop.html?category=offers">Special Offers</a></li>
+          </ul>
+        </div>
+        <div class="footer__links">
+          <h4>Customer Support</h4>
+          <ul>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Shipping Policy</a></li>
+            <li><a href="#">Returns & Refunds</a></li>
+            <li><a href="#">Track Your Order</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+          </ul>
+        </div>
+        <div class="footer__contact">
+          <h4>Contact Us</h4>
+          <ul>
+            <li><i class="fas fa-map-marker-alt"></i> 123 Sweet Street, Ice Town, IT 45678</li>
+            <li><i class="fas fa-phone"></i> <a href="tel:+15551234567">+1 (555) 123-4567</a></li>
+            <li><i class="fas fa-envelope"></i> <a href="mailto:hello@iceworld.com">hello@iceworld.com</a></li>
+            <li><i class="fas fa-clock"></i> Mon–Sun: 9am – 10pm</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; <span id="year"></span> IceWorld. All rights reserved.</p>
+        <div class="payment-icons">
+          <i class="fab fa-cc-visa"></i>
+          <i class="fab fa-cc-mastercard"></i>
+          <i class="fab fa-cc-paypal"></i>
+          <i class="fab fa-cc-apple-pay"></i>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
