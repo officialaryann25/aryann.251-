@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Floria – Premium Flower Delivery</title>
+  <meta name="description" content="Floria – Luxury flower delivery. Same-day delivery, premium arrangements, and exceptional quality." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-page="index">
+
+  <!-- ============================
+       OVERLAY
+       ============================ -->
+  <div id="overlay"></div>
+
+  <!-- ============================
+       TOAST CONTAINER
+       ============================ -->
+  <div id="toast-container"></div>
+
+  <!-- ============================
+       SIDE MENU
+       ============================ -->
+  <nav id="side-menu" role="navigation" aria-label="Side navigation">
+    <div class="side-menu-header">
+      <span class="side-menu-logo">Floria</span>
+      <button class="close-menu-btn" onclick="closeMenu()" aria-label="Close menu">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="side-menu-body">
+      <div class="side-menu-section-title">Top Collections</div>
+      <div class="side-menu-item" onclick="scrollToSection('same-day-section')"><i class="fas fa-shipping-fast"></i> Same Day Delivery</div>
+      <div class="side-menu-item" onclick="scrollToSection('birthday-section')"><i class="fas fa-birthday-cake"></i> Birthday Flowers</div>
+      <div class="side-menu-item" onclick="scrollToSection('anniversary-section')"><i class="fas fa-heart"></i> Anniversary Flowers</div>
+      <div class="side-menu-item" onclick="scrollToSection('vase-section')"><i class="fas fa-wine-glass-alt"></i> Fragrances &amp; Vases</div>
+      <div class="side-menu-divider"></div>
+      <div class="side-menu-section-title">Shop By</div>
+      <div class="side-menu-item" onclick="scrollToSection('bestselling-section')"><i class="fas fa-star"></i> Collections</div>
+      <div class="side-menu-item" onclick="scrollToSection('birthday-section')"><i class="fas fa-calendar"></i> Occasions</div>
+      <div class="side-menu-item" onclick="scrollToSection('anniversary-section')"><i class="fas fa-feather-alt"></i> Soft Sentiments</div>
+      <div class="side-menu-item" onclick="scrollToSection('grandgestures-section')"><i class="fas fa-gift"></i> Festivals</div>
+      <div class="side-menu-item" onclick="scrollToSection('handtied-section')"><i class="fas fa-seedling"></i> Flower Type</div>
+      <div class="side-menu-item" onclick="scrollToSection('wedding-section')"><i class="fas fa-globe"></i> International</div>
+      <div class="side-menu-item" onclick="scrollToSection('wedding-section')"><i class="fas fa-map-marker-alt"></i> Cities</div>
+      <div class="side-menu-divider"></div>
+      <div class="side-menu-item" onclick="window.location.href='login.html'"><i class="fas fa-user"></i> My Account</div>
+      <div class="side-menu-item" onclick="openCart()"><i class="fas fa-shopping-bag"></i> My Cart</div>
+    </div>
+  </nav>
+
+  <!-- ============================
+       HEADER
+       ============================ -->
+  <header id="main-header">
+    <div class="header-top">
+      🌸 Free delivery on orders above ₹2000 &nbsp;|&nbsp; Same Day Delivery Available &nbsp;|&nbsp; 100% Fresh Flowers Guaranteed
+    </div>
+    <div class="header-main">
+      <!-- Left -->
+      <div class="header-left">
+        <button class="hamburger-btn" onclick="openMenu()" aria-label="Open menu">
+          <i class="fas fa-bars"></i>
+        </button>
+        <a href="index.html" class="logo">
+          <span class="logo-text">Floria</span>
+          <span class="logo-tagline">Premium Blooms</span>
+        </a>
+        <div class="delivery-location" title="Change delivery location">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>Deliver to 110043</span>
+          <i class="fas fa-chevron-down" style="font-size:0.65rem;"></i>
+        </div>
+      </div>
+
+      <!-- Search -->
+      <div class="header-search">
+        <div class="search-wrapper" style="position:relative;">
+          <input type="text" id="search-input" placeholder="Search for flowers, bouquets, occasions..." autocomplete="off" />
+          <button class="search-btn" aria-label="Search"><i class="fas fa-search"></i></button>
+          <div id="search-results-dropdown"></div>
+        </div>
+      </div>
+
+      <!-- Right -->
+      <div class="header-right">
+        <button class="header-icon-btn" title="Currency">
+          <i class="fas fa-rupee-sign"></i>
+          <span>INR</span>
+        </button>
+        <button class="header-icon-btn" title="Wishlist" onclick="showToast('Wishlist coming soon!', 'info')">
+          <i class="far fa-heart"></i>
+          <span>Wishlist</span>
+        </button>
+        <button class="header-icon-btn" onclick="openCart()" title="Cart" id="cart-btn">
+          <div style="position:relative;display:inline-block;">
+            <i class="fas fa-shopping-bag"></i>
+            <span class="cart-badge" id="cart-badge-count" style="display:none;">0</span>
+          </div>
+          <span>Cart</span>
+        </button>
+        <a href="login.html" class="header-icon-btn" title="Login">
+          <i class="far fa-user"></i>
+          <span>Login</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================
+       CATEGORY NAV
+       ============================ -->
+  <nav id="category-nav" aria-label="Product categories">
+    <div class="category-nav-inner">
+      <div class="category-nav-item active" data-target="bestselling-section"><i class="fas fa-star"></i> Women's Day</div>
+      <div class="category-nav-item" data-target="same-day-section"><i class="fas fa-shipping-fast"></i> Same Day Delivery</div>
+      <div class="category-nav-item" data-target="birthday-section"><i class="fas fa-birthday-cake"></i> Birthday Flowers</div>
+      <div class="category-nav-item" data-target="anniversary-section"><i class="fas fa-heart"></i> Anniversary Flowers</div>
+      <div class="category-nav-item" data-target="grandgestures-section"><i class="fas fa-crown"></i> Grand Gestures</div>
+      <div class="category-nav-item" data-target="vase-section"><i class="fas fa-fire"></i> Candles &amp; Fragrances</div>
+      <div class="category-nav-item" data-target="handtied-section"><i class="fas fa-gift"></i> Gift Hampers</div>
+      <div class="category-nav-item" data-target="wedding-section"><i class="fas fa-briefcase"></i> Corporate Gifting</div>
+    </div>
+  </nav>
+
+  <!-- ============================
+       HERO BANNER
+       ============================ -->
+  <section id="hero-banner" aria-label="Featured promotions">
+    <div class="hero-slider" id="hero-slider">
+
+      <!-- Slide 1 -->
+      <div class="hero-slide">
+        <div class="slide-bg" style="background: linear-gradient(135deg, #2c1810 0%, #8c3030 50%, #c9504f 100%);"></div>
+        <div class="slide-overlay"></div>
+        <div class="slide-content">
+          <span class="slide-badge">✦ Premium Collection</span>
+          <h1 class="slide-title">Flowers<br>In Hours</h1>
+          <p class="slide-subtitle">Same-day delivery wrapped in elegance</p>
+          <a href="#bestselling-section" class="slide-btn" onclick="document.getElementById('bestselling-section').scrollIntoView({behavior:'smooth'});return false;">ORDER NOW</a>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="hero-slide">
+        <div class="slide-bg" style="background: linear-gradient(135deg, #1a0a2e 0%, #6b2fa0 50%, #c77dff 100%);"></div>
+        <div class="slide-overlay"></div>
+        <div class="slide-content">
+          <span class="slide-badge">✦ Birthday Special</span>
+          <h1 class="slide-title">Birthdays<br>Call For<br>Blooms</h1>
+          <p class="slide-subtitle">Make every birthday unforgettable with fresh flowers</p>
+          <a href="#birthday-section" class="slide-btn" onclick="document.getElementById('birthday-section').scrollIntoView({behavior:'smooth'});return false;">SHOP NOW</a>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="hero-slide">
+        <div class="slide-bg" style="background: linear-gradient(135deg, #0a1628 0%, #1a4a7a 50%, #4a9edd 100%);"></div>
+        <div class="slide-overlay"></div>
+        <div class="slide-content">
+          <span class="slide-badge">✦ Luxury Range</span>
+          <h1 class="slide-title">Luxury Flower<br>Arrangements</h1>
+          <p class="slide-subtitle">Exquisitely crafted for the most special moments</p>
+          <a href="#grandgestures-section" class="slide-btn" onclick="document.getElementById('grandgestures-section').scrollIntoView({behavior:'smooth'});return false;">EXPLORE</a>
+        </div>
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="hero-slide">
+        <div class="slide-bg" style="background: linear-gradient(135deg, #0f2b1d 0%, #1e6b42 50%, #4caf82 100%);"></div>
+        <div class="slide-overlay"></div>
+        <div class="slide-content">
+          <span class="slide-badge">✦ Anniversary Edition</span>
+          <h1 class="slide-title">Send Love<br>Anywhere</h1>
+          <p class="slide-subtitle">Express your deepest emotions through the language of flowers</p>
+          <a href="#anniversary-section" class="slide-btn" onclick="document.getElementById('anniversary-section').scrollIntoView({behavior:'smooth'});return false;">SEND NOW</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Arrows -->
+    <button class="hero-arrow hero-arrow-left" id="hero-prev" aria-label="Previous slide">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+    <button class="hero-arrow hero-arrow-right" id="hero-next" aria-label="Next slide">
+      <i class="fas fa-chevron-right"></i>
+    </button>
+
+    <!-- Dots -->
+    <div class="hero-dots">
+      <button class="hero-dot active" aria-label="Slide 1"></button>
+      <button class="hero-dot" aria-label="Slide 2"></button>
+      <button class="hero-dot" aria-label="Slide 3"></button>
+      <button class="hero-dot" aria-label="Slide 4"></button>
+    </div>
+  </section>
+
+  <!-- ============================
+       PROMO STRIP
+       ============================ -->
+  <section id="promo-strip">
+    <div class="promo-strip-inner">
+      <div class="promo-item" data-lazy>
+        <i class="fas fa-shipping-fast"></i>
+        <div class="promo-item-text">
+          <div class="promo-item-title">Same Day Delivery</div>
+          <div class="promo-item-desc">Order before 3 PM</div>
+        </div>
+      </div>
+      <div class="promo-item" data-lazy>
+        <i class="fas fa-leaf"></i>
+        <div class="promo-item-text">
+          <div class="promo-item-title">100% Fresh Flowers</div>
+          <div class="promo-item-desc">Sourced daily from farms</div>
+        </div>
+      </div>
+      <div class="promo-item" data-lazy>
+        <i class="fas fa-undo"></i>
+        <div class="promo-item-text">
+          <div class="promo-item-title">Easy Returns</div>
+          <div class="promo-item-desc">Hassle-free replacements</div>
+        </div>
+      </div>
+      <div class="promo-item" data-lazy>
+        <i class="fas fa-lock"></i>
+        <div class="promo-item-text">
+          <div class="promo-item-title">Secure Payments</div>
+          <div class="promo-item-desc">100% safe transactions</div>
+        </div>
+      </div>
+      <div class="promo-item" data-lazy>
+        <i class="fas fa-phone"></i>
+        <div class="promo-item-text">
+          <div class="promo-item-title">24/7 Support</div>
+          <div class="promo-item-desc">We're always here for you</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       BESTSELLING BLOOMS
+       ============================ -->
+  <section class="section-wrap" id="bestselling-section">
+    <div class="container">
+      <div class="section-header" data-lazy>
+        <div class="section-header-left">
+          <div class="badge">Our Favourites</div>
+          <h2 class="section-title">Bestselling Blooms</h2>
+          <p class="section-subtitle">Floral arrangements that get the most love</p>
+          <div class="section-separator"></div>
+        </div>
+        <div class="section-header-right">
+          <a href="#birthday-section" class="btn-outline" onclick="document.getElementById('birthday-section').scrollIntoView({behavior:'smooth'});return false;">View All Collections</a>
+        </div>
+      </div>
+
+      <!-- Horizontal Slider -->
+      <div class="slider-section">
+        <button class="slider-nav slider-nav-left" id="best-prev" aria-label="Previous">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="products-horizontal-slider">
+          <div class="products-track" id="bestselling-track">
+            <!-- Dynamically rendered -->
+          </div>
+        </div>
+        <button class="slider-nav slider-nav-right" id="best-next" aria-label="Next">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       SAME DAY DELIVERY BANNER
+       ============================ -->
+  <section id="same-day-section" style="padding: 40px 0; background: linear-gradient(135deg, #fde8e8 0%, #f5d5cc 100%);">
+    <div class="container">
+      <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:20px;">
+        <div>
+          <div class="badge" style="margin-bottom:10px;">⚡ Express Service</div>
+          <h2 style="font-family:var(--font-main);font-size:2rem;font-weight:700;color:var(--dark);">Same Day Delivery</h2>
+          <p style="color:var(--gray);margin-top:6px;">Order before 3 PM and get your blooms delivered today!</p>
+        </div>
+        <div style="display:flex;gap:40px;flex-wrap:wrap;">
+          <div style="text-align:center;">
+            <div style="font-family:var(--font-main);font-size:2.5rem;font-weight:700;color:var(--primary);">50+</div>
+            <div style="font-size:0.82rem;color:var(--gray);">Cities</div>
+          </div>
+          <div style="text-align:center;">
+            <div style="font-family:var(--font-main);font-size:2.5rem;font-weight:700;color:var(--primary);">500+</div>
+            <div style="font-size:0.82rem;color:var(--gray);">Products</div>
+          </div>
+          <div style="text-align:center;">
+            <div style="font-family:var(--font-main);font-size:2.5rem;font-weight:700;color:var(--primary);">10k+</div>
+            <div style="font-size:0.82rem;color:var(--gray);">Happy Customers</div>
+          </div>
+        </div>
+        <a href="#bestselling-section" class="btn-primary" onclick="document.getElementById('bestselling-section').scrollIntoView({behavior:'smooth'});return false;">Shop Now <i class="fas fa-arrow-right" style="margin-left:6px;"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       BIRTHDAY COLLECTION
+       ============================ -->
+  <section class="section-wrap" id="birthday-section">
+    <div class="container">
+      <div class="section-header" data-lazy>
+        <div class="section-header-left">
+          <div class="badge">🎂 For Celebrations</div>
+          <h2 class="section-title">Birthday Collection</h2>
+          <p class="section-subtitle">Make every birthday extra special with our finest blooms</p>
+          <div class="section-separator"></div>
+        </div>
+      </div>
+      <div class="products-grid" id="birthday-grid"></div>
+      <div class="show-more-wrap">
+        <button class="show-more-btn" id="birthday-show-more">Load More <i class="fas fa-arrow-down"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       ANNIVERSARY COLLECTION
+       ============================ -->
+  <section class="section-wrap" id="anniversary-section" style="background: var(--light-gray);">
+    <div class="container">
+      <div class="section-header" data-lazy>
+        <div class="section-header-left">
+          <div class="badge">❤️ For Love</div>
+          <h2 class="section-title">Anniversary Collection</h2>
+          <p class="section-subtitle">Celebrate your love story with timeless floral arrangements</p>
+          <div class="section-separator"></div>
+        </div>
+      </div>
+      <div class="products-grid" id="anniversary-grid"></div>
+      <div class="show-more-wrap">
+        <button class="show-more-btn" id="anniversary-show-more">Load More <i class="fas fa-arrow-down"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       GRAND GESTURES COLLECTION
+       ============================ -->
+  <section class="section-wrap" id="grandgestures-section">
+    <div class="container">
+      <div class="section-header" data-lazy>
+        <div class="section-header-left">
+          <div class="badge">👑 Premium</div>
+          <h2 class="section-title">Grand Gestures</h2>
+          <p class="section-subtitle">When only the grandest arrangement will do</p>
+          <div class="section-separator"></div>
+        </div>
+      </div>
+      <div class="products-grid" id="grandgestures-grid"></div>
+      <div class="show-more-wrap">
+        <button class="show-more-btn" id="grandgestures-show-more">Load More <i class="fas fa-arrow-down"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       VASE ARRANGEMENTS
+       ============================ -->
+  <section class="section-wrap" id="vase-section" style="background: var(--light-gray);">
+    <div class="container">
+      <div class="section-header" data-lazy>
+        <div class="section-header-left">
+          <div class="badge">🏺 Timeless</div>
+          <h2 class="section-title">Vase Arrangements</h2>
+          <p class="section-subtitle">Elegant blooms in stunning vases — for every décor</p>
+          <div class="section-separator"></div>
+        </div>
+      </div>
+      <div class="products-grid" id="vase-grid"></div>
+      <div class="show-more-wrap">
+        <button class="show-more-btn" id="vase-show-more">Load More <i class="fas fa-arrow-down"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       HAND TIED COLLECTION
+       ============================ -->
+  <section class="section-wrap" id="handtied-section">
+    <div class="container">
+      <div class="section-header" data-lazy>
+        <div class="section-header-left">
+          <div class="badge">🌺 Artisan</div>
+          <h2 class="section-title">Hand Tied Collection</h2>
+          <p class="section-subtitle">Beautifully hand-crafted bouquets by our floral artists</p>
+          <div class="section-separator"></div>
+        </div>
+      </div>
+      <div class="products-grid" id="handtied-grid"></div>
+      <div class="show-more-wrap">
+        <button class="show-more-btn" id="handtied-show-more">Load More <i class="fas fa-arrow-down"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       WEDDING FLOWERS
+       ============================ -->
+  <section class="section-wrap" id="wedding-section" style="background: var(--light-gray);">
+    <div class="container">
+      <div class="section-header" data-lazy>
+        <div class="section-header-left">
+          <div class="badge">💍 Bridal</div>
+          <h2 class="section-title">Wedding Flowers</h2>
+          <p class="section-subtitle">Create your dream wedding with our exquisite floral creations</p>
+          <div class="section-separator"></div>
+        </div>
+      </div>
+      <div class="products-grid" id="wedding-grid"></div>
+      <div class="show-more-wrap">
+        <button class="show-more-btn" id="wedding-show-more">Load More <i class="fas fa-arrow-down"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       BLOG SECTION
+       ============================ -->
+  <section id="blog-section">
+    <div class="container">
+      <div class="section-header" data-lazy>
+        <div class="section-header-left">
+          <div class="badge">📖 Floral Inspiration</div>
+          <h2 class="section-title">Our Blogs</h2>
+          <p class="section-subtitle">Tips, guides & stories from the world of flowers</p>
+          <div class="section-separator"></div>
+        </div>
+      </div>
+      <div class="blog-grid">
+        <div class="blog-card" data-lazy>
+          <div class="blog-card-img" style="background:linear-gradient(135deg,#f8c8c8,#f5d5cc);display:flex;align-items:center;justify-content:center;font-size:4rem;">🌹</div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-card-category">Romance</span>
+              <span>Mar 5, 2025</span>
+            </div>
+            <h3 class="blog-card-title">Best Flowers For Your Girlfriend</h3>
+            <p class="blog-card-excerpt">Discover the most romantic flowers that will make her heart skip a beat. From classic roses to exotic orchids, find the perfect bloom for your love.</p>
+            <a href="#" class="blog-read-more" onclick="showToast('Article coming soon!','info');return false;">Keep Reading <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="blog-card" data-lazy>
+          <div class="blog-card-img" style="background:linear-gradient(135deg,#f8e4b8,#fde8e8);display:flex;align-items:center;justify-content:center;font-size:4rem;">🎂</div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-card-category">Celebrations</span>
+              <span>Feb 20, 2025</span>
+            </div>
+            <h3 class="blog-card-title">Top 10 Birthday Flowers That'll Wow Them</h3>
+            <p class="blog-card-excerpt">Make their special day unforgettable with the right flowers. We've curated the top 10 birthday flowers that are sure to bring joy and smiles.</p>
+            <a href="#" class="blog-read-more" onclick="showToast('Article coming soon!','info');return false;">Keep Reading <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="blog-card" data-lazy>
+          <div class="blog-card-img" style="background:linear-gradient(135deg,#b8f8e4,#b8e4c8);display:flex;align-items:center;justify-content:center;font-size:4rem;">🌿</div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-card-category">Plant Care</span>
+              <span>Jan 15, 2025</span>
+            </div>
+            <h3 class="blog-card-title">The Complete Money Plant Care Guide</h3>
+            <p class="blog-card-excerpt">Everything you need to know about growing and caring for your Money Plant. From watering schedules to sunlight requirements, we've got you covered.</p>
+            <a href="#" class="blog-read-more" onclick="showToast('Article coming soon!','info');return false;">Keep Reading <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       CART SIDEBAR
+       ============================ -->
+  <aside id="cart-sidebar" aria-label="Shopping cart">
+    <div class="cart-sidebar-header">
+      <span class="cart-sidebar-title">My Cart</span>
+      <button class="cart-close-btn" onclick="closeCart()" aria-label="Close cart">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="cart-items-list" id="cart-items-list">
+      <div class="cart-empty">
+        <i class="far fa-shopping-bag"></i>
+        <p>Your cart is empty</p>
+      </div>
+    </div>
+    <div class="cart-sidebar-footer">
+      <div class="cart-total-row">
+        <span class="cart-total-label">Total</span>
+        <span class="cart-total-amount" id="cart-sidebar-total">₹0</span>
+      </div>
+      <button class="btn-checkout" onclick="proceedToCheckout()">
+        <i class="fas fa-lock"></i> Secure Checkout
+      </button>
+      <a href="cart.html" class="btn-view-cart">View Full Cart</a>
+    </div>
+  </aside>
+
+  <!-- ============================
+       FOOTER
+       ============================ -->
+  <footer id="main-footer">
+    <div class="footer-top">
+      <div class="footer-top-inner">
+        <div class="footer-top-text">
+          <strong>🌸 Get exclusive offers!</strong> Subscribe to our newsletter
+        </div>
+        <div class="footer-email-form">
+          <input type="email" class="footer-email-input" placeholder="Enter your email address" />
+          <button class="footer-email-btn" onclick="showToast('Thank you for subscribing! 🌸','success')">Subscribe</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-main">
+      <!-- Brand -->
+      <div class="footer-brand">
+        <div class="footer-logo">Floria</div>
+        <p>Experience the luxury of nature's finest blooms, delivered fresh to your doorstep. We believe every moment deserves the beauty of flowers.</p>
+        <div class="footer-social">
+          <a href="#" class="social-icon" title="Instagram" onclick="showToast('Follow us on Instagram @floriaofficial','info');return false;"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-icon" title="Facebook" onclick="showToast('Like us on Facebook','info');return false;"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-icon" title="Pinterest" onclick="showToast('Follow us on Pinterest','info');return false;"><i class="fab fa-pinterest-p"></i></a>
+          <a href="#" class="social-icon" title="Twitter" onclick="showToast('Follow us on Twitter','info');return false;"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+
+      <!-- Links 1 -->
+      <div>
+        <div class="footer-col-title">Flowers by Recipient</div>
+        <div class="footer-links">
+          <a href="#" onclick="showToast('Browsing Flowers for Him','info');return false;">Flowers for Him</a>
+          <a href="#" onclick="showToast('Browsing Flowers for Her','info');return false;">Flowers for Her</a>
+          <a href="#" onclick="showToast('Browsing Flowers for Mom','info');return false;">Flowers for Mom</a>
+          <a href="#" onclick="showToast('Browsing Kids Collection','info');return false;">Flowers for Kids</a>
+          <a href="#" onclick="showToast('Browsing Corporate Collection','info');return false;">Corporate Flowers</a>
+          <a href="#" onclick="showToast('Browsing Wedding Collection','info');return false;">Wedding Flowers</a>
+        </div>
+      </div>
+
+      <!-- Links 2 -->
+      <div>
+        <div class="footer-col-title">International Delivery</div>
+        <div class="footer-links">
+          <a href="#" onclick="showToast('Sending flowers to UK','info');return false;">🇬🇧 Send to UK</a>
+          <a href="#" onclick="showToast('Sending flowers to Canada','info');return false;">🇨🇦 Send to Canada</a>
+          <a href="#" onclick="showToast('Sending flowers to Germany','info');return false;">🇩🇪 Send to Germany</a>
+          <a href="#" onclick="showToast('Sending flowers to Singapore','info');return false;">🇸🇬 Send to Singapore</a>
+          <a href="#" onclick="showToast('Sending flowers to Australia','info');return false;">🇦🇺 Send to Australia</a>
+          <a href="#" onclick="showToast('Sending flowers to USA','info');return false;">🇺🇸 Send to USA</a>
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <div class="footer-col-title">Contact Us</div>
+        <div class="footer-contact-item">
+          <i class="fas fa-store"></i>
+          <div><strong style="color:rgba(255,255,255,0.9);">Floria</strong><br>Premium Flower Delivery</div>
+        </div>
+        <div style="margin-bottom:16px;">
+          <div style="font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:8px;">Owner 1</div>
+          <div class="footer-contact-item">
+            <i class="fas fa-user"></i>
+            <span>Mahi Sehrawat</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-phone"></i>
+            <a href="tel:+918750141860" style="color:rgba(255,255,255,0.75);">+91 8750141860</a>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:mahisehrawat2006@gmail.com" style="color:rgba(255,255,255,0.75);font-size:0.8rem;">mahisehrawat2006@gmail.com</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:8px;">Owner 2</div>
+          <div class="footer-contact-item">
+            <i class="fas fa-user"></i>
+            <span>Priyanshi</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-phone"></i>
+            <a href="tel:+918368573180" style="color:rgba(255,255,255,0.75);">+91 8368573180</a>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:priyadaksh007@gmail.com" style="color:rgba(255,255,255,0.75);font-size:0.8rem;">priyadaksh007@gmail.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span class="footer-bottom-text">© 2025 Floria. All rights reserved. Crafted with ❤️ for flower lovers.</span>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Shipping Policy</a>
+        <a href="#">Refund Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script src="js/script.js"></script>
+  <script>
+    function scrollToSection(id) {
+      closeMenu();
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  </script>
+</body>
+</html>
