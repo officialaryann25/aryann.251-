@@ -4,11 +4,15 @@
 
 /* ---- CSS Custom Properties ---- */
 :root {
+  /* Strawberry Pink */
   --primary:        #ff6b9d;
   --primary-dark:   #e04f85;
   --primary-light:  #ffd6e8;
-  --secondary:      #6c3fc5;
-  --secondary-light:#ede0ff;
+  /* Chocolate Brown */
+  --secondary:      #5c2a0f;
+  --secondary-dark: #3e1a08;
+  --secondary-light:#f5e6d8;
+  /* Mango Yellow */
   --accent:         #ffb347;
   --accent-dark:    #e0903a;
   --success:        #28a745;
@@ -16,16 +20,19 @@
   --warning:        #ffc107;
   --info:           #17a2b8;
 
-  --text-dark:      #1a1a2e;
-  --text-mid:       #4a4a6a;
-  --text-light:     #8888a8;
+  /* Chocolate-Brown text scale */
+  --text-dark:      #2c1810;
+  --text-mid:       #6b4423;
+  --text-light:     #9d7b6b;
+  /* Cream White backgrounds */
   --bg-white:       #ffffff;
-  --bg-light:       #fdf8ff;
-  --bg-mid:         #f0edf8;
-  --border-color:   #e5e0f0;
+  --bg-light:       #fff8f0;
+  --bg-mid:         #f5ede5;
+  --border-color:   #e8d5c4;
 
-  --font-body:      'Nunito', sans-serif;
-  --font-brand:     'Pacifico', cursive;
+  /* Poppins (body) + Montserrat (headings/brand) */
+  --font-body:      'Poppins', sans-serif;
+  --font-brand:     'Montserrat', sans-serif;
 
   --radius-sm:      6px;
   --radius-md:      12px;
@@ -33,10 +40,11 @@
   --radius-xl:      32px;
   --radius-full:    9999px;
 
-  --shadow-sm:      0 2px 8px rgba(106,63,197,0.08);
-  --shadow-md:      0 4px 20px rgba(106,63,197,0.12);
-  --shadow-lg:      0 8px 40px rgba(106,63,197,0.18);
-  --shadow-xl:      0 16px 60px rgba(106,63,197,0.22);
+  /* Warm chocolate-brown shadows */
+  --shadow-sm:      0 2px 8px rgba(92,42,15,0.08);
+  --shadow-md:      0 4px 20px rgba(92,42,15,0.12);
+  --shadow-lg:      0 8px 40px rgba(92,42,15,0.18);
+  --shadow-xl:      0 16px 60px rgba(92,42,15,0.22);
 
   --transition:     all 0.3s ease;
   --transition-slow:all 0.6s ease;
@@ -137,7 +145,7 @@
 /* ============================================================
    LOYALTY SECTION
    ============================================================ */
-.loyalty-section { background: linear-gradient(135deg, #1a1a2e, #2d1b69); color: #fff; }
+.loyalty-section { background: linear-gradient(135deg, #2c1810, #5c2a0f); color: #fff; }
 .loyalty-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1066,8 +1074,8 @@ textarea.form-control { resize: vertical; min-height: 120px; }
 
 /* Slide Backgrounds */
 .hero-slide-bg { position: absolute; inset: 0; z-index: 0; }
-.hero-slide-bg-1 { background: linear-gradient(135deg, #ffe4f0 0%, #fff0f8 50%, #f0e4ff 100%); }
-.hero-slide-bg-2 { background: linear-gradient(135deg, #e8d8ff 0%, #f8f0ff 50%, #d8eeff 100%); }
+.hero-slide-bg-1 { background: linear-gradient(135deg, #ffe4f0 0%, #fff0f8 50%, #fff4ec 100%); }
+.hero-slide-bg-2 { background: linear-gradient(135deg, #fff3e0 0%, #fff8f0 50%, #ffecd2 100%); }
 .hero-slide-bg-3 { background: linear-gradient(135deg, #fff3e0 0%, #fff8f0 50%, #ffecd2 100%); }
 .hero-slide-bg-4 { background: linear-gradient(135deg, #e0ffe4 0%, #f0fff4 50%, #d4ffe0 100%); }
 
@@ -1125,7 +1133,7 @@ textarea.form-control { resize: vertical; min-height: 120px; }
   animation: blobMorph 8s ease-in-out infinite;
   z-index: 0;
 }
-.hero-blob-purple { background: rgba(108,63,197,0.12); }
+.hero-blob-purple { background: rgba(92,42,15,0.10); }
 .hero-blob-orange { background: rgba(255,179,71,0.18); }
 .hero-blob-green  { background: rgba(40,167,69,0.12); }
 .hero-img {
@@ -1551,11 +1559,11 @@ textarea.form-control { resize: vertical; min-height: 120px; }
 }
 .promo-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
 .promo-card-sm {
-  background: linear-gradient(135deg, var(--secondary-light), #f0eaff);
+  background: linear-gradient(135deg, var(--secondary-light), #fff3e8);
   padding: 30px;
 }
 .promo-card-dark {
-  background: linear-gradient(135deg, var(--text-dark), #2d2d4e);
+  background: linear-gradient(135deg, var(--text-dark), #5c2a0f);
   color: #fff;
 }
 .promo-tag {
