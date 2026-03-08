@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact IceWorld – Reach out to us for orders, inquiries, or feedback. Find our contact details, location, and send us a message.">
+    <title>Contact Us – IceWorld Premium Ice Cream Shop</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ===================== LOADING SCREEN ===================== -->
+    <div id="loading-screen">
+        <div class="loader-logo">🍦 IceWorld</div>
+        <div class="loader-dots">
+            <span></span><span></span><span></span>
+        </div>
+    </div>
+
+    <!-- ===================== TOAST CONTAINER ===================== -->
+    <div id="toast-container"></div>
+
+    <!-- ===================== SCROLL TO TOP ===================== -->
+    <button id="scroll-top" title="Scroll to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- ===================== CART OVERLAY + SIDEBAR ===================== -->
+    <div class="cart-overlay"></div>
+    <aside class="cart-sidebar" aria-label="Shopping Cart">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-cart"></i> Your Cart</h3>
+            <button class="cart-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items"></div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span class="cart-total-price">₹0</span>
+            </div>
+            <button class="checkout-btn">
+                <i class="fas fa-credit-card"></i> Proceed to Checkout
+            </button>
+        </div>
+    </aside>
+
+    <!-- ===================== WISHLIST MODAL ===================== -->
+    <div class="wishlist-page" role="dialog" aria-label="Wishlist">
+        <div class="wishlist-modal">
+            <div class="wishlist-header">
+                <h3><i class="fas fa-heart" style="color:var(--primary)"></i> My Wishlist</h3>
+                <button class="wishlist-close cart-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="wishlist-items"></div>
+        </div>
+    </div>
+
+    <!-- ===================== NAVBAR ===================== -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo" aria-label="IceWorld Home">
+                <div class="logo-icon">🍦</div>
+                <span class="logo-text">IceWorld</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+
+            <div class="nav-search" role="search">
+                <input type="search" placeholder="Search ice cream..." aria-label="Search products">
+                <button aria-label="Search"><i class="fas fa-search"></i></button>
+            </div>
+
+            <div class="nav-actions">
+                <button class="nav-icon-btn dark-toggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="nav-icon-btn wishlist-open-btn" aria-label="Wishlist">
+                    <i class="far fa-heart"></i>
+                    <span class="badge wishlist-badge" style="display:none">0</span>
+                </button>
+                <button class="nav-icon-btn cart-open-btn" aria-label="Shopping cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="badge cart-badge" style="display:none">0</span>
+                </button>
+                <a href="#" class="btn-login" id="login-btn">
+                    <i class="fas fa-user"></i> Login
+                </a>
+                <button class="hamburger" aria-label="Toggle menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" role="navigation">
+        <a href="index.html">🏠 Home</a>
+        <a href="menu.html">🍦 Menu</a>
+        <a href="about.html">💛 About Us</a>
+        <a href="contact.html" class="active">📞 Contact</a>
+    </div>
+
+    <!-- ===================== PAGE HERO ===================== -->
+    <section class="page-hero" aria-label="Contact page header">
+        <div class="container">
+            <div class="page-hero-content">
+                <span class="section-tag">📞 Get In Touch</span>
+                <h1>Contact IceWorld</h1>
+                <p>We'd love to hear from you! Reach out for orders, feedback, or just to say hi 🍦</p>
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span>›</span>
+                    <span>Contact</span>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== CONTACT SECTION ===================== -->
+    <section id="contact" aria-label="Contact information and form">
+        <div class="container">
+            <div class="contact-grid">
+
+                <!-- Contact Info Left -->
+                <div>
+                    <div class="animate-on-scroll">
+                        <span class="section-tag">📍 Find Us</span>
+                        <h2 class="section-title" style="margin-bottom:1rem;">Let's Connect!</h2>
+                        <p style="margin-bottom:2rem; line-height:1.8;">
+                            Whether you want to place a bulk order, give feedback, explore franchise
+                            opportunities, or simply chat about ice cream – we're here for you!
+                            Our friendly team typically responds within 24 hours.
+                        </p>
+                    </div>
+
+                    <!-- Contact Cards -->
+                    <div class="animate-on-scroll delay-1">
+                        <div class="contact-card">
+                            <div class="contact-card-icon">📍</div>
+                            <div class="contact-card-text">
+                                <h5>Our Location</h5>
+                                <p>123 Sweet Street, Ice Cream Lane,<br>Connaught Place, New Delhi – 110001</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-card">
+                            <div class="contact-card-icon">🕐</div>
+                            <div class="contact-card-text">
+                                <h5>Business Hours</h5>
+                                <p>Monday – Friday: 10:00 AM – 10:00 PM</p>
+                                <p>Saturday – Sunday: 9:00 AM – 11:00 PM</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-card">
+                            <div class="contact-card-icon">📧</div>
+                            <div class="contact-card-text">
+                                <h5>Email Us</h5>
+                                <a href="mailto:info@iceworld.com">info@iceworld.com</a><br>
+                                <a href="mailto:orders@iceworld.com">orders@iceworld.com</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Owner Details -->
+                    <div class="animate-on-scroll delay-2">
+                        <h4 style="margin-top:2rem; margin-bottom:1rem; font-size:1.1rem; color:var(--text-dark);">
+                            👑 Owner Contact Details
+                        </h4>
+                        <div class="owner-cards">
+
+                            <div class="owner-card">
+                                <h5><i class="fas fa-crown owner-icon"></i> Mahi Sehrawat</h5>
+                                <p>
+                                    <i class="fas fa-phone owner-icon"></i>
+                                    <a href="tel:+918750141860" style="color:var(--text-muted);">+91 8750141860</a>
+                                </p>
+                                <p>
+                                    <i class="fas fa-envelope owner-icon"></i>
+                                    <a href="mailto:mahisehrawat2006@gmail.com" style="color:var(--text-muted); font-size:0.78rem;">mahisehrawat2006@gmail.com</a>
+                                </p>
+                                <p><i class="fas fa-briefcase owner-icon"></i> Co-Founder &amp; CEO</p>
+                            </div>
+
+                            <div class="owner-card">
+                                <h5><i class="fas fa-crown owner-icon"></i> Priyanshi</h5>
+                                <p>
+                                    <i class="fas fa-phone owner-icon"></i>
+                                    <a href="tel:+918368573180" style="color:var(--text-muted);">+91 8368573180</a>
+                                </p>
+                                <p>
+                                    <i class="fas fa-envelope owner-icon"></i>
+                                    <a href="mailto:priyadaksh007@gmail.com" style="color:var(--text-muted); font-size:0.78rem;">priyadaksh007@gmail.com</a>
+                                </p>
+                                <p><i class="fas fa-briefcase owner-icon"></i> Co-Founder &amp; Creative Director</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="animate-on-scroll delay-3" style="margin-top:2rem;">
+                        <h4 style="font-size:1rem; color:var(--text-dark); margin-bottom:1rem;">📱 Follow Us</h4>
+                        <div class="social-links" style="gap:12px;">
+                            <a href="#" aria-label="Facebook" style="width:44px;height:44px;background:var(--card-bg);border:1.5px solid var(--glass-border);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--text-dark);font-size:1.1rem;transition:var(--transition);">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" aria-label="Instagram" style="width:44px;height:44px;background:var(--card-bg);border:1.5px solid var(--glass-border);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--text-dark);font-size:1.1rem;transition:var(--transition);">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" aria-label="Twitter" style="width:44px;height:44px;background:var(--card-bg);border:1.5px solid var(--glass-border);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--text-dark);font-size:1.1rem;transition:var(--transition);">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" aria-label="WhatsApp" style="width:44px;height:44px;background:var(--card-bg);border:1.5px solid var(--glass-border);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--text-dark);font-size:1.1rem;transition:var(--transition);">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                            <a href="#" aria-label="YouTube" style="width:44px;height:44px;background:var(--card-bg);border:1.5px solid var(--glass-border);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--text-dark);font-size:1.1rem;transition:var(--transition);">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form Right -->
+                <div class="animate-on-scroll delay-2">
+                    <div class="contact-form-wrap">
+                        <h3>Send Us a Message 💌</h3>
+                        <p>Fill in the form below and we'll get back to you as soon as possible.</p>
+
+                        <form id="contact-form" novalidate aria-label="Contact form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="contact-name">Full Name <span>*</span></label>
+                                    <input
+                                        type="text"
+                                        id="contact-name"
+                                        name="name"
+                                        class="form-control"
+                                        placeholder="Your full name"
+                                        required
+                                        autocomplete="name"
+                                    >
+                                    <span class="form-error">Please enter your full name</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contact-email">Email Address <span>*</span></label>
+                                    <input
+                                        type="email"
+                                        id="contact-email"
+                                        name="email"
+                                        class="form-control"
+                                        placeholder="your@email.com"
+                                        required
+                                        autocomplete="email"
+                                    >
+                                    <span class="form-error">Please enter a valid email</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contact-phone">Phone Number</label>
+                                <input
+                                    type="tel"
+                                    id="contact-phone"
+                                    name="phone"
+                                    class="form-control"
+                                    placeholder="+91 XXXXX XXXXX"
+                                    autocomplete="tel"
+                                >
+                                <span class="form-error">Please enter a valid phone number</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contact-subject">Subject</label>
+                                <select id="contact-subject" name="subject" class="form-control">
+                                    <option value="">Select a subject</option>
+                                    <option value="order">Place an Order</option>
+                                    <option value="bulk">Bulk Order Inquiry</option>
+                                    <option value="feedback">Feedback / Review</option>
+                                    <option value="franchise">Franchise Inquiry</option>
+                                    <option value="complaint">Complaint</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contact-message">Your Message <span>*</span></label>
+                                <textarea
+                                    id="contact-message"
+                                    name="message"
+                                    class="form-control"
+                                    placeholder="Tell us how we can help you..."
+                                    rows="5"
+                                    required
+                                ></textarea>
+                                <span class="form-error">Please enter your message (minimum 10 characters)</span>
+                            </div>
+
+                            <button type="submit" class="form-submit" aria-label="Send message">
+                                <i class="fas fa-paper-plane"></i>
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Google Maps Placeholder -->
+            <div class="map-wrap animate-on-scroll" aria-label="Map location placeholder">
+                <div class="map-placeholder">
+                    <span class="map-icon">🗺️</span>
+                    <h3 style="color:var(--text-dark); margin-bottom:0.5rem;">Find Us on the Map</h3>
+                    <p>123 Sweet Street, Ice Cream Lane, Connaught Place, New Delhi – 110001</p>
+                    <a href="https://maps.google.com/?q=Connaught+Place+New+Delhi" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="margin-top:1.2rem; display:inline-flex;">
+                        <i class="fas fa-map-marker-alt"></i> Open in Google Maps
+                    </a>
+                </div>
+                <!-- Embed placeholder – replace with actual Google Maps embed src if desired -->
+                <div style="
+                    position:absolute; inset:0; background:var(--gradient-soft);
+                    display:flex; align-items:center; justify-content:center;
+                    border-radius:var(--border-radius); opacity:0.4;
+                    background-image: repeating-linear-gradient(
+                        0deg, rgba(255,126,179,0.08) 0px, rgba(255,126,179,0.08) 1px, transparent 1px, transparent 40px
+                    ), repeating-linear-gradient(
+                        90deg, rgba(255,126,179,0.08) 0px, rgba(255,126,179,0.08) 1px, transparent 1px, transparent 40px
+                    );
+                " aria-hidden="true"></div>
+                <div style="position:relative; z-index:2; text-align:center; padding:2rem;">
+                    <span style="font-size:4rem; display:block; margin-bottom:1rem;">🗺️</span>
+                    <h3 style="color:var(--text-dark); margin-bottom:0.5rem;">Find Us on the Map</h3>
+                    <p style="color:var(--text-muted);">123 Sweet Street, Ice Cream Lane, Connaught Place, New Delhi – 110001</p>
+                    <a href="https://maps.google.com/?q=Connaught+Place+New+Delhi" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="margin-top:1.2rem; display:inline-flex;">
+                        <i class="fas fa-map-marker-alt"></i> Open in Google Maps
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== FAQ SECTION ===================== -->
+    <section style="padding:60px 0; background:var(--gradient-soft);" aria-label="Frequently Asked Questions">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">❓ FAQ</span>
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle">Quick answers to common questions about IceWorld</p>
+            </div>
+
+            <div style="max-width:750px; margin:0 auto; display:flex; flex-direction:column; gap:1rem;">
+
+                <div class="animate-on-scroll" style="background:var(--card-bg);border:1px solid var(--glass-border);border-radius:var(--border-radius-sm);overflow:hidden;">
+                    <button class="faq-toggle" style="width:100%;padding:1.2rem 1.5rem;text-align:left;background:none;border:none;cursor:pointer;font-size:0.95rem;font-weight:600;color:var(--text-dark);display:flex;align-items:center;justify-content:space-between;font-family:var(--font-body);">
+                        Do you offer delivery? <i class="fas fa-chevron-down" style="color:var(--primary);transition:transform 0.3s;"></i>
+                    </button>
+                    <div class="faq-answer" style="max-height:0;overflow:hidden;transition:max-height 0.35s ease;">
+                        <p style="padding:0 1.5rem 1.2rem; font-size:0.9rem; line-height:1.7;">Yes! We deliver across Delhi NCR within 30 minutes. Orders above ₹299 get free delivery. You can order via WhatsApp, our website, or by calling us directly.</p>
+                    </div>
+                </div>
+
+                <div class="animate-on-scroll delay-1" style="background:var(--card-bg);border:1px solid var(--glass-border);border-radius:var(--border-radius-sm);overflow:hidden;">
+                    <button class="faq-toggle" style="width:100%;padding:1.2rem 1.5rem;text-align:left;background:none;border:none;cursor:pointer;font-size:0.95rem;font-weight:600;color:var(--text-dark);display:flex;align-items:center;justify-content:space-between;font-family:var(--font-body);">
+                        Are your ice creams suitable for vegans? <i class="fas fa-chevron-down" style="color:var(--primary);transition:transform 0.3s;"></i>
+                    </button>
+                    <div class="faq-answer" style="max-height:0;overflow:hidden;transition:max-height 0.35s ease;">
+                        <p style="padding:0 1.5rem 1.2rem; font-size:0.9rem; line-height:1.7;">We offer a range of dairy-free and vegan options including our Mango Sorbet, Lemon Sorbet, and Pineapple Delight. These are made with coconut milk and natural fruit bases.</p>
+                    </div>
+                </div>
+
+                <div class="animate-on-scroll delay-2" style="background:var(--card-bg);border:1px solid var(--glass-border);border-radius:var(--border-radius-sm);overflow:hidden;">
+                    <button class="faq-toggle" style="width:100%;padding:1.2rem 1.5rem;text-align:left;background:none;border:none;cursor:pointer;font-size:0.95rem;font-weight:600;color:var(--text-dark);display:flex;align-items:center;justify-content:space-between;font-family:var(--font-body);">
+                        Do you accept bulk or corporate orders? <i class="fas fa-chevron-down" style="color:var(--primary);transition:transform 0.3s;"></i>
+                    </button>
+                    <div class="faq-answer" style="max-height:0;overflow:hidden;transition:max-height 0.35s ease;">
+                        <p style="padding:0 1.5rem 1.2rem; font-size:0.9rem; line-height:1.7;">Absolutely! We specialize in bulk orders for events, parties, weddings, and corporate gifting. Contact us at least 48 hours in advance and we'll create a custom package just for you.</p>
+                    </div>
+                </div>
+
+                <div class="animate-on-scroll delay-3" style="background:var(--card-bg);border:1px solid var(--glass-border);border-radius:var(--border-radius-sm);overflow:hidden;">
+                    <button class="faq-toggle" style="width:100%;padding:1.2rem 1.5rem;text-align:left;background:none;border:none;cursor:pointer;font-size:0.95rem;font-weight:600;color:var(--text-dark);display:flex;align-items:center;justify-content:space-between;font-family:var(--font-body);">
+                        Do you use artificial colors or preservatives? <i class="fas fa-chevron-down" style="color:var(--primary);transition:transform 0.3s;"></i>
+                    </button>
+                    <div class="faq-answer" style="max-height:0;overflow:hidden;transition:max-height 0.35s ease;">
+                        <p style="padding:0 1.5rem 1.2rem; font-size:0.9rem; line-height:1.7;">Never! IceWorld is committed to using only 100% natural ingredients. No artificial colors, no preservatives, no artificial flavors. We believe real flavors come from real ingredients.</p>
+                    </div>
+                </div>
+
+                <div class="animate-on-scroll delay-4" style="background:var(--card-bg);border:1px solid var(--glass-border);border-radius:var(--border-radius-sm);overflow:hidden;">
+                    <button class="faq-toggle" style="width:100%;padding:1.2rem 1.5rem;text-align:left;background:none;border:none;cursor:pointer;font-size:0.95rem;font-weight:600;color:var(--text-dark);display:flex;align-items:center;justify-content:space-between;font-family:var(--font-body);">
+                        Is franchise available? <i class="fas fa-chevron-down" style="color:var(--primary);transition:transform 0.3s;"></i>
+                    </button>
+                    <div class="faq-answer" style="max-height:0;overflow:hidden;transition:max-height 0.35s ease;">
+                        <p style="padding:0 1.5rem 1.2rem; font-size:0.9rem; line-height:1.7;">Yes! We are actively expanding through franchise partnerships. If you're interested in opening an IceWorld outlet in your city, please contact us through the form above or email us at franchise@iceworld.com.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== NEWSLETTER ===================== -->
+    <section class="newsletter" aria-label="Newsletter subscription">
+        <div class="container">
+            <div class="newsletter-inner animate-on-scroll">
+                <span class="newsletter-icon">📧</span>
+                <span class="section-tag">🎁 Sweet Offers</span>
+                <h2 class="section-title">Subscribe for Sweet Deals</h2>
+                <p class="section-subtitle">Get exclusive offers and new flavor announcements!</p>
+                <form class="newsletter-form" novalidate>
+                    <input type="email" placeholder="Enter your email address..." required aria-label="Email address">
+                    <button type="submit">
+                        <i class="fas fa-paper-plane"></i> Subscribe
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer" aria-label="Footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="nav-logo" style="margin-bottom:1rem;">
+                        <div class="logo-icon">🍦</div>
+                        <span class="logo-text">IceWorld</span>
+                    </div>
+                    <p>Premium handcrafted ice cream made with love since 2014.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4>Quick Links</h4>
+                    <nav class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="menu.html">Menu</a>
+                        <a href="about.html">About Us</a>
+                        <a href="contact.html">Contact</a>
+                    </nav>
+                </div>
+
+                <div>
+                    <h4>Categories</h4>
+                    <nav class="footer-links">
+                        <a href="menu.html">Classic Ice Cream</a>
+                        <a href="menu.html">Premium Ice Cream</a>
+                        <a href="menu.html">Ice Cream Cones</a>
+                        <a href="menu.html">Cups &amp; Sundaes</a>
+                    </nav>
+                </div>
+
+                <div class="footer-contact">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-map-marker-alt contact-icon"></i> 123 Sweet Street, Delhi – 110001</p>
+                    <p><i class="fas fa-clock contact-icon"></i> Mon–Sun: 10 AM – 11 PM</p>
+
+                    <div class="footer-owner">
+                        <h5>👑 Owner – Mahi Sehrawat</h5>
+                        <p><i class="fas fa-phone contact-icon"></i> +91 8750141860</p>
+                        <p><i class="fas fa-envelope contact-icon"></i> mahisehrawat2006@gmail.com</p>
+                    </div>
+                    <div class="footer-owner">
+                        <h5>👑 Owner – Priyanshi</h5>
+                        <p><i class="fas fa-phone contact-icon"></i> +91 8368573180</p>
+                        <p><i class="fas fa-envelope contact-icon"></i> priyadaksh007@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; width:100%;">
+                <p>© 2024 IceWorld. Made with <span class="heart">❤️</span> by Mahi Sehrawat &amp; Priyanshi</p>
+                <p>
+                    <a href="#" style="color:rgba(255,255,255,0.5); font-size:0.82rem;">Privacy Policy</a>
+                    &nbsp;|&nbsp;
+                    <a href="#" style="color:rgba(255,255,255,0.5); font-size:0.82rem;">Terms</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-toggle').forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const answer = toggle.nextElementSibling;
+                const icon = toggle.querySelector('.fa-chevron-down');
+                const isOpen = answer.style.maxHeight && answer.style.maxHeight !== '0px';
+
+                // Close all
+                document.querySelectorAll('.faq-answer').forEach(a => {
+                    a.style.maxHeight = '0px';
+                });
+                document.querySelectorAll('.faq-toggle .fa-chevron-down').forEach(i => {
+                    i.style.transform = 'rotate(0deg)';
+                });
+
+                // Open clicked if it was closed
+                if (!isOpen) {
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                    if (icon) icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+
+        // Login button
+        document.querySelector('#login-btn')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            showToast('Login feature coming soon! 🔐', '🍦');
+        });
+    </script>
+
+</body>
+</html>

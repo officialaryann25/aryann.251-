@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="IceWorld Menu – Browse 30+ premium ice cream flavors including classics, premium, cones, cups and sundaes. Filter by category and price.">
+    <title>Menu – IceWorld Premium Ice Cream Shop</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ===================== LOADING SCREEN ===================== -->
+    <div id="loading-screen">
+        <div class="loader-logo">🍦 IceWorld</div>
+        <div class="loader-dots">
+            <span></span><span></span><span></span>
+        </div>
+    </div>
+
+    <!-- ===================== TOAST CONTAINER ===================== -->
+    <div id="toast-container"></div>
+
+    <!-- ===================== SCROLL TO TOP ===================== -->
+    <button id="scroll-top" title="Scroll to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- ===================== CART OVERLAY + SIDEBAR ===================== -->
+    <div class="cart-overlay"></div>
+    <aside class="cart-sidebar" aria-label="Shopping Cart">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-cart"></i> Your Cart</h3>
+            <button class="cart-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items"></div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span class="cart-total-price">₹0</span>
+            </div>
+            <button class="checkout-btn">
+                <i class="fas fa-credit-card"></i> Proceed to Checkout
+            </button>
+        </div>
+    </aside>
+
+    <!-- ===================== WISHLIST MODAL ===================== -->
+    <div class="wishlist-page" role="dialog" aria-label="Wishlist">
+        <div class="wishlist-modal">
+            <div class="wishlist-header">
+                <h3><i class="fas fa-heart" style="color:var(--primary)"></i> My Wishlist</h3>
+                <button class="wishlist-close cart-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="wishlist-items"></div>
+        </div>
+    </div>
+
+    <!-- ===================== NAVBAR ===================== -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo" aria-label="IceWorld Home">
+                <div class="logo-icon">🍦</div>
+                <span class="logo-text">IceWorld</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html" class="active">Menu</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <div class="nav-search" role="search">
+                <input type="search" placeholder="Search ice cream..." aria-label="Search products">
+                <button aria-label="Search"><i class="fas fa-search"></i></button>
+            </div>
+
+            <div class="nav-actions">
+                <button class="nav-icon-btn dark-toggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="nav-icon-btn wishlist-open-btn" aria-label="Wishlist">
+                    <i class="far fa-heart"></i>
+                    <span class="badge wishlist-badge" style="display:none">0</span>
+                </button>
+                <button class="nav-icon-btn cart-open-btn" aria-label="Shopping cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="badge cart-badge" style="display:none">0</span>
+                </button>
+                <a href="#" class="btn-login" id="login-btn">
+                    <i class="fas fa-user"></i> Login
+                </a>
+                <button class="hamburger" aria-label="Toggle menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" role="navigation">
+        <a href="index.html">🏠 Home</a>
+        <a href="menu.html" class="active">🍦 Menu</a>
+        <a href="about.html">💛 About Us</a>
+        <a href="contact.html">📞 Contact</a>
+    </div>
+
+    <!-- ===================== PAGE HERO ===================== -->
+    <section class="page-hero" aria-label="Menu page header">
+        <div class="container">
+            <div class="page-hero-content">
+                <span class="section-tag">🍦 Our Full Menu</span>
+                <h1>Discover Every Flavor</h1>
+                <p>From timeless classics to bold premium creations – find your perfect scoop</p>
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span>›</span>
+                    <span>Menu</span>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== MENU CONTROLS ===================== -->
+    <div class="menu-controls" aria-label="Menu filters">
+        <div class="container">
+            <div class="menu-controls-inner">
+
+                <!-- Search -->
+                <div class="menu-search" role="search">
+                    <i class="fas fa-search" style="color:var(--text-muted)"></i>
+                    <input type="search" placeholder="Search for ice cream..." aria-label="Search menu">
+                </div>
+
+                <!-- Category Filter -->
+                <select class="menu-filter-select" aria-label="Filter by category" id="cat-select">
+                    <option value="all">🍦 All Categories</option>
+                    <option value="classic">🍨 Classic Ice Cream</option>
+                    <option value="premium">⭐ Premium Ice Cream</option>
+                    <option value="cones">🍦 Ice Cream Cones</option>
+                    <option value="cups">🥤 Ice Cream Cups</option>
+                    <option value="sundaes">🍨 Sundaes</option>
+                </select>
+
+                <!-- Sort -->
+                <select class="menu-filter-select" aria-label="Sort products" id="sort-select">
+                    <option value="default">Sort By</option>
+                    <option value="popular">⭐ Most Popular</option>
+                    <option value="rating">⭐ Top Rated</option>
+                    <option value="price-asc">💰 Price: Low to High</option>
+                    <option value="price-desc">💰 Price: High to Low</option>
+                </select>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== CATEGORY NAV ===================== -->
+    <div class="menu-categories">
+        <div class="container">
+            <nav class="category-nav" aria-label="Product categories">
+                <button class="category-nav-item active" data-category="all">
+                    <span class="cat-icon">🍦</span> All Items
+                </button>
+                <button class="category-nav-item" data-category="classic">
+                    <span class="cat-icon">🍨</span> Classic Ice Cream
+                </button>
+                <button class="category-nav-item" data-category="premium">
+                    <span class="cat-icon">⭐</span> Premium Ice Cream
+                </button>
+                <button class="category-nav-item" data-category="cones">
+                    <span class="cat-icon">🍦</span> Ice Cream Cones
+                </button>
+                <button class="category-nav-item" data-category="cups">
+                    <span class="cat-icon">🥤</span> Ice Cream Cups
+                </button>
+                <button class="category-nav-item" data-category="sundaes">
+                    <span class="cat-icon">🍨</span> Sundaes
+                </button>
+            </nav>
+        </div>
+    </div>
+
+    <!-- ===================== MENU SECTIONS ===================== -->
+    <main id="menu-content">
+        <div class="container" style="padding-bottom:5rem;">
+
+            <!-- Classic Ice Cream -->
+            <div class="menu-category-section" id="section-classic">
+                <h2 class="menu-section-title animate-on-scroll">
+                    <span>🍨 Classic Ice Cream</span>
+                </h2>
+                <div class="menu-grid" id="grid-classic">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+
+            <!-- Premium Ice Cream -->
+            <div class="menu-category-section" id="section-premium">
+                <h2 class="menu-section-title animate-on-scroll">
+                    <span>⭐ Premium Ice Cream</span>
+                </h2>
+                <div class="menu-grid" id="grid-premium">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+
+            <!-- Ice Cream Cones -->
+            <div class="menu-category-section" id="section-cones">
+                <h2 class="menu-section-title animate-on-scroll">
+                    <span>🍦 Ice Cream Cones</span>
+                </h2>
+                <div class="menu-grid" id="grid-cones">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+
+            <!-- Ice Cream Cups -->
+            <div class="menu-category-section" id="section-cups">
+                <h2 class="menu-section-title animate-on-scroll">
+                    <span>🥤 Ice Cream Cups</span>
+                </h2>
+                <div class="menu-grid" id="grid-cups">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+
+            <!-- Sundaes -->
+            <div class="menu-category-section" id="section-sundaes">
+                <h2 class="menu-section-title animate-on-scroll">
+                    <span>🍨 Ice Cream Sundaes</span>
+                </h2>
+                <div class="menu-grid" id="grid-sundaes">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ===================== NEWSLETTER ===================== -->
+    <section class="newsletter" aria-label="Newsletter subscription">
+        <div class="container">
+            <div class="newsletter-inner animate-on-scroll">
+                <span class="newsletter-icon">📧</span>
+                <span class="section-tag">🎁 Sweet Offers</span>
+                <h2 class="section-title">Subscribe for Sweet Deals</h2>
+                <p class="section-subtitle">Get exclusive offers, new flavor announcements, and sweet surprises!</p>
+                <form class="newsletter-form" novalidate>
+                    <input type="email" placeholder="Enter your email address..." required aria-label="Email address">
+                    <button type="submit">
+                        <i class="fas fa-paper-plane"></i> Subscribe
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer" aria-label="Footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="nav-logo" style="margin-bottom:1rem;">
+                        <div class="logo-icon">🍦</div>
+                        <span class="logo-text">IceWorld</span>
+                    </div>
+                    <p>Premium handcrafted ice cream made with love since 2014.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4>Quick Links</h4>
+                    <nav class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="menu.html">Menu</a>
+                        <a href="about.html">About Us</a>
+                        <a href="contact.html">Contact</a>
+                    </nav>
+                </div>
+
+                <div>
+                    <h4>Categories</h4>
+                    <nav class="footer-links">
+                        <a href="menu.html">Classic Ice Cream</a>
+                        <a href="menu.html">Premium Ice Cream</a>
+                        <a href="menu.html">Ice Cream Cones</a>
+                        <a href="menu.html">Ice Cream Cups</a>
+                        <a href="menu.html">Sundaes</a>
+                    </nav>
+                </div>
+
+                <div class="footer-contact">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-map-marker-alt contact-icon"></i> 123 Sweet Street, Delhi – 110001</p>
+                    <p><i class="fas fa-clock contact-icon"></i> Mon–Sun: 10 AM – 11 PM</p>
+
+                    <div class="footer-owner">
+                        <h5>👑 Owner – Mahi Sehrawat</h5>
+                        <p><i class="fas fa-phone contact-icon"></i> +91 8750141860</p>
+                        <p><i class="fas fa-envelope contact-icon"></i> mahisehrawat2006@gmail.com</p>
+                    </div>
+                    <div class="footer-owner">
+                        <h5>👑 Owner – Priyanshi</h5>
+                        <p><i class="fas fa-phone contact-icon"></i> +91 8368573180</p>
+                        <p><i class="fas fa-envelope contact-icon"></i> priyadaksh007@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; width:100%;">
+                <p>© 2024 IceWorld. Made with <span class="heart">❤️</span> by Mahi Sehrawat &amp; Priyanshi</p>
+                <p>
+                    <a href="#" style="color:rgba(255,255,255,0.5); font-size:0.82rem;">Privacy Policy</a>
+                    &nbsp;|&nbsp;
+                    <a href="#" style="color:rgba(255,255,255,0.5); font-size:0.82rem;">Terms</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+
+    <script>
+        // Login modal trigger
+        document.querySelector('#login-btn')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            const modal = document.createElement('div');
+            modal.style.cssText = `position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:9000;display:flex;align-items:center;justify-content:center;padding:1rem;backdrop-filter:blur(6px);`;
+            modal.innerHTML = `<div style="background:var(--white);border-radius:24px;padding:2.5rem;max-width:420px;width:100%;box-shadow:0 20px 60px rgba(255,117,140,0.3);position:relative;animation:fadeInUp 0.3s ease;"><button onclick="this.closest('div[style]').remove()" style="position:absolute;top:1rem;right:1rem;background:var(--bg-light);border:none;border-radius:50%;width:36px;height:36px;cursor:pointer;font-size:1.1rem;">✕</button><div style="text-align:center;margin-bottom:1.5rem;"><div style="font-size:3rem;">🍦</div><h3 style="color:var(--text-dark);">Welcome Back!</h3></div><div style="margin-bottom:1rem;"><input type="email" placeholder="Email" style="width:100%;padding:12px 16px;background:var(--bg-light);border:1.5px solid var(--glass-border);border-radius:12px;font-size:0.9rem;outline:none;font-family:var(--font-body);color:var(--text-dark);"></div><div style="margin-bottom:1.5rem;"><input type="password" placeholder="Password" style="width:100%;padding:12px 16px;background:var(--bg-light);border:1.5px solid var(--glass-border);border-radius:12px;font-size:0.9rem;outline:none;font-family:var(--font-body);color:var(--text-dark);"></div><button onclick="this.closest('div[style]').remove();showToast('Logged in! 🎉','✅')" style="width:100%;padding:13px;background:linear-gradient(135deg,#ff7eb3,#ff758c);color:white;border:none;border-radius:50px;font-size:1rem;font-weight:700;cursor:pointer;">Login</button></div>`;
+            document.body.appendChild(modal);
+            modal.addEventListener('click', e => { if(e.target===modal) modal.remove(); });
+        });
+    </script>
+
+</body>
+</html>
