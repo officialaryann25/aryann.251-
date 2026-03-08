@@ -12,6 +12,7 @@
    5. Vanilla Cream       #FFF8EF – main page background
    6. Soft Peach          #FDE8CC – card / alt-section background
    7. Espresso Text       #2C1206 – all body & heading text
+   8. Cherry Red          #C0392B – bold CTAs, sale tags, urgency
    ============================================================ */
 :root {
   /* 1. Strawberry Blossom – primary CTA */
@@ -29,6 +30,10 @@
   --mint:           #2AA87A;
   --mint-dark:      #1E8A63;
   --mint-light:     #D4F5EA;
+  /* 8. Cherry Red – bold sale / urgency colour */
+  --red:            #C0392B;
+  --red-dark:       #96281B;
+  --red-light:      #FADBD8;
   --success:        #28a745;
   --danger:         #dc3545;
   --warning:        #ffc107;
@@ -3995,6 +4000,403 @@ html.dark :root,
   --border-color:   #4A2A14;
 }
 
+
+/* ================================================================
+   SECTION S — CHERRY RED COLOUR UTILITIES
+   Cherry Red (#C0392B) is the bold, premium "red" dessert tone.
+   Use for sale banners, urgent CTAs, "Hot Deal" labels, and any
+   element needing a deeper, richer red than Strawberry Blossom.
+   ================================================================
+
+   PALETTE ENTRY
+   ─────────────────────────────────────────────────────────────
+   Token             HEX       Role
+   ──────────────────────────  ─────────────────────────────────
+   --red             #C0392B   Cherry Red — sale tags, bold CTA
+   --red-dark        #96281B   Hover / pressed state
+   --red-light       #FADBD8   Tint backgrounds, alert fills
+   ─────────────────────────────────────────────────────────────
+   WHERE TO USE CHERRY RED ON THE WEBSITE
+   ─────────────────────────────────────────────────────────────
+   • "SALE", "HOT", "LIMITED" header banners
+   • "Order Now" hero button variant when strawberry feels too soft
+   • Percentage-off discount badge (e.g. -20%)
+   • "Out of stock" label background
+   • Error / warning alert background tint paired with white text
+   • Flash sale countdown timer
+   • Strong underline accent on section headings
+   • "Add to Cart" hover state on dark-themed cards
+   ================================================================ */
+
+/* ── Text utilities ──────────────────────────────────────── */
+.text-red       { color: var(--red)        !important; }
+.text-red-dark  { color: var(--red-dark)   !important; }
+.text-red-light { color: var(--red-light)  !important; }
+
+/* ── Background utilities ────────────────────────────────── */
+.bg-red         { background-color: var(--red)       !important; }
+.bg-red-dark    { background-color: var(--red-dark)  !important; }
+.bg-red-light   { background-color: var(--red-light) !important; }
+
+/* ── Border utilities ────────────────────────────────────── */
+.border-red     { border-color: var(--red)           !important; }
+
+/* ── SVG fill ────────────────────────────────────────────── */
+.fill-red       { fill: var(--red)                   !important; }
+
+/* ── Cherry Red solid button ─────────────────────────────── */
+.btn-red {
+  display:         inline-flex;
+  align-items:     center;
+  gap:             8px;
+  padding:         12px 28px;
+  border-radius:   var(--radius-full);
+  font-family:     var(--font-brand);
+  font-weight:     700;
+  font-size:       0.9rem;
+  letter-spacing:  0.04em;
+  cursor:          pointer;
+  border:          2px solid transparent;
+  text-decoration: none;
+  transition:      var(--transition);
+  background:      var(--red);
+  color:           #fff;
+  box-shadow:      0 4px 18px rgba(192,57,43,0.35);
+}
+.btn-red:hover,
+.btn-red:focus-visible {
+  background:  var(--red-dark);
+  box-shadow:  0 6px 26px rgba(150,40,27,0.45);
+  transform:   translateY(-2px);
+  color:       #fff;
+}
+.btn-red:active { transform: translateY(0); box-shadow: none; }
+
+/* ── Cherry Red outlined button ──────────────────────────── */
+.btn-red-outline {
+  display:         inline-flex;
+  align-items:     center;
+  gap:             8px;
+  padding:         12px 28px;
+  border-radius:   var(--radius-full);
+  font-family:     var(--font-brand);
+  font-weight:     700;
+  font-size:       0.9rem;
+  letter-spacing:  0.04em;
+  cursor:          pointer;
+  text-decoration: none;
+  transition:      var(--transition);
+  background:      transparent;
+  color:           var(--red);
+  border:          2px solid var(--red);
+}
+.btn-red-outline:hover,
+.btn-red-outline:focus-visible {
+  background: var(--red);
+  color:      #fff;
+  transform:  translateY(-2px);
+}
+
+/* ── Cherry Red badges ───────────────────────────────────── */
+.badge-red {
+  display:         inline-flex;
+  align-items:     center;
+  gap:             4px;
+  padding:         3px 10px;
+  border-radius:   var(--radius-full);
+  font-family:     var(--font-brand);
+  font-size:       0.72rem;
+  font-weight:     700;
+  letter-spacing:  0.06em;
+  text-transform:  uppercase;
+  white-space:     nowrap;
+  background:      var(--red);
+  color:           #fff;
+}
+.badge-red-soft {
+  background:   var(--red-light);
+  color:        var(--red-dark);
+  padding:      3px 10px;
+  border-radius:var(--radius-full);
+  font-family:  var(--font-brand);
+  font-size:    0.72rem;
+  font-weight:  700;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  white-space:  nowrap;
+  display:      inline-flex;
+  align-items:  center;
+  gap:          4px;
+}
+.badge-red-border {
+  background:    transparent;
+  color:         var(--red);
+  border:        1.5px solid var(--red);
+  padding:       3px 10px;
+  border-radius: var(--radius-full);
+  font-family:   var(--font-brand);
+  font-size:     0.72rem;
+  font-weight:   700;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  white-space:   nowrap;
+  display:       inline-flex;
+  align-items:   center;
+  gap:           4px;
+}
+
+/* ── Cherry Red alert / notification ─────────────────────── */
+.alert-red {
+  display:       flex;
+  align-items:   flex-start;
+  gap:           12px;
+  padding:       16px 20px;
+  border-radius: var(--radius-md);
+  border:        1.5px solid var(--red);
+  font-size:     0.88rem;
+  line-height:   1.6;
+  background:    var(--red-light);
+  color:         var(--red-dark);
+}
+.alert-red .alert-premium-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 1px; }
+.alert-red .alert-premium-title {
+  font-family:  var(--font-brand);
+  font-weight:  700;
+  font-size:    0.9rem;
+  margin-bottom:3px;
+  color:        var(--red-dark);
+}
+
+/* ── Cherry Red card top-strip ───────────────────────────── */
+.card-premium-red { border-top: 4px solid var(--red); }
+
+/* ── Cherry Red tint card ────────────────────────────────── */
+.card-tint-red {
+  background:   var(--red-light);
+  border-color: rgba(192,57,43,0.20);
+}
+
+/* ── Cherry Red icon circle ──────────────────────────────── */
+.card-icon-circle-red {
+  width:           56px;
+  height:          56px;
+  border-radius:   50%;
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  font-size:       1.4rem;
+  flex-shrink:     0;
+  transition:      var(--transition);
+  background:      var(--red-light);
+  color:           var(--red);
+}
+.card-premium:hover .card-icon-circle-red { background: var(--red); color: #fff; }
+
+/* ── Cherry Red section backgrounds ─────────────────────── */
+.section-red {
+  background: var(--red);
+  color:      #fff;
+}
+.section-red .section-title { color: #fff; }
+.section-red p              { color: rgba(255,255,255,0.88); }
+
+.section-red-soft {
+  background: linear-gradient(135deg, var(--red-light) 0%, #fff5f5 100%);
+  color:      var(--text-dark);
+}
+.section-red-soft .section-title { color: var(--red-dark); }
+
+.section-red-grad {
+  background: linear-gradient(135deg, var(--red-dark) 0%, var(--red) 100%);
+  color:      #fff;
+}
+
+/* ── Cherry Red gradient utilities ──────────────────────── */
+.grad-h-red-chocolate {
+  background: linear-gradient(90deg, var(--red) 0%, var(--secondary) 100%);
+}
+.grad-h-red-caramel {
+  background: linear-gradient(90deg, var(--red) 0%, var(--accent) 100%);
+}
+.grad-d-red {
+  background: linear-gradient(135deg, var(--red-light) 0%, var(--red) 100%);
+}
+.grad-r-red {
+  background: radial-gradient(circle at 40% 35%,
+    var(--red-light) 0%,
+    var(--red)       70%);
+}
+.grad-text-red {
+  background:              linear-gradient(90deg, var(--red-dark), var(--red));
+  -webkit-background-clip: text;
+  background-clip:         text;
+  -webkit-text-fill-color: transparent;
+}
+.grad-text-red-caramel {
+  background:              linear-gradient(90deg, var(--red), var(--accent));
+  -webkit-background-clip: text;
+  background-clip:         text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ── Cherry Red swatch (flavour selector) ────────────────── */
+.swatch-red {
+  background:    var(--red);
+  border:        2px solid rgba(255,255,255,0.6);
+  box-shadow:    0 1px 3px rgba(0,0,0,0.15);
+  width:         18px;
+  height:        18px;
+  border-radius: 50%;
+  display:       inline-block;
+  flex-shrink:   0;
+}
+
+/* ── Flavour pill – Cherry Red ───────────────────────────── */
+.flavour-pill-red:hover,
+.flavour-pill-red.active { background: var(--red); border-color: var(--red); color: #fff; }
+
+/* ── Taste chip – bold/spicy ─────────────────────────────── */
+.taste-bold {
+  background:    var(--red-light);
+  color:         var(--red-dark);
+  display:       inline-flex;
+  align-items:   center;
+  gap:           5px;
+  padding:       4px 12px;
+  border-radius: var(--radius-full);
+  font-size:     0.75rem;
+  font-weight:   600;
+  font-family:   var(--font-body);
+}
+
+/* ── Scoop counter – Cherry Red ──────────────────────────── */
+.scoop-count-red {
+  background:      var(--red);
+  color:           #fff;
+  display:         inline-flex;
+  align-items:     center;
+  justify-content: center;
+  min-width:       24px;
+  height:          24px;
+  border-radius:   var(--radius-full);
+  font-size:       0.75rem;
+  font-weight:     800;
+  font-family:     var(--font-brand);
+  padding:         0 7px;
+}
+
+/* ── Promo card – Cherry Red ─────────────────────────────── */
+.promo-card-red {
+  background: linear-gradient(135deg, var(--red-dark) 0%, var(--red) 100%);
+  color:      #fff;
+}
+
+/* ── Cherry Red hover glow ───────────────────────────────── */
+.hover-glow-red:hover { box-shadow: 0 0 20px rgba(192,57,43,0.45); }
+
+/* ── Cherry Red underline stroke ─────────────────────────── */
+.underline-red {
+  text-decoration:       none;
+  background-image:      linear-gradient(var(--red), var(--red));
+  background-repeat:     no-repeat;
+  background-size:       0 2px;
+  background-position:   0 100%;
+  transition:            background-size 0.3s ease;
+}
+.underline-red:hover { background-size: 100% 2px; color: var(--red); }
+
+/* ── Cherry Red focus ring ───────────────────────────────── */
+.ring-red { outline: 3px solid var(--red); outline-offset: 3px; }
+
+/* ── Cherry Red skeleton shimmer ─────────────────────────── */
+.skeleton-red {
+  background: linear-gradient(90deg,
+    var(--red-light)               0%,
+    rgba(250,219,216,0.4)          50%,
+    var(--red-light)               100%);
+  background-size: 800px 100%;
+  animation: shimmer 1.8s infinite;
+  border-radius: var(--radius-sm);
+}
+
+/* ── Cherry Red divider ──────────────────────────────────── */
+.divider-line-red { height: 2px; background: var(--red); margin: 32px 0; }
+
+/* ── Cherry Red progress bar ─────────────────────────────── */
+.progress-bar-fill-red {
+  background: linear-gradient(90deg, var(--red-light), var(--red));
+  height:        100%;
+  border-radius: var(--radius-full);
+  transition:    width 0.8s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* ── Eyebrow tag – Cherry Red ────────────────────────────── */
+.eyebrow-red {
+  background:     var(--red-light);
+  color:          var(--red-dark);
+  display:        inline-block;
+  font-family:    var(--font-brand);
+  font-size:      0.75rem;
+  font-weight:    700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding:        4px 14px;
+  border-radius:  var(--radius-full);
+  margin-bottom:  14px;
+}
+
+/* ── Pull quote – Cherry Red ─────────────────────────────── */
+.pull-quote-red {
+  border-left:   5px solid var(--red);
+  padding:       16px 20px;
+  margin:        24px 0;
+  font-size:     1.2em;
+  font-weight:   600;
+  font-style:    italic;
+  color:         var(--red-dark);
+  background:    var(--red-light);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+/* ── Cherry Red tooltip ──────────────────────────────────── */
+[data-tooltip-theme="red"]::before {
+  background: var(--red);
+  color:      #fff;
+  content:    attr(data-tooltip);
+  position:   absolute;
+  bottom:     calc(100% + 8px);
+  left:       50%;
+  transform:  translateX(-50%) translateY(0);
+  white-space:nowrap;
+  padding:    6px 12px;
+  border-radius:var(--radius-sm);
+  font-size:  0.75rem;
+  font-weight:600;
+  pointer-events:none;
+  opacity:    0;
+  transition: opacity 0.2s ease;
+  z-index:    900;
+}
+[data-tooltip-theme="red"]::after {
+  border-top-color: var(--red);
+  content:    '';
+  position:   absolute;
+  bottom:     calc(100% + 2px);
+  left:       50%;
+  transform:  translateX(-50%);
+  border:     5px solid transparent;
+  pointer-events:none;
+  opacity:    0;
+  transition: opacity 0.2s ease;
+}
+[data-tooltip-theme="red"]:hover::before,
+[data-tooltip-theme="red"]:hover::after { opacity: 1; }
+
+/* ── Dark mode – Cherry Red token preservation ───────────── */
+@media (prefers-color-scheme: dark) {
+  .alert-red     { background: rgba(192,57,43,0.15); }
+  .card-tint-red { background: rgba(192,57,43,0.12); }
+}
 
 /* ================================================================
    END OF PREMIUM PALETTE UTILITY SYSTEM

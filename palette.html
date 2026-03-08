@@ -234,6 +234,7 @@
         <span class="pal-hero-chip">🍦 Vanilla Cream</span>
         <span class="pal-hero-chip">🍑 Soft Peach</span>
         <span class="pal-hero-chip">☕ Espresso</span>
+        <span class="pal-hero-chip">🍒 Cherry Red</span>
       </div>
     </div>
   </header>
@@ -318,6 +319,16 @@
             <div class="ps-name">Espresso</div>
             <div class="ps-hex">#2C1206 — Text</div>
             <div class="ps-role">All headings H1–H6, body paragraphs, icon labels, form labels</div>
+          </div>
+        </div>
+
+        <!-- 8. Cherry Red -->
+        <div class="ps-card">
+          <div class="ps-block" style="background:#C0392B; color:#fff;">🍒</div>
+          <div class="ps-body">
+            <div class="ps-name">Cherry Red</div>
+            <div class="ps-hex">#C0392B — Red</div>
+            <div class="ps-role">Sale banners, "HOT DEAL" badges, flash sale timers, bold CTAs</div>
           </div>
         </div>
 
@@ -469,6 +480,27 @@
               <td>Latte</td>
               <td>Captions, placeholders, helper text, dates</td>
             </tr>
+            <tr>
+              <td><span class="palette-swatch-dot" style="background:#C0392B;"></span></td>
+              <td><code>--red</code></td>
+              <td><code>#C0392B</code></td>
+              <td>Cherry Red</td>
+              <td>Sale banners, "HOT DEAL" badges, flash sale timers, bold CTAs</td>
+            </tr>
+            <tr>
+              <td><span class="palette-swatch-dot" style="background:#96281B;"></span></td>
+              <td><code>--red-dark</code></td>
+              <td><code>#96281B</code></td>
+              <td>Deep Cherry</td>
+              <td>Hover / pressed state for red CTA elements</td>
+            </tr>
+            <tr>
+              <td><span class="palette-swatch-dot" style="background:#FADBD8; border-color:#C0392B;"></span></td>
+              <td><code>--red-light</code></td>
+              <td><code>#FADBD8</code></td>
+              <td>Cherry Blush</td>
+              <td>Alert tints, card highlights, gentle error backgrounds</td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -551,6 +583,27 @@
         <span style="flex:1;text-align:center;">Deepest</span>
       </div>
 
+      <!-- Cherry Red tint scale -->
+      <p style="font-weight:700; margin-bottom:8px; font-family:var(--font-brand);">Cherry Red Family</p>
+      <div class="tint-row" style="margin-bottom:6px;">
+        <div class="tint-cell" style="background:#FADBD8;" title="#FADBD8 — Light"></div>
+        <div class="tint-cell" style="background:#F1948A;" title="#F1948A — Soft"></div>
+        <div class="tint-cell" style="background:#E04B3A;" title="#E04B3A — Mid-light"></div>
+        <div class="tint-cell" style="background:#C0392B;" title="#C0392B — Base"></div>
+        <div class="tint-cell" style="background:#96281B;" title="#96281B — Dark"></div>
+        <div class="tint-cell" style="background:#6E1A10;" title="#6E1A10 — Deeper"></div>
+        <div class="tint-cell" style="background:#460D08;" title="#460D08 — Deepest"></div>
+      </div>
+      <div class="d-flex gap-4" style="margin-bottom:32px; font-size:0.7rem; color:var(--text-light);">
+        <span style="flex:1;text-align:center;">Light</span>
+        <span style="flex:1;text-align:center;">Soft</span>
+        <span style="flex:1;text-align:center;">Mid</span>
+        <span style="flex:1;text-align:center; font-weight:700; color:var(--red);">Base</span>
+        <span style="flex:1;text-align:center;">Dark</span>
+        <span style="flex:1;text-align:center;">Deeper</span>
+        <span style="flex:1;text-align:center;">Deepest</span>
+      </div>
+
     </div>
   </section>
 
@@ -600,6 +653,18 @@
         <div>
           <div class="grad-strip grad-animated"></div>
           <div class="grad-label">grad-animated (looping 8 s)</div>
+        </div>
+        <div>
+          <div class="grad-strip grad-h-red-chocolate"></div>
+          <div class="grad-label">grad-h-red-chocolate (Cherry Red → Dark Chocolate)</div>
+        </div>
+        <div>
+          <div class="grad-strip grad-h-red-caramel"></div>
+          <div class="grad-label">grad-h-red-caramel (Cherry Red → Salted Caramel)</div>
+        </div>
+        <div>
+          <div class="grad-strip grad-d-red"></div>
+          <div class="grad-label">grad-d-red (Cherry Blush → Cherry Red)</div>
         </div>
 
       </div>
@@ -697,6 +762,32 @@
               <i class="fa-solid fa-leaf alert-premium-icon"></i>
               <div><div class="alert-premium-title">Vegan Options</div>Pistachio Mint is 100% plant-based.</div>
             </div>
+            <div class="alert-red">
+              <i class="fa-solid fa-fire alert-premium-icon"></i>
+              <div><div class="alert-premium-title">Flash Sale — 50% Off!</div>Cherry Red hot deal ends in 2 hours.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cherry Red components -->
+        <div class="demo-card">
+          <h3>Cherry Red Components</h3>
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <div class="demo-row">
+              <button class="btn-flavour btn-red">🍒 Hot Deal</button>
+              <button class="btn-flavour btn-red-outline">Cherry Outline</button>
+            </div>
+            <div class="demo-row">
+              <span class="badge-red badge-base">SALE</span>
+              <span class="badge-red-soft badge-base">-50%</span>
+              <span class="badge-red-border badge-base">HOT</span>
+              <span class="taste-chip taste-bold">🌶️ Bold</span>
+            </div>
+            <div class="promo-card-premium promo-card-red" style="padding:18px; border-radius:var(--radius-md);">
+              <span class="promo-badge">🔥 Limited</span>
+              <p class="promo-title" style="font-size:1.1rem;">Flash Sale — 50% Off!</p>
+              <p class="promo-desc" style="font-size:0.8rem;">Cherry Red Sorbet and Dark Chocolate Truffle.</p>
+            </div>
           </div>
         </div>
 
@@ -712,6 +803,11 @@
             <div class="promo-card-premium promo-card-mint" style="padding:18px; border-radius:var(--radius-md);">
               <p class="promo-title" style="font-size:1.1rem;">New: Pistachio Sorbet</p>
               <p class="promo-desc" style="font-size:0.8rem;">Fresh, dairy-free, and absolutely delicious.</p>
+            </div>
+            <div class="promo-card-premium promo-card-red" style="padding:18px; border-radius:var(--radius-md);">
+              <span class="promo-badge">🔥 Today Only</span>
+              <p class="promo-title" style="font-size:1.1rem;">50% Off Cherry Scoops</p>
+              <p class="promo-desc" style="font-size:0.8rem;">Cherry Red — our boldest, most indulgent flavour.</p>
             </div>
           </div>
         </div>
