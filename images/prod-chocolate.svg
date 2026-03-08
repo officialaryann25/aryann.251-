@@ -12,5 +12,4 @@
   <circle cx="140" cy="52" r="10" fill="#D48C0F" stroke="#6B3820" stroke-width="1"/>
   <circle cx="128" cy="95" r="3" fill="#fff" opacity="0.2"/>
   <circle cx="154" cy="90" r="2.5" fill="#fff" opacity="0.15"/>
-  <text x="140" y="215" text-anchor="middle" font-size="11" fill="#6B3820" font-family="sans-serif">Chocolate</text>
 </svg>

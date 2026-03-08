@@ -14,5 +14,4 @@
   <rect x="152" y="72" width="7" height="72" rx="3.5" fill="#E8486A" opacity="0.8"/>
   <circle cx="125" cy="152" r="6" fill="#E8486A" opacity="0.2"/>
   <circle cx="155" cy="165" r="5" fill="#E8486A" opacity="0.2"/>
-  <text x="140" y="215" text-anchor="middle" font-size="11" fill="#6B3820" font-family="sans-serif">Strawberry Shake</text>
 </svg>

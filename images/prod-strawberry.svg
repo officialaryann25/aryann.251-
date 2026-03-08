@@ -13,5 +13,4 @@
   <circle cx="128" cy="98" r="3" fill="#C43057" opacity="0.6"/>
   <circle cx="152" cy="94" r="2.5" fill="#C43057" opacity="0.5"/>
   <circle cx="140" cy="86" r="2" fill="#C43057" opacity="0.5"/>
-  <text x="140" y="215" text-anchor="middle" font-size="11" fill="#6B3820" font-family="sans-serif">Strawberry</text>
 </svg>

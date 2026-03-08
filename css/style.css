@@ -49,9 +49,9 @@
   --bg-mid:         #FDE8CC;
   --border-color:   #EDD4B0;
 
-  /* Poppins (body) + Montserrat (headings/brand) */
-  --font-body:      'Poppins', sans-serif;
-  --font-brand:     'Montserrat', sans-serif;
+  /* Poppins (body) + Montserrat (headings/brand) — rich system-font fallbacks */
+  --font-body:  'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-brand: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI Black', 'Arial Black', 'Helvetica Neue', Arial, sans-serif;
 
   --radius-sm:      6px;
   --radius-md:      12px;
@@ -288,26 +288,31 @@ address { font-style: normal; }
   display: inline-block;
   background: var(--primary-light);
   color: var(--primary-dark);
-  font-size: 0.85rem;
-  font-weight: 700;
+  font-size: 0.82rem;
+  font-weight: 800;
+  font-family: var(--font-brand);
   text-transform: uppercase;
-  letter-spacing: 2px;
-  padding: 6px 16px;
+  letter-spacing: 2.5px;
+  padding: 6px 18px;
   border-radius: var(--radius-full);
   margin-bottom: 14px;
 }
 .section-title {
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
-  font-weight: 800;
+  font-size: clamp(1.9rem, 4vw, 2.9rem);
+  font-weight: 900;
+  font-family: var(--font-brand);
   color: var(--text-dark);
   margin-bottom: 16px;
-  line-height: 1.2;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
 }
 .section-desc {
   max-width: 620px;
   margin: 0 auto;
   color: var(--text-mid);
   font-size: 1.05rem;
+  line-height: 1.8;
+  font-weight: 500;
 }
 .section-footer-link { text-align: center; margin-top: 40px; }
 
@@ -485,14 +490,32 @@ address { font-style: normal; }
   flex-shrink: 0;
   text-decoration: none;
 }
-.logo-icon { font-size: 2rem; color: var(--primary); }
+.logo-icon {
+  font-size: 2.2rem;
+  color: var(--primary);
+  filter: drop-shadow(0 2px 6px rgba(232,72,106,0.40));
+  transition: var(--transition);
+}
+.logo:hover .logo-icon {
+  filter: drop-shadow(0 4px 12px rgba(232,72,106,0.60));
+  transform: rotate(-8deg) scale(1.08);
+}
 .logo-text {
   font-family: var(--font-brand);
-  font-size: 1.6rem;
+  font-size: 1.75rem;
+  font-weight: 900;
   color: var(--text-dark);
-  letter-spacing: -0.5px;
+  letter-spacing: -1px;
+  line-height: 1;
 }
-.logo-accent { color: var(--primary); }
+.logo-accent {
+  /* Strawberry-to-Caramel gradient text */
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
+}
 
 /* Desktop Nav Links */
 .nav-links {
@@ -508,16 +531,36 @@ address { font-style: normal; }
   align-items: center;
   gap: 4px;
   padding: 10px 14px;
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 700;
+  font-family: var(--font-brand);
   color: var(--text-dark);
+  letter-spacing: 0.02em;
   border-radius: var(--radius-md);
   transition: var(--transition);
   white-space: nowrap;
+  position: relative;
 }
-.nav-link:hover, .nav-link.active {
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 6px;
+  left: 14px;
+  right: 14px;
+  height: 2px;
+  background: var(--primary);
+  border-radius: var(--radius-full);
+  transform: scaleX(0);
+  transition: transform 0.25s ease;
+}
+.nav-link:hover,
+.nav-link.active {
   color: var(--primary);
   background: var(--primary-light);
+}
+.nav-link:hover::after,
+.nav-link.active::after {
+  transform: scaleX(1);
 }
 .nav-link i { font-size: 0.75rem; transition: var(--transition); }
 .has-dropdown:hover .nav-link i { transform: rotate(180deg); }
@@ -1144,34 +1187,61 @@ textarea.form-control { resize: vertical; min-height: 120px; }
   display: inline-block;
   background: var(--primary);
   color: #fff;
-  font-size: 0.85rem;
-  font-weight: 700;
-  padding: 6px 16px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  font-family: var(--font-brand);
+  padding: 7px 18px;
   border-radius: var(--radius-full);
-  margin-bottom: 18px;
-  letter-spacing: 0.5px;
+  margin-bottom: 20px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 14px rgba(232,72,106,0.35);
 }
 .hero-title {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 800;
-  line-height: 1.15;
+  font-size: clamp(2.2rem, 5.5vw, 3.8rem);
+  font-weight: 900;
+  font-family: var(--font-brand);
+  line-height: 1.12;
   color: var(--text-dark);
-  margin-bottom: 18px;
+  margin-bottom: 20px;
+  letter-spacing: -0.8px;
 }
-.hero-accent { color: var(--primary); }
+.hero-accent {
+  /* Gradient from Strawberry to Deep Strawberry */
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
+}
 .hero-subtitle {
   font-size: 1.05rem;
   color: var(--text-mid);
-  margin-bottom: 32px;
+  margin-bottom: 34px;
   max-width: 480px;
-  line-height: 1.8;
+  line-height: 1.85;
+  font-weight: 500;
 }
 .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 36px; }
 .hero-stats { display: flex; gap: 32px; flex-wrap: wrap; }
 .stat { display: flex; flex-direction: column; }
-.stat-number { font-size: 2rem; font-weight: 800; color: var(--primary); line-height: 1; }
-.stat span:first-child + span { color: var(--primary); font-size: 1.6rem; font-weight: 800; }
-.stat-label { font-size: 0.8rem; color: var(--text-light); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
+.stat-number {
+  font-size: 2.1rem;
+  font-weight: 900;
+  font-family: var(--font-brand);
+  color: var(--primary);
+  line-height: 1;
+  letter-spacing: -1px;
+}
+.stat span:first-child + span { color: var(--primary); font-size: 1.7rem; font-weight: 900; }
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-top: 3px;
+}
 
 /* Hero Image */
 .hero-img-wrapper { position: relative; display: flex; align-items: center; justify-content: center; }
@@ -1223,8 +1293,8 @@ textarea.form-control { resize: vertical; min-height: 120px; }
   border: 2px solid var(--primary-light);
 }
 .slider-btn:hover { background: var(--primary); color: #fff; transform: translateY(-50%) scale(1.1); }
-.slider-prev { left: 20px; }
-.slider-next { right: 20px; }
+.slider-prev { left: 12px; }
+.slider-next { right: 12px; }
 
 /* Slider Dots */
 .slider-dots {
@@ -4446,23 +4516,15 @@ html.dark :root,
 }
 
 /* ── 2. Hero section typography clarity ─────────────────── */
-.hero-title {
-  letter-spacing: -0.5px;
-}
+/* letter-spacing and font-family are now set in the primary .hero-title block */
 .hero-subtitle {
-  letter-spacing:  0.01em;
-  color:           var(--text-mid);
-  opacity:         0.92;
+  color:   var(--text-mid);
+  opacity: 0.92;
 }
-.hero-tagline {
-  letter-spacing: 0.05em;
-  font-family:    var(--font-brand);
-}
+/* .hero-tagline font-family set in primary block */
 
 /* ── 3. Section headings — sharper & cleaner ────────────── */
-.section-title {
-  letter-spacing: -0.3px;
-}
+/* letter-spacing for .section-title now set in primary block (-0.5px) */
 .section-tagline {
   font-family: var(--font-brand);
   letter-spacing: 0.14em;
@@ -4520,11 +4582,7 @@ a:focus-visible {
   border-radius:  var(--radius-md);
 }
 
-/* ── 10. Logo — sharper rendering ───────────────────────── */
-.logo-text {
-  letter-spacing: -0.8px;
-  font-weight:    800;
-}
+/* ── 10. Logo — sharper rendering (values set in primary .logo-text block) ── */
 
 /* ── 11. Dropdown menu — crisper text ───────────────────── */
 .dropdown-menu li a {
@@ -4542,14 +4600,10 @@ a:focus-visible {
   line-height: 1.4;
 }
 
-/* ── 13. Nav links — cleaner tracking ───────────────────── */
-.nav-link {
-  letter-spacing: 0.01em;
-}
+/* ── 13. Nav links — letter-spacing set in primary .nav-link block ────────── */
 
-/* ── 14. Stat numbers — bold and punchy ─────────────────── */
-.stat-number { letter-spacing: -1px; }
-.stat-label  { letter-spacing:  1.5px; }
+/* ── 14. Stat numbers — letter-spacing set in primary .stat-number block ─── */
+.stat-label { letter-spacing: 1.5px; }
 
 /* ── 15. Hero actions — clean button spacing ────────────── */
 .hero-actions .btn {
@@ -4615,6 +4669,347 @@ img {
   .hero-subtitle { font-size: 0.95rem; }
   .hero-tagline  { font-size: 0.78rem; }
 }
+
+/* ================================================================
+   SECTION U — LOGO, FONT & TEXT CLARITY
+   Ensures every text element uses the correct brand colour,
+   weight, family, and contrast — on all screen sizes.
+   ================================================================ */
+
+/* ── U1. Header top-bar text — readable on dark bg ──────── */
+.header-top {
+  font-family: var(--font-body);
+  font-weight: 500;
+  color: #e0cfc0;
+  letter-spacing: 0.03em;
+}
+.header-top span { color: #e0cfc0; }
+.header-top a    { color: #c8b8a4; }
+.header-top a:hover { color: var(--primary); }
+.header-top .social-links a { color: #b0a090; }
+.header-top .social-links a:hover { color: var(--primary); }
+
+/* ── U2. Logo refinement — fall-back when FA blocked ────── */
+.logo-icon::before { content: '🍦'; }
+/* Use the FA icon if available, else the emoji shows */
+.logo-icon .fa-ice-cream ~ * { display: none; }
+
+/* ── U3. Product card text ───────────────────────────────── */
+.product-name {
+  font-family: var(--font-brand);
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--text-dark);
+  letter-spacing: -0.2px;
+  line-height: 1.3;
+}
+.product-category-tag {
+  font-family: var(--font-brand);
+  font-weight: 700;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--primary-dark);
+}
+.product-price {
+  font-family: var(--font-brand);
+  font-weight: 900;
+  font-size: 1.15rem;
+  color: var(--primary);
+  letter-spacing: -0.3px;
+}
+.product-old-price {
+  font-family: var(--font-brand);
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+.rating-count {
+  font-size: 0.78rem;
+  color: var(--text-light);
+  font-weight: 600;
+}
+
+/* ── U4. Category card text ──────────────────────────────── */
+.category-info h3 {
+  font-family: var(--font-brand);
+  font-weight: 800;
+  font-size: 0.92rem;
+  color: var(--text-dark);
+  letter-spacing: -0.2px;
+  margin-bottom: 2px;
+}
+.category-info span {
+  font-size: 0.78rem;
+  color: var(--text-light);
+  font-weight: 600;
+}
+
+/* ── U5. Marquee — bold & legible ────────────────────────── */
+.marquee-track span {
+  font-family: var(--font-brand);
+  font-weight: 700;
+  font-size: 0.83rem;
+  color: #fff;
+  letter-spacing: 0.04em;
+}
+
+/* ── U6. Features strip text ─────────────────────────────── */
+.feature-text h3 {
+  font-family: var(--font-brand);
+  font-weight: 800;
+  font-size: 0.88rem;
+  color: var(--text-dark);
+  margin-bottom: 2px;
+}
+.feature-text p {
+  font-size: 0.78rem;
+  color: var(--text-mid);
+  font-weight: 500;
+}
+
+/* ── U7. Footer headings + links ─────────────────────────── */
+.footer-widget-title,
+.footer h3,
+.footer h4 {
+  font-family: var(--font-brand);
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.2px;
+}
+.footer p,
+.footer li,
+.footer a {
+  color: rgba(255,255,255,0.72);
+  font-weight: 500;
+  line-height: 1.8;
+}
+.footer a:hover { color: var(--primary); }
+.footer-bottom {
+  color: rgba(255,255,255,0.5);
+  font-size: 0.82rem;
+}
+.footer .logo-text { color: #fff; }
+.footer .logo-accent {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ── U8. Button text — always clear white / brand ────────── */
+.btn-primary,
+.btn-flavour.btn-strawberry,
+.btn-flavour.btn-red,
+.btn-flavour.btn-chocolate,
+.btn-flavour.btn-mint {
+  color: #fff;
+  font-family: var(--font-brand);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+.btn-outline,
+.btn-flavour.btn-strawberry-outline,
+.btn-flavour.btn-red-outline {
+  font-family: var(--font-brand);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+/* ── U9. Badge / chip text ───────────────────────────────── */
+.product-badge,
+.badge-hot,
+.badge-new,
+.badge-sale {
+  font-family: var(--font-brand);
+  font-weight: 800;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+}
+
+/* ── U10. Dropdown menu text ─────────────────────────────── */
+.dropdown-menu li a {
+  font-family: var(--font-brand);
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--text-mid);
+  letter-spacing: 0.01em;
+}
+.dropdown-menu li a:hover { color: var(--primary); }
+
+/* ── U11. Cart sidebar text ──────────────────────────────── */
+.cart-sidebar-title {
+  font-family: var(--font-brand);
+  font-weight: 800;
+  color: var(--text-dark);
+}
+.cart-item-name {
+  font-family: var(--font-brand);
+  font-weight: 700;
+  color: var(--text-dark);
+  font-size: 0.9rem;
+}
+.cart-total span:first-child {
+  font-family: var(--font-brand);
+  font-weight: 800;
+  color: var(--text-dark);
+}
+.cart-total span:last-child {
+  font-family: var(--font-brand);
+  font-weight: 900;
+  color: var(--primary);
+  font-size: 1.1rem;
+}
+
+/* ── U12. Form labels + inputs ───────────────────────────── */
+label {
+  font-family: var(--font-brand);
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--text-dark);
+  letter-spacing: 0.01em;
+}
+.form-control {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  color: var(--text-dark);
+  font-weight: 500;
+}
+.form-control::placeholder {
+  color: var(--text-light);
+  font-weight: 400;
+}
+
+/* ── U13. Step card (How It Works) text ──────────────────── */
+.step-card h3 {
+  font-family: var(--font-brand);
+  font-weight: 800;
+  color: var(--text-dark);
+}
+.step-card p {
+  font-family: var(--font-body);
+  font-weight: 500;
+  color: var(--text-mid);
+  line-height: 1.75;
+}
+
+/* ── U14. FAQ accordion text ─────────────────────────────── */
+.faq-question {
+  font-family: var(--font-brand);
+  font-weight: 800;
+  color: var(--text-dark);
+}
+.faq-answer {
+  font-family: var(--font-body);
+  font-weight: 500;
+  color: var(--text-mid);
+  line-height: 1.8;
+}
+
+/* ── U15. Testimonial / review text ─────────────────────── */
+.testimonial-text,
+.review-text {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-weight: 500;
+  color: var(--text-mid);
+  line-height: 1.85;
+}
+.testimonial-author,
+.reviewer-name {
+  font-family: var(--font-brand);
+  font-weight: 800;
+  color: var(--text-dark);
+  font-size: 0.9rem;
+}
+
+/* ── U16. Search input text ──────────────────────────────── */
+.search-input {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  font-weight: 500;
+}
+.search-input::placeholder {
+  color: var(--text-light);
+  font-weight: 400;
+}
+
+/* ── U17. Icon buttons — emoji fallback label ────────────── */
+.icon-btn[aria-label]:focus-visible::after {
+  content: attr(aria-label);
+  position: absolute;
+  bottom: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--text-dark);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 100;
+}
+
+/* ── U18. Seasonal / promo section headings ──────────────── */
+.seasonal-section .section-title,
+.promo-section h2 {
+  font-family: var(--font-brand);
+  font-weight: 900;
+  color: var(--text-dark);
+}
+
+/* ── U19. Menu filter button text ───────────────────────── */
+.filter-btn {
+  font-family: var(--font-brand);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+.filter-btn.active { color: #fff; }
+
+/* ── U20. Responsive text size — mobile clarity ─────────── */
+@media (max-width: 768px) {
+  .section-title  { font-size: clamp(1.6rem, 5vw, 2.2rem); }
+  .section-desc   { font-size: 0.95rem; }
+  .logo-text      { font-size: 1.5rem; }
+  .product-name   { font-size: 0.95rem; }
+  .product-price  { font-size: 1.05rem; }
+}
+
+/* ── U21. Hero content — inset padding clears slider buttons */
+.hero-content {
+  padding-left:  76px;
+  padding-right: 76px;
+}
+@media (max-width: 900px) {
+  .hero-content { padding-left: 20px; padding-right: 20px; }
+}
+
+/* ── U22. Slider buttons — slightly inset from true edge ─── */
+.slider-btn {
+  background: rgba(255,255,255,0.95);
+  border: 2px solid var(--primary-light);
+  box-shadow: 0 4px 16px rgba(232,72,106,0.18);
+}
+.slider-btn:hover {
+  background: var(--primary);
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(232,72,106,0.35);
+}
+/* Emoji inside buttons when FA ::before glyph doesn't render */
+.icon-btn .fa-fallback {
+  font-size: 1rem;
+  line-height: 1;
+  display: none;
+}
+/* When FA font didn't load, body gets .fa-unavailable — show emoji */
+.fa-unavailable .icon-btn .fa-fallback { display: inline; }
+.fa-unavailable .icon-btn i           { display: none; }
+/* Slider chevron fallbacks */
+.fa-unavailable .slider-prev .fa-chevron-left::before  { content: '‹'; font-family: inherit; font-size: 1.3rem; }
+.fa-unavailable .slider-next .fa-chevron-right::before { content: '›'; font-family: inherit; font-size: 1.3rem; }
 
 /* ================================================================
    END OF PREMIUM PALETTE UTILITY SYSTEM

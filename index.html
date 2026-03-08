@@ -14,10 +14,10 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet" />
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- Main CSS -->
   <link rel="stylesheet" href="css/style.css" />
@@ -99,18 +99,18 @@
         <!-- Nav Icons -->
         <div class="nav-icons">
           <button class="icon-btn search-toggle-btn" id="search-toggle-btn" aria-label="Toggle search" aria-expanded="false">
-            <i class="fas fa-search"></i>
+            <i class="fas fa-search"></i><span class="fa-fallback" aria-hidden="true">🔍</span>
           </button>
           <button class="icon-btn wishlist-btn" id="wishlist-btn" aria-label="Wishlist" aria-haspopup="true">
-            <i class="far fa-heart"></i>
+            <i class="far fa-heart"></i><span class="fa-fallback" aria-hidden="true">♡</span>
             <span class="badge" id="wishlist-count" aria-label="Wishlist count">0</span>
           </button>
           <button class="icon-btn cart-toggle-btn" id="cart-toggle-btn" aria-label="Shopping cart" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-shopping-cart"></i>
+            <i class="fas fa-shopping-cart"></i><span class="fa-fallback" aria-hidden="true">🛒</span>
             <span class="badge" id="cart-count" aria-label="Cart item count">0</span>
           </button>
           <a href="#" class="icon-btn login-btn" id="login-btn" aria-label="Login or My Account">
-            <i class="far fa-user"></i>
+            <i class="far fa-user"></i><span class="fa-fallback" aria-hidden="true">👤</span>
           </a>
         </div>
 
@@ -2095,6 +2095,20 @@
 
   <!-- Main JavaScript -->
   <script src="js/script.js" defer></script>
+
+  <!-- Font Awesome fallback: show emoji icons if FA font fails to load -->
+  <script>
+    (function () {
+      var testEl = document.createElement('i');
+      testEl.className = 'fas fa-home';
+      testEl.style.cssText = 'position:absolute;visibility:hidden;font-family:"Font Awesome 6 Free"';
+      document.body.appendChild(testEl);
+      var loaded = window.getComputedStyle(testEl, '::before').content !== 'none'
+                   && window.getComputedStyle(testEl, '::before').content !== '';
+      document.body.removeChild(testEl);
+      if (!loaded) { document.body.classList.add('fa-unavailable'); }
+    }());
+  </script>
 
 </body>
 </html>
