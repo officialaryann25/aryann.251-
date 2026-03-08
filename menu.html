@@ -21,26 +21,26 @@
        CSS CUSTOM PROPERTIES (DESIGN TOKENS)
     ===================================================== */
     :root {
-      --primary:    #ff6b9d;
-      --secondary:  #5c2a0f;
-      --accent:     #ffb347;
-      --bg-light:   #fff8f0;
-      --bg-mid:     #f5ede5;
+      --primary:    #7c3aed;
+      --secondary:  #1e1b4b;
+      --accent:     #06d6a0;
+      --bg-light:   #f5f3ff;
+      --bg-mid:     #ede9fe;
 
-      --primary-dark:   #e0527e;
-      --primary-light:  #ffd6e7;
-      --accent-dark:    #e09432;
+      --primary-dark:   #6d28d9;
+      --primary-light:  #ede9fe;
+      --accent-dark:    #04b98a;
 
-      --text-dark:  #2d1a0e;
-      --text-mid:   #5a4030;
-      --text-light: #8a7060;
+      --text-dark:  #1e1b4b;
+      --text-mid:   #4c1d95;
+      --text-light: #7c3aed;
       --white:      #ffffff;
 
       --shadow-sm:  0 2px 8px rgba(0,0,0,0.08);
       --shadow-md:  0 6px 24px rgba(0,0,0,0.12);
       --shadow-lg:  0 12px 40px rgba(0,0,0,0.16);
-      --shadow-card: 0 4px 20px rgba(255,107,157,0.12);
-      --shadow-card-hover: 0 14px 40px rgba(255,107,157,0.25);
+      --shadow-card: 0 4px 20px rgba(124,58,237,0.12);
+      --shadow-card-hover: 0 14px 40px rgba(124,58,237,0.28);
 
       --radius-sm:  8px;
       --radius-md:  16px;
@@ -564,7 +564,7 @@
       background: var(--primary);
       border-color: var(--primary);
       color: var(--white);
-      box-shadow: 0 4px 14px rgba(255,107,157,0.35);
+      box-shadow: 0 4px 14px rgba(124,58,237,0.35);
     }
 
     .filter-controls {
@@ -602,7 +602,7 @@
     #menu-search:focus {
       outline: none;
       border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(255,107,157,0.15);
+      box-shadow: 0 0 0 3px rgba(124,58,237,0.15);
     }
 
     #menu-search::placeholder {
@@ -656,7 +656,7 @@
       height: 18px;
       border-radius: 50%;
       background: var(--primary);
-      box-shadow: 0 2px 8px rgba(255,107,157,0.4);
+      box-shadow: 0 2px 8px rgba(124,58,237,0.4);
       cursor: pointer;
       transition: transform var(--transition-fast);
     }
@@ -703,7 +703,7 @@
       color: var(--white);
       font-size: 1.3rem;
       flex-shrink: 0;
-      box-shadow: 0 4px 14px rgba(255,107,157,0.3);
+      box-shadow: 0 4px 14px rgba(124,58,237,0.3);
     }
 
     .section-title {
@@ -935,13 +935,13 @@
       gap: 8px;
       cursor: pointer;
       transition: opacity var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
-      box-shadow: 0 4px 14px rgba(255,107,157,0.3);
+      box-shadow: 0 4px 14px rgba(124,58,237,0.3);
     }
 
     .btn-add-cart:hover {
       opacity: 0.92;
       transform: translateY(-1px);
-      box-shadow: 0 6px 20px rgba(255,107,157,0.4);
+      box-shadow: 0 6px 20px rgba(124,58,237,0.4);
     }
 
     .btn-add-cart:active {
@@ -1023,7 +1023,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 6px 20px rgba(255,107,157,0.4);
+      box-shadow: 0 6px 20px rgba(124,58,237,0.4);
       cursor: pointer;
       transition: transform var(--transition-fast), opacity var(--transition-fast);
     }
@@ -1342,7 +1342,6 @@
           <span class="logo-text">Ice<span class="logo-accent">World</span></span>
         </a>
         <ul class="nav-links" id="nav-links" role="list">
-          <li><a href="home.html" class="nav-link">Home</a></li>
           <li class="has-dropdown">
             <a href="menu.html" class="nav-link active" aria-current="page">Menu <i class="fas fa-chevron-down"></i></a>
             <ul class="dropdown-menu" role="list">
@@ -1354,9 +1353,7 @@
               <li><a href="menu.html#waffles">Waffles &amp; Crepes</a></li>
             </ul>
           </li>
-          <li><a href="best-sellers.html" class="nav-link">Best Sellers</a></li>
           <li><a href="about.html" class="nav-link">About Us</a></li>
-          <li><a href="gallery.html" class="nav-link">Gallery</a></li>
           <li><a href="contact.html" class="nav-link">Contact</a></li>
         </ul>
         <div class="nav-actions">
@@ -1386,7 +1383,7 @@
       <h1>Our Full Menu 🍦</h1>
       <p class="page-hero-subtitle">Explore all our handcrafted flavours — 18 signature creations, with seasonal specials all year</p>
       <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="home.html">Home</a>
+        <a href="index.html"><i class="fas fa-home"></i> Home</a>
         <span class="breadcrumb-sep"><i class="fas fa-chevron-right"></i></span>
         <span>Menu</span>
       </nav>
@@ -1455,8 +1452,8 @@
                    data-price="419"
                    data-name="double vanilla dream"
                    aria-label="Double Vanilla Dream product card">
-            <div class="product-img-placeholder placeholder-classic" aria-hidden="true">
-              <i class="fas fa-ice-cream card-icon"></i>
+            <div class="product-img-wrapper">
+              <img src="images/1.svg" alt="Double Vanilla Dream" class="product-card-img" loading="lazy" />
             </div>
             <span class="card-badge badge-classic">Classic</span>
             <span class="badge-sale-tag">Sale</span>
@@ -1484,8 +1481,8 @@
                    data-price="459"
                    data-name="fresh strawberry swirl"
                    aria-label="Fresh Strawberry Swirl product card">
-            <div class="product-img-placeholder placeholder-classic" aria-hidden="true">
-              <i class="fas fa-ice-cream card-icon"></i>
+            <div class="product-img-wrapper">
+              <img src="images/2.svg" alt="Fresh Strawberry Swirl" class="product-card-img" loading="lazy" />
             </div>
             <span class="card-badge badge-classic">Classic</span>
             <button class="btn-wishlist" aria-label="Add Fresh Strawberry Swirl to wishlist">
@@ -1511,8 +1508,8 @@
                    data-price="499"
                    data-name="triple choco blast"
                    aria-label="Triple Choco Blast product card">
-            <div class="product-img-placeholder placeholder-classic" aria-hidden="true">
-              <i class="fas fa-ice-cream card-icon"></i>
+            <div class="product-img-wrapper">
+              <img src="images/3.svg" alt="Triple Choco Blast" class="product-card-img" loading="lazy" />
             </div>
             <span class="card-badge badge-classic">Classic</span>
             <button class="btn-wishlist" aria-label="Add Triple Choco Blast to wishlist">
@@ -1538,8 +1535,8 @@
                    data-price="439"
                    data-name="mint choc chip"
                    aria-label="Mint Choc Chip product card">
-            <div class="product-img-placeholder placeholder-classic" aria-hidden="true">
-              <i class="fas fa-ice-cream card-icon"></i>
+            <div class="product-img-wrapper">
+              <img src="images/4.svg" alt="Mint Choc Chip" class="product-card-img" loading="lazy" />
             </div>
             <span class="card-badge badge-classic">Classic</span>
             <button class="btn-wishlist" aria-label="Add Mint Choc Chip to wishlist">
@@ -1565,8 +1562,8 @@
                    data-price="479"
                    data-name="butter pecan scoop"
                    aria-label="Butter Pecan Scoop product card">
-            <div class="product-img-placeholder placeholder-classic" aria-hidden="true">
-              <i class="fas fa-ice-cream card-icon"></i>
+            <div class="product-img-wrapper">
+              <img src="images/1.svg" alt="Butter Pecan Scoop" class="product-card-img" loading="lazy" />
             </div>
             <span class="card-badge badge-classic">Classic</span>
             <button class="btn-wishlist" aria-label="Add Butter Pecan Scoop to wishlist">
@@ -1611,8 +1608,8 @@
                    data-price="749"
                    data-name="chocolate fudge sundae"
                    aria-label="Chocolate Fudge Sundae product card">
-            <div class="product-img-placeholder placeholder-sundae" aria-hidden="true">
-              <i class="fas fa-ice-cream card-icon"></i>
+            <div class="product-img-wrapper">
+              <img src="images/2.svg" alt="Chocolate Fudge Sundae" class="product-card-img" loading="lazy" />
             </div>
             <span class="card-badge badge-sundae">Sundae</span>
             <span class="badge-sale-tag">Sale</span>
@@ -1640,8 +1637,8 @@
                    data-price="789"
                    data-name="rainbow sprinkle sundae"
                    aria-label="Rainbow Sprinkle Sundae product card">
-            <div class="product-img-placeholder placeholder-sundae" aria-hidden="true">
-              <i class="fas fa-ice-cream card-icon"></i>
+            <div class="product-img-wrapper">
+              <img src="images/3.svg" alt="Rainbow Sprinkle Sundae" class="product-card-img" loading="lazy" />
             </div>
             <span class="card-badge badge-sundae">Sundae</span>
             <button class="btn-wishlist" aria-label="Add Rainbow Sprinkle Sundae to wishlist">
@@ -1667,8 +1664,8 @@
                    data-price="659"
                    data-name="banana split classic"
                    aria-label="Banana Split Classic product card">
-            <div class="product-img-placeholder placeholder-sundae" aria-hidden="true">
-              <i class="fas fa-ice-cream card-icon"></i>
+            <div class="product-img-wrapper">
+              <img src="images/4.svg" alt="Banana Split Classic" class="product-card-img" loading="lazy" />
             </div>
             <span class="card-badge badge-sundae">Sundae</span>
             <button class="btn-wishlist" aria-label="Add Banana Split Classic to wishlist">
@@ -1713,8 +1710,8 @@
                    data-price="579"
                    data-name="oreo crunch milkshake"
                    aria-label="Oreo Crunch Milkshake product card">
-            <div class="product-img-placeholder placeholder-milkshake" aria-hidden="true">
-              <i class="fas fa-ice-cream card-icon"></i>
+            <div class="product-img-wrapper">
+              <img src="images/1.svg" alt="Oreo Crunch Milkshake" class="product-card-img" loading="lazy" />
             </div>
             <span class="card-badge badge-milkshake">Milkshake</span>
             <button class="btn-wishlist" aria-label="Add Oreo Crunch Milkshake to wishlist">
@@ -1740,8 +1737,8 @@
                    data-price="619"
                    data-name="strawberry bliss shake"
                    aria-label="Strawberry Bliss Shake product card">
-            <div class="product-img-placeholder placeholder-milkshake" aria-hidden="true">
-              <i class="fas fa-ice-cream card-icon"></i>
+            <div class="product-img-wrapper">
+              <img src="images/2.svg" alt="Strawberry Bliss Shake" class="product-card-img" loading="lazy" />
             </div>
             <span class="card-badge badge-milkshake">Milkshake</span>
             <button class="btn-wishlist" aria-label="Add Strawberry Bliss Shake to wishlist">
@@ -1786,8 +1783,8 @@
                    data-price="499"
                    data-name="pistachio gelato"
                    aria-label="Pistachio Gelato product card">
-            <div class="product-img-placeholder placeholder-gelato" aria-hidden="true">
-              <i class="fas fa-ice-cream card-icon"></i>
+            <div class="product-img-wrapper">
+              <img src="images/3.svg" alt="Pistachio Gelato" class="product-card-img" loading="lazy" />
             </div>
             <span class="card-badge badge-gelato">Gelato</span>
             <button class="btn-wishlist" aria-label="Add Pistachio Gelato to wishlist">
@@ -1813,8 +1810,8 @@
                    data-price="539"
                    data-name="hazelnut espresso gelato"
                    aria-label="Hazelnut Espresso Gelato product card">
-            <div class="product-img-placeholder placeholder-gelato" aria-hidden="true">
-              <i class="fas fa-ice-cream card-icon"></i>
+            <div class="product-img-wrapper">
+              <img src="images/4.svg" alt="Hazelnut Espresso Gelato" class="product-card-img" loading="lazy" />
             </div>
             <span class="card-badge badge-gelato">Gelato</span>
             <button class="btn-wishlist" aria-label="Add Hazelnut Espresso Gelato to wishlist">
@@ -1859,8 +1856,8 @@
                    data-price="379"
                    data-name="mango tango sorbet"
                    aria-label="Mango Tango Sorbet product card">
-            <div class="product-img-placeholder placeholder-sorbet" aria-hidden="true">
-              <i class="fas fa-ice-cream card-icon"></i>
+            <div class="product-img-wrapper">
+              <img src="images/1.svg" alt="Mango Tango Sorbet" class="product-card-img" loading="lazy" />
             </div>
             <span class="card-badge badge-sorbet">Sorbet</span>
             <button class="btn-wishlist" aria-label="Add Mango Tango Sorbet to wishlist">
@@ -1886,8 +1883,8 @@
                    data-price="359"
                    data-name="raspberry lemon sorbet"
                    aria-label="Raspberry Lemon Sorbet product card">
-            <div class="product-img-placeholder placeholder-sorbet" aria-hidden="true">
-              <i class="fas fa-ice-cream card-icon"></i>
+            <div class="product-img-wrapper">
+              <img src="images/2.svg" alt="Raspberry Lemon Sorbet" class="product-card-img" loading="lazy" />
             </div>
             <span class="card-badge badge-sorbet">Sorbet</span>
             <button class="btn-wishlist" aria-label="Add Raspberry Lemon Sorbet to wishlist">
@@ -1913,8 +1910,8 @@
                    data-price="519"
                    data-name="lychee sorbet"
                    aria-label="Lychee Sorbet product card">
-            <div class="product-img-placeholder placeholder-sorbet" aria-hidden="true">
-              <i class="fas fa-ice-cream card-icon"></i>
+            <div class="product-img-wrapper">
+              <img src="images/3.svg" alt="Lychee Sorbet" class="product-card-img" loading="lazy" />
             </div>
             <span class="card-badge badge-sorbet">Sorbet</span>
             <button class="btn-wishlist" aria-label="Add Lychee Sorbet to wishlist">
@@ -1959,8 +1956,8 @@
                    data-price="919"
                    data-name="belgian waffle stack"
                    aria-label="Belgian Waffle Stack product card">
-            <div class="product-img-placeholder placeholder-waffle" aria-hidden="true">
-              <i class="fas fa-ice-cream card-icon"></i>
+            <div class="product-img-wrapper">
+              <img src="images/4.svg" alt="Belgian Waffle Stack" class="product-card-img" loading="lazy" />
             </div>
             <span class="card-badge badge-waffle">Waffle</span>
             <span class="badge-sale-tag">Sale</span>
@@ -1988,8 +1985,8 @@
                    data-price="829"
                    data-name="nutella crepe delight"
                    aria-label="Nutella Crepe Delight product card">
-            <div class="product-img-placeholder placeholder-waffle" aria-hidden="true">
-              <i class="fas fa-ice-cream card-icon"></i>
+            <div class="product-img-wrapper">
+              <img src="images/1.svg" alt="Nutella Crepe Delight" class="product-card-img" loading="lazy" />
             </div>
             <span class="card-badge badge-waffle">Waffle</span>
             <button class="btn-wishlist" aria-label="Add Nutella Crepe Delight to wishlist">
@@ -2015,8 +2012,8 @@
                    data-price="959"
                    data-name="dark choco waffle"
                    aria-label="Dark Choco Waffle product card">
-            <div class="product-img-placeholder placeholder-waffle" aria-hidden="true">
-              <i class="fas fa-ice-cream card-icon"></i>
+            <div class="product-img-wrapper">
+              <img src="images/2.svg" alt="Dark Choco Waffle" class="product-card-img" loading="lazy" />
             </div>
             <span class="card-badge badge-waffle">Waffle</span>
             <span class="badge-sale-tag">Sale</span>
@@ -2081,11 +2078,8 @@
           <div class="footer-col">
             <h3 class="footer-heading">Quick Links</h3>
             <ul class="footer-links" role="list">
-              <li><a href="home.html">Home</a></li>
               <li><a href="menu.html">Full Menu</a></li>
-              <li><a href="best-sellers.html">Best Sellers</a></li>
               <li><a href="about.html">About Us</a></li>
-              <li><a href="gallery.html">Gallery</a></li>
               <li><a href="contact.html">Contact</a></li>
             </ul>
           </div>

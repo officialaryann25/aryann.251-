@@ -4,31 +4,31 @@
 
 /* ---- CSS Custom Properties ---- */
 :root {
-  /* Strawberry Pink */
-  --primary:        #ff6b9d;
-  --primary-dark:   #e04f85;
-  --primary-light:  #ffd6e8;
-  /* Chocolate Brown */
-  --secondary:      #5c2a0f;
-  --secondary-dark: #3e1a08;
-  --secondary-light:#f5e6d8;
-  /* Mango Yellow */
-  --accent:         #ffb347;
-  --accent-dark:    #e0903a;
+  /* Violet Purple */
+  --primary:        #7c3aed;
+  --primary-dark:   #6d28d9;
+  --primary-light:  #ede9fe;
+  /* Deep Navy */
+  --secondary:      #1e1b4b;
+  --secondary-dark: #0f0e2e;
+  --secondary-light:#ede9fe;
+  /* Teal Mint */
+  --accent:         #06d6a0;
+  --accent-dark:    #04b98a;
   --success:        #28a745;
   --danger:         #dc3545;
   --warning:        #ffc107;
   --info:           #17a2b8;
 
-  /* Chocolate-Brown text scale */
-  --text-dark:      #2c1810;
-  --text-mid:       #6b4423;
-  --text-light:     #9d7b6b;
-  /* Cream White backgrounds */
+  /* Text scale */
+  --text-dark:      #1e1b4b;
+  --text-mid:       #4c1d95;
+  --text-light:     #7c69b8;
+  /* Cool white backgrounds */
   --bg-white:       #ffffff;
-  --bg-light:       #fff8f0;
-  --bg-mid:         #f5ede5;
-  --border-color:   #e8d5c4;
+  --bg-light:       #f5f3ff;
+  --bg-mid:         #ede9fe;
+  --border-color:   #ddd6fe;
 
   /* Poppins (body) + Montserrat (headings/brand) */
   --font-body:      'Poppins', sans-serif;
@@ -41,10 +41,10 @@
   --radius-full:    9999px;
 
   /* Warm chocolate-brown shadows */
-  --shadow-sm:      0 2px 8px rgba(92,42,15,0.08);
-  --shadow-md:      0 4px 20px rgba(92,42,15,0.12);
-  --shadow-lg:      0 8px 40px rgba(92,42,15,0.18);
-  --shadow-xl:      0 16px 60px rgba(92,42,15,0.22);
+  --shadow-sm:      0 2px 8px rgba(124,58,237,0.08);
+  --shadow-md:      0 4px 20px rgba(124,58,237,0.12);
+  --shadow-lg:      0 8px 40px rgba(124,58,237,0.18);
+  --shadow-xl:      0 16px 60px rgba(124,58,237,0.22);
 
   --transition:     all 0.3s ease;
   --transition-slow:all 0.6s ease;
@@ -152,7 +152,7 @@
   gap: 60px;
   align-items: center;
 }
-.loyalty-section .section-tagline { background: rgba(255,107,157,0.2); color: var(--primary-light); }
+.loyalty-section .section-tagline { background: rgba(124,58,237,0.2); color: var(--primary-light); }
 .loyalty-section .section-title { color: #fff; }
 .loyalty-section > .container > .loyalty-grid > .loyalty-content > p { color: rgba(255,255,255,0.75); margin-bottom: 28px; }
 .loyalty-tiers { display: flex; flex-direction: column; gap: 14px; margin-bottom: 32px; }
@@ -313,7 +313,7 @@ address { font-style: normal; }
   background: var(--primary-dark);
   border-color: var(--primary-dark);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255,107,157,0.4);
+  box-shadow: 0 6px 20px rgba(124,58,237,0.4);
 }
 .btn-outline {
   background: transparent;
@@ -889,7 +889,7 @@ address { font-style: normal; }
   transition: var(--transition);
   outline: none;
 }
-.form-control:focus { border-color: var(--primary); background: #fff; box-shadow: 0 0 0 4px rgba(255,107,157,0.12); }
+.form-control:focus { border-color: var(--primary); background: #fff; box-shadow: 0 0 0 4px rgba(124,58,237,0.12); }
 .form-control.error { border-color: var(--danger); background: #fff5f5; }
 .form-control.success { border-color: var(--success); }
 textarea.form-control { resize: vertical; min-height: 120px; }
@@ -1129,7 +1129,7 @@ textarea.form-control { resize: vertical; min-height: 120px; }
   position: absolute;
   width: 420px; height: 420px;
   border-radius: 40% 60% 55% 45% / 45% 40% 60% 55%;
-  background: rgba(255,107,157,0.15);
+  background: rgba(124,58,237,0.15);
   animation: blobMorph 8s ease-in-out infinite;
   z-index: 0;
 }
@@ -1189,7 +1189,7 @@ textarea.form-control { resize: vertical; min-height: 120px; }
 .slider-dot {
   width: 10px; height: 10px;
   border-radius: var(--radius-full);
-  background: rgba(255,107,157,0.3);
+  background: rgba(124,58,237,0.3);
   border: 2px solid var(--primary);
   transition: var(--transition);
   cursor: pointer;
@@ -1680,7 +1680,7 @@ textarea.form-control { resize: vertical; min-height: 120px; }
 .gallery-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(255,107,157,0.7);
+  background: rgba(124,58,237,0.7);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1996,4 +1996,54 @@ textarea.form-control { resize: vertical; min-height: 120px; }
   outline: 3px solid var(--primary);
   outline-offset: 3px;
   border-radius: var(--radius-sm);
+}
+
+/* ============================================================
+   EXTRA ANIMATIONS (ice cream series)
+   ============================================================ */
+@keyframes bounceIn {
+  0%   { transform: scale(0.4); opacity: 0; }
+  60%  { transform: scale(1.08); opacity: 1; }
+  80%  { transform: scale(0.96); }
+  100% { transform: scale(1); }
+}
+@keyframes gradientShift {
+  0%   { background-position: 0%   50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0%   50%; }
+}
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 6px rgba(124,58,237,0.3); }
+  50%       { box-shadow: 0 0 20px rgba(124,58,237,0.7), 0 0 40px rgba(6,214,160,0.3); }
+}
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-5deg); }
+  50%       { transform: rotate(5deg); }
+}
+@keyframes ripple {
+  0%   { transform: scale(1);   opacity: 0.4; }
+  100% { transform: scale(2.8); opacity: 0;   }
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(60px) scale(0.95); }
+  to   { opacity: 1; transform: translateY(0)    scale(1);    }
+}
+/* Product image in cards */
+.product-img-wrapper {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  background: linear-gradient(135deg, #ede9fe, #f5f3ff);
+}
+.product-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 8px;
+  transition: transform 0.45s cubic-bezier(0.34,1.56,0.64,1), filter 0.3s ease;
+}
+.product-card:hover .product-card-img {
+  transform: scale(1.14) translateY(-8px) rotate(-2deg);
+  filter: drop-shadow(0 10px 20px rgba(124,58,237,0.4));
 }
