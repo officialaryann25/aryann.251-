@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact IceWorld - Reach out to Mahi Sehrawat (+91 8750141860) or Priyanshi (+91 8368573180). Send us a message.">
+  <title>Contact Us 📞 - IceWorld</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <style>
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .contact-info-card {
+      background: var(--white);
+      border-radius: var(--border-radius-lg);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-md);
+    }
+
+    .contact-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.2rem;
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--mid-gray);
+    }
+
+    .contact-info-item:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .contact-info-icon {
+      width: 52px;
+      height: 52px;
+      background: var(--grad-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      box-shadow: 0 5px 15px rgba(255,107,157,0.3);
+    }
+
+    .contact-info-content h4 {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.4rem;
+    }
+
+    .contact-info-content p,
+    .contact-info-content a {
+      font-size: 0.95rem;
+      color: var(--gray);
+      line-height: 1.7;
+      transition: color 0.2s;
+    }
+
+    .contact-info-content a:hover {
+      color: var(--primary);
+    }
+
+    .contact-form-card {
+      background: var(--white);
+      border-radius: var(--border-radius-lg);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-md);
+    }
+
+    .form-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .contact-social {
+      display: flex;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+
+    .contact-social-link {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      color: var(--white);
+      transition: var(--transition-bounce);
+    }
+
+    .contact-social-link:hover {
+      transform: translateY(-4px) scale(1.1);
+    }
+
+    .social-fb { background: #1877f2; }
+    .social-ig { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+    .social-tw { background: #1da1f2; }
+    .social-wa { background: #25d366; }
+    .social-yt { background: #ff0000; }
+
+    .map-container {
+      background: var(--cream);
+      border-radius: var(--border-radius-lg);
+      overflow: hidden;
+      height: 400px;
+      border: 2px solid var(--mid-gray);
+    }
+
+    .map-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #f5f5f5, #ffe0ec);
+      color: var(--gray);
+      font-size: 1rem;
+      gap: 1rem;
+    }
+
+    .map-placeholder .map-emoji {
+      font-size: 4rem;
+      animation: bounce 2s ease-in-out infinite;
+    }
+
+    .map-placeholder a {
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: underline;
+    }
+
+    .owner-contact-card {
+      background: var(--white);
+      border-radius: var(--border-radius);
+      padding: 1.8rem;
+      box-shadow: var(--shadow-sm);
+      border-left: 4px solid var(--primary);
+      transition: var(--transition-bounce);
+    }
+
+    .owner-contact-card:hover {
+      transform: translateX(5px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .owner-contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .faq-item {
+      background: var(--white);
+      border-radius: var(--border-radius);
+      margin-bottom: 1rem;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .faq-question {
+      padding: 1.2rem 1.5rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--dark);
+      transition: color 0.2s;
+    }
+
+    .faq-question:hover {
+      color: var(--primary);
+    }
+
+    .faq-question i {
+      transition: transform 0.3s ease;
+      color: var(--primary);
+    }
+
+    .faq-item.open .faq-question i {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      padding: 0 1.5rem;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+      padding: 0 1.5rem 1.2rem;
+    }
+
+    @media (max-width: 992px) {
+      .contact-grid { grid-template-columns: 1fr; }
+      .form-grid-2 { grid-template-columns: 1fr; }
+      .owner-contact-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body class="loading">
+
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+  <div id="preloader">
+    <div class="preloader-content">
+      <span class="preloader-ice-cream">📞</span>
+      <div class="preloader-logo">IceWorld</div>
+      <div class="preloader-bar"><div class="preloader-fill"></div></div>
+      <div class="preloader-text">Getting in touch...</div>
+    </div>
+  </div>
+
+  <div id="scroll-progress"></div>
+  <div class="toast-container"></div>
+  <div class="menu-overlay"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-emoji">🍦</span>
+        <span class="logo-text">IceWorld</span>
+      </a>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="menu.html" class="nav-link">Menu</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="contact.html" class="nav-link active">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="dark-toggle"><i class="fas fa-moon"></i></button>
+        <a href="wishlist.html" class="nav-icon-btn"><i class="far fa-heart"></i><span class="nav-badge wishlist-badge" style="display:none;">0</span></a>
+        <a href="cart.html" class="nav-icon-btn"><i class="fas fa-shopping-cart"></i><span class="nav-badge cart-badge" style="display:none;">0</span></a>
+        <button class="hamburger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-menu">
+    <ul>
+      <li><a href="index.html" class="nav-link">🏠 Home</a></li>
+      <li><a href="menu.html" class="nav-link">🍦 Menu</a></li>
+      <li><a href="about.html" class="nav-link">💫 About</a></li>
+      <li><a href="contact.html" class="nav-link">📞 Contact</a></li>
+      <li><a href="cart.html" class="nav-link">🛒 Cart</a></li>
+      <li><a href="wishlist.html" class="nav-link">❤️ Wishlist</a></li>
+    </ul>
+  </div>
+
+  <!-- Page Hero -->
+  <div class="page-hero">
+    <div class="container page-hero-content">
+      <div class="section-badge" style="margin-bottom:1rem;">📞 Get In Touch</div>
+      <h1 class="page-hero-title">Contact <span class="gradient-text">IceWorld</span></h1>
+      <div class="page-hero-breadcrumb">
+        <a href="index.html">Home</a>
+        <i class="fas fa-angle-right"></i>
+        <span>Contact</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CONTACT SECTION ===== -->
+  <section style="background:var(--cream);">
+    <div class="container">
+      <div class="contact-grid">
+        <!-- Contact Info -->
+        <div>
+          <div class="contact-info-card reveal-left">
+            <h3 style="font-size:1.4rem;font-weight:800;color:var(--dark);margin-bottom:2rem;">
+              Let's Connect! <span style="font-size:1.5rem;">🍦</span>
+            </h3>
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon"><i class="fas fa-user-tie"></i></div>
+              <div class="contact-info-content">
+                <h4>Owner - Mahi Sehrawat</h4>
+                <p>CEO & Co-Founder</p>
+                <a href="tel:+918750141860">+91 8750141860</a><br>
+                <a href="mailto:mahisehrawat2006@gmail.com">mahisehrawat2006@gmail.com</a>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon" style="background:var(--grad-secondary);"><i class="fas fa-user-tie" style="color:var(--dark);"></i></div>
+              <div class="contact-info-content">
+                <h4>Owner - Priyanshi</h4>
+                <p>CMO & Co-Founder</p>
+                <a href="tel:+918368573180">+91 8368573180</a><br>
+                <a href="mailto:priyadaksh007@gmail.com">priyadaksh007@gmail.com</a>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon" style="background:linear-gradient(135deg,#a8edea,#fed9b7);"><i class="fas fa-map-marker-alt" style="color:var(--dark);"></i></div>
+              <div class="contact-info-content">
+                <h4>Our Location</h4>
+                <p>IceWorld Parlour<br>Delhi NCR, India<br>Pin: 110001</p>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon" style="background:linear-gradient(135deg,#667eea,#764ba2);"><i class="fas fa-clock"></i></div>
+              <div class="contact-info-content">
+                <h4>Business Hours</h4>
+                <p>Monday – Sunday<br>10:00 AM – 10:00 PM IST</p>
+              </div>
+            </div>
+
+            <div>
+              <h4 style="font-weight:700;font-size:0.85rem;color:var(--dark);text-transform:uppercase;letter-spacing:1px;margin-bottom:0.8rem;">Follow Us</h4>
+              <div class="contact-social">
+                <a href="#" class="contact-social-link social-fb" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="contact-social-link social-ig" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="contact-social-link social-tw" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="contact-social-link social-wa" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" class="contact-social-link social-yt" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="reveal-right">
+          <div class="contact-form-card">
+            <h3 style="font-size:1.4rem;font-weight:800;color:var(--dark);margin-bottom:0.5rem;">Send Us a Message</h3>
+            <p style="color:var(--gray);font-size:0.9rem;margin-bottom:2rem;">We typically respond within 2-4 hours during business hours.</p>
+
+            <form id="contact-form" novalidate>
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label class="form-label" for="contact-name">Your Name *</label>
+                  <input type="text" id="contact-name" name="name" class="form-control" placeholder="e.g., Rahul Sharma" required>
+                  <div class="form-error" id="name-error" style="display:none;"><i class="fas fa-exclamation-circle"></i> <span></span></div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="contact-email">Email Address *</label>
+                  <input type="email" id="contact-email" name="email" class="form-control" placeholder="your@email.com" required>
+                  <div class="form-error" id="email-error" style="display:none;"><i class="fas fa-exclamation-circle"></i> <span></span></div>
+                </div>
+              </div>
+
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label class="form-label" for="contact-phone">Phone Number</label>
+                  <input type="tel" id="contact-phone" name="phone" class="form-control" placeholder="+91 9876543210">
+                  <div class="form-error" id="phone-error" style="display:none;"><i class="fas fa-exclamation-circle"></i> <span></span></div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="contact-subject">Subject</label>
+                  <select id="contact-subject" name="subject" class="form-control">
+                    <option value="">Select a subject</option>
+                    <option value="order">Order Enquiry</option>
+                    <option value="complaint">Complaint</option>
+                    <option value="feedback">Feedback</option>
+                    <option value="bulk">Bulk Order</option>
+                    <option value="partnership">Partnership</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="contact-message">Your Message *</label>
+                <textarea id="contact-message" name="message" class="form-control" placeholder="Tell us how we can help you..." rows="5" required></textarea>
+                <div class="form-error" id="message-error" style="display:none;"><i class="fas fa-exclamation-circle"></i> <span></span></div>
+              </div>
+
+              <div class="form-group">
+                <label class="custom-check">
+                  <input type="checkbox" required>
+                  <span class="check-box"></span>
+                  I agree to the <a href="#" style="color:var(--primary);font-weight:600;">Privacy Policy</a> and Terms of Service
+                </label>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-lg w-100">
+                <i class="fas fa-paper-plane"></i> Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== OWNER CONTACT CARDS ===== -->
+  <section style="background:var(--white);">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-badge">👥 Direct Contact</span>
+        <h2 class="section-title">Reach Our <span class="gradient-text">Owners Directly</span></h2>
+        <p class="section-subtitle">For urgent matters or partnerships, contact our owners directly</p>
+      </div>
+      <div class="owner-contact-grid stagger-children">
+        <div class="owner-contact-card">
+          <div style="display:flex;align-items:center;gap:1.2rem;margin-bottom:1.5rem;">
+            <div style="width:60px;height:60px;background:var(--grad-primary);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;flex-shrink:0;">👩</div>
+            <div>
+              <h3 style="font-size:1.2rem;font-weight:800;color:var(--dark);">Mahi Sehrawat</h3>
+              <span style="font-size:0.8rem;color:var(--primary);font-weight:600;text-transform:uppercase;letter-spacing:1px;">CEO & Co-Founder</span>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:0.8rem;">
+            <a href="tel:+918750141860" style="display:flex;align-items:center;gap:0.8rem;color:var(--dark);font-size:0.95rem;padding:0.7rem 1rem;background:var(--cream);border-radius:var(--border-radius-sm);transition:all 0.2s;">
+              <i class="fas fa-phone" style="color:var(--primary);"></i> +91 8750141860
+            </a>
+            <a href="mailto:mahisehrawat2006@gmail.com" style="display:flex;align-items:center;gap:0.8rem;color:var(--dark);font-size:0.95rem;padding:0.7rem 1rem;background:var(--cream);border-radius:var(--border-radius-sm);transition:all 0.2s;">
+              <i class="fas fa-envelope" style="color:var(--primary);"></i> mahisehrawat2006@gmail.com
+            </a>
+            <a href="https://wa.me/918750141860" style="display:flex;align-items:center;gap:0.8rem;color:var(--dark);font-size:0.95rem;padding:0.7rem 1rem;background:var(--cream);border-radius:var(--border-radius-sm);transition:all 0.2s;">
+              <i class="fab fa-whatsapp" style="color:#25d366;"></i> WhatsApp Chat
+            </a>
+          </div>
+        </div>
+
+        <div class="owner-contact-card" style="border-left-color:var(--secondary);">
+          <div style="display:flex;align-items:center;gap:1.2rem;margin-bottom:1.5rem;">
+            <div style="width:60px;height:60px;background:var(--grad-secondary);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;flex-shrink:0;">👩</div>
+            <div>
+              <h3 style="font-size:1.2rem;font-weight:800;color:var(--dark);">Priyanshi</h3>
+              <span style="font-size:0.8rem;color:var(--secondary);font-weight:600;text-transform:uppercase;letter-spacing:1px;">CMO & Co-Founder</span>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:0.8rem;">
+            <a href="tel:+918368573180" style="display:flex;align-items:center;gap:0.8rem;color:var(--dark);font-size:0.95rem;padding:0.7rem 1rem;background:var(--cream);border-radius:var(--border-radius-sm);transition:all 0.2s;">
+              <i class="fas fa-phone" style="color:var(--secondary);"></i> +91 8368573180
+            </a>
+            <a href="mailto:priyadaksh007@gmail.com" style="display:flex;align-items:center;gap:0.8rem;color:var(--dark);font-size:0.95rem;padding:0.7rem 1rem;background:var(--cream);border-radius:var(--border-radius-sm);transition:all 0.2s;">
+              <i class="fas fa-envelope" style="color:var(--secondary);"></i> priyadaksh007@gmail.com
+            </a>
+            <a href="https://wa.me/918368573180" style="display:flex;align-items:center;gap:0.8rem;color:var(--dark);font-size:0.95rem;padding:0.7rem 1rem;background:var(--cream);border-radius:var(--border-radius-sm);transition:all 0.2s;">
+              <i class="fab fa-whatsapp" style="color:#25d366;"></i> WhatsApp Chat
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MAP SECTION ===== -->
+  <section style="background:var(--cream);padding-top:0;">
+    <div class="container">
+      <div class="section-header reveal" style="padding-top:var(--space-3xl);">
+        <span class="section-badge">📍 Location</span>
+        <h2 class="section-title">Find <span class="gradient-text">Our Parlour</span></h2>
+      </div>
+      <div class="map-container reveal">
+        <!-- Google Maps Embed - Delhi NCR, India -->
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d448193.9510083522!2d76.76357295!3d28.6517178!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b347eb62d%3A0x37205b715389640!2sDelhi%20NCR%2C%20India!5e0!3m2!1sen!2sin!4v1704000000000!5m2!1sen!2sin"
+          width="100%"
+          height="100%"
+          style="border:0;border-radius:var(--border-radius-lg);min-height:400px;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="IceWorld Location - Delhi NCR, India">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ SECTION ===== -->
+  <section style="background:var(--white);">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-badge">❓ FAQ</span>
+        <h2 class="section-title">Frequently Asked <span class="gradient-text">Questions</span></h2>
+      </div>
+      <div style="max-width:700px;margin:0 auto;" class="reveal">
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            Do you offer home delivery? <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">Yes! We offer home delivery across Delhi NCR. Orders above ₹500 get FREE delivery. We ensure our ice creams are delivered in insulated packaging to maintain freshness and temperature.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            What payment methods do you accept? <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">We accept all major payment methods including credit/debit cards, UPI (PhonePe, GPay, Paytm), net banking, and cash on delivery. All online payments are 100% secure.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            Are your ice creams made with natural ingredients? <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">Absolutely! We use only real fruits, premium dairy, and natural flavors. We never use artificial preservatives or colors. Every ingredient is carefully sourced to ensure the highest quality.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            Can I place bulk orders for events? <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">Yes! We cater to parties, weddings, corporate events, and other occasions. Contact Mahi at +91 8750141860 or Priyanshi at +91 8368573180 for bulk order enquiries. Special discounts available for orders above ₹5000.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            Do you have any vegan or sugar-free options? <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">Yes! We offer several vegan sorbets and plant-based options. We also have sugar-free variants for health-conscious customers. Check our menu for options labeled "Vegan" or "Sugar-Free".</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            How can I track my order? <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">Once your order is confirmed, you'll receive an SMS and email with tracking details. You can also call us directly for real-time order status. Our delivery partners provide live location tracking.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo"><span>🍦</span><span class="logo-text">IceWorld</span></div>
+          <p class="footer-desc">Premium handcrafted ice creams made with love and natural ingredients.</p>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html"><i class="fas fa-angle-right"></i> Home</a></li>
+            <li><a href="menu.html"><i class="fas fa-angle-right"></i> Menu</a></li>
+            <li><a href="about.html"><i class="fas fa-angle-right"></i> About</a></li>
+            <li><a href="contact.html"><i class="fas fa-angle-right"></i> Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Legal</h4>
+          <ul class="footer-links">
+            <li><a href="#"><i class="fas fa-angle-right"></i> Privacy Policy</a></li>
+            <li><a href="#"><i class="fas fa-angle-right"></i> Terms of Service</a></li>
+            <li><a href="#"><i class="fas fa-angle-right"></i> Cookie Policy</a></li>
+            <li><a href="#"><i class="fas fa-angle-right"></i> Refund Policy</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Contact</h4>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon"><i class="fas fa-user"></i></div>
+            <div>
+              <strong style="color:var(--white);">Mahi Sehrawat</strong><br>
+              <a href="tel:+918750141860">+91 8750141860</a><br>
+              <a href="mailto:mahisehrawat2006@gmail.com">mahisehrawat2006@gmail.com</a>
+            </div>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon"><i class="fas fa-user"></i></div>
+            <div>
+              <strong style="color:var(--white);">Priyanshi</strong><br>
+              <a href="tel:+918368573180">+91 8368573180</a><br>
+              <a href="mailto:priyadaksh007@gmail.com">priyadaksh007@gmail.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 IceWorld. All rights reserved. Made with ❤️ by <strong>Mahi Sehrawat</strong> & <strong>Priyanshi</strong></p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top"><i class="fas fa-chevron-up"></i></button>
+  <a href="contact.html" id="floating-chat"><i class="fas fa-comment-dots"></i></a>
+
+  <script src="js/cart.js"></script>
+  <script src="js/wishlist.js"></script>
+  <script src="js/script.js"></script>
+
+  <script>
+    /* ===== Contact Form Validation ===== */
+    (function() {
+      const form = document.getElementById('contact-form');
+      if (!form) return;
+
+      function showError(fieldId, errorId, msg) {
+        const field = document.getElementById(fieldId);
+        const errEl = document.getElementById(errorId);
+        if (field) field.classList.add('is-invalid');
+        if (errEl) {
+          errEl.style.display = 'flex';
+          const span = errEl.querySelector('span');
+          if (span) span.textContent = msg;
+        }
+      }
+
+      function clearError(fieldId, errorId) {
+        const field = document.getElementById(fieldId);
+        const errEl = document.getElementById(errorId);
+        if (field) field.classList.remove('is-invalid');
+        if (errEl) errEl.style.display = 'none';
+      }
+
+      function validateName(value) {
+        if (!value.trim()) return 'Name is required.';
+        if (value.trim().length < 2) return 'Name must be at least 2 characters.';
+        return '';
+      }
+
+      function validateEmail(value) {
+        if (!value.trim()) return 'Email address is required.';
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!re.test(value.trim())) return 'Please enter a valid email address.';
+        return '';
+      }
+
+      function validatePhone(value) {
+        if (!value.trim()) return ''; // optional
+        const re = /^[+]?[\d\s\-().]{7,15}$/;
+        if (!re.test(value.trim())) return 'Please enter a valid phone number.';
+        return '';
+      }
+
+      function validateMessage(value) {
+        if (!value.trim()) return 'Message is required.';
+        if (value.trim().length < 10) return 'Message must be at least 10 characters.';
+        return '';
+      }
+
+      // Live validation on blur
+      document.getElementById('contact-name')?.addEventListener('blur', function() {
+        const err = validateName(this.value);
+        err ? showError('contact-name', 'name-error', err) : clearError('contact-name', 'name-error');
+      });
+      document.getElementById('contact-email')?.addEventListener('blur', function() {
+        const err = validateEmail(this.value);
+        err ? showError('contact-email', 'email-error', err) : clearError('contact-email', 'email-error');
+      });
+      document.getElementById('contact-phone')?.addEventListener('blur', function() {
+        const err = validatePhone(this.value);
+        err ? showError('contact-phone', 'phone-error', err) : clearError('contact-phone', 'phone-error');
+      });
+      document.getElementById('contact-message')?.addEventListener('blur', function() {
+        const err = validateMessage(this.value);
+        err ? showError('contact-message', 'message-error', err) : clearError('contact-message', 'message-error');
+      });
+
+      // Submit validation
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        let valid = true;
+
+        const nameErr = validateName(document.getElementById('contact-name')?.value || '');
+        if (nameErr) { showError('contact-name', 'name-error', nameErr); valid = false; }
+        else clearError('contact-name', 'name-error');
+
+        const emailErr = validateEmail(document.getElementById('contact-email')?.value || '');
+        if (emailErr) { showError('contact-email', 'email-error', emailErr); valid = false; }
+        else clearError('contact-email', 'email-error');
+
+        const phoneErr = validatePhone(document.getElementById('contact-phone')?.value || '');
+        if (phoneErr) { showError('contact-phone', 'phone-error', phoneErr); valid = false; }
+        else clearError('contact-phone', 'phone-error');
+
+        const msgErr = validateMessage(document.getElementById('contact-message')?.value || '');
+        if (msgErr) { showError('contact-message', 'message-error', msgErr); valid = false; }
+        else clearError('contact-message', 'message-error');
+
+        if (!valid) return;
+
+        // Success feedback
+        const btn = form.querySelector('[type="submit"]');
+        if (btn) {
+          btn.disabled = true;
+          btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        }
+        setTimeout(() => {
+          form.reset();
+          if (btn) {
+            btn.disabled = false;
+            btn.innerHTML = '<i class="fas fa-check-circle"></i> Message Sent!';
+            setTimeout(() => { btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message'; }, 3000);
+          }
+          if (typeof showToast === 'function') {
+            showToast('Message sent successfully! We\'ll get back to you soon. 📧', 'success');
+          }
+        }, 1500);
+      });
+    })();
+
+    function toggleFaq(el) {
+      const item = el.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+  </script>
+</body>
+</html>

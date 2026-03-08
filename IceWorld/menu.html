@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="IceWorld Menu - Browse all ice creams, gelatos, sundaes and more. Filter by category, price, and rating.">
+  <title>Menu 🍦 - IceWorld</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <style>
+    .menu-page-layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .sidebar {
+      background: var(--white);
+      border-radius: var(--border-radius);
+      padding: 1.5rem;
+      position: sticky;
+      top: calc(var(--nav-height) + 1rem);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .sidebar-section {
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--mid-gray);
+    }
+
+    .sidebar-section:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .sidebar-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--dark);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .category-pills {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .category-pill {
+      padding: 0.6rem 1rem;
+      border-radius: var(--border-radius-pill);
+      border: 2px solid var(--mid-gray);
+      background: var(--white);
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--dark);
+      cursor: pointer;
+      transition: var(--transition-bounce);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      justify-content: space-between;
+    }
+
+    .category-pill:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: translateX(4px);
+    }
+
+    .category-pill.active {
+      background: var(--grad-primary);
+      border-color: transparent;
+      color: var(--white);
+      box-shadow: 0 4px 15px rgba(255,107,157,0.3);
+    }
+
+    .pill-count {
+      background: rgba(255,255,255,0.2);
+      padding: 0.1rem 0.5rem;
+      border-radius: 10px;
+      font-size: 0.75rem;
+    }
+
+    .category-pill:not(.active) .pill-count {
+      background: var(--mid-gray);
+    }
+
+    .price-range-container {
+      padding: 0.5rem 0;
+    }
+
+    .price-display {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 0.8rem;
+    }
+
+    .rating-filter-btns {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .rating-filter {
+      padding: 0.5rem 0.8rem;
+      border-radius: var(--border-radius-pill);
+      border: 2px solid var(--mid-gray);
+      background: var(--white);
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: var(--transition-bounce);
+      text-align: left;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .rating-filter:hover,
+    .rating-filter.active {
+      border-color: var(--primary);
+      background: rgba(255,107,157,0.05);
+      color: var(--primary);
+    }
+
+    .menu-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .search-bar-wrapper {
+      position: relative;
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .search-bar-wrapper i {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--gray);
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 0.8rem 1rem 0.8rem 2.8rem;
+      border-radius: var(--border-radius-pill);
+      border: 2px solid var(--mid-gray);
+      background: var(--white);
+      font-size: 0.95rem;
+      color: var(--dark);
+      transition: var(--transition-normal);
+    }
+
+    .search-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(255,107,157,0.15);
+    }
+
+    .clear-search {
+      position: absolute;
+      right: 0.8rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--mid-gray);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 0.75rem;
+      color: var(--gray);
+    }
+
+    .toolbar-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .sort-select {
+      padding: 0.7rem 2.5rem 0.7rem 1rem;
+      border-radius: var(--border-radius-pill);
+      border: 2px solid var(--mid-gray);
+      background: var(--white);
+      font-size: 0.9rem;
+      color: var(--dark);
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236c757d' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.8rem center;
+      background-size: 16px;
+      transition: var(--transition-normal);
+    }
+
+    .sort-select:focus {
+      border-color: var(--primary);
+      outline: none;
+    }
+
+    .view-toggle {
+      display: flex;
+      gap: 0.3rem;
+    }
+
+    .view-toggle-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--border-radius-sm);
+      border: 2px solid var(--mid-gray);
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--gray);
+      transition: var(--transition-normal);
+    }
+
+    .view-toggle-btn.active,
+    .view-toggle-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: rgba(255,107,157,0.05);
+    }
+
+    .result-info {
+      font-size: 0.9rem;
+      color: var(--gray);
+    }
+
+    #result-count {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .no-results {
+      text-align: center;
+      padding: 4rem 2rem;
+      display: none;
+    }
+
+    .no-results-icon {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    /* List view */
+    .products-grid.list-view {
+      grid-template-columns: 1fr;
+    }
+
+    .products-grid.list-view .product-card {
+      display: grid;
+      grid-template-columns: 200px 1fr auto;
+      grid-template-rows: auto;
+      overflow: visible;
+    }
+
+    .products-grid.list-view .product-card-image {
+      border-radius: var(--border-radius) 0 0 var(--border-radius);
+      grid-row: 1 / 3;
+      aspect-ratio: auto;
+      height: 100%;
+    }
+
+    .products-grid.list-view .product-card-body {
+      padding: 1.25rem;
+    }
+
+    .products-grid.list-view .product-card-footer {
+      grid-row: 1;
+      border-top: none;
+      border-left: 1px solid var(--mid-gray);
+      flex-direction: column;
+      padding: 1.5rem;
+      gap: 1rem;
+      align-items: stretch;
+      min-width: 160px;
+    }
+
+    @media (max-width: 992px) {
+      .menu-page-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: static;
+      }
+    }
+  </style>
+</head>
+<body class="loading">
+
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <div id="preloader">
+    <div class="preloader-content">
+      <span class="preloader-ice-cream">🍧</span>
+      <div class="preloader-logo">IceWorld</div>
+      <div class="preloader-bar"><div class="preloader-fill"></div></div>
+      <div class="preloader-text">Loading our menu...</div>
+    </div>
+  </div>
+
+  <div id="scroll-progress"></div>
+  <div class="toast-container"></div>
+  <div class="menu-overlay"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-emoji">🍦</span>
+        <span class="logo-text">IceWorld</span>
+      </a>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="menu.html" class="nav-link active">Menu</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="dark-toggle"><i class="fas fa-moon"></i></button>
+        <a href="wishlist.html" class="nav-icon-btn">
+          <i class="far fa-heart"></i>
+          <span class="nav-badge wishlist-badge" style="display:none;">0</span>
+        </a>
+        <a href="cart.html" class="nav-icon-btn">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="nav-badge cart-badge" style="display:none;">0</span>
+        </a>
+        <button class="hamburger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-menu">
+    <ul>
+      <li><a href="index.html" class="nav-link">🏠 Home</a></li>
+      <li><a href="menu.html" class="nav-link">🍦 Menu</a></li>
+      <li><a href="about.html" class="nav-link">💫 About</a></li>
+      <li><a href="contact.html" class="nav-link">📞 Contact</a></li>
+      <li><a href="cart.html" class="nav-link">🛒 Cart</a></li>
+      <li><a href="wishlist.html" class="nav-link">❤️ Wishlist</a></li>
+    </ul>
+  </div>
+
+  <!-- Page Hero -->
+  <div class="page-hero">
+    <div class="container page-hero-content">
+      <div class="section-badge" style="margin-bottom:1rem;">🍨 Our Menu</div>
+      <h1 class="page-hero-title">Explore All <span class="gradient-text">Flavors</span></h1>
+      <div class="page-hero-breadcrumb">
+        <a href="index.html">Home</a>
+        <i class="fas fa-angle-right"></i>
+        <span>Menu</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== MENU PAGE CONTENT ===== -->
+  <section style="padding: var(--space-xl) 0 var(--space-3xl);" class="menu-page">
+    <div class="container">
+      <div class="menu-page-layout">
+
+        <!-- ===== SIDEBAR ===== -->
+        <aside class="sidebar">
+          <div class="sidebar-section">
+            <h3 class="sidebar-title"><i class="fas fa-th-large"></i> Categories</h3>
+            <div class="category-pills">
+              <button class="category-pill active" data-category="all">
+                <span>🍦 All Items</span>
+                <span class="pill-count">24</span>
+              </button>
+              <button class="category-pill" data-category="cones">
+                <span>🍦 Cones</span>
+                <span class="pill-count">2</span>
+              </button>
+              <button class="category-pill" data-category="sundaes">
+                <span>🍨 Sundaes</span>
+                <span class="pill-count">4</span>
+              </button>
+              <button class="category-pill" data-category="scoops">
+                <span>🥄 Scoops</span>
+                <span class="pill-count">4</span>
+              </button>
+              <button class="category-pill" data-category="cups">
+                <span>🥤 Cups</span>
+                <span class="pill-count">4</span>
+              </button>
+              <button class="category-pill" data-category="bars">
+                <span>🧊 Bars</span>
+                <span class="pill-count">4</span>
+              </button>
+              <button class="category-pill" data-category="waffles">
+                <span>🧇 Waffles</span>
+                <span class="pill-count">2</span>
+              </button>
+              <button class="category-pill" data-category="premium">
+                <span>⭐ Premium</span>
+                <span class="pill-count">4</span>
+              </button>
+              <button class="category-pill" data-category="specialty">
+                <span>✨ Specialty</span>
+                <span class="pill-count">2</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="sidebar-section">
+            <h3 class="sidebar-title"><i class="fas fa-tag"></i> Price Range</h3>
+            <div class="price-range-container">
+              <div class="price-display">
+                <span id="min-price-display">₹0</span>
+                <span id="max-price-display">₹500</span>
+              </div>
+              <input type="range" id="price-range" min="0" max="500" value="500" step="10" style="width:100%;">
+              <div style="display:flex;justify-content:space-between;font-size:0.75rem;color:var(--gray);margin-top:0.4rem;">
+                <span>₹0</span>
+                <span>₹500</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="sidebar-section">
+            <h3 class="sidebar-title"><i class="fas fa-star"></i> Rating</h3>
+            <div class="rating-filter-btns">
+              <button class="rating-filter" data-rating="4.5">
+                <span style="color:#ffc107;">★★★★½</span> 4.5 & above
+              </button>
+              <button class="rating-filter" data-rating="4">
+                <span style="color:#ffc107;">★★★★</span> 4.0 & above
+              </button>
+              <button class="rating-filter" data-rating="3.5">
+                <span style="color:#ffc107;">★★★½</span> 3.5 & above
+              </button>
+            </div>
+          </div>
+
+          <div class="sidebar-section">
+            <h3 class="sidebar-title"><i class="fas fa-filter"></i> Tags</h3>
+            <div style="display:flex;flex-direction:column;gap:0.5rem;">
+              <label class="custom-check">
+                <input type="checkbox" class="tag-filter" value="bestseller">
+                <span class="check-box"></span>
+                🏆 Bestseller
+              </label>
+              <label class="custom-check">
+                <input type="checkbox" class="tag-filter" value="popular">
+                <span class="check-box"></span>
+                🔥 Popular
+              </label>
+              <label class="custom-check">
+                <input type="checkbox" class="tag-filter" value="new">
+                <span class="check-box"></span>
+                ✨ New Arrival
+              </label>
+              <label class="custom-check">
+                <input type="checkbox" class="tag-filter" value="premium">
+                <span class="check-box"></span>
+                ⭐ Premium
+              </label>
+              <label class="custom-check">
+                <input type="checkbox" class="tag-filter" value="seasonal">
+                <span class="check-box"></span>
+                🌸 Seasonal
+              </label>
+              <label class="custom-check">
+                <input type="checkbox" class="tag-filter" value="specialty">
+                <span class="check-box"></span>
+                🎯 Specialty
+              </label>
+            </div>
+          </div>
+
+          <button id="reset-filters" class="btn btn-outline w-100" style="margin-top:0.5rem;">
+            <i class="fas fa-undo"></i> Reset Filters
+          </button>
+        </aside>
+
+        <!-- ===== MAIN CONTENT ===== -->
+        <div>
+          <!-- Toolbar -->
+          <div class="menu-toolbar">
+            <div class="search-bar-wrapper">
+              <i class="fas fa-search"></i>
+              <input type="text" id="product-search" class="search-input" placeholder="Search ice cream...">
+              <button class="clear-search" id="clear-search">×</button>
+            </div>
+            <div class="toolbar-right">
+              <select id="sort-select" class="sort-select">
+                <option value="popularity">Sort by Popularity</option>
+                <option value="rating">Sort by Rating</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="newest">Newest First</option>
+                <option value="discount">Highest Discount</option>
+              </select>
+              <div class="view-toggle">
+                <button class="view-toggle-btn active" data-view="grid" title="Grid view">
+                  <i class="fas fa-th"></i>
+                </button>
+                <button class="view-toggle-btn" data-view="list" title="List view">
+                  <i class="fas fa-list"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="result-info" style="margin-bottom:1.5rem;">
+            Showing <span id="result-count">24 products</span>
+          </div>
+
+          <!-- Products Grid (populated by filters.js) -->
+          <div class="products-grid" id="products-grid" style="grid-template-columns:repeat(3,1fr);">
+            <!-- Products are rendered by filters.js -->
+            <div style="text-align:center;padding:3rem;grid-column:1/-1;color:var(--gray);">
+              <div style="font-size:3rem;">🍦</div>
+              <p>Loading delicious flavors...</p>
+            </div>
+          </div>
+
+          <!-- No Results -->
+          <div class="no-results">
+            <span class="no-results-icon">🔍</span>
+            <h3>No ice creams found</h3>
+            <p>Try adjusting your filters or search term</p>
+            <button class="btn btn-primary" id="reset-filters-2" onclick="document.getElementById('reset-filters').click()">
+              <i class="fas fa-undo"></i> Reset Filters
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick View Modal -->
+  <div class="modal-overlay" id="quick-view-modal" style="display:flex;">
+    <div class="modal" style="max-width:700px;">
+      <button class="modal-close" onclick="document.getElementById('quick-view-modal').classList.remove('open')">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="quick-view-content"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo"><span>🍦</span><span class="logo-text">IceWorld</span></div>
+          <p class="footer-desc">Premium handcrafted ice creams made with love and natural ingredients.</p>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html"><i class="fas fa-angle-right"></i> Home</a></li>
+            <li><a href="menu.html"><i class="fas fa-angle-right"></i> Menu</a></li>
+            <li><a href="about.html"><i class="fas fa-angle-right"></i> About</a></li>
+            <li><a href="contact.html"><i class="fas fa-angle-right"></i> Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Categories</h4>
+          <ul class="footer-links">
+            <li><a href="#"><i class="fas fa-angle-right"></i> Cones</a></li>
+            <li><a href="#"><i class="fas fa-angle-right"></i> Sundaes</a></li>
+            <li><a href="#"><i class="fas fa-angle-right"></i> Scoops</a></li>
+            <li><a href="#"><i class="fas fa-angle-right"></i> Premium</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Contact Us</h4>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon"><i class="fas fa-user"></i></div>
+            <div>
+              <strong style="color:var(--white);">Mahi Sehrawat</strong><br>
+              <a href="tel:+918750141860">+91 8750141860</a><br>
+              <a href="mailto:mahisehrawat2006@gmail.com">mahisehrawat2006@gmail.com</a>
+            </div>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon"><i class="fas fa-user"></i></div>
+            <div>
+              <strong style="color:var(--white);">Priyanshi</strong><br>
+              <a href="tel:+918368573180">+91 8368573180</a><br>
+              <a href="mailto:priyadaksh007@gmail.com">priyadaksh007@gmail.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 IceWorld. All rights reserved. Made with ❤️ by <strong>Mahi Sehrawat</strong> & <strong>Priyanshi</strong></p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top"><i class="fas fa-chevron-up"></i></button>
+  <a href="contact.html" id="floating-chat"><i class="fas fa-comment-dots"></i></a>
+
+  <script src="js/cart.js"></script>
+  <script src="js/wishlist.js"></script>
+  <script src="js/filters.js"></script>
+  <script src="js/script.js"></script>
+
+  <script>
+    // Check for URL category parameter
+    window.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const cat = params.get('cat');
+      if (cat && window.IceWorldFilters) {
+        const pill = document.querySelector(`.category-pill[data-category="${cat}"]`);
+        if (pill) {
+          pill.click();
+        }
+      }
+    });
+  </script>
+</body>
+</html>

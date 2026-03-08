@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="IceWorld Shopping Cart - Review your items and checkout.">
+  <title>My Cart 🛒 - IceWorld</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <style>
+    .cart-page { min-height: 60vh; }
+
+    .cart-content {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    /* Cart items */
+    .cart-items-section {
+      background: var(--white);
+      border-radius: var(--border-radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .cart-items-header {
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid var(--mid-gray);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .cart-items-header h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .cart-clear-btn {
+      color: #e74c3c;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .cart-clear-btn:hover { opacity: 0.7; }
+
+    .cart-items-container {
+      padding: 1rem;
+    }
+
+    .cart-item {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 1.2rem;
+      padding: 1.2rem;
+      border-radius: var(--border-radius);
+      transition: var(--transition-normal);
+      margin-bottom: 0.5rem;
+      border: 1px solid transparent;
+    }
+
+    .cart-item:hover {
+      background: var(--cream);
+      border-color: var(--mid-gray);
+    }
+
+    .cart-item-image {
+      width: 90px;
+      height: 90px;
+      border-radius: var(--border-radius);
+      background: linear-gradient(135deg, var(--peach), var(--cream));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .cart-item-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .cart-item-emoji {
+      font-size: 3rem;
+    }
+
+    .cart-item-details {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .cart-item-info {
+      flex: 1;
+    }
+
+    .cart-item-category {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .cart-item-name {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin: 0.2rem 0 0.5rem;
+    }
+
+    .cart-current-price {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .cart-original-price {
+      font-size: 0.85rem;
+      color: var(--gray);
+      text-decoration: line-through;
+      margin-left: 0.5rem;
+    }
+
+    .cart-item-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .quantity-controls {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      border: 2px solid var(--mid-gray);
+      border-radius: var(--border-radius-pill);
+      overflow: hidden;
+    }
+
+    .qty-btn {
+      width: 32px;
+      height: 32px;
+      background: var(--cream);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--dark);
+      cursor: pointer;
+      transition: var(--transition-normal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+    }
+
+    .qty-btn:hover {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .qty-value {
+      min-width: 36px;
+      text-align: center;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--dark);
+      padding: 0 0.3rem;
+    }
+
+    .cart-item-total {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin-left: auto;
+    }
+
+    .cart-remove-btn {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: rgba(231,76,60,0.1);
+      color: #e74c3c;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: var(--transition-bounce);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      flex-shrink: 0;
+    }
+
+    .cart-remove-btn:hover {
+      background: #e74c3c;
+      color: white;
+      transform: scale(1.15);
+    }
+
+    /* Order summary */
+    .order-summary-card {
+      background: var(--white);
+      border-radius: var(--border-radius-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow-sm);
+      position: sticky;
+      top: calc(var(--nav-height) + 1rem);
+    }
+
+    .order-summary-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px dashed var(--mid-gray);
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+      font-size: 0.9rem;
+      color: var(--gray);
+    }
+
+    .summary-row.total {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin-top: 0.5rem;
+    }
+
+    .summary-row.savings {
+      color: #2ecc71;
+    }
+
+    .summary-divider {
+      height: 1px;
+      background: var(--mid-gray);
+      margin: 1rem 0;
+    }
+
+    .text-green { color: #2ecc71 !important; font-weight: 600; }
+
+    .free-delivery-note,
+    .delivery-note {
+      font-size: 0.8rem;
+      color: var(--gray);
+      text-align: center;
+      margin-top: 0.5rem;
+      padding: 0.5rem;
+      background: var(--cream);
+      border-radius: var(--border-radius-sm);
+    }
+
+    .free-delivery-note { color: #2ecc71; background: rgba(46,204,113,0.08); }
+
+    /* Coupon */
+    .coupon-form {
+      display: flex;
+      gap: 0.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .coupon-input {
+      flex: 1;
+      padding: 0.7rem 1rem;
+      border: 2px solid var(--mid-gray);
+      border-radius: var(--border-radius-pill);
+      font-size: 0.9rem;
+      font-family: var(--font-mono);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: var(--transition-normal);
+    }
+
+    .coupon-input:focus {
+      border-color: var(--primary);
+      outline: none;
+    }
+
+    .coupon-apply-btn {
+      padding: 0.7rem 1.2rem;
+      background: var(--grad-primary);
+      color: var(--white);
+      border-radius: var(--border-radius-pill);
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      transition: var(--transition-bounce);
+      white-space: nowrap;
+    }
+
+    .coupon-apply-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .coupon-message {
+      font-size: 0.82rem;
+      margin-top: 0.3rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: var(--border-radius-sm);
+    }
+
+    .coupon-message.success { background: rgba(46,204,113,0.1); color: #2ecc71; }
+    .coupon-message.error { background: rgba(231,76,60,0.1); color: #e74c3c; }
+
+    .checkout-btn {
+      width: 100%;
+      padding: 1rem;
+      background: var(--grad-primary);
+      color: var(--white);
+      border-radius: var(--border-radius-pill);
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      transition: var(--transition-bounce);
+      margin-top: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .checkout-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(255,107,157,0.4);
+    }
+
+    .secure-note {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--gray);
+      margin-top: 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+    }
+
+    /* Empty state */
+    .cart-empty {
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+
+    /* Related products */
+    .cart-related {
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 992px) {
+      .cart-content { grid-template-columns: 1fr; }
+      .order-summary-card { position: static; }
+    }
+
+    @media (max-width: 576px) {
+      .cart-item { grid-template-columns: 70px 1fr; gap: 0.8rem; }
+      .cart-item-image { width: 70px; height: 70px; font-size: 2.5rem; }
+    }
+  </style>
+</head>
+<body class="loading">
+
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+  <div id="preloader">
+    <div class="preloader-content">
+      <span class="preloader-ice-cream">🛒</span>
+      <div class="preloader-logo">IceWorld</div>
+      <div class="preloader-bar"><div class="preloader-fill"></div></div>
+      <div class="preloader-text">Loading your cart...</div>
+    </div>
+  </div>
+
+  <div id="scroll-progress"></div>
+  <div class="toast-container"></div>
+  <div class="menu-overlay"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-emoji">🍦</span>
+        <span class="logo-text">IceWorld</span>
+      </a>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="menu.html" class="nav-link">Menu</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="dark-toggle"><i class="fas fa-moon"></i></button>
+        <a href="wishlist.html" class="nav-icon-btn"><i class="far fa-heart"></i><span class="nav-badge wishlist-badge" style="display:none;">0</span></a>
+        <a href="cart.html" class="nav-icon-btn"><i class="fas fa-shopping-cart"></i><span class="nav-badge cart-badge" style="display:none;">0</span></a>
+        <button class="hamburger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-menu">
+    <ul>
+      <li><a href="index.html" class="nav-link">🏠 Home</a></li>
+      <li><a href="menu.html" class="nav-link">🍦 Menu</a></li>
+      <li><a href="about.html" class="nav-link">💫 About</a></li>
+      <li><a href="contact.html" class="nav-link">📞 Contact</a></li>
+      <li><a href="cart.html" class="nav-link">🛒 Cart</a></li>
+      <li><a href="wishlist.html" class="nav-link">❤️ Wishlist</a></li>
+    </ul>
+  </div>
+
+  <!-- Page Hero -->
+  <div class="page-hero">
+    <div class="container page-hero-content">
+      <div class="section-badge" style="margin-bottom:1rem;">🛒 Shopping Cart</div>
+      <h1 class="page-hero-title">My <span class="gradient-text">Cart</span></h1>
+      <div class="page-hero-breadcrumb">
+        <a href="index.html">Home</a>
+        <i class="fas fa-angle-right"></i>
+        <span>Cart</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CART PAGE ===== -->
+  <section class="cart-page">
+    <div class="container">
+
+      <!-- Empty Cart State -->
+      <div class="cart-empty" style="display:none;">
+        <div style="font-size:6rem;margin-bottom:1.5rem;">🛒</div>
+        <h3 style="font-size:1.6rem;font-weight:700;color:var(--dark);margin-bottom:0.8rem;">Your cart is empty!</h3>
+        <p style="color:var(--gray);margin-bottom:2rem;font-size:1rem;">Looks like you haven't added any ice creams yet. Explore our delicious menu!</p>
+        <a href="menu.html" class="btn btn-primary btn-lg">
+          <i class="fas fa-ice-cream"></i> Browse Menu
+        </a>
+      </div>
+
+      <!-- Cart Content -->
+      <div class="cart-content" style="display:none;">
+        <!-- Left: Items -->
+        <div>
+          <div class="cart-items-section">
+            <div class="cart-items-header">
+              <h3><i class="fas fa-shopping-bag"></i> Cart Items</h3>
+              <button class="cart-clear-btn" data-cart-action="clear">
+                <i class="fas fa-trash-alt"></i> Clear All
+              </button>
+            </div>
+            <div class="cart-items-container">
+              <!-- Items rendered by cart.js -->
+            </div>
+          </div>
+
+          <!-- Promo codes hint -->
+          <div style="background:rgba(255,107,157,0.05);border:2px dashed rgba(255,107,157,0.3);border-radius:var(--border-radius);padding:1.2rem;margin-top:1.5rem;">
+            <h4 style="font-size:0.9rem;font-weight:700;color:var(--primary);margin-bottom:0.5rem;">🎁 Available Promo Codes</h4>
+            <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+              <span style="font-family:monospace;background:var(--white);padding:0.3rem 0.8rem;border-radius:5px;font-size:0.85rem;border:1px dashed var(--primary);color:var(--primary);">ICYWORLD10</span>
+              <span style="font-family:monospace;background:var(--white);padding:0.3rem 0.8rem;border-radius:5px;font-size:0.85rem;border:1px dashed var(--secondary);color:var(--secondary);">SWEET20</span>
+              <span style="font-family:monospace;background:var(--white);padding:0.3rem 0.8rem;border-radius:5px;font-size:0.85rem;border:1px dashed var(--primary);color:var(--primary);">MAHI50</span>
+              <span style="font-family:monospace;background:var(--white);padding:0.3rem 0.8rem;border-radius:5px;font-size:0.85rem;border:1px dashed var(--primary);color:var(--primary);">PRIYANSHI25</span>
+            </div>
+          </div>
+
+          <!-- Continue Shopping -->
+          <div style="margin-top:1.5rem;">
+            <a href="menu.html" class="btn btn-outline">
+              <i class="fas fa-arrow-left"></i> Continue Shopping
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Summary -->
+        <div>
+          <div class="order-summary-card">
+            <h3 class="order-summary-title">📋 Order Summary</h3>
+
+            <!-- Dynamic summary rows rendered by cart.js -->
+            <div class="order-summary-details">
+              <!-- Rendered by cart.js -->
+            </div>
+
+            <!-- Coupon form -->
+            <div>
+              <p style="font-size:0.85rem;font-weight:600;color:var(--dark);margin-bottom:0.5rem;">🎟️ Have a coupon?</p>
+              <form class="coupon-form" id="coupon-form">
+                <input type="text" class="coupon-input" id="coupon-input" placeholder="Enter code" maxlength="20">
+                <button type="submit" class="coupon-apply-btn">Apply</button>
+              </form>
+              <div class="coupon-message" id="coupon-message" style="display:none;"></div>
+            </div>
+
+            <button class="checkout-btn" id="checkout-btn">
+              <i class="fas fa-lock"></i> Secure Checkout
+            </button>
+
+            <div class="secure-note">
+              <i class="fas fa-shield-alt" style="color:#2ecc71;"></i>
+              100% Secure & Encrypted Payment
+            </div>
+
+            <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--mid-gray);">
+              <h5 style="font-size:0.85rem;font-weight:600;color:var(--dark);margin-bottom:0.8rem;">We Accept:</h5>
+              <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+                <span style="background:var(--cream);padding:0.3rem 0.6rem;border-radius:5px;font-size:0.75rem;font-weight:600;border:1px solid var(--mid-gray);">💳 Card</span>
+                <span style="background:var(--cream);padding:0.3rem 0.6rem;border-radius:5px;font-size:0.75rem;font-weight:600;border:1px solid var(--mid-gray);">📱 UPI</span>
+                <span style="background:var(--cream);padding:0.3rem 0.6rem;border-radius:5px;font-size:0.75rem;font-weight:600;border:1px solid var(--mid-gray);">🏦 Netbanking</span>
+                <span style="background:var(--cream);padding:0.3rem 0.6rem;border-radius:5px;font-size:0.75rem;font-weight:600;border:1px solid var(--mid-gray);">💵 COD</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Suggested Products -->
+      <div class="cart-related reveal" style="margin-top:3rem;">
+        <div class="section-header" style="margin-bottom:2rem;">
+          <span class="section-badge">💡 You May Also Like</span>
+          <h2 class="section-title" style="font-size:1.8rem;">Pair It With <span class="gradient-text">These</span></h2>
+        </div>
+        <div class="products-grid" style="grid-template-columns:repeat(4,1fr);">
+          <div class="product-card tilt-card">
+            <div class="product-card-image" style="background:linear-gradient(135deg,#ffe0ec,#fff5ee);">
+              <div style="font-size:5rem;display:flex;align-items:center;justify-content:center;height:180px;">🍦</div>
+              <div class="product-card-actions">
+                <button class="product-action-btn wishlist-btn" data-wishlist-id="p1" data-add-wishlist="p1"><i class="far fa-heart"></i></button>
+              </div>
+            </div>
+            <div class="product-card-body">
+              <span class="product-category">🍦 Cones</span>
+              <h3 class="product-name">Strawberry Swirl Cone</h3>
+              <div class="product-price"><span class="price-current">₹89</span><span class="price-original">₹120</span></div>
+            </div>
+            <div class="product-card-footer">
+              <button class="btn-add-cart" data-add-cart="p1"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+            </div>
+          </div>
+          <div class="product-card tilt-card">
+            <div class="product-card-image" style="background:linear-gradient(135deg,#ffe8cc,#fff5ee);">
+              <div style="font-size:5rem;display:flex;align-items:center;justify-content:center;height:180px;">🍫</div>
+              <div class="product-card-actions">
+                <button class="product-action-btn wishlist-btn" data-wishlist-id="p2" data-add-wishlist="p2"><i class="far fa-heart"></i></button>
+              </div>
+            </div>
+            <div class="product-card-body">
+              <span class="product-category">🍨 Sundaes</span>
+              <h3 class="product-name">Chocolate Fudge Sundae</h3>
+              <div class="product-price"><span class="price-current">₹149</span><span class="price-original">₹180</span></div>
+            </div>
+            <div class="product-card-footer">
+              <button class="btn-add-cart" data-add-cart="p2"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+            </div>
+          </div>
+          <div class="product-card tilt-card">
+            <div class="product-card-image" style="background:linear-gradient(135deg,#f0e8ff,#fff5ee);">
+              <div style="font-size:5rem;display:flex;align-items:center;justify-content:center;height:180px;">🫐</div>
+            </div>
+            <div class="product-card-body">
+              <span class="product-category">⭐ Premium</span>
+              <h3 class="product-name">Blueberry Cheesecake</h3>
+              <div class="product-price"><span class="price-current">₹199</span><span class="price-original">₹250</span></div>
+            </div>
+            <div class="product-card-footer">
+              <button class="btn-add-cart" data-add-cart="p7"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+            </div>
+          </div>
+          <div class="product-card tilt-card">
+            <div class="product-card-image" style="background:linear-gradient(135deg,#fff5cc,#fffff0);">
+              <div style="font-size:5rem;display:flex;align-items:center;justify-content:center;height:180px;">🧇</div>
+            </div>
+            <div class="product-card-body">
+              <span class="product-category">🧇 Waffles</span>
+              <h3 class="product-name">Vanilla Dream Waffle</h3>
+              <div class="product-price"><span class="price-current">₹129</span><span class="price-original">₹160</span></div>
+            </div>
+            <div class="product-card-footer">
+              <button class="btn-add-cart" data-add-cart="p6"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Order Success Modal -->
+  <div class="modal-overlay" id="order-success-modal" style="display:flex;">
+    <div class="modal" style="text-align:center;max-width:500px;">
+      <div class="success-circle">🎉</div>
+      <h2 style="font-size:1.8rem;font-weight:800;color:var(--dark);margin-bottom:0.8rem;">Order Placed!</h2>
+      <p style="color:var(--gray);margin-bottom:2rem;line-height:1.7;">
+        Your order has been placed successfully! 🍦<br>
+        You'll receive a confirmation shortly. Thank you for choosing IceWorld!
+      </p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+        <a href="menu.html" class="btn btn-primary">
+          <i class="fas fa-ice-cream"></i> Order More
+        </a>
+        <button class="btn btn-secondary" onclick="document.getElementById('order-success-modal').classList.remove('open')">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo"><span>🍦</span><span class="logo-text">IceWorld</span></div>
+          <p class="footer-desc">Premium handcrafted ice creams made with love and natural ingredients.</p>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html"><i class="fas fa-angle-right"></i> Home</a></li>
+            <li><a href="menu.html"><i class="fas fa-angle-right"></i> Menu</a></li>
+            <li><a href="about.html"><i class="fas fa-angle-right"></i> About</a></li>
+            <li><a href="contact.html"><i class="fas fa-angle-right"></i> Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Legal</h4>
+          <ul class="footer-links">
+            <li><a href="#"><i class="fas fa-angle-right"></i> Privacy Policy</a></li>
+            <li><a href="#"><i class="fas fa-angle-right"></i> Refund Policy</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Contact</h4>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon"><i class="fas fa-user"></i></div>
+            <div>
+              <strong style="color:var(--white);">Mahi Sehrawat</strong><br>
+              <a href="tel:+918750141860">+91 8750141860</a>
+            </div>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon"><i class="fas fa-user"></i></div>
+            <div>
+              <strong style="color:var(--white);">Priyanshi</strong><br>
+              <a href="tel:+918368573180">+91 8368573180</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 IceWorld. All rights reserved. Made with ❤️ by <strong>Mahi Sehrawat</strong> & <strong>Priyanshi</strong></p>
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top"><i class="fas fa-chevron-up"></i></button>
+
+  <script src="js/cart.js"></script>
+  <script src="js/wishlist.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
