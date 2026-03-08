@@ -41,7 +41,6 @@ const IceWorldCart = {
     const existing = this.items.find(item => item.id === product.id);
     if (existing) {
       existing.quantity = Math.min(existing.quantity + 1, existing.stock || 99);
-      existing.quantity++;
     } else {
       this.items.push({
         id: product.id,

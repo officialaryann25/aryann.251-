@@ -239,7 +239,11 @@ function generateStars(rating) {
   const full = Math.floor(rating);
   const half = rating % 1 >= 0.5 ? 1 : 0;
   const empty = 5 - full - half;
-  return '★'.repeat(full) + (half ? '½' : '') + '☆'.repeat(empty);
+  let html = '';
+  for (let i = 0; i < full; i++) html += '<i class="fas fa-star" style="color:#ffc107;font-size:0.8rem;"></i>';
+  if (half) html += '<i class="fas fa-star-half-alt" style="color:#ffc107;font-size:0.8rem;"></i>';
+  for (let i = 0; i < empty; i++) html += '<i class="far fa-star" style="color:#ffc107;font-size:0.8rem;"></i>';
+  return html;
 }
 
 function showWishlistToast(message, type) {
