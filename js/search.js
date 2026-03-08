@@ -130,7 +130,9 @@ function initMenuSearch() {
       `;
     } else {
       grid.innerHTML = filtered.map(p => createProductCard(p)).join('');
-      revealObserver.observe && grid.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+      if (typeof revealObserver !== 'undefined' && revealObserver) {
+        grid.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+      }
       restoreWishlistState();
     }
 
