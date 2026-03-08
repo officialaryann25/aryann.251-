@@ -1,0 +1,262 @@
+/* ====================================================
+   IceWorld - Animations CSS
+   ==================================================== */
+
+/* ---- Keyframes ---- */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  33%       { transform: translateY(-12px) rotate(2deg); }
+  66%       { transform: translateY(-6px) rotate(-2deg); }
+}
+@keyframes floatRandom {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25%       { transform: translateY(-15px) rotate(5deg); }
+  50%       { transform: translateY(-8px) rotate(-3deg); }
+  75%       { transform: translateY(-18px) rotate(8deg); }
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes spinSlow {
+  from { transform: rotate(0deg) scale(1); }
+  50%  { transform: rotate(180deg) scale(1.05); }
+  to   { transform: rotate(360deg) scale(1); }
+}
+@keyframes bounce {
+  0%, 100% { transform: translateY(0) scale(1); }
+  40%       { transform: translateY(-20px) scale(1.1); }
+  60%       { transform: translateY(-10px) scale(0.95); }
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50%       { transform: scale(1.1); opacity: 0.8; }
+}
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes fadeInUp {
+  from { opacity:0; transform: translateY(30px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+@keyframes fadeInDown {
+  from { opacity:0; transform: translateY(-20px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+@keyframes fadeInLeft {
+  from { opacity:0; transform: translateX(-30px); }
+  to   { opacity:1; transform: translateX(0); }
+}
+@keyframes fadeInRight {
+  from { opacity:0; transform: translateX(30px); }
+  to   { opacity:1; transform: translateX(0); }
+}
+@keyframes fadeIn {
+  from { opacity:0; }
+  to   { opacity:1; }
+}
+@keyframes zoomIn {
+  from { opacity:0; transform: scale(0.8); }
+  to   { opacity:1; transform: scale(1); }
+}
+@keyframes loadProgress {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 10px rgba(255,179,198,0.3); }
+  50%       { box-shadow: 0 0 30px rgba(255,179,198,0.8), 0 0 60px rgba(255,179,198,0.3); }
+}
+@keyframes toastIn {
+  from { opacity:0; transform: translateY(20px) scale(0.9); }
+  to   { opacity:1; transform: translateY(0) scale(1); }
+}
+@keyframes toastOut {
+  from { opacity:1; transform: translateY(0) scale(1); }
+  to   { opacity:0; transform: translateY(20px) scale(0.9); }
+}
+@keyframes ripple {
+  0%   { transform: scale(0); opacity:0.6; }
+  100% { transform: scale(4); opacity:0; }
+}
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  14%       { transform: scale(1.3); }
+  28%       { transform: scale(1); }
+  42%       { transform: scale(1.3); }
+  70%       { transform: scale(1); }
+}
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25%       { transform: rotate(-5deg); }
+  75%       { transform: rotate( 5deg); }
+}
+@keyframes slideUp {
+  from { opacity:0; transform: translateY(100%); }
+  to   { opacity:1; transform: translateY(0); }
+}
+
+/* ---- Hover Lift Effect ---- */
+.hover-lift {
+  transition: transform 0.3s cubic-bezier(0.4,0,0.2,1), box-shadow 0.3s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+}
+
+/* ---- Button Glow ---- */
+.btn-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+.btn-glow:hover { animation-play-state: paused; }
+
+/* ---- Ripple Effect ---- */
+.btn-ripple { position: relative; overflow: hidden; }
+.btn-ripple::after {
+  content: '';
+  position: absolute;
+  width: 20px; height: 20px;
+  background: rgba(255,255,255,0.4);
+  border-radius: 50%;
+  top: var(--ry, 50%);
+  left: var(--rx, 50%);
+  transform: translate(-50%,-50%) scale(0);
+  pointer-events: none;
+}
+.btn-ripple:active::after {
+  animation: ripple 0.6s ease-out forwards;
+}
+
+/* ---- Floating Animation Classes ---- */
+.anim-float  { animation: float 3s ease-in-out infinite; }
+.anim-bounce { animation: bounce 2s ease-in-out infinite; }
+.anim-spin   { animation: spinSlow 8s linear infinite; }
+.anim-pulse  { animation: pulse 2s ease-in-out infinite; }
+.anim-wiggle { animation: wiggle 1s ease-in-out infinite; }
+.anim-heartbeat { animation: heartbeat 1.5s ease-in-out infinite; }
+
+/* ---- Skeleton Loader ---- */
+.skeleton {
+  background: linear-gradient(90deg, var(--pink-light) 25%, rgba(255,255,255,0.8) 50%, var(--pink-light) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 8px;
+}
+
+/* ---- Page Transition ---- */
+.page-enter {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+/* ---- Scroll Progress Bar ---- */
+#scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--pink), var(--peach), var(--chocolate));
+  z-index: 9999;
+  transition: width 0.1s linear;
+}
+
+/* ---- Particle Dots ---- */
+.particle {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  animation: floatRandom var(--dur, 5s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+  opacity: 0.15;
+}
+
+/* ---- Cursor Follower ---- */
+.cursor {
+  width: 20px; height: 20px;
+  background: rgba(255,179,198,0.6);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%,-50%);
+  transition: transform 0.1s ease, width 0.2s ease, height 0.2s ease, background 0.2s ease;
+  mix-blend-mode: multiply;
+}
+.cursor-dot {
+  width: 6px; height: 6px;
+  background: var(--pink);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%,-50%);
+  transition: transform 0.05s ease;
+}
+.cursor.hovering {
+  width: 40px; height: 40px;
+  background: rgba(255,179,198,0.3);
+}
+
+/* ---- Number Counter Animation ---- */
+.counter-animated {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+/* ---- Tilt Card Effect ---- */
+.tilt-card {
+  transition: transform 0.2s ease;
+  transform-style: preserve-3d;
+}
+
+/* ---- Gradient Text Animation ---- */
+.gradient-text-animate {
+  background: linear-gradient(270deg, var(--chocolate), var(--pink), var(--peach), var(--choco-light));
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 4s ease infinite;
+}
+@keyframes gradientShift {
+  0%   { background-position:   0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position:   0% 50%; }
+}
+
+/* ---- Image Zoom on Hover ---- */
+.zoom-wrap { overflow: hidden; border-radius: inherit; }
+.zoom-wrap img, .zoom-wrap .zoom-img {
+  transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+}
+.zoom-wrap:hover img, .zoom-wrap:hover .zoom-img {
+  transform: scale(1.08);
+}
+
+/* ---- Stagger Children Animation ---- */
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.stagger-children.visible > *:nth-child(1) { opacity:1; transform:none; transition-delay: 0.05s; }
+.stagger-children.visible > *:nth-child(2) { opacity:1; transform:none; transition-delay: 0.10s; }
+.stagger-children.visible > *:nth-child(3) { opacity:1; transform:none; transition-delay: 0.15s; }
+.stagger-children.visible > *:nth-child(4) { opacity:1; transform:none; transition-delay: 0.20s; }
+.stagger-children.visible > *:nth-child(5) { opacity:1; transform:none; transition-delay: 0.25s; }
+.stagger-children.visible > *:nth-child(6) { opacity:1; transform:none; transition-delay: 0.30s; }
+.stagger-children.visible > *:nth-child(7) { opacity:1; transform:none; transition-delay: 0.35s; }
+.stagger-children.visible > *:nth-child(8) { opacity:1; transform:none; transition-delay: 0.40s; }
+
+/* ---- Hero parallax layers ---- */
+.parallax-layer { will-change: transform; }

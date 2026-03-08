@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="IceWorld Menu – Browse 150+ premium ice cream flavors. Filter by category, price and popularity.">
+  <title>Menu – IceWorld</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍦</text></svg>">
+</head>
+<body>
+
+<div id="scroll-progress"></div>
+<div class="loader" id="loader">
+  <div class="loader-icon">🍦</div>
+  <div class="loader-text">IceWorld</div>
+  <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+</div>
+
+<!-- NAV -->
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-logo">
+    <span class="logo-icon">🍦</span>
+    <span class="logo-text">IceWorld</span>
+  </a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="menu.html" class="active">Menu</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-icons">
+    <button class="nav-icon-btn" data-open-search title="Search">🔍</button>
+    <button class="nav-icon-btn" data-open-cart title="Cart">
+      🛒 <span class="cart-count" style="display:none">0</span>
+    </button>
+    <button class="nav-icon-btn" title="Login" onclick="showToast('Login coming soon! 🍦','info')">👤</button>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- MENU HERO -->
+<section class="menu-hero">
+  <div class="container">
+    <span class="section-badge">🍦 Full Menu</span>
+    <h1 class="section-title">Our <span>Ice Cream</span> Menu</h1>
+    <div class="divider"></div>
+    <p class="section-subtitle" style="margin:0 auto">
+      Explore 150+ premium handcrafted flavors. Use filters to find your perfect scoop.
+    </p>
+  </div>
+</section>
+
+<!-- MENU SECTION -->
+<section style="background:var(--cream);padding:3rem 0 5rem">
+  <div class="container">
+    <!-- Filter Bar -->
+    <div class="filter-bar reveal">
+      <div class="search-bar">
+        <span class="icon">🔍</span>
+        <input type="text" id="menu-search" placeholder="Search flavors, ingredients…" autocomplete="off">
+      </div>
+
+      <div class="filter-group">
+        <label>Category:</label>
+        <select class="filter-select" id="filter-flavor">
+          <option value="">All</option>
+          <option value="classic">Classic</option>
+          <option value="premium">Premium</option>
+          <option value="cones">Cones</option>
+          <option value="cups">Cups</option>
+          <option value="sundae">Sundae</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label>Max Price:</label>
+        <select class="filter-select" id="filter-price">
+          <option value="">Any Price</option>
+          <option value="150">Under ₹150</option>
+          <option value="200">Under ₹200</option>
+          <option value="250">Under ₹250</option>
+          <option value="350">Under ₹350</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label>Sort By:</label>
+        <select class="filter-select" id="filter-popularity">
+          <option value="">Relevance</option>
+          <option value="popular">Most Popular</option>
+          <option value="rating">Top Rated</option>
+          <option value="price-asc">Price: Low→High</option>
+          <option value="price-desc">Price: High→Low</option>
+          <option value="new">Newest</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Quick Category Tags -->
+    <div class="filter-tags reveal" id="filter-tags" style="margin-bottom:1.5rem">
+      <button class="filter-tag active" data-cat="all">All Flavors</button>
+      <button class="filter-tag" data-cat="classic">🍦 Classic</button>
+      <button class="filter-tag" data-cat="premium">✨ Premium</button>
+      <button class="filter-tag" data-cat="cones">🍧 Cones</button>
+      <button class="filter-tag" data-cat="cups">🍨 Cups</button>
+      <button class="filter-tag" data-cat="sundae">🌈 Sundaes</button>
+    </div>
+
+    <p class="products-count" id="products-count">Showing all products</p>
+
+    <!-- Products Grid -->
+    <div class="products-grid stagger-children" id="products-grid">
+      <!-- Populated by search.js -->
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo">
+          <span class="logo-icon">🍦</span>
+          <span class="logo-text">IceWorld</span>
+        </div>
+        <p class="footer-desc">Taste the Magic of Premium Ice Cream.</p>
+        <div class="social-links">
+          <a href="#" class="social-link">📸</a>
+          <a href="#" class="social-link">👍</a>
+          <a href="#" class="social-link">🐦</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">→ Home</a></li>
+          <li><a href="menu.html">→ Menu</a></li>
+          <li><a href="about.html">→ About Us</a></li>
+          <li><a href="contact.html">→ Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-heading">Categories</h4>
+        <ul class="footer-links">
+          <li><a href="pages/classic-icecream.html">→ Classic</a></li>
+          <li><a href="pages/premium-icecream.html">→ Premium</a></li>
+          <li><a href="pages/icecream-cones.html">→ Cones</a></li>
+          <li><a href="pages/icecream-cups.html">→ Cups</a></li>
+          <li><a href="pages/icecream-sundae.html">→ Sundaes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-heading">Contact</h4>
+        <div class="footer-contact-item">
+          <div class="icon">👤</div>
+          <div class="info">
+            <strong>Mahi Sehrawat</strong>
+            <a href="tel:+918750141860">+91 8750141860</a>
+          </div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="icon">👤</div>
+          <div class="info">
+            <strong>Priyanshi</strong>
+            <a href="tel:+918368573180">+91 8368573180</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 IceWorld. Made with 🍦 by Mahi Sehrawat &amp; Priyanshi</p>
+      <p><a href="#">Privacy Policy</a> · <a href="#">Terms</a></p>
+    </div>
+  </div>
+</footer>
+
+<!-- Cart & Search -->
+<div class="cart-overlay" id="cart-overlay"></div>
+<div class="cart-sidebar" id="cart-sidebar">
+  <div class="cart-header"><h2>🛒 Your Cart</h2><button class="cart-close" id="cart-close">✕</button></div>
+  <div class="cart-items" id="cart-items"></div>
+  <div class="cart-footer">
+    <div class="cart-total"><span>Total:</span><span id="cart-total">₹0</span></div>
+    <button class="btn-checkout btn-ripple" id="btn-checkout">Place Order 🍦</button>
+  </div>
+</div>
+
+<div class="search-overlay" id="search-overlay">
+  <button class="search-close" id="search-close">✕</button>
+  <div class="search-box">
+    <div class="search-input-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input-overlay" placeholder="Search ice cream flavors…" autocomplete="off">
+    </div>
+    <div class="search-results" id="search-results">
+      <p style="color:rgba(255,255,255,0.5);text-align:center;padding:1rem">Type to search ice creams…</p>
+    </div>
+  </div>
+</div>
+
+<button class="scroll-top" id="scroll-top">↑</button>
+<div id="toast-container" class="toast-container"></div>
+
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/search.js"></script>
+<script src="js/animation.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
