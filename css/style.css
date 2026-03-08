@@ -3,32 +3,46 @@
    ============================================================ */
 
 /* ---- CSS Custom Properties ---- */
+/* ============================================================
+   PREMIUM ICE CREAM PALETTE
+   1. Strawberry Blossom  #E8486A – CTA buttons, links, price badges
+   2. Dark Chocolate      #3A1A08 – navbar, footer, dark sections
+   3. Salted Caramel      #D48C0F – highlights, stars, secondary btns
+   4. Pistachio Mint      #2AA87A – fresh accents, badges, hover
+   5. Vanilla Cream       #FFF8EF – main page background
+   6. Soft Peach          #FDE8CC – card / alt-section background
+   7. Espresso Text       #2C1206 – all body & heading text
+   ============================================================ */
 :root {
-  /* Strawberry Rose */
-  --primary:        #FF4E88;
-  --primary-dark:   #E03474;
-  --primary-light:  #FFE8F3;
-  /* Chocolate Brown */
-  --secondary:      #3E1C00;
-  --secondary-dark: #220F00;
-  --secondary-light:#F5DEC8;
-  /* Golden Caramel */
-  --accent:         #FFA726;
-  --accent-dark:    #E08F00;
+  /* 1. Strawberry Blossom – primary CTA */
+  --primary:        #E8486A;
+  --primary-dark:   #C43057;
+  --primary-light:  #FFE0E9;
+  /* 2. Dark Chocolate – navbar, footer, headings */
+  --secondary:      #3A1A08;
+  --secondary-dark: #1E0C02;
+  --secondary-light:#F2DEC8;
+  /* 3. Salted Caramel – accent highlights */
+  --accent:         #D48C0F;
+  --accent-dark:    #B5750C;
+  /* 4. Pistachio Mint – fresh cool accent */
+  --mint:           #2AA87A;
+  --mint-dark:      #1E8A63;
+  --mint-light:     #D4F5EA;
   --success:        #28a745;
   --danger:         #dc3545;
   --warning:        #ffc107;
   --info:           #17a2b8;
 
-  /* Warm Chocolate text scale */
-  --text-dark:      #2A1006;
-  --text-mid:       #6B3A1F;
+  /* 7. Espresso text scale */
+  --text-dark:      #2C1206;
+  --text-mid:       #6B3820;
   --text-light:     #A0714D;
-  /* Warm Cream backgrounds */
+  /* 5 & 6. Vanilla Cream + Soft Peach backgrounds */
   --bg-white:       #ffffff;
-  --bg-light:       #FFFBF5;
-  --bg-mid:         #FFF3E8;
-  --border-color:   #F0D5B8;
+  --bg-light:       #FFF8EF;
+  --bg-mid:         #FDE8CC;
+  --border-color:   #EDD4B0;
 
   /* Poppins (body) + Montserrat (headings/brand) */
   --font-body:      'Poppins', sans-serif;
@@ -40,11 +54,11 @@
   --radius-xl:      32px;
   --radius-full:    9999px;
 
-  /* Rose-tinted warm shadows */
-  --shadow-sm:      0 2px 8px rgba(255,78,136,0.08);
-  --shadow-md:      0 4px 20px rgba(255,78,136,0.12);
-  --shadow-lg:      0 8px 40px rgba(255,78,136,0.18);
-  --shadow-xl:      0 16px 60px rgba(255,78,136,0.22);
+  /* Strawberry-tinted warm shadows */
+  --shadow-sm:      0 2px 8px rgba(232,72,106,0.08);
+  --shadow-md:      0 4px 20px rgba(232,72,106,0.12);
+  --shadow-lg:      0 8px 40px rgba(232,72,106,0.18);
+  --shadow-xl:      0 16px 60px rgba(232,72,106,0.22);
 
   --transition:     all 0.3s ease;
   --transition-slow:all 0.6s ease;
@@ -152,7 +166,7 @@
   gap: 60px;
   align-items: center;
 }
-.loyalty-section .section-tagline { background: rgba(255,78,136,0.2); color: var(--primary-light); }
+.loyalty-section .section-tagline { background: rgba(232,72,106,0.2); color: var(--primary-light); }
 .loyalty-section .section-title { color: #fff; }
 .loyalty-section > .container > .loyalty-grid > .loyalty-content > p { color: rgba(255,255,255,0.75); margin-bottom: 28px; }
 .loyalty-tiers { display: flex; flex-direction: column; gap: 14px; margin-bottom: 32px; }
@@ -313,7 +327,7 @@ address { font-style: normal; }
   background: var(--primary-dark);
   border-color: var(--primary-dark);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255,78,136,0.4);
+  box-shadow: 0 6px 20px rgba(232,72,106,0.4);
 }
 .btn-outline {
   background: transparent;
@@ -889,7 +903,7 @@ address { font-style: normal; }
   transition: var(--transition);
   outline: none;
 }
-.form-control:focus { border-color: var(--primary); background: #fff; box-shadow: 0 0 0 4px rgba(255,78,136,0.12); }
+.form-control:focus { border-color: var(--primary); background: #fff; box-shadow: 0 0 0 4px rgba(232,72,106,0.12); }
 .form-control.error { border-color: var(--danger); background: #fff5f5; }
 .form-control.success { border-color: var(--success); }
 textarea.form-control { resize: vertical; min-height: 120px; }
@@ -1074,10 +1088,10 @@ textarea.form-control { resize: vertical; min-height: 120px; }
 
 /* Slide Backgrounds */
 .hero-slide-bg { position: absolute; inset: 0; z-index: 0; }
-.hero-slide-bg-1 { background: linear-gradient(135deg, #ffe4f0 0%, #fff0f8 50%, #fff4ec 100%); }
-.hero-slide-bg-2 { background: linear-gradient(135deg, #fff3e0 0%, #fff8f0 50%, #ffecd2 100%); }
-.hero-slide-bg-3 { background: linear-gradient(135deg, #fff3e0 0%, #fff8f0 50%, #ffecd2 100%); }
-.hero-slide-bg-4 { background: linear-gradient(135deg, #e0ffe4 0%, #f0fff4 50%, #d4ffe0 100%); }
+.hero-slide-bg-1 { background: linear-gradient(135deg, #FFD9E4 0%, #FFF0F4 50%, #FFF4EC 100%); }
+.hero-slide-bg-2 { background: linear-gradient(135deg, #FFF3E0 0%, #FFF8EF 50%, #FDE8CC 100%); }
+.hero-slide-bg-3 { background: linear-gradient(135deg, #FFF3E0 0%, #FFF8EF 50%, #FDE8CC 100%); }
+.hero-slide-bg-4 { background: linear-gradient(135deg, #D4F5EA 0%, #F0FFF9 50%, #E0F7F0 100%); }
 
 .hero-content {
   position: relative;
@@ -1129,13 +1143,13 @@ textarea.form-control { resize: vertical; min-height: 120px; }
   position: absolute;
   width: 420px; height: 420px;
   border-radius: 40% 60% 55% 45% / 45% 40% 60% 55%;
-  background: rgba(255,78,136,0.15);
+  background: rgba(232,72,106,0.15);
   animation: blobMorph 8s ease-in-out infinite;
   z-index: 0;
 }
-.hero-blob-purple { background: rgba(92,42,15,0.10); }
-.hero-blob-orange { background: rgba(255,179,71,0.18); }
-.hero-blob-green  { background: rgba(40,167,69,0.12); }
+.hero-blob-purple { background: rgba(58,26,8,0.10); }
+.hero-blob-orange { background: rgba(212,140,15,0.18); }
+.hero-blob-green  { background: rgba(42,168,122,0.12); }
 .hero-img {
   position: relative;
   z-index: 2;
@@ -1189,7 +1203,7 @@ textarea.form-control { resize: vertical; min-height: 120px; }
 .slider-dot {
   width: 10px; height: 10px;
   border-radius: var(--radius-full);
-  background: rgba(255,78,136,0.3);
+  background: rgba(232,72,106,0.3);
   border: 2px solid var(--primary);
   transition: var(--transition);
   cursor: pointer;
@@ -1680,7 +1694,7 @@ textarea.form-control { resize: vertical; min-height: 120px; }
 .gallery-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(255,78,136,0.7);
+  background: rgba(232,72,106,0.7);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2013,8 +2027,8 @@ textarea.form-control { resize: vertical; min-height: 120px; }
   100% { background-position: 0%   50%; }
 }
 @keyframes glowPulse {
-  0%, 100% { box-shadow: 0 0 6px rgba(255,78,136,0.3); }
-  50%       { box-shadow: 0 0 20px rgba(255,78,136,0.7), 0 0 40px rgba(255,167,38,0.3); }
+  0%, 100% { box-shadow: 0 0 6px rgba(232,72,106,0.3); }
+  50%       { box-shadow: 0 0 20px rgba(232,72,106,0.7), 0 0 40px rgba(212,140,15,0.3); }
 }
 @keyframes wiggle {
   0%, 100% { transform: rotate(-5deg); }
@@ -2034,7 +2048,7 @@ textarea.form-control { resize: vertical; min-height: 120px; }
   height: 200px;
   overflow: hidden;
   border-radius: var(--radius-md) var(--radius-md) 0 0;
-  background: linear-gradient(135deg, #FFE8F3, #FFFBF5);
+  background: linear-gradient(135deg, #FFE0E9, #FFF8EF);
 }
 .product-card-img {
   width: 100%;
@@ -2045,5 +2059,5 @@ textarea.form-control { resize: vertical; min-height: 120px; }
 }
 .product-card:hover .product-card-img {
   transform: scale(1.14) translateY(-8px) rotate(-2deg);
-  filter: drop-shadow(0 10px 20px rgba(255,78,136,0.4));
+  filter: drop-shadow(0 10px 20px rgba(232,72,106,0.4));
 }
