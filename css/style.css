@@ -2061,3 +2061,1941 @@ textarea.form-control { resize: vertical; min-height: 120px; }
   transform: scale(1.14) translateY(-8px) rotate(-2deg);
   filter: drop-shadow(0 10px 20px rgba(232,72,106,0.4));
 }
+
+
+/* ================================================================
+   ██████╗  █████╗ ██╗     ███████╗████████╗████████╗███████╗
+   ██╔══██╗██╔══██╗██║     ██╔════╝╚══██╔══╝╚══██╔══╝██╔════╝
+   ██████╔╝███████║██║     █████╗     ██║      ██║   █████╗
+   ██╔═══╝ ██╔══██║██║     ██╔══╝     ██║      ██║   ██╔══╝
+   ██║     ██║  ██║███████╗███████╗   ██║      ██║   ███████╗
+   ╚═╝     ╚═╝  ╚═╝╚══════╝╚══════╝   ╚═╝      ╚═╝   ╚══════╝
+
+   PREMIUM ICE CREAM BRAND — FULL COLOUR UTILITY SYSTEM
+   ================================================================
+   PALETTE REFERENCE
+   ────────────────────────────────────────────────────────────
+   #  Token               HEX       Role
+   ─  ──────────────────  ────────  ─────────────────────────────
+   1  --primary           #E8486A   Strawberry Blossom
+      --primary-dark      #C43057     → hover / pressed
+      --primary-light     #FFE0E9     → tints, chip backgrounds
+   2  --secondary         #3A1A08   Dark Chocolate
+      --secondary-dark    #1E0C02     → deepest footer / overlay
+      --secondary-light   #F2DEC8     → warm cream panels
+   3  --accent            #D48C0F   Salted Caramel
+      --accent-dark       #B5750C     → caramel hover
+   4  --mint              #2AA87A   Pistachio Mint
+      --mint-dark         #1E8A63     → mint hover
+      --mint-light        #D4F5EA     → mint tint
+   5  --bg-light          #FFF8EF   Vanilla Cream (page bg)
+   6  --bg-mid            #FDE8CC   Soft Peach (card bg)
+   7  --text-dark         #2C1206   Espresso (body text)
+      --text-mid          #6B3820   Mocha (secondary text)
+      --text-light        #A0714D   Latte (captions)
+      --border-color      #EDD4B0   Almond (dividers)
+   ─  ──────────────────  ────────  ─────────────────────────────
+   WHERE TO USE EACH COLOUR
+   ─────────────────────────────────────────────────────────────
+   Strawberry Blossom (#E8486A)
+     • Primary CTA buttons ("Order Now", "Add to Cart")
+     • Active navigation link underline / indicator
+     • Price badge backgrounds
+     • Heart / like icon fills
+     • Section tag / pill labels
+     • Focus ring colour (outline)
+
+   Dark Chocolate (#3A1A08)
+     • Top navigation bar background
+     • Site footer background
+     • Hero dark overlay on images
+     • Modal / drawer backdrop text
+     • Dark section alternates
+
+   Salted Caramel (#D48C0F)
+     • Star rating icons
+     • "New", "Popular" badge backgrounds
+     • Secondary outlined buttons
+     • Newsletter section header gradient end
+     • Decorative ruled lines in testimonials
+
+   Pistachio Mint (#2AA87A)
+     • "Vegan", "Sugar-Free", "Fresh" badges
+     • Success toast notification
+     • Availability dot indicator (in-stock)
+     • Hover state on icon-buttons
+     • Decorative accent in promotional banners
+
+   Vanilla Cream (#FFF8EF)
+     • Main <body> background
+     • Input / textarea background
+     • Card inner content area
+     • Modal background
+
+   Soft Peach (#FDE8CC)
+     • Alternating section backgrounds
+     • Card wrapper outer fill
+     • About / story section bg
+     • Loyalty tier strip bg
+
+   Espresso (#2C1206)
+     • All <h1>–<h6> headings
+     • Body paragraph text
+     • Icon labels
+     • Form labels
+   ================================================================ */
+
+
+/* ================================================================
+   SECTION A — COLOUR UTILITY CLASSES
+   ================================================================
+   text-{colour}   → color
+   bg-{colour}     → background-color
+   border-{colour} → border-color  (use alongside border class)
+   fill-{colour}   → fill (SVG / icon)
+   ================================================================ */
+
+/* ── Text colours ────────────────────────────────────────────── */
+.text-primary        { color: var(--primary)        !important; }
+.text-primary-dark   { color: var(--primary-dark)   !important; }
+.text-primary-light  { color: var(--primary-light)  !important; }
+.text-secondary      { color: var(--secondary)      !important; }
+.text-accent         { color: var(--accent)         !important; }
+.text-accent-dark    { color: var(--accent-dark)    !important; }
+.text-mint           { color: var(--mint)           !important; }
+.text-mint-dark      { color: var(--mint-dark)      !important; }
+.text-espresso       { color: var(--text-dark)      !important; }
+.text-mocha          { color: var(--text-mid)       !important; }
+.text-latte          { color: var(--text-light)     !important; }
+.text-white          { color: #ffffff               !important; }
+.text-cream          { color: var(--bg-light)       !important; }
+
+/* ── Background colours ──────────────────────────────────────── */
+.bg-primary          { background-color: var(--primary)        !important; }
+.bg-primary-dark     { background-color: var(--primary-dark)   !important; }
+.bg-primary-light    { background-color: var(--primary-light)  !important; }
+.bg-secondary        { background-color: var(--secondary)      !important; }
+.bg-secondary-dark   { background-color: var(--secondary-dark) !important; }
+.bg-secondary-light  { background-color: var(--secondary-light)!important; }
+.bg-accent           { background-color: var(--accent)         !important; }
+.bg-accent-dark      { background-color: var(--accent-dark)    !important; }
+.bg-mint             { background-color: var(--mint)           !important; }
+.bg-mint-dark        { background-color: var(--mint-dark)      !important; }
+.bg-mint-light       { background-color: var(--mint-light)     !important; }
+.bg-vanilla          { background-color: var(--bg-light)       !important; }
+.bg-peach            { background-color: var(--bg-mid)         !important; }
+.bg-white            { background-color: #ffffff               !important; }
+.bg-espresso         { background-color: var(--text-dark)      !important; }
+.bg-transparent      { background-color: transparent           !important; }
+
+/* ── Border colours ──────────────────────────────────────────── */
+.border              { border: 1px solid var(--border-color); }
+.border-primary      { border-color: var(--primary)        !important; }
+.border-primary-dark { border-color: var(--primary-dark)   !important; }
+.border-accent       { border-color: var(--accent)         !important; }
+.border-mint         { border-color: var(--mint)           !important; }
+.border-secondary    { border-color: var(--secondary)      !important; }
+.border-almond       { border-color: var(--border-color)   !important; }
+.border-white        { border-color: rgba(255,255,255,0.3) !important; }
+
+/* ── SVG fill colours ────────────────────────────────────────── */
+.fill-primary        { fill: var(--primary)        !important; }
+.fill-accent         { fill: var(--accent)         !important; }
+.fill-mint           { fill: var(--mint)           !important; }
+.fill-white          { fill: #ffffff               !important; }
+.fill-espresso       { fill: var(--text-dark)      !important; }
+
+/* ── Opacity helpers on palette colours ──────────────────────── */
+.primary-10  { color: rgba(232,72,106,0.10); }
+.primary-20  { color: rgba(232,72,106,0.20); }
+.accent-10   { color: rgba(212,140,15,0.10); }
+.mint-10     { color: rgba(42,168,122,0.10);  }
+
+
+/* ================================================================
+   SECTION B — PREMIUM BUTTON VARIANTS
+   Flavour-themed, fully accessible, hover + focus states.
+   ================================================================ */
+
+/* ── Base shared button reset ───────────────────────────────── */
+.btn-flavour {
+  display:         inline-flex;
+  align-items:     center;
+  gap:             8px;
+  padding:         12px 28px;
+  border-radius:   var(--radius-full);
+  font-family:     var(--font-brand);
+  font-weight:     700;
+  font-size:       0.9rem;
+  letter-spacing:  0.04em;
+  cursor:          pointer;
+  border:          2px solid transparent;
+  text-decoration: none;
+  transition:      var(--transition);
+  position:        relative;
+  overflow:        hidden;
+}
+
+/* Ripple pseudo-element used by all flavour buttons */
+.btn-flavour::after {
+  content:          '';
+  position:         absolute;
+  inset:            0;
+  background:       rgba(255,255,255,0.18);
+  opacity:          0;
+  transition:       opacity 0.25s ease;
+}
+.btn-flavour:hover::after,
+.btn-flavour:focus-visible::after { opacity: 1; }
+
+/* ── Strawberry Blossom button (primary CTA) ──────────────── */
+.btn-strawberry {
+  background: var(--primary);
+  color:      #fff;
+  box-shadow: 0 4px 18px rgba(232,72,106,0.35);
+}
+.btn-strawberry:hover,
+.btn-strawberry:focus-visible {
+  background:  var(--primary-dark);
+  box-shadow:  0 6px 26px rgba(196,48,87,0.45);
+  transform:   translateY(-2px);
+  color:       #fff;
+}
+.btn-strawberry:active { transform: translateY(0); box-shadow: none; }
+
+/* ── Strawberry outlined ──────────────────────────────────── */
+.btn-strawberry-outline {
+  background:    transparent;
+  color:         var(--primary);
+  border-color:  var(--primary);
+}
+.btn-strawberry-outline:hover,
+.btn-strawberry-outline:focus-visible {
+  background:  var(--primary);
+  color:       #fff;
+  transform:   translateY(-2px);
+}
+
+/* ── Salted Caramel button (accent CTA) ───────────────────── */
+.btn-caramel {
+  background: var(--accent);
+  color:      #fff;
+  box-shadow: 0 4px 18px rgba(212,140,15,0.35);
+}
+.btn-caramel:hover,
+.btn-caramel:focus-visible {
+  background:  var(--accent-dark);
+  box-shadow:  0 6px 26px rgba(181,117,12,0.45);
+  transform:   translateY(-2px);
+  color:       #fff;
+}
+.btn-caramel-outline {
+  background:   transparent;
+  color:        var(--accent);
+  border-color: var(--accent);
+}
+.btn-caramel-outline:hover,
+.btn-caramel-outline:focus-visible {
+  background: var(--accent);
+  color:      #fff;
+  transform:  translateY(-2px);
+}
+
+/* ── Pistachio Mint button ────────────────────────────────── */
+.btn-mint {
+  background: var(--mint);
+  color:      #fff;
+  box-shadow: 0 4px 18px rgba(42,168,122,0.30);
+}
+.btn-mint:hover,
+.btn-mint:focus-visible {
+  background:  var(--mint-dark);
+  box-shadow:  0 6px 26px rgba(30,138,99,0.40);
+  transform:   translateY(-2px);
+  color:       #fff;
+}
+.btn-mint-outline {
+  background:   transparent;
+  color:        var(--mint);
+  border-color: var(--mint);
+}
+.btn-mint-outline:hover,
+.btn-mint-outline:focus-visible {
+  background: var(--mint);
+  color:      #fff;
+  transform:  translateY(-2px);
+}
+
+/* ── Dark Chocolate button (nav CTA / footer) ─────────────── */
+.btn-chocolate {
+  background: var(--secondary);
+  color:      #fff;
+  box-shadow: 0 4px 18px rgba(58,26,8,0.30);
+}
+.btn-chocolate:hover,
+.btn-chocolate:focus-visible {
+  background:  var(--secondary-dark);
+  box-shadow:  0 6px 26px rgba(30,12,2,0.40);
+  transform:   translateY(-2px);
+  color:       #fff;
+}
+.btn-chocolate-outline {
+  background:   transparent;
+  color:        var(--secondary);
+  border-color: var(--secondary);
+}
+.btn-chocolate-outline:hover,
+.btn-chocolate-outline:focus-visible {
+  background: var(--secondary);
+  color:      #fff;
+  transform:  translateY(-2px);
+}
+
+/* ── Vanilla Ghost button ────────────────────────────────── */
+.btn-vanilla {
+  background:   var(--bg-light);
+  color:        var(--text-dark);
+  border-color: var(--border-color);
+  box-shadow:   var(--shadow-sm);
+}
+.btn-vanilla:hover,
+.btn-vanilla:focus-visible {
+  background:  var(--bg-mid);
+  border-color: var(--primary);
+  color:        var(--primary);
+  transform:    translateY(-2px);
+}
+
+/* ── Icon-only circular flavour buttons ──────────────────── */
+.btn-icon-sm {
+  width:           36px;
+  height:          36px;
+  padding:         0;
+  border-radius:   50%;
+  display:         inline-flex;
+  align-items:     center;
+  justify-content: center;
+  font-size:       0.9rem;
+  flex-shrink:     0;
+}
+.btn-icon-md {
+  width:           44px;
+  height:          44px;
+  padding:         0;
+  border-radius:   50%;
+  display:         inline-flex;
+  align-items:     center;
+  justify-content: center;
+  font-size:       1.1rem;
+  flex-shrink:     0;
+}
+.btn-icon-lg {
+  width:           56px;
+  height:          56px;
+  padding:         0;
+  border-radius:   50%;
+  display:         inline-flex;
+  align-items:     center;
+  justify-content: center;
+  font-size:       1.3rem;
+  flex-shrink:     0;
+}
+
+
+/* ================================================================
+   SECTION C — BADGE / CHIP / TAG VARIANTS
+   Flavour-themed pill labels for menu items, features & promos.
+   ================================================================ */
+
+/* ── Base badge reset ─────────────────────────────────────── */
+.badge-base {
+  display:         inline-flex;
+  align-items:     center;
+  gap:             4px;
+  padding:         3px 10px;
+  border-radius:   var(--radius-full);
+  font-family:     var(--font-brand);
+  font-size:       0.72rem;
+  font-weight:     700;
+  letter-spacing:  0.06em;
+  text-transform:  uppercase;
+  white-space:     nowrap;
+  line-height:     1.5;
+  transition:      var(--transition);
+}
+
+/* ── Strawberry Blossom badge ────────────────────────────── */
+.badge-strawberry        { background: var(--primary);       color: #fff; }
+.badge-strawberry-soft   { background: var(--primary-light); color: var(--primary-dark); }
+.badge-strawberry-border {
+  background:   transparent;
+  color:        var(--primary);
+  border:       1.5px solid var(--primary);
+}
+
+/* ── Salted Caramel badge ────────────────────────────────── */
+.badge-caramel        { background: var(--accent);       color: #fff; }
+.badge-caramel-soft   { background: #FFF3D0;              color: var(--accent-dark); }
+.badge-caramel-border {
+  background:   transparent;
+  color:        var(--accent);
+  border:       1.5px solid var(--accent);
+}
+
+/* ── Pistachio Mint badge ────────────────────────────────── */
+.badge-mint        { background: var(--mint);       color: #fff; }
+.badge-mint-soft   { background: var(--mint-light); color: var(--mint-dark); }
+.badge-mint-border {
+  background:   transparent;
+  color:        var(--mint);
+  border:       1.5px solid var(--mint);
+}
+
+/* ── Dark Chocolate badge ────────────────────────────────── */
+.badge-chocolate        { background: var(--secondary);       color: #fff; }
+.badge-chocolate-soft   { background: var(--secondary-light); color: var(--secondary); }
+.badge-chocolate-border {
+  background:   transparent;
+  color:        var(--secondary);
+  border:       1.5px solid var(--secondary);
+}
+
+/* ── Vanilla Cream badge ─────────────────────────────────── */
+.badge-vanilla {
+  background:  var(--bg-light);
+  color:       var(--text-mid);
+  border:      1.5px solid var(--border-color);
+}
+
+/* ── Semantic / functional badge aliases ─────────────────── */
+.badge-new       { background: var(--primary);  color: #fff; }   /* New arrival */
+.badge-popular   { background: var(--accent);   color: #fff; }   /* Best-seller */
+.badge-fresh     { background: var(--mint);     color: #fff; }   /* Fresh / vegan */
+.badge-limited   { background: #7B2D8B;          color: #fff; }   /* Limited edition – intentional off-palette purple */
+.badge-sold-out  { background: #888;             color: #fff; }   /* Unavailable */
+.badge-discount  { background: var(--primary);   color: #fff; }   /* Percentage off – maps to Strawberry Blossom */
+
+/* ── Sizes ───────────────────────────────────────────────── */
+.badge-xs { font-size: 0.62rem; padding: 2px 7px; }
+.badge-sm { font-size: 0.72rem; padding: 3px 10px; }
+.badge-md { font-size: 0.80rem; padding: 4px 12px; }
+.badge-lg { font-size: 0.90rem; padding: 6px 16px; }
+
+
+/* ================================================================
+   SECTION D — FLAVOUR-THEMED CARD VARIANTS
+   Premium product & feature cards using each palette colour.
+   ================================================================ */
+
+/* ── Shared card base ────────────────────────────────────── */
+.card-premium {
+  border-radius:  var(--radius-lg);
+  overflow:       hidden;
+  transition:     var(--transition);
+  position:       relative;
+  background:     var(--bg-white);
+  border:         1px solid var(--border-color);
+  box-shadow:     var(--shadow-sm);
+}
+.card-premium:hover {
+  transform:  translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ── Card header accent strip (top border) ───────────────── */
+.card-premium-strawberry { border-top: 4px solid var(--primary); }
+.card-premium-caramel    { border-top: 4px solid var(--accent); }
+.card-premium-mint       { border-top: 4px solid var(--mint); }
+.card-premium-chocolate  { border-top: 4px solid var(--secondary); }
+
+/* ── Full-tint flavour cards ─────────────────────────────── */
+.card-tint-strawberry {
+  background:  var(--primary-light);
+  border-color: rgba(232,72,106,0.20);
+}
+.card-tint-caramel {
+  background:   #FFF3D0;
+  border-color: rgba(212,140,15,0.20);
+}
+.card-tint-mint {
+  background:  var(--mint-light);
+  border-color: rgba(42,168,122,0.20);
+}
+.card-tint-vanilla {
+  background:  var(--bg-light);
+  border-color: var(--border-color);
+}
+.card-tint-peach {
+  background:  var(--bg-mid);
+  border-color: rgba(212,140,15,0.15);
+}
+
+/* ── Dark flavour cards ───────────────────────────────────── */
+.card-dark-chocolate {
+  background:   var(--secondary);
+  color:        rgba(255,255,255,0.90);
+  border-color: var(--secondary-dark);
+}
+.card-dark-chocolate h2,
+.card-dark-chocolate h3,
+.card-dark-chocolate h4,
+.card-dark-chocolate p { color: inherit; }
+
+/* ── Glassmorphism ice-cream card ────────────────────────── */
+.card-glass {
+  background:    rgba(255,255,255,0.65);
+  backdrop-filter: blur(14px) saturate(1.4);
+  -webkit-backdrop-filter: blur(14px) saturate(1.4);
+  border:        1px solid rgba(255,255,255,0.55);
+  box-shadow:    0 8px 32px rgba(232,72,106,0.10);
+}
+.card-glass:hover {
+  background:    rgba(255,255,255,0.80);
+  box-shadow:    0 16px 48px rgba(232,72,106,0.16);
+  transform:     translateY(-6px);
+}
+
+/* ── Flavour card icon circle ───────────────────────────── */
+.card-icon-circle {
+  width:           56px;
+  height:          56px;
+  border-radius:   50%;
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  font-size:       1.4rem;
+  flex-shrink:     0;
+  transition:      var(--transition);
+}
+.card-icon-circle-strawberry { background: var(--primary-light); color: var(--primary); }
+.card-icon-circle-caramel    { background: #FFF3D0;              color: var(--accent); }
+.card-icon-circle-mint       { background: var(--mint-light);    color: var(--mint-dark); }
+.card-icon-circle-chocolate  { background: var(--secondary-light); color: var(--secondary); }
+
+.card-premium:hover .card-icon-circle-strawberry { background: var(--primary);  color: #fff; }
+.card-premium:hover .card-icon-circle-caramel    { background: var(--accent);   color: #fff; }
+.card-premium:hover .card-icon-circle-mint       { background: var(--mint);     color: #fff; }
+.card-premium:hover .card-icon-circle-chocolate  { background: var(--secondary); color: #fff; }
+
+/* ── Card body & footer helpers ─────────────────────────── */
+.card-body-pd   { padding: 24px; }
+.card-footer-pd { padding: 16px 24px; border-top: 1px solid var(--border-color); }
+
+/* ── Price tag within cards ─────────────────────────────── */
+.price-tag {
+  display:         inline-flex;
+  align-items:     baseline;
+  gap:             2px;
+  font-family:     var(--font-brand);
+  font-weight:     800;
+  color:           var(--primary);
+}
+.price-tag .currency { font-size: 0.9em; }
+.price-tag .amount   { font-size: 1.4em; line-height: 1; }
+.price-tag .period   { font-size: 0.75em; color: var(--text-light); font-weight: 500; }
+
+.price-tag-accent  { color: var(--accent); }
+.price-tag-mint    { color: var(--mint); }
+.price-tag-strike  {
+  text-decoration: line-through;
+  color:           var(--text-light);
+  font-weight:     400;
+  font-size:       0.85em;
+}
+
+
+/* ================================================================
+   SECTION E — SECTION / HERO BACKGROUND THEMES
+   Full-width coloured sections using the premium palette.
+   ================================================================ */
+
+/* ── Vanilla Cream – light default section ───────────────── */
+.section-vanilla {
+  background:   var(--bg-light);
+  color:        var(--text-dark);
+}
+
+/* ── Soft Peach – warm alternating section ───────────────── */
+.section-peach {
+  background:   var(--bg-mid);
+  color:        var(--text-dark);
+}
+
+/* ── Strawberry Blossom – vibrant feature section ────────── */
+.section-strawberry {
+  background:   var(--primary);
+  color:        #fff;
+}
+.section-strawberry .section-tagline { background: rgba(255,255,255,0.20); color: #fff; }
+.section-strawberry .section-title   { color: #fff; }
+.section-strawberry p                { color: rgba(255,255,255,0.88); }
+
+/* ── Strawberry gradient section ────────────────────────── */
+.section-strawberry-grad {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color:      #fff;
+}
+
+/* ── Salted Caramel section ──────────────────────────────── */
+.section-caramel {
+  background:   var(--accent);
+  color:        #fff;
+}
+.section-caramel-soft {
+  background: linear-gradient(135deg, #FFF3D0 0%, var(--bg-mid) 100%);
+  color:      var(--text-dark);
+}
+.section-caramel-soft .section-title { color: var(--accent-dark); }
+
+/* ── Pistachio Mint section ──────────────────────────────── */
+.section-mint {
+  background:   var(--mint);
+  color:        #fff;
+}
+.section-mint-soft {
+  background: linear-gradient(135deg, var(--mint-light) 0%, #f0fff9 100%);
+  color:      var(--text-dark);
+}
+.section-mint-soft .section-title { color: var(--mint-dark); }
+
+/* ── Dark Chocolate section ──────────────────────────────── */
+.section-chocolate {
+  background:   var(--secondary);
+  color:        rgba(255,255,255,0.88);
+}
+.section-chocolate .section-title { color: #fff; }
+.section-chocolate p              { color: rgba(255,255,255,0.75); }
+
+/* ── Dark Chocolate gradient section ────────────────────── */
+.section-chocolate-grad {
+  background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-dark) 100%);
+  color:      rgba(255,255,255,0.88);
+}
+
+/* ── Sunrise dessert gradient (strawberry → caramel) ─────── */
+.section-sunrise {
+  background: linear-gradient(135deg,
+    var(--primary-light)  0%,
+    var(--bg-light)       40%,
+    var(--bg-mid)         100%);
+  color: var(--text-dark);
+}
+
+/* ── Neapolitan gradient (strawberry | vanilla | chocolate) ─ */
+.section-neapolitan {
+  background: linear-gradient(90deg,
+    var(--primary-light)    0%,
+    var(--bg-light)         50%,
+    var(--secondary-light)  100%);
+  color: var(--text-dark);
+}
+
+/* ── Hero overlay gradient ───────────────────────────────── */
+.hero-overlay-dark {
+  background: linear-gradient(180deg,
+    rgba(58,26,8,0.00) 0%,
+    rgba(58,26,8,0.55) 60%,
+    rgba(58,26,8,0.85) 100%);
+}
+.hero-overlay-warm {
+  background: linear-gradient(180deg,
+    rgba(232,72,106,0.00) 0%,
+    rgba(232,72,106,0.25) 60%,
+    rgba(232,72,106,0.60) 100%);
+}
+
+/* ── Divider wave helpers ────────────────────────────────── */
+.divider-vanilla   { fill: var(--bg-light);  }
+.divider-peach     { fill: var(--bg-mid);    }
+.divider-chocolate { fill: var(--secondary); }
+.divider-primary   { fill: var(--primary);   }
+
+
+/* ================================================================
+   SECTION F — GRADIENT UTILITY CLASSES
+   One-stop gradient helpers for any palette combination.
+   ================================================================ */
+
+/* ── Linear gradients – horizontal ──────────────────────── */
+.grad-h-strawberry-caramel {
+  background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+}
+.grad-h-caramel-mint {
+  background: linear-gradient(90deg, var(--accent) 0%, var(--mint) 100%);
+}
+.grad-h-strawberry-mint {
+  background: linear-gradient(90deg, var(--primary) 0%, var(--mint) 100%);
+}
+.grad-h-chocolate-caramel {
+  background: linear-gradient(90deg, var(--secondary) 0%, var(--accent) 100%);
+}
+.grad-h-vanilla-peach {
+  background: linear-gradient(90deg, var(--bg-light) 0%, var(--bg-mid) 100%);
+}
+
+/* ── Linear gradients – diagonal (135°) ─────────────────── */
+.grad-d-strawberry {
+  background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+}
+.grad-d-caramel {
+  background: linear-gradient(135deg, #FFF3D0 0%, var(--accent) 100%);
+}
+.grad-d-mint {
+  background: linear-gradient(135deg, var(--mint-light) 0%, var(--mint) 100%);
+}
+.grad-d-chocolate {
+  background: linear-gradient(135deg, var(--secondary-light) 0%, var(--secondary) 100%);
+}
+.grad-d-neapolitan {
+  background: linear-gradient(135deg,
+    var(--primary)    0%,
+    var(--accent)     50%,
+    var(--secondary)  100%);
+}
+.grad-d-sorbet {
+  background: linear-gradient(135deg,
+    var(--primary)  0%,
+    var(--mint)     100%);
+}
+.grad-d-sunrise {
+  background: linear-gradient(135deg,
+    var(--primary-light) 0%,
+    var(--bg-light)      50%,
+    var(--bg-mid)        100%);
+}
+
+/* ── Radial "scoop" gradients ────────────────────────────── */
+.grad-r-strawberry {
+  background: radial-gradient(circle at 40% 35%,
+    var(--primary-light) 0%,
+    var(--primary)       70%);
+}
+.grad-r-caramel {
+  background: radial-gradient(circle at 40% 35%,
+    #FFF3D0          0%,
+    var(--accent)    70%);
+}
+.grad-r-mint {
+  background: radial-gradient(circle at 40% 35%,
+    var(--mint-light) 0%,
+    var(--mint)       70%);
+}
+.grad-r-chocolate {
+  background: radial-gradient(circle at 40% 35%,
+    var(--secondary-light) 0%,
+    var(--secondary)       70%);
+}
+
+/* ── Animated gradient background ───────────────────────── */
+.grad-animated {
+  background: linear-gradient(270deg,
+    var(--primary),
+    var(--accent),
+    var(--mint),
+    var(--primary-dark));
+  background-size: 300% 300%;
+  animation:       gradientShift 8s ease infinite;
+}
+
+/* ── Gradient text helper ────────────────────────────────── */
+.grad-text-strawberry-caramel {
+  background:              linear-gradient(90deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  background-clip:         text;
+  -webkit-text-fill-color: transparent;
+}
+.grad-text-caramel-mint {
+  background:              linear-gradient(90deg, var(--accent), var(--mint));
+  -webkit-background-clip: text;
+  background-clip:         text;
+  -webkit-text-fill-color: transparent;
+}
+.grad-text-neapolitan {
+  background:              linear-gradient(90deg, var(--primary), var(--accent), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip:         text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+/* ================================================================
+   SECTION G — PREMIUM TYPOGRAPHY UTILITIES
+   Heading styles, body helpers, and decorative text treatments.
+   ================================================================ */
+
+/* ── Display headings ────────────────────────────────────── */
+.display-xl {
+  font-family:   var(--font-brand);
+  font-size:     clamp(2.5rem, 6vw, 5rem);
+  font-weight:   900;
+  line-height:   1.1;
+  letter-spacing: -0.02em;
+}
+.display-lg {
+  font-family:   var(--font-brand);
+  font-size:     clamp(2rem, 4.5vw, 3.8rem);
+  font-weight:   800;
+  line-height:   1.15;
+}
+.display-md {
+  font-family:   var(--font-brand);
+  font-size:     clamp(1.5rem, 3vw, 2.6rem);
+  font-weight:   700;
+  line-height:   1.2;
+}
+.display-sm {
+  font-family:   var(--font-brand);
+  font-size:     clamp(1.2rem, 2.2vw, 1.8rem);
+  font-weight:   700;
+  line-height:   1.3;
+}
+
+/* ── Brand / logo type ───────────────────────────────────── */
+.type-brand {
+  font-family:   var(--font-brand);
+  font-weight:   900;
+  letter-spacing: -0.01em;
+}
+.type-body {
+  font-family:   var(--font-body);
+  font-weight:   400;
+}
+.type-label {
+  font-family:   var(--font-brand);
+  font-size:     0.72rem;
+  font-weight:   700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ── Section eyebrow / tag line ─────────────────────────── */
+.eyebrow {
+  display:         inline-block;
+  font-family:     var(--font-brand);
+  font-size:       0.75rem;
+  font-weight:     700;
+  letter-spacing:  0.12em;
+  text-transform:  uppercase;
+  padding:         4px 14px;
+  border-radius:   var(--radius-full);
+  margin-bottom:   14px;
+}
+.eyebrow-strawberry { background: var(--primary-light); color: var(--primary-dark); }
+.eyebrow-caramel    { background: #FFF3D0;              color: var(--accent-dark);  }
+.eyebrow-mint       { background: var(--mint-light);    color: var(--mint-dark);    }
+.eyebrow-chocolate  { background: var(--secondary-light); color: var(--secondary);  }
+.eyebrow-white      { background: rgba(255,255,255,0.20); color: #fff; }
+
+/* ── Drop cap for magazine-style intro text ──────────────── */
+.drop-cap::first-letter {
+  float:         left;
+  font-family:   var(--font-brand);
+  font-size:     4em;
+  font-weight:   900;
+  line-height:   0.75;
+  color:         var(--primary);
+  margin:        0.05em 0.1em 0 0;
+}
+
+/* ── Pull quote ──────────────────────────────────────────── */
+.pull-quote {
+  border-left:  5px solid var(--primary);
+  padding:      16px 20px;
+  margin:       24px 0;
+  font-size:    1.2em;
+  font-weight:  600;
+  font-style:   italic;
+  color:        var(--text-mid);
+  background:   var(--primary-light);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+.pull-quote-caramel {
+  border-left-color: var(--accent);
+  background:        #FFF3D0;
+  color:             var(--accent-dark);
+}
+.pull-quote-mint {
+  border-left-color: var(--mint);
+  background:        var(--mint-light);
+  color:             var(--mint-dark);
+}
+
+/* ── Text size scale ─────────────────────────────────────── */
+.text-xs   { font-size: 0.72rem !important; }
+.text-sm   { font-size: 0.85rem !important; }
+.text-base { font-size: 1rem    !important; }
+.text-lg   { font-size: 1.125rem!important; }
+.text-xl   { font-size: 1.25rem !important; }
+.text-2xl  { font-size: 1.5rem  !important; }
+.text-3xl  { font-size: 1.875rem!important; }
+.text-4xl  { font-size: 2.25rem !important; }
+
+/* ── Weight scale ────────────────────────────────────────── */
+.fw-300 { font-weight: 300 !important; }
+.fw-400 { font-weight: 400 !important; }
+.fw-500 { font-weight: 500 !important; }
+.fw-600 { font-weight: 600 !important; }
+.fw-700 { font-weight: 700 !important; }
+.fw-800 { font-weight: 800 !important; }
+.fw-900 { font-weight: 900 !important; }
+
+/* ── Line height helpers ─────────────────────────────────── */
+.lh-tight  { line-height: 1.2 !important; }
+.lh-normal { line-height: 1.5 !important; }
+.lh-loose  { line-height: 1.8 !important; }
+
+/* ── Letter spacing ──────────────────────────────────────── */
+.ls-tight  { letter-spacing: -0.03em !important; }
+.ls-normal { letter-spacing: 0       !important; }
+.ls-wide   { letter-spacing: 0.06em  !important; }
+.ls-wider  { letter-spacing: 0.12em  !important; }
+
+
+/* ================================================================
+   SECTION H — ICE CREAM FLAVOUR COMPONENT THEMES
+   Ready-to-use themed component sets: promo cards, menu sections,
+   loyalty tiers, flavour selectors, and taste-profile chips.
+   ================================================================ */
+
+/* ── Flavour selector pill ───────────────────────────────── */
+.flavour-pill {
+  display:         inline-flex;
+  align-items:     center;
+  gap:             8px;
+  padding:         8px 18px;
+  border-radius:   var(--radius-full);
+  border:          2px solid var(--border-color);
+  background:      var(--bg-white);
+  font-family:     var(--font-brand);
+  font-size:       0.82rem;
+  font-weight:     700;
+  cursor:          pointer;
+  transition:      var(--transition);
+  user-select:     none;
+}
+.flavour-pill:hover    { border-color: var(--primary); color: var(--primary); }
+.flavour-pill.active   { background: var(--primary); border-color: var(--primary); color: #fff; }
+
+.flavour-pill-caramel:hover,
+.flavour-pill-caramel.active   { background: var(--accent);    border-color: var(--accent);    color: #fff; }
+.flavour-pill-mint:hover,
+.flavour-pill-mint.active      { background: var(--mint);      border-color: var(--mint);      color: #fff; }
+.flavour-pill-chocolate:hover,
+.flavour-pill-chocolate.active { background: var(--secondary); border-color: var(--secondary); color: #fff; }
+
+/* ── Flavour swatch dot ───────────────────────────────────── */
+.swatch {
+  width:         18px;
+  height:        18px;
+  border-radius: 50%;
+  display:       inline-block;
+  flex-shrink:   0;
+  border:        2px solid rgba(255,255,255,0.6);
+  box-shadow:    0 1px 3px rgba(0,0,0,0.15);
+}
+.swatch-strawberry { background: var(--primary); }
+.swatch-caramel    { background: var(--accent);  }
+.swatch-mint       { background: var(--mint);    }
+.swatch-chocolate  { background: var(--secondary); }
+.swatch-vanilla    { background: var(--bg-mid); border-color: var(--border-color); }
+
+/* ── Taste-profile chip strip ────────────────────────────── */
+.taste-chip {
+  display:         inline-flex;
+  align-items:     center;
+  gap:             5px;
+  padding:         4px 12px;
+  border-radius:   var(--radius-full);
+  font-size:       0.75rem;
+  font-weight:     600;
+  font-family:     var(--font-body);
+}
+.taste-sweet    { background: var(--primary-light); color: var(--primary-dark);   }
+.taste-creamy   { background: var(--bg-mid);        color: var(--accent-dark);    }
+.taste-fresh    { background: var(--mint-light);    color: var(--mint-dark);      }
+.taste-rich     { background: var(--secondary-light);color: var(--secondary);     }
+.taste-tangy    { background: #FFF0B8;               color: #A07000;              }
+.taste-nutty    { background: #F2E4D0;               color: #6B4424;              }
+
+/* ── Menu category header banner ────────────────────────── */
+.category-banner {
+  display:         flex;
+  align-items:     center;
+  gap:             16px;
+  padding:         16px 24px;
+  border-radius:   var(--radius-md);
+  margin-bottom:   28px;
+}
+.category-banner-strawberry { background: var(--primary-light); }
+.category-banner-strawberry .category-banner-icon { color: var(--primary); }
+.category-banner-caramel    { background: #FFF3D0; }
+.category-banner-caramel    .category-banner-icon { color: var(--accent); }
+.category-banner-mint       { background: var(--mint-light); }
+.category-banner-mint       .category-banner-icon { color: var(--mint-dark); }
+.category-banner-chocolate  { background: var(--secondary-light); }
+.category-banner-chocolate  .category-banner-icon { color: var(--secondary); }
+
+.category-banner-icon { font-size: 1.8rem; }
+.category-banner-title {
+  font-family:    var(--font-brand);
+  font-size:      1.1rem;
+  font-weight:    800;
+  color:          var(--text-dark);
+  margin:         0;
+}
+.category-banner-count {
+  font-size:      0.78rem;
+  color:          var(--text-light);
+  margin:         2px 0 0;
+}
+
+/* ── Promo / offer card ───────────────────────────────────── */
+.promo-card-premium {
+  border-radius:   var(--radius-lg);
+  padding:         28px;
+  position:        relative;
+  overflow:        hidden;
+  display:         flex;
+  flex-direction:  column;
+  gap:             14px;
+}
+.promo-card-strawberry {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+  color:      #fff;
+}
+.promo-card-caramel {
+  background: linear-gradient(135deg, var(--accent-dark) 0%, var(--accent) 100%);
+  color:      #fff;
+}
+.promo-card-mint {
+  background: linear-gradient(135deg, var(--mint-dark) 0%, var(--mint) 100%);
+  color:      #fff;
+}
+.promo-card-neapolitan {
+  background: linear-gradient(135deg,
+    var(--primary)   0%,
+    var(--accent)   50%,
+    var(--secondary) 100%);
+  color: #fff;
+}
+
+.promo-card-premium .promo-badge {
+  position:     absolute;
+  top:          16px;
+  right:        16px;
+  background:   rgba(255,255,255,0.22);
+  color:        #fff;
+  padding:      4px 12px;
+  border-radius:var(--radius-full);
+  font-size:    0.72rem;
+  font-weight:  700;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  backdrop-filter: blur(4px);
+}
+.promo-card-premium .promo-title {
+  font-family:  var(--font-brand);
+  font-size:    1.4rem;
+  font-weight:  800;
+  margin:       0;
+  color:        #fff;
+  line-height:  1.2;
+}
+.promo-card-premium .promo-desc {
+  font-size:   0.88rem;
+  color:       rgba(255,255,255,0.85);
+  margin:      0;
+  line-height: 1.6;
+}
+.promo-card-premium .promo-cta {
+  display:         inline-flex;
+  align-items:     center;
+  gap:             8px;
+  padding:         10px 22px;
+  background:      rgba(255,255,255,0.20);
+  color:           #fff;
+  border-radius:   var(--radius-full);
+  font-family:     var(--font-brand);
+  font-weight:     700;
+  font-size:       0.85rem;
+  text-decoration: none;
+  transition:      var(--transition);
+  width:           fit-content;
+  backdrop-filter: blur(4px);
+  border:          1.5px solid rgba(255,255,255,0.35);
+}
+.promo-card-premium .promo-cta:hover {
+  background: rgba(255,255,255,0.35);
+  transform:  translateY(-2px);
+}
+
+/* ── Loyalty tier cards (bronze → silver → gold) ─────────── */
+.tier-card {
+  padding:       20px;
+  border-radius: var(--radius-md);
+  border:        2px solid transparent;
+  transition:    var(--transition);
+}
+.tier-card-bronze {
+  background:    #FFF0E4;
+  border-color:  #cd7f32;
+}
+.tier-card-silver {
+  background:    #F8F8F8;
+  border-color:  #c0c0c0;
+}
+.tier-card-gold {
+  background:    #FFFBE6;
+  border-color:  #ffd700;
+}
+.tier-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+
+/* ── Scoop counter badge (quantities) ────────────────────── */
+.scoop-count {
+  display:         inline-flex;
+  align-items:     center;
+  justify-content: center;
+  min-width:       24px;
+  height:          24px;
+  border-radius:   var(--radius-full);
+  font-size:       0.75rem;
+  font-weight:     800;
+  font-family:     var(--font-brand);
+  background:      var(--primary);
+  color:           #fff;
+  padding:         0 7px;
+}
+.scoop-count-caramel { background: var(--accent);    }
+.scoop-count-mint    { background: var(--mint);      }
+.scoop-count-dark    { background: var(--secondary); }
+
+
+/* ================================================================
+   SECTION I — COLOUR PALETTE SHOWCASE STYLES
+   Used by the /palette.html standalone page.
+   ================================================================ */
+
+.palette-page {
+  min-height:  100vh;
+  background:  var(--bg-light);
+  font-family: var(--font-body);
+  color:       var(--text-dark);
+}
+
+/* ── Palette hero ─────────────────────────────────────────── */
+.palette-hero {
+  background: linear-gradient(135deg,
+    var(--primary)   0%,
+    var(--accent)   40%,
+    var(--secondary) 100%);
+  color:      #fff;
+  text-align: center;
+  padding:    80px 24px 60px;
+}
+.palette-hero h1 {
+  font-family:    var(--font-brand);
+  font-size:      clamp(2rem, 5vw, 3.5rem);
+  font-weight:    900;
+  margin-bottom:  12px;
+  color:          #fff;
+}
+.palette-hero p { font-size: 1.1rem; color: rgba(255,255,255,0.88); max-width: 600px; margin: 0 auto; }
+
+/* ── Swatch grid ──────────────────────────────────────────── */
+.swatch-grid {
+  display:               grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap:                   24px;
+  padding:               48px 24px;
+  max-width:             var(--container-max);
+  margin:                0 auto;
+}
+
+/* ── Individual swatch card ────────────────────────────────── */
+.swatch-card {
+  border-radius: var(--radius-lg);
+  overflow:      hidden;
+  box-shadow:    var(--shadow-md);
+  background:    var(--bg-white);
+  transition:    var(--transition);
+}
+.swatch-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-xl); }
+
+.swatch-color-block {
+  height:  160px;
+  width:   100%;
+  display: flex;
+  align-items:     center;
+  justify-content: center;
+  font-family:     var(--font-brand);
+  font-weight:     800;
+  font-size:       1.2rem;
+  letter-spacing:  0.02em;
+}
+.swatch-info {
+  padding: 16px 18px;
+}
+.swatch-name {
+  font-family:  var(--font-brand);
+  font-weight:  800;
+  font-size:    0.95rem;
+  margin-bottom:4px;
+  color:        var(--text-dark);
+}
+.swatch-hex {
+  font-size:    0.8rem;
+  font-family:  'Courier New', monospace;
+  color:        var(--text-mid);
+  margin-bottom:6px;
+  letter-spacing:0.04em;
+}
+.swatch-usage {
+  font-size:  0.78rem;
+  color:      var(--text-light);
+  line-height:1.5;
+}
+
+/* ── Individual colour block fills ────────────────────────── */
+.swatch-fill-1 { background: #E8486A; color: #fff; }
+.swatch-fill-2 { background: #C43057; color: #fff; }
+.swatch-fill-3 { background: #FFE0E9; color: #C43057; }
+.swatch-fill-4 { background: #3A1A08; color: #fff; }
+.swatch-fill-5 { background: #1E0C02; color: #fff; }
+.swatch-fill-6 { background: #F2DEC8; color: #3A1A08; }
+.swatch-fill-7 { background: #D48C0F; color: #fff; }
+.swatch-fill-8 { background: #B5750C; color: #fff; }
+.swatch-fill-9 { background: #2AA87A; color: #fff; }
+.swatch-fill-10 { background: #1E8A63; color: #fff; }
+.swatch-fill-11 { background: #D4F5EA; color: #1E8A63; }
+.swatch-fill-12 { background: #FFF8EF; color: #2C1206; border: 1px solid #EDD4B0; }
+.swatch-fill-13 { background: #FDE8CC; color: #2C1206; border: 1px solid #EDD4B0; }
+.swatch-fill-14 { background: #2C1206; color: #fff; }
+.swatch-fill-15 { background: #6B3820; color: #fff; }
+.swatch-fill-16 { background: #A0714D; color: #fff; }
+.swatch-fill-17 { background: #EDD4B0; color: #3A1A08; }
+
+/* ── Palette role table ────────────────────────────────────── */
+.palette-table {
+  width:           100%;
+  border-collapse: collapse;
+  font-size:       0.88rem;
+  background:      var(--bg-white);
+  border-radius:   var(--radius-lg);
+  overflow:        hidden;
+  box-shadow:      var(--shadow-sm);
+}
+.palette-table th {
+  background:      var(--secondary);
+  color:           #fff;
+  padding:         12px 16px;
+  text-align:      left;
+  font-family:     var(--font-brand);
+  font-size:       0.78rem;
+  letter-spacing:  0.06em;
+  text-transform:  uppercase;
+}
+.palette-table td {
+  padding:         12px 16px;
+  border-bottom:   1px solid var(--border-color);
+  vertical-align:  middle;
+}
+.palette-table tr:last-child td { border-bottom: none; }
+.palette-table tr:hover td { background: var(--bg-light); }
+
+.palette-swatch-dot {
+  width:         28px;
+  height:        28px;
+  border-radius: 50%;
+  display:       inline-block;
+  border:        2px solid rgba(255,255,255,0.5);
+  box-shadow:    0 2px 6px rgba(0,0,0,0.15);
+  vertical-align:middle;
+  margin-right:  8px;
+}
+
+/* ── Palette section container ─────────────────────────────── */
+.palette-section {
+  max-width: var(--container-max);
+  margin:    0 auto;
+  padding:   48px 24px;
+}
+.palette-section-title {
+  font-family:    var(--font-brand);
+  font-size:      1.6rem;
+  font-weight:    800;
+  color:          var(--text-dark);
+  margin-bottom:  8px;
+}
+.palette-section-sub {
+  font-size:    0.9rem;
+  color:        var(--text-mid);
+  margin-bottom:32px;
+  max-width:    560px;
+}
+
+
+/* ================================================================
+   SECTION J — INTERACTION & HOVER EFFECTS
+   Reusable palette-powered hover, focus, and active treatments.
+   ================================================================ */
+
+/* ── Lift / press helpers ────────────────────────────────── */
+.hover-lift { transition: var(--transition); }
+.hover-lift:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+
+.hover-press { transition: var(--transition); }
+.hover-press:active { transform: scale(0.97); }
+
+/* ── Glow on hover ───────────────────────────────────────── */
+.hover-glow-primary:hover   { box-shadow: 0 0 20px rgba(232,72,106,0.45); }
+.hover-glow-accent:hover    { box-shadow: 0 0 20px rgba(212,140,15,0.45); }
+.hover-glow-mint:hover      { box-shadow: 0 0 20px rgba(42,168,122,0.40); }
+.hover-glow-chocolate:hover { box-shadow: 0 0 20px rgba(58,26,8,0.40);   }
+
+/* ── Underline stroke on link hover ──────────────────────── */
+.underline-primary {
+  text-decoration:       none;
+  background-image:      linear-gradient(var(--primary), var(--primary));
+  background-repeat:     no-repeat;
+  background-size:       0 2px;
+  background-position:   0 100%;
+  transition:            background-size 0.3s ease;
+}
+.underline-primary:hover { background-size: 100% 2px; color: var(--primary); }
+
+.underline-accent {
+  text-decoration:       none;
+  background-image:      linear-gradient(var(--accent), var(--accent));
+  background-repeat:     no-repeat;
+  background-size:       0 2px;
+  background-position:   0 100%;
+  transition:            background-size 0.3s ease;
+}
+.underline-accent:hover { background-size: 100% 2px; color: var(--accent); }
+
+.underline-mint {
+  text-decoration:       none;
+  background-image:      linear-gradient(var(--mint), var(--mint));
+  background-repeat:     no-repeat;
+  background-size:       0 2px;
+  background-position:   0 100%;
+  transition:            background-size 0.3s ease;
+}
+.underline-mint:hover { background-size: 100% 2px; color: var(--mint); }
+
+/* ── Active / selected ring ──────────────────────────────── */
+.ring-primary      { outline: 3px solid var(--primary);  outline-offset: 3px; }
+.ring-accent       { outline: 3px solid var(--accent);   outline-offset: 3px; }
+.ring-mint         { outline: 3px solid var(--mint);     outline-offset: 3px; }
+.ring-secondary    { outline: 3px solid var(--secondary);outline-offset: 3px; }
+
+/* ── Colour transitions on state ─────────────────────────── */
+.transition-colour { transition: color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease; }
+.transition-all    { transition: var(--transition); }
+.transition-slow   { transition: var(--transition-slow); }
+
+/* ── Skeleton / loading shimmer in palette colours ───────── */
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position:  400px 0; }
+}
+.skeleton-strawberry {
+  background: linear-gradient(90deg,
+    var(--primary-light) 0%,
+    rgba(255,224,233,0.4) 50%,
+    var(--primary-light) 100%);
+  background-size: 800px 100%;
+  animation: shimmer 1.8s infinite;
+  border-radius: var(--radius-sm);
+}
+.skeleton-caramel {
+  background: linear-gradient(90deg,
+    #FFF3D0 0%,
+    rgba(255,243,208,0.4) 50%,
+    #FFF3D0 100%);
+  background-size: 800px 100%;
+  animation: shimmer 1.8s infinite;
+  border-radius: var(--radius-sm);
+}
+.skeleton-vanilla {
+  background: linear-gradient(90deg,
+    var(--bg-light) 0%,
+    rgba(255,248,239,0.4) 50%,
+    var(--bg-light) 100%);
+  background-size: 800px 100%;
+  animation: shimmer 1.8s infinite;
+  border-radius: var(--radius-sm);
+}
+
+
+/* ================================================================
+   SECTION K — SPACING & LAYOUT HELPERS (palette-aware)
+   ================================================================ */
+
+/* ── Divider lines ───────────────────────────────────────── */
+.divider-line          { height: 1px; background: var(--border-color); margin: 32px 0; }
+.divider-line-primary  { height: 2px; background: var(--primary);       margin: 32px 0; }
+.divider-line-accent   { height: 2px; background: var(--accent);        margin: 32px 0; }
+.divider-line-mint     { height: 2px; background: var(--mint);          margin: 32px 0; }
+.divider-dot           { text-align: center; margin: 32px 0; color: var(--text-light); letter-spacing: 0.4em; }
+
+/* ── Rounded container helpers ───────────────────────────── */
+.rounded-sm  { border-radius: var(--radius-sm);   }
+.rounded-md  { border-radius: var(--radius-md);   }
+.rounded-lg  { border-radius: var(--radius-lg);   }
+.rounded-xl  { border-radius: var(--radius-xl);   }
+.rounded-full{ border-radius: var(--radius-full); }
+
+/* ── Padding utilities ───────────────────────────────────── */
+.p-0   { padding: 0           !important; }
+.p-4   { padding: 4px         !important; }
+.p-8   { padding: 8px         !important; }
+.p-12  { padding: 12px        !important; }
+.p-16  { padding: 16px        !important; }
+.p-20  { padding: 20px        !important; }
+.p-24  { padding: 24px        !important; }
+.p-32  { padding: 32px        !important; }
+.p-48  { padding: 48px        !important; }
+.px-16 { padding-left: 16px   !important; padding-right: 16px !important; }
+.px-24 { padding-left: 24px   !important; padding-right: 24px !important; }
+.py-16 { padding-top: 16px    !important; padding-bottom: 16px !important; }
+.py-24 { padding-top: 24px    !important; padding-bottom: 24px !important; }
+.py-48 { padding-top: 48px    !important; padding-bottom: 48px !important; }
+.py-64 { padding-top: 64px    !important; padding-bottom: 64px !important; }
+.py-80 { padding-top: 80px    !important; padding-bottom: 80px !important; }
+
+/* ── Margin utilities ────────────────────────────────────── */
+.mb-0   { margin-bottom: 0   !important; }
+.mb-4   { margin-bottom: 4px !important; }
+.mb-8   { margin-bottom: 8px !important; }
+.mb-12  { margin-bottom:12px !important; }
+.mb-16  { margin-bottom:16px !important; }
+.mb-24  { margin-bottom:24px !important; }
+.mb-32  { margin-bottom:32px !important; }
+.mb-48  { margin-bottom:48px !important; }
+.mt-0   { margin-top: 0      !important; }
+.mt-8   { margin-top: 8px    !important; }
+.mt-16  { margin-top: 16px   !important; }
+.mt-24  { margin-top: 24px   !important; }
+.mt-32  { margin-top: 32px   !important; }
+
+/* ── Gap utilities ───────────────────────────────────────── */
+.gap-4  { gap:  4px !important; }
+.gap-8  { gap:  8px !important; }
+.gap-12 { gap: 12px !important; }
+.gap-16 { gap: 16px !important; }
+.gap-24 { gap: 24px !important; }
+.gap-32 { gap: 32px !important; }
+
+/* ── Display helpers ─────────────────────────────────────── */
+.d-flex         { display: flex         !important; }
+.d-grid         { display: grid         !important; }
+.d-block        { display: block        !important; }
+.d-inline       { display: inline       !important; }
+.d-inline-flex  { display: inline-flex  !important; }
+.d-none         { display: none         !important; }
+.align-center   { align-items: center   !important; }
+.align-start    { align-items: flex-start!important; }
+.align-end      { align-items: flex-end !important; }
+.justify-center { justify-content: center  !important; }
+.justify-between{ justify-content: space-between !important; }
+.justify-end    { justify-content: flex-end !important; }
+.flex-wrap      { flex-wrap: wrap        !important; }
+.flex-col       { flex-direction: column !important; }
+
+/* ── Text alignment ──────────────────────────────────────── */
+.text-left   { text-align: left   !important; }
+.text-center { text-align: center !important; }
+.text-right  { text-align: right  !important; }
+
+/* ── Overflow ─────────────────────────────────────────────── */
+.overflow-hidden { overflow: hidden   !important; }
+.overflow-auto   { overflow: auto     !important; }
+
+/* ── Position helpers ────────────────────────────────────── */
+.pos-relative { position: relative !important; }
+.pos-absolute { position: absolute !important; }
+.pos-sticky   { position: sticky   !important; }
+
+/* ── Width / height ──────────────────────────────────────── */
+.w-full  { width:  100% !important; }
+.h-full  { height: 100% !important; }
+.w-auto  { width:  auto !important; }
+.h-auto  { height: auto !important; }
+
+/* ── Cursor ──────────────────────────────────────────────── */
+.cursor-pointer { cursor: pointer !important; }
+.cursor-default { cursor: default !important; }
+
+/* ── User-select ─────────────────────────────────────────── */
+.select-none { user-select: none !important; }
+
+
+/* ================================================================
+   SECTION L — TOAST / ALERT VARIANTS (palette-powered)
+   ================================================================ */
+
+.alert-premium {
+  display:       flex;
+  align-items:   flex-start;
+  gap:           12px;
+  padding:       16px 20px;
+  border-radius: var(--radius-md);
+  border:        1.5px solid transparent;
+  font-size:     0.88rem;
+  line-height:   1.6;
+}
+.alert-premium-icon {
+  font-size:   1.2rem;
+  flex-shrink: 0;
+  margin-top:  1px;
+}
+.alert-premium-title {
+  font-family:  var(--font-brand);
+  font-weight:  700;
+  font-size:    0.9rem;
+  margin-bottom:3px;
+}
+
+.alert-strawberry {
+  background:   var(--primary-light);
+  border-color: var(--primary);
+  color:        var(--primary-dark);
+}
+.alert-caramel {
+  background:   #FFF3D0;
+  border-color: var(--accent);
+  color:        var(--accent-dark);
+}
+.alert-mint {
+  background:   var(--mint-light);
+  border-color: var(--mint);
+  color:        var(--mint-dark);
+}
+.alert-chocolate {
+  background:   var(--secondary-light);
+  border-color: var(--secondary);
+  color:        var(--secondary);
+}
+.alert-info {
+  background:   var(--mint-light);
+  border-color: var(--mint);
+  color:        var(--mint-dark);
+}
+
+
+/* ================================================================
+   SECTION M — FORM ELEMENTS (palette-styled)
+   ================================================================ */
+
+/* ── Premium text input ──────────────────────────────────── */
+.form-control-premium {
+  width:         100%;
+  padding:       12px 16px;
+  border:        2px solid var(--border-color);
+  border-radius: var(--radius-md);
+  font-family:   var(--font-body);
+  font-size:     0.9rem;
+  color:         var(--text-dark);
+  background:    var(--bg-white);
+  transition:    var(--transition);
+  outline:       none;
+}
+.form-control-premium::placeholder { color: var(--text-light); }
+.form-control-premium:hover        { border-color: var(--text-mid); }
+.form-control-premium:focus        {
+  border-color: var(--primary);
+  box-shadow:   0 0 0 4px rgba(232,72,106,0.12);
+}
+.form-control-premium.error {
+  border-color: var(--danger);
+  background:   #fff5f5;
+}
+.form-control-premium.success {
+  border-color: var(--mint);
+  background:   var(--mint-light);
+}
+
+/* ── Select ──────────────────────────────────────────────── */
+.select-premium {
+  appearance:     none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%236B3820' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:   no-repeat;
+  background-position: right 14px center;
+  background-size:     14px;
+  padding-right:       40px;
+}
+
+/* ── Checkbox & radio ────────────────────────────────────── */
+.check-premium {
+  width:           18px;
+  height:          18px;
+  border:          2px solid var(--border-color);
+  border-radius:   4px;
+  appearance:      none;
+  -webkit-appearance: none;
+  cursor:          pointer;
+  transition:      var(--transition);
+  background:      var(--bg-white);
+  position:        relative;
+  flex-shrink:     0;
+}
+.check-premium:checked {
+  background:    var(--primary);
+  border-color:  var(--primary);
+}
+.check-premium:checked::after {
+  content:    '';
+  position:   absolute;
+  left:       4px;
+  top:        1px;
+  width:      6px;
+  height:     10px;
+  border:     2px solid #fff;
+  border-top: none;
+  border-left:none;
+  transform:  rotate(45deg);
+}
+.check-premium:focus-visible { box-shadow: 0 0 0 3px rgba(232,72,106,0.25); }
+
+/* ── Toggle / switch ─────────────────────────────────────── */
+.toggle-premium {
+  position:        relative;
+  display:         inline-flex;
+  align-items:     center;
+  cursor:          pointer;
+  gap:             10px;
+}
+.toggle-premium input { display: none; }
+.toggle-track {
+  width:         44px;
+  height:        24px;
+  border-radius: var(--radius-full);
+  background:    var(--border-color);
+  transition:    background 0.25s ease;
+  position:      relative;
+  flex-shrink:   0;
+}
+.toggle-thumb {
+  position:    absolute;
+  top:         3px;
+  left:        3px;
+  width:       18px;
+  height:      18px;
+  border-radius:50%;
+  background:  #fff;
+  box-shadow:  0 1px 4px rgba(0,0,0,0.20);
+  transition:  left 0.25s ease;
+}
+.toggle-premium input:checked ~ .toggle-track            { background: var(--primary); }
+.toggle-premium input:checked ~ .toggle-track .toggle-thumb { left: 23px; }
+
+/* ── Range slider ────────────────────────────────────────── */
+.range-premium {
+  -webkit-appearance: none;
+  width:    100%;
+  height:   6px;
+  border-radius: var(--radius-full);
+  background: var(--border-color);
+  outline:  none;
+  cursor:   pointer;
+}
+.range-premium::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width:         20px;
+  height:        20px;
+  border-radius: 50%;
+  background:    var(--primary);
+  border:        3px solid #fff;
+  box-shadow:    0 2px 8px rgba(232,72,106,0.35);
+  cursor:        pointer;
+  transition:    var(--transition);
+}
+.range-premium::-webkit-slider-thumb:hover {
+  background:  var(--primary-dark);
+  box-shadow:  0 3px 12px rgba(232,72,106,0.50);
+  transform:   scale(1.1);
+}
+.range-premium::-moz-range-thumb {
+  width:         20px;
+  height:        20px;
+  border-radius: 50%;
+  background:    var(--primary);
+  border:        3px solid #fff;
+  box-shadow:    0 2px 8px rgba(232,72,106,0.35);
+  cursor:        pointer;
+}
+
+
+/* ================================================================
+   SECTION N — STAR RATINGS (caramel palette)
+   ================================================================ */
+
+.stars {
+  display:     inline-flex;
+  gap:         2px;
+  color:       var(--accent);
+  font-size:   0.95rem;
+  line-height: 1;
+}
+.stars .star-empty   { color: var(--border-color); }
+.stars .star-half    { color: var(--accent); opacity: 0.55; }
+
+.rating-block {
+  display:     flex;
+  align-items: center;
+  gap:         8px;
+}
+.rating-score {
+  font-family: var(--font-brand);
+  font-weight: 800;
+  font-size:   1rem;
+  color:       var(--accent);
+}
+.rating-count {
+  font-size: 0.78rem;
+  color:     var(--text-light);
+}
+
+/* ── Review card ─────────────────────────────────────────── */
+.review-card {
+  background:    var(--bg-white);
+  border:        1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding:       24px;
+  transition:    var(--transition);
+  box-shadow:    var(--shadow-sm);
+}
+.review-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+.review-avatar {
+  width:         44px;
+  height:        44px;
+  border-radius: 50%;
+  object-fit:    cover;
+  border:        3px solid var(--primary-light);
+}
+.review-author {
+  font-family:  var(--font-brand);
+  font-weight:  700;
+  font-size:    0.9rem;
+  color:        var(--text-dark);
+}
+.review-date { font-size: 0.75rem; color: var(--text-light); }
+.review-text { font-size: 0.88rem; color: var(--text-mid); line-height: 1.7; margin-top: 10px; }
+.review-verified {
+  display:     inline-flex;
+  align-items: center;
+  gap:         4px;
+  font-size:   0.72rem;
+  color:       var(--mint);
+  font-weight: 600;
+}
+
+
+/* ================================================================
+   SECTION O — TOOLTIP VARIANTS (palette)
+   ================================================================ */
+
+[data-tooltip] {
+  position: relative;
+  cursor:   pointer;
+}
+[data-tooltip]::before {
+  content:       attr(data-tooltip);
+  position:      absolute;
+  bottom:        calc(100% + 8px);
+  left:          50%;
+  transform:     translateX(-50%);
+  white-space:   nowrap;
+  padding:       6px 12px;
+  border-radius: var(--radius-sm);
+  font-size:     0.75rem;
+  font-weight:   600;
+  pointer-events:none;
+  opacity:       0;
+  transition:    opacity 0.2s ease, transform 0.2s ease;
+  transform:     translateX(-50%) translateY(6px);
+  z-index:       900;
+}
+[data-tooltip]::after {
+  content:       '';
+  position:      absolute;
+  bottom:        calc(100% + 2px);
+  left:          50%;
+  transform:     translateX(-50%);
+  border:        5px solid transparent;
+  pointer-events:none;
+  opacity:       0;
+  transition:    opacity 0.2s ease;
+}
+[data-tooltip]:hover::before,
+[data-tooltip]:hover::after { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* Strawberry tooltip */
+[data-tooltip-theme="strawberry"]::before {
+  background: var(--primary);
+  color:      #fff;
+}
+[data-tooltip-theme="strawberry"]::after {
+  border-top-color: var(--primary);
+}
+
+/* Caramel tooltip */
+[data-tooltip-theme="caramel"]::before {
+  background: var(--accent);
+  color:      #fff;
+}
+[data-tooltip-theme="caramel"]::after {
+  border-top-color: var(--accent);
+}
+
+/* Mint tooltip */
+[data-tooltip-theme="mint"]::before {
+  background: var(--mint);
+  color:      #fff;
+}
+[data-tooltip-theme="mint"]::after {
+  border-top-color: var(--mint);
+}
+
+/* Dark tooltip (default) */
+[data-tooltip]:not([data-tooltip-theme])::before {
+  background: var(--secondary);
+  color:      #fff;
+}
+[data-tooltip]:not([data-tooltip-theme])::after {
+  border-top-color: var(--secondary);
+}
+
+
+/* ================================================================
+   SECTION P — PROGRESS / METER BARS (palette)
+   ================================================================ */
+
+.progress-bar-wrap {
+  width:         100%;
+  height:        8px;
+  background:    var(--border-color);
+  border-radius: var(--radius-full);
+  overflow:      hidden;
+}
+.progress-bar-fill {
+  height:        100%;
+  border-radius: var(--radius-full);
+  transition:    width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.progress-bar-fill-strawberry { background: linear-gradient(90deg, var(--primary-light), var(--primary)); }
+.progress-bar-fill-caramel    { background: linear-gradient(90deg, #FFF3D0,               var(--accent));  }
+.progress-bar-fill-mint       { background: linear-gradient(90deg, var(--mint-light),     var(--mint));    }
+.progress-bar-fill-chocolate  { background: linear-gradient(90deg, var(--secondary-light),var(--secondary));}
+
+/* ── Striped animated progress ───────────────────────────── */
+.progress-bar-fill-animated {
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 8px,
+    rgba(255,255,255,0.25) 8px,
+    rgba(255,255,255,0.25) 16px
+  );
+  animation: progressStripe 0.8s linear infinite;
+}
+@keyframes progressStripe {
+  0%   { background-position: 0 0;    }
+  100% { background-position: 32px 0; }
+}
+
+/* ── Flavour popularity meter label ─────────────────────── */
+.meter-label {
+  display:         flex;
+  justify-content: space-between;
+  align-items:     center;
+  margin-bottom:   6px;
+  font-size:       0.8rem;
+}
+.meter-label-name  { font-weight: 600; color: var(--text-dark); }
+.meter-label-value { font-weight: 800; color: var(--primary); font-family: var(--font-brand); }
+
+
+/* ================================================================
+   SECTION Q — PRINT STYLES (preserving palette on paper)
+   ================================================================ */
+@media print {
+  :root {
+    --primary:       #E8486A;
+    --secondary:     #3A1A08;
+    --accent:        #D48C0F;
+    --mint:          #2AA87A;
+    --text-dark:     #2C1206;
+    --bg-light:      #ffffff;
+    --border-color:  #ccbbaa;
+  }
+
+  .btn-flavour,
+  .btn-strawberry,
+  .btn-caramel,
+  .btn-mint,
+  .btn-chocolate {
+    border: 2px solid currentColor;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  .card-premium        { box-shadow: none; border: 1px solid var(--border-color); }
+  .badge-base          { border: 1px solid currentColor; background: transparent !important; }
+  .section-strawberry,
+  .section-caramel,
+  .section-mint        { background: #fff !important; color: var(--text-dark) !important; }
+  .palette-hero        { background: #fff !important; color: var(--secondary) !important; }
+}
+
+
+/* ================================================================
+   SECTION R — DARK MODE OVERRIDES
+   Activated via  <html class="dark">  or
+                  @media (prefers-color-scheme: dark)
+   ================================================================ */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-white:       #1A0D06;
+    --bg-light:       #231208;
+    --bg-mid:         #2D190A;
+    --text-dark:      #F5E8DF;
+    --text-mid:       #C4A58B;
+    --text-light:     #8A6650;
+    --border-color:   #4A2A14;
+  }
+
+  .card-premium          { background: #2D190A; }
+  .card-glass            { background: rgba(45,25,10,0.65); border-color: rgba(255,255,255,0.10); }
+  .form-control-premium  { background: #2D190A; color: var(--text-dark); }
+  .alert-strawberry      { background: rgba(232,72,106,0.15); }
+  .alert-caramel         { background: rgba(212,140,15,0.15); }
+  .alert-mint            { background: rgba(42,168,122,0.15); }
+  .alert-chocolate       { background: rgba(58,26,8,0.40);    border-color: rgba(255,255,255,0.15); }
+  .review-card           { background: #2D190A; }
+  .swatch-card           { background: #2D190A; }
+  .swatch-name           { color: var(--text-dark); }
+  .palette-table         { background: #231208; }
+  .palette-table th      { background: var(--secondary-dark); }
+  .palette-table td      { border-color: var(--border-color); }
+  .palette-table tr:hover td { background: #2D190A; }
+}
+
+/* ── explicit .dark class override (same tokens) ─────────── */
+html.dark :root,
+.dark {
+  --bg-white:       #1A0D06;
+  --bg-light:       #231208;
+  --bg-mid:         #2D190A;
+  --text-dark:      #F5E8DF;
+  --text-mid:       #C4A58B;
+  --text-light:     #8A6650;
+  --border-color:   #4A2A14;
+}
+
+
+/* ================================================================
+   END OF PREMIUM PALETTE UTILITY SYSTEM
+   ================================================================ */
