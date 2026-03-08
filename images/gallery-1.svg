@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280">
+  <rect width="400" height="280" rx="12" fill="#FDE8CC"/>
+  
+  <rect x="0" y="200" width="400" height="80" fill="#3A1A08" opacity="0.85"/>
+  <rect x="0" y="185" width="400" height="18" fill="#6B3820"/>
+  <!-- display case -->
+  <rect x="60" y="130" width="280" height="60" rx="8" fill="#FFF8EF" stroke="#EDD4B0" stroke-width="2"/>
+  <rect x="60" y="125" width="280" height="12" rx="6" fill="#EDD4B0"/>
+  <!-- tubs of gelato -->
+  <ellipse cx="110" cy="145" rx="24" ry="10" fill="#E8486A"/>
+  <ellipse cx="160" cy="145" rx="24" ry="10" fill="#2AA87A"/>
+  <ellipse cx="210" cy="145" rx="24" ry="10" fill="#FFC107"/>
+  <ellipse cx="260" cy="145" rx="24" ry="10" fill="#3A1A08" opacity="0.8"/>
+  <ellipse cx="310" cy="145" rx="24" ry="10" fill="#C0392B"/>
+  <!-- sign -->
+  <rect x="150" y="55" width="100" height="40" rx="8" fill="#E8486A"/>
+  <text x="200" y="81" text-anchor="middle" font-size="14" fill="#fff" font-family="sans-serif" font-weight="bold">IceWorld</text>
+  <!-- wall lights -->
+  <circle cx="80" cy="80" r="10" fill="#FFFDE7" opacity="0.8"/>
+  <circle cx="200" cy="80" r="10" fill="#FFFDE7" opacity="0.8"/>
+  <circle cx="320" cy="80" r="10" fill="#FFFDE7" opacity="0.8"/>
+</svg>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 220">
+<defs>
+  <radialGradient id="pbg" cx="50%" cy="40%" r="70%">
+    <stop offset="0%" stop-color="#F5DEB3"/>
+    <stop offset="100%" stop-color="#FDE8CC"/>
+  </radialGradient>
+</defs>
+<rect width="280" height="220" rx="16" fill="url(#pbg)"/>
+  <path d="M100,195 Q100,205 140,207 Q180,205 180,195 L168,130 L112,130 Z" fill="#FFF8EF" stroke="#EDD4B0" stroke-width="1.5"/>
+  <ellipse cx="140" cy="130" rx="30" ry="9" fill="#EDD4B0" stroke="#A0714D" stroke-width="1"/>
+  <circle cx="125" cy="118" r="22" fill="#3A1A08" stroke="#2C1206" stroke-width="1.5" opacity="0.85"/>
+  <circle cx="157" cy="116" r="20" fill="#3A1A08" stroke="#2C1206" stroke-width="1.5" opacity="0.85"/>
+  <ellipse cx="140" cy="100" rx="18" ry="13" fill="#fff" stroke="#EDD4B0" stroke-width="1"/>
+  <circle cx="140" cy="88" r="10" fill="#fff"/>
+  <circle cx="140" cy="79" r="6" fill="#C0392B" stroke="#96281B" stroke-width="0.5"/>
+  <path d="M118,124 Q126,140 120,148" fill="none" stroke="#D48C0F" stroke-width="3" stroke-linecap="round"/>
+  <text x="140" y="215" text-anchor="middle" font-size="11" fill="#6B3820" font-family="sans-serif">Choco Sundae</text>
+</svg>

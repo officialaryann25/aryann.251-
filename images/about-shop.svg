@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 350">
+  <!-- sky -->
+  <rect width="500" height="350" fill="#E3F2FD"/>
+  <!-- ground -->
+  <rect x="0" y="270" width="500" height="80" fill="#FDE8CC"/>
+  <!-- building -->
+  <rect x="80" y="80" width="340" height="195" rx="4" fill="#FFF8EF" stroke="#EDD4B0" stroke-width="2"/>
+  <!-- awning -->
+  <path d="M60,120 L440,120 L420,150 L80,150 Z" fill="#E8486A" stroke="#C43057" stroke-width="1.5"/>
+  <!-- stripes on awning -->
+  <line x1="140" y1="120" x2="130" y2="150" stroke="#fff" stroke-width="8" opacity="0.35"/>
+  <line x1="190" y1="120" x2="180" y2="150" stroke="#fff" stroke-width="8" opacity="0.35"/>
+  <line x1="240" y1="120" x2="230" y2="150" stroke="#fff" stroke-width="8" opacity="0.35"/>
+  <line x1="290" y1="120" x2="280" y2="150" stroke="#fff" stroke-width="8" opacity="0.35"/>
+  <line x1="340" y1="120" x2="330" y2="150" stroke="#fff" stroke-width="8" opacity="0.35"/>
+  <line x1="390" y1="120" x2="380" y2="150" stroke="#fff" stroke-width="8" opacity="0.35"/>
+  <!-- door -->
+  <rect x="215" y="195" width="70" height="80" rx="35" fill="#3A1A08" stroke="#2C1206" stroke-width="1.5" opacity="0.85"/>
+  <rect x="226" y="205" width="20" height="55" rx="17" fill="#6B3820" opacity="0.5"/>
+  <rect x="254" y="205" width="20" height="55" rx="17" fill="#6B3820" opacity="0.5"/>
+  <!-- windows -->
+  <rect x="110" y="165" width="70" height="55" rx="6" fill="#B3E5FC" stroke="#EDD4B0" stroke-width="1.5"/>
+  <line x1="145" y1="165" x2="145" y2="220" stroke="#EDD4B0" stroke-width="1"/>
+  <line x1="110" y1="192" x2="180" y2="192" stroke="#EDD4B0" stroke-width="1"/>
+  <rect x="320" y="165" width="70" height="55" rx="6" fill="#B3E5FC" stroke="#EDD4B0" stroke-width="1.5"/>
+  <line x1="355" y1="165" x2="355" y2="220" stroke="#EDD4B0" stroke-width="1"/>
+  <line x1="320" y1="192" x2="390" y2="192" stroke="#EDD4B0" stroke-width="1"/>
+  <!-- signage -->
+  <rect x="155" y="88" width="190" height="36" rx="8" fill="#E8486A"/>
+  <text x="250" y="112" text-anchor="middle" font-size="18" fill="#fff" font-family="sans-serif" font-weight="bold">🍦 IceWorld</text>
+  <!-- sidewalk -->
+  <rect x="0" y="265" width="500" height="15" fill="#EDD4B0"/>
+  <!-- clouds -->
+  <circle cx="80" cy="35" r="22" fill="#fff" opacity="0.7"/>
+  <circle cx="110" cy="28" r="28" fill="#fff" opacity="0.7"/>
+  <circle cx="140" cy="36" r="20" fill="#fff" opacity="0.7"/>
+  <circle cx="380" cy="42" r="18" fill="#fff" opacity="0.6"/>
+  <circle cx="408" cy="35" r="24" fill="#fff" opacity="0.6"/>
+  <circle cx="432" cy="43" r="16" fill="#fff" opacity="0.6"/>
+</svg>

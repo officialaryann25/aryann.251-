@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 220">
+<defs>
+  <radialGradient id="pbg" cx="50%" cy="40%" r="70%">
+    <stop offset="0%" stop-color="#FFF3D0"/>
+    <stop offset="100%" stop-color="#FDE8CC"/>
+  </radialGradient>
+</defs>
+<rect width="280" height="220" rx="16" fill="url(#pbg)"/>
+  <rect x="88" y="175" width="104" height="22" rx="6" fill="#D48C0F" stroke="#6B3820" stroke-width="1.5"/>
+  <line x1="100" y1="175" x2="100" y2="197" stroke="#6B3820" stroke-width="1" opacity="0.35"/>
+  <line x1="116" y1="175" x2="116" y2="197" stroke="#6B3820" stroke-width="1" opacity="0.35"/>
+  <line x1="132" y1="175" x2="132" y2="197" stroke="#6B3820" stroke-width="1" opacity="0.35"/>
+  <line x1="148" y1="175" x2="148" y2="197" stroke="#6B3820" stroke-width="1" opacity="0.35"/>
+  <line x1="164" y1="175" x2="164" y2="197" stroke="#6B3820" stroke-width="1" opacity="0.35"/>
+  <line x1="88" y1="184" x2="192" y2="184" stroke="#6B3820" stroke-width="1" opacity="0.35"/>
+  <line x1="88" y1="191" x2="192" y2="191" stroke="#6B3820" stroke-width="1" opacity="0.35"/>
+  <circle cx="118" cy="158" r="26" fill="#FFE0E9" stroke="#E8486A" stroke-width="1.5"/>
+  <circle cx="162" cy="155" r="24" fill="#D48C0F" stroke="#6B3820" stroke-width="1.5"/>
+  <ellipse cx="140" cy="128" rx="20" ry="14" fill="#fff" stroke="#EDD4B0" stroke-width="1"/>
+  <circle cx="140" cy="116" r="12" fill="#fff"/>
+  <circle cx="140" cy="106" r="7" fill="#C0392B" stroke="#96281B" stroke-width="0.5"/>
+  <path d="M128,162 Q134,178 126,184" fill="none" stroke="#D48C0F" stroke-width="3" stroke-linecap="round"/>
+  <text x="140" y="213" text-anchor="middle" font-size="11" fill="#6B3820" font-family="sans-serif">Waffle Stack</text>
+</svg>

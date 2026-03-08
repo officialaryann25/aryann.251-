@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+<defs>
+  <radialGradient id="bgG" cx="50%" cy="50%" r="70%">
+    <stop offset="0%" stop-color="#FFF8EF"/>
+    <stop offset="100%" stop-color="#FDE8CC"/>
+  </radialGradient>
+  
+</defs>
+
+  <rect width="200" height="200" rx="20" fill="url(#bgG)"/>
+  <!-- cone -->
+  <polygon points="100,175 55,90 145,90" fill="#D48C0F" stroke="#6B3820" stroke-width="1.5"/>
+  <line x1="70" y1="90" x2="85" y2="175" stroke="#6B3820" stroke-width="1" opacity="0.35"/>
+  <line x1="84" y1="90" x2="99" y2="175" stroke="#6B3820" stroke-width="1" opacity="0.35"/>
+  <line x1="115" y1="90" x2="100" y2="175" stroke="#6B3820" stroke-width="1" opacity="0.35"/>
+  <line x1="130" y1="90" x2="115" y2="175" stroke="#6B3820" stroke-width="1" opacity="0.35"/>
+  <!-- scoop vanilla -->
+  <circle cx="100" cy="78" r="30" fill="#FFF8EF" stroke="#EDD4B0" stroke-width="1.5"/>
+  <!-- scoop strawberry -->
+  <circle cx="100" cy="55" r="26" fill="#E8486A" stroke="#C43057" stroke-width="1.5"/>
+  <!-- topping -->
+  <circle cx="100" cy="32" r="8" fill="#fff" stroke="#C43057" stroke-width="1"/>
+  <!-- sprinkles -->
+  <rect x="88" y="50" width="6" height="2" rx="1" fill="#fff" transform="rotate(-30 91 51)"/>
+  <rect x="105" y="46" width="6" height="2" rx="1" fill="#D48C0F" transform="rotate(20 108 47)"/>
+  <rect x="95" y="58" width="5" height="2" rx="1" fill="#2AA87A" transform="rotate(-10 97 59)"/>
+</svg>

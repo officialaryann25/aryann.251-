@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500">
+  <defs>
+    <radialGradient id="bghw" cx="50%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#FFF3E0"/>
+      <stop offset="100%" stop-color="#FDE8CC"/>
+    </radialGradient>
+    <radialGradient id="scoopW1" cx="40%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#FFE0E9"/>
+      <stop offset="100%" stop-color="#E8486A"/>
+    </radialGradient>
+    <radialGradient id="scoopW2" cx="40%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#FFF9E6"/>
+      <stop offset="100%" stop-color="#FFC107"/>
+    </radialGradient>
+    <radialGradient id="scoopW3" cx="40%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#D4F5EA"/>
+      <stop offset="100%" stop-color="#2AA87A"/>
+    </radialGradient>
+    <filter id="wfShadow">
+      <feDropShadow dx="3" dy="8" stdDeviation="10" flood-color="#6B3820" flood-opacity="0.20"/>
+    </filter>
+  </defs>
+  <!-- background -->
+  <rect width="400" height="500" fill="url(#bghw)" rx="24"/>
+  <!-- decorative dots -->
+  <circle cx="40"  cy="70"  r="10" fill="#E8486A"  opacity="0.18"/>
+  <circle cx="360" cy="90"  r="14" fill="#D48C0F"  opacity="0.15"/>
+  <circle cx="30"  cy="420" r="8"  fill="#2AA87A"  opacity="0.14"/>
+  <circle cx="370" cy="380" r="9"  fill="#E8486A"  opacity="0.13"/>
+  <circle cx="80"  cy="300" r="6"  fill="#D48C0F"  opacity="0.18"/>
+  <circle cx="320" cy="200" r="7"  fill="#2AA87A"  opacity="0.12"/>
+
+  <!-- plate -->
+  <ellipse cx="200" cy="380" rx="130" ry="28" fill="#FFF8EF" stroke="#EDD4B0" stroke-width="2" filter="url(#wfShadow)"/>
+
+  <!-- waffle bottom -->
+  <rect x="80" y="330" width="240" height="54" rx="12" fill="#D48C0F" stroke="#6B3820" stroke-width="2" filter="url(#wfShadow)"/>
+  <!-- waffle grid lines vertical -->
+  <line x1="112" y1="330" x2="112" y2="384" stroke="#6B3820" stroke-width="1.4" opacity="0.35"/>
+  <line x1="144" y1="330" x2="144" y2="384" stroke="#6B3820" stroke-width="1.4" opacity="0.35"/>
+  <line x1="176" y1="330" x2="176" y2="384" stroke="#6B3820" stroke-width="1.4" opacity="0.35"/>
+  <line x1="208" y1="330" x2="208" y2="384" stroke="#6B3820" stroke-width="1.4" opacity="0.35"/>
+  <line x1="240" y1="330" x2="240" y2="384" stroke="#6B3820" stroke-width="1.4" opacity="0.35"/>
+  <line x1="272" y1="330" x2="272" y2="384" stroke="#6B3820" stroke-width="1.4" opacity="0.35"/>
+  <line x1="304" y1="330" x2="304" y2="384" stroke="#6B3820" stroke-width="1.4" opacity="0.35"/>
+  <!-- waffle grid lines horizontal -->
+  <line x1="80" y1="348" x2="320" y2="348" stroke="#6B3820" stroke-width="1.4" opacity="0.35"/>
+  <line x1="80" y1="365" x2="320" y2="365" stroke="#6B3820" stroke-width="1.4" opacity="0.35"/>
+
+  <!-- caramel drizzle over waffle -->
+  <path d="M100,330 Q130,318 160,330" fill="none" stroke="#D48C0F" stroke-width="4" stroke-linecap="round" opacity="0.6"/>
+  <path d="M220,330 Q260,315 290,326" fill="none" stroke="#D48C0F" stroke-width="3.5" stroke-linecap="round" opacity="0.5"/>
+
+  <!-- scoop 1 – strawberry (left) -->
+  <circle cx="152" cy="300" r="52" fill="url(#scoopW1)" stroke="#C43057" stroke-width="2" filter="url(#wfShadow)"/>
+  <!-- scoop 2 – mango/yellow (right) -->
+  <circle cx="252" cy="295" r="48" fill="url(#scoopW2)" stroke="#D48C0F" stroke-width="2" filter="url(#wfShadow)"/>
+  <!-- scoop 3 – mint (center top, slightly elevated) -->
+  <circle cx="202" cy="260" r="44" fill="url(#scoopW3)" stroke="#1E8A63" stroke-width="2" filter="url(#wfShadow)"/>
+
+  <!-- chocolate drizzle over scoops -->
+  <path d="M180,265 Q188,290 172,310" fill="none" stroke="#3A1A08" stroke-width="3" stroke-linecap="round" opacity="0.45"/>
+  <path d="M218,262 Q228,285 222,308" fill="none" stroke="#3A1A08" stroke-width="2.5" stroke-linecap="round" opacity="0.35"/>
+
+  <!-- whipped cream swirl on top -->
+  <ellipse cx="202" cy="222" rx="34" ry="22" fill="#fff" stroke="#EDD4B0" stroke-width="1.5"/>
+  <ellipse cx="202" cy="208" rx="24" ry="18" fill="#fff" stroke="#EDD4B0" stroke-width="1"/>
+  <ellipse cx="202" cy="196" rx="16" ry="13" fill="#fff" stroke="#EDD4B0" stroke-width="0.8"/>
+  <circle  cx="202" cy="186" r="9"   fill="#fff" stroke="#EDD4B0" stroke-width="0.5"/>
+
+  <!-- cherry on top -->
+  <circle cx="202" cy="172" r="12" fill="#C0392B" stroke="#96281B" stroke-width="1.5"/>
+  <!-- cherry stem -->
+  <path d="M202,160 Q210,148 218,150" fill="none" stroke="#3A7B1E" stroke-width="2" stroke-linecap="round"/>
+  <!-- highlight on cherry -->
+  <circle cx="197" cy="168" r="3.5" fill="#fff" opacity="0.45"/>
+
+  <!-- sprinkles -->
+  <rect x="124" y="296" width="8" height="3" rx="1.5" fill="#E8486A"  transform="rotate(-30 128 297)"/>
+  <rect x="164" y="284" width="7" height="3" rx="1.5" fill="#2AA87A"  transform="rotate(20  167 285)"/>
+  <rect x="236" y="278" width="8" height="3" rx="1.5" fill="#D48C0F"  transform="rotate(-15 240 279)"/>
+  <rect x="270" y="292" width="7" height="3" rx="1.5" fill="#fff" transform="rotate(35  273 293)"/>
+  <rect x="148" y="318" width="8" height="3" rx="1.5" fill="#FFC107" transform="rotate(-5 152 319)"/>
+  <rect x="252" y="316" width="7" height="3" rx="1.5" fill="#E8486A"  transform="rotate(25  255 317)"/>
+</svg>

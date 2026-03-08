@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280">
+  <rect width="400" height="280" rx="12" fill="#FDE8CC"/>
+  
+  <rect x="0" y="0" width="400" height="280" rx="12" fill="#FFF3D0"/>
+  <!-- strawberries -->
+  <ellipse cx="80" cy="140" rx="30" ry="28" fill="#E8486A" stroke="#C43057" stroke-width="1.5"/>
+  <path d="M68,118 Q80,108 92,118" fill="#2AA87A" stroke="#1E8A63" stroke-width="1.5"/>
+  <circle cx="72" cy="133" r="2" fill="#C43057" opacity="0.6"/>
+  <circle cx="88" cy="138" r="2" fill="#C43057" opacity="0.6"/>
+  <!-- mangoes -->
+  <ellipse cx="200" cy="125" rx="50" ry="35" fill="#FFC107" stroke="#D48C0F" stroke-width="1.5" transform="rotate(-10 200 125)"/>
+  <path d="M188,95 Q200,80 212,90" fill="#2AA87A" stroke="#1E8A63" stroke-width="1.5"/>
+  <!-- chocolate bar -->
+  <rect x="280" y="105" width="80" height="60" rx="6" fill="#3A1A08" stroke="#2C1206" stroke-width="1.5" opacity="0.85"/>
+  <line x1="306" y1="105" x2="306" y2="165" stroke="#fff" stroke-width="1" opacity="0.2"/>
+  <line x1="332" y1="105" x2="332" y2="165" stroke="#fff" stroke-width="1" opacity="0.2"/>
+  <line x1="358" y1="105" x2="358" y2="165" stroke="#fff" stroke-width="1" opacity="0.2"/>
+  <line x1="280" y1="130" x2="360" y2="130" stroke="#fff" stroke-width="1" opacity="0.2"/>
+  <line x1="280" y1="148" x2="360" y2="148" stroke="#fff" stroke-width="1" opacity="0.2"/>
+  <!-- pistachios -->
+  <ellipse cx="80" cy="220" rx="25" ry="15" fill="#2AA87A" stroke="#1E8A63" stroke-width="1.5"/>
+  <ellipse cx="140" cy="225" rx="22" ry="13" fill="#2AA87A" stroke="#1E8A63" stroke-width="1.5" opacity="0.8"/>
+  <ellipse cx="200" cy="230" rx="20" ry="12" fill="#D4F5EA" stroke="#2AA87A" stroke-width="1"/>
+</svg>

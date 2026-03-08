@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 350">
+  <!-- background wall -->
+  <rect width="500" height="350" fill="#FFF8EF"/>
+  <!-- counter -->
+  <rect x="0" y="220" width="500" height="130" fill="#FDE8CC"/>
+  <rect x="0" y="212" width="500" height="12" fill="#EDD4B0"/>
+  <!-- large mixing bowl -->
+  <path d="M160,215 Q160,270 250,272 Q340,270 340,215 Z" fill="#FFE0E9" stroke="#E8486A" stroke-width="2"/>
+  <ellipse cx="250" cy="215" rx="90" ry="22" fill="#E8486A" stroke="#C43057" stroke-width="1.5"/>
+  <!-- swirl in bowl -->
+  <path d="M220,220 Q250,200 280,220 Q300,235 250,240 Q200,235 220,220" fill="none" stroke="#fff" stroke-width="3" opacity="0.5"/>
+  <!-- whisk / spatula -->
+  <rect x="295" y="150" width="10" height="90" rx="5" fill="#EDD4B0" transform="rotate(15 300 195)"/>
+  <path d="M297,154 L303,154 L308,168 L292,168 Z" fill="#EDD4B0"/>
+  <!-- toppings jars on counter -->
+  <rect x="60" y="178" width="36" height="40" rx="6" fill="#2AA87A" stroke="#1E8A63" stroke-width="1.5" opacity="0.85"/>
+  <rect x="63" y="170" width="30" height="10" rx="4" fill="#D4F5EA"/>
+  <rect x="110" y="182" width="36" height="36" rx="6" fill="#C0392B" stroke="#96281B" stroke-width="1.5" opacity="0.85"/>
+  <rect x="113" y="174" width="30" height="10" rx="4" fill="#FFE0E9"/>
+  <rect x="380" y="178" width="36" height="40" rx="6" fill="#D48C0F" stroke="#6B3820" stroke-width="1.5" opacity="0.85"/>
+  <rect x="383" y="170" width="30" height="10" rx="4" fill="#FFF3D0"/>
+  <rect x="430" y="182" width="36" height="36" rx="6" fill="#3A1A08" stroke="#2C1206" stroke-width="1.5" opacity="0.8"/>
+  <rect x="433" y="174" width="30" height="10" rx="4" fill="#A0714D"/>
+  <!-- chef hat (top center) -->
+  <rect x="224" y="40" width="52" height="48" rx="4" fill="#fff" stroke="#EDD4B0" stroke-width="1.5"/>
+  <rect x="216" y="85" width="68" height="14" rx="4" fill="#fff" stroke="#EDD4B0" stroke-width="1.5"/>
+  <ellipse cx="250" cy="40" rx="34" ry="16" fill="#fff" stroke="#EDD4B0" stroke-width="1.5"/>
+  <!-- person head -->
+  <circle cx="250" cy="125" r="36" fill="#FDDBB4" stroke="#EDD4B0" stroke-width="1.5"/>
+  <path d="M234,140 Q250,150 266,140" fill="none" stroke="#2C1206" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="240" cy="120" r="4" fill="#2C1206" opacity="0.7"/>
+  <circle cx="260" cy="120" r="4" fill="#2C1206" opacity="0.7"/>
+  <!-- arms -->
+  <path d="M218,158 Q180,175 175,210" fill="none" stroke="#FDDBB4" stroke-width="16" stroke-linecap="round"/>
+  <path d="M282,158 Q320,175 325,210" fill="none" stroke="#FDDBB4" stroke-width="16" stroke-linecap="round"/>
+</svg>
