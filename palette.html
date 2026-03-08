@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Premium Colour Palette — IceWorld</title>
+  <meta name="description"
+        content="The official brand colour palette for IceWorld Premium Ice Cream Shop. 7 dessert-inspired tones: Strawberry Blossom, Dark Chocolate, Salted Caramel, Pistachio Mint, Vanilla Cream, Soft Peach, and Espresso." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    /* ── Page-specific tweaks ────────────────────────────── */
+    body {
+      background: var(--bg-light);
+      color:      var(--text-dark);
+      font-family:var(--font-body);
+      margin:     0;
+    }
+    .container { max-width: var(--container-max); margin: 0 auto; padding: 0 24px; }
+    h2 { font-family: var(--font-brand); font-size: 1.5rem; font-weight: 800;
+         color: var(--text-dark); margin: 0 0 6px; }
+    p  { color: var(--text-mid); line-height: 1.7; }
+    a  { color: var(--primary); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Nav bar ─────────────────────────────────────────── */
+    .pal-nav {
+      background:  var(--secondary);
+      padding:     16px 0;
+      position:    sticky;
+      top:         0;
+      z-index:     100;
+      box-shadow:  0 2px 12px rgba(0,0,0,0.25);
+    }
+    .pal-nav .container {
+      display:         flex;
+      align-items:     center;
+      justify-content: space-between;
+      gap:             16px;
+    }
+    .pal-nav-brand {
+      font-family:  var(--font-brand);
+      font-weight:  900;
+      font-size:    1.2rem;
+      color:        #fff;
+      letter-spacing:-0.01em;
+    }
+    .pal-nav-brand span { color: var(--primary); }
+    .pal-nav-links { display: flex; gap: 20px; }
+    .pal-nav-links a {
+      font-size:   0.83rem;
+      font-weight: 600;
+      color:       rgba(255,255,255,0.7);
+      transition:  color 0.2s;
+    }
+    .pal-nav-links a:hover { color: var(--primary); text-decoration: none; }
+    .pal-back-btn {
+      display:         inline-flex;
+      align-items:     center;
+      gap:             6px;
+      padding:         8px 18px;
+      border-radius:   var(--radius-full);
+      background:      var(--primary);
+      color:           #fff;
+      font-family:     var(--font-brand);
+      font-size:       0.82rem;
+      font-weight:     700;
+      text-decoration: none;
+      transition:      var(--transition);
+    }
+    .pal-back-btn:hover { background: var(--primary-dark); text-decoration: none; transform: translateY(-1px); }
+
+    /* ── Hero ────────────────────────────────────────────── */
+    .pal-hero {
+      background: linear-gradient(135deg,
+        var(--primary-dark)  0%,
+        var(--primary)       35%,
+        var(--accent)        70%,
+        var(--secondary)     100%);
+      padding:    72px 24px 56px;
+      text-align: center;
+    }
+    .pal-hero h1 {
+      font-family:    var(--font-brand);
+      font-size:      clamp(2rem, 5vw, 3.6rem);
+      font-weight:    900;
+      color:          #fff;
+      margin:         0 0 14px;
+      letter-spacing: -0.02em;
+    }
+    .pal-hero p  { color: rgba(255,255,255,0.88); max-width: 600px; margin: 0 auto 28px; font-size: 1.05rem; }
+    .pal-hero-chips { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 8px; }
+    .pal-hero-chip {
+      background:    rgba(255,255,255,0.18);
+      color:         #fff;
+      padding:       5px 14px;
+      border-radius: var(--radius-full);
+      font-size:     0.78rem;
+      font-weight:   700;
+      letter-spacing:0.06em;
+      text-transform:uppercase;
+      backdrop-filter: blur(4px);
+      border:        1px solid rgba(255,255,255,0.28);
+    }
+
+    /* ── Section header ──────────────────────────────────── */
+    .pal-sec-hd { margin-bottom: 32px; }
+    .pal-sec-hd .eyebrow { margin-bottom: 10px; }
+
+    /* ── Primary swatch grid ─────────────────────────────── */
+    .primary-swatches {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .ps-card {
+      border-radius: var(--radius-lg);
+      overflow:      hidden;
+      box-shadow:    var(--shadow-md);
+      background:    var(--bg-white);
+      transition:    var(--transition);
+    }
+    .ps-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-xl); }
+    .ps-block {
+      height:          140px;
+      display:         flex;
+      align-items:     center;
+      justify-content: center;
+      font-family:     var(--font-brand);
+      font-size:       1.3rem;
+      font-weight:     800;
+      letter-spacing:  0.02em;
+    }
+    .ps-body { padding: 16px; }
+    .ps-name { font-family: var(--font-brand); font-weight: 800; font-size: 0.92rem;
+               color: var(--text-dark); margin-bottom: 4px; }
+    .ps-hex  { font-family: 'Courier New', monospace; font-size: 0.8rem; color: var(--text-mid);
+               margin-bottom: 8px; }
+    .ps-role { font-size: 0.76rem; color: var(--text-light); line-height: 1.5; }
+
+    /* ── Full palette table ──────────────────────────────── */
+    .table-wrap { overflow-x: auto; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); }
+
+    /* ── Component showcase grid ─────────────────────────── */
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .demo-card {
+      background:    var(--bg-white);
+      border:        1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding:       24px;
+      box-shadow:    var(--shadow-sm);
+    }
+    .demo-card h3 {
+      font-family:  var(--font-brand);
+      font-weight:  700;
+      font-size:    0.9rem;
+      color:        var(--text-mid);
+      text-transform:uppercase;
+      letter-spacing:0.08em;
+      margin:       0 0 16px;
+    }
+    .demo-row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+
+    /* ── Gradient strip ──────────────────────────────────── */
+    .grad-strip {
+      height:        56px;
+      border-radius: var(--radius-md);
+      margin-bottom: 8px;
+    }
+    .grad-label { font-size: 0.75rem; color: var(--text-mid); text-align: center; font-weight: 600; }
+
+    /* ── Tint scale ──────────────────────────────────────── */
+    .tint-row { display: flex; border-radius: var(--radius-md); overflow: hidden; height: 40px; }
+    .tint-cell { flex: 1; }
+
+    /* ── Section separator ────────────────────────────────── */
+    .sep { height: 1px; background: var(--border-color); margin: 0; }
+
+    /* ── Footer ──────────────────────────────────────────── */
+    .pal-footer {
+      background: var(--secondary);
+      color:      rgba(255,255,255,0.65);
+      text-align: center;
+      padding:    32px 24px;
+      font-size:  0.83rem;
+    }
+    .pal-footer a { color: var(--primary); }
+
+    /* ── Responsive ──────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .pal-nav-links { display: none; }
+    }
+  </style>
+</head>
+<body class="palette-page">
+
+  <!-- ── Navigation ── -->
+  <nav class="pal-nav" aria-label="Palette navigation">
+    <div class="container">
+      <span class="pal-nav-brand">Ice<span>World</span></span>
+      <div class="pal-nav-links" role="list">
+        <a href="#palette" role="listitem">Palette</a>
+        <a href="#usage" role="listitem">Usage Guide</a>
+        <a href="#gradients" role="listitem">Gradients</a>
+        <a href="#components" role="listitem">Components</a>
+      </div>
+      <a href="index.html" class="pal-back-btn">
+        <i class="fa-solid fa-arrow-left"></i> Back to site
+      </a>
+    </div>
+  </nav>
+
+  <!-- ── Hero ── -->
+  <header class="pal-hero">
+    <div class="container">
+      <h1>🍦 Premium Ice Cream Palette</h1>
+      <p>
+        A carefully crafted, 7-colour brand system inspired by the world's finest
+        desserts — sweet, fresh, creamy, and unmistakably luxurious.
+      </p>
+      <div class="pal-hero-chips">
+        <span class="pal-hero-chip">🍓 Strawberry Blossom</span>
+        <span class="pal-hero-chip">🍫 Dark Chocolate</span>
+        <span class="pal-hero-chip">🍮 Salted Caramel</span>
+        <span class="pal-hero-chip">🍃 Pistachio Mint</span>
+        <span class="pal-hero-chip">🍦 Vanilla Cream</span>
+        <span class="pal-hero-chip">🍑 Soft Peach</span>
+        <span class="pal-hero-chip">☕ Espresso</span>
+        <span class="pal-hero-chip">🍒 Cherry Red</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ════════════════════════════════════════════════════════════
+       SECTION 1 — PRIMARY SWATCHES
+       ════════════════════════════════════════════════════════════ -->
+  <section id="palette" style="padding: 64px 0;">
+    <div class="container">
+      <div class="pal-sec-hd">
+        <span class="eyebrow eyebrow-strawberry">Brand Colours</span>
+        <h2>The 7 Core Palette Colours</h2>
+        <p>Every colour has a distinct role, ensuring perfect visual harmony across all pages.</p>
+      </div>
+
+      <div class="primary-swatches">
+
+        <!-- 1. Strawberry Blossom -->
+        <div class="ps-card">
+          <div class="ps-block swatch-fill-1" style="color:#fff;">🍓</div>
+          <div class="ps-body">
+            <div class="ps-name">Strawberry Blossom</div>
+            <div class="ps-hex">#E8486A — Primary</div>
+            <div class="ps-role">CTA buttons, active nav, price badges, heart icons, focus rings</div>
+          </div>
+        </div>
+
+        <!-- 2. Dark Chocolate -->
+        <div class="ps-card">
+          <div class="ps-block swatch-fill-4" style="color:#fff;">🍫</div>
+          <div class="ps-body">
+            <div class="ps-name">Dark Chocolate</div>
+            <div class="ps-hex">#3A1A08 — Secondary</div>
+            <div class="ps-role">Navbar bg, footer bg, dark hero overlays, modal backdrops</div>
+          </div>
+        </div>
+
+        <!-- 3. Salted Caramel -->
+        <div class="ps-card">
+          <div class="ps-block swatch-fill-7" style="color:#fff;">🍮</div>
+          <div class="ps-body">
+            <div class="ps-name">Salted Caramel</div>
+            <div class="ps-hex">#D48C0F — Accent</div>
+            <div class="ps-role">Star ratings, "Popular" badges, newsletter headers, ruled lines</div>
+          </div>
+        </div>
+
+        <!-- 4. Pistachio Mint -->
+        <div class="ps-card">
+          <div class="ps-block swatch-fill-9" style="color:#fff;">🍃</div>
+          <div class="ps-body">
+            <div class="ps-name">Pistachio Mint</div>
+            <div class="ps-hex">#2AA87A — Mint</div>
+            <div class="ps-role">Vegan / fresh badges, success toasts, in-stock dots, icon hover</div>
+          </div>
+        </div>
+
+        <!-- 5. Vanilla Cream -->
+        <div class="ps-card">
+          <div class="ps-block swatch-fill-12">🍦</div>
+          <div class="ps-body">
+            <div class="ps-name">Vanilla Cream</div>
+            <div class="ps-hex">#FFF8EF — Background</div>
+            <div class="ps-role">Main page &lt;body&gt; bg, input fields, modal windows</div>
+          </div>
+        </div>
+
+        <!-- 6. Soft Peach -->
+        <div class="ps-card">
+          <div class="ps-block swatch-fill-13">🍑</div>
+          <div class="ps-body">
+            <div class="ps-name">Soft Peach</div>
+            <div class="ps-hex">#FDE8CC — Card BG</div>
+            <div class="ps-role">Card wrappers, alternating sections, loyalty tier strips, about page</div>
+          </div>
+        </div>
+
+        <!-- 7. Espresso -->
+        <div class="ps-card">
+          <div class="ps-block swatch-fill-14" style="color:#fff;">☕</div>
+          <div class="ps-body">
+            <div class="ps-name">Espresso</div>
+            <div class="ps-hex">#2C1206 — Text</div>
+            <div class="ps-role">All headings H1–H6, body paragraphs, icon labels, form labels</div>
+          </div>
+        </div>
+
+        <!-- 8. Cherry Red -->
+        <div class="ps-card">
+          <div class="ps-block" style="background:#C0392B; color:#fff;">🍒</div>
+          <div class="ps-body">
+            <div class="ps-name">Cherry Red</div>
+            <div class="ps-hex">#C0392B — Red</div>
+            <div class="ps-role">Sale banners, "HOT DEAL" badges, flash sale timers, bold CTAs</div>
+          </div>
+        </div>
+
+      </div><!-- /primary-swatches -->
+    </div>
+  </section>
+
+  <div class="sep"></div>
+
+  <!-- ════════════════════════════════════════════════════════════
+       SECTION 2 — FULL PALETTE TABLE WITH USAGE GUIDE
+       ════════════════════════════════════════════════════════════ -->
+  <section id="usage" style="padding: 64px 0; background: var(--bg-mid);">
+    <div class="container">
+      <div class="pal-sec-hd">
+        <span class="eyebrow eyebrow-caramel">Usage Guide</span>
+        <h2>Complete Colour Reference Table</h2>
+        <p>Each token is a CSS custom property defined in <code>css/style.css</code>.</p>
+      </div>
+
+      <div class="table-wrap">
+        <table class="palette-table" aria-label="Colour palette reference">
+          <thead>
+            <tr>
+              <th>Swatch</th>
+              <th>Token</th>
+              <th>HEX</th>
+              <th>Name</th>
+              <th>Role / Usage</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="palette-swatch-dot" style="background:#E8486A;"></span></td>
+              <td><code>--primary</code></td>
+              <td><code>#E8486A</code></td>
+              <td>Strawberry Blossom</td>
+              <td>Primary button, active link, price badge</td>
+            </tr>
+            <tr>
+              <td><span class="palette-swatch-dot" style="background:#C43057;"></span></td>
+              <td><code>--primary-dark</code></td>
+              <td><code>#C43057</code></td>
+              <td>Deep Strawberry</td>
+              <td>Hover / pressed state for primary elements</td>
+            </tr>
+            <tr>
+              <td><span class="palette-swatch-dot" style="background:#FFE0E9; border-color:#E8486A;"></span></td>
+              <td><code>--primary-light</code></td>
+              <td><code>#FFE0E9</code></td>
+              <td>Blush Pink</td>
+              <td>Chip / tag tint, card inner highlight, alert background</td>
+            </tr>
+            <tr>
+              <td><span class="palette-swatch-dot" style="background:#3A1A08;"></span></td>
+              <td><code>--secondary</code></td>
+              <td><code>#3A1A08</code></td>
+              <td>Dark Chocolate</td>
+              <td>Navbar, footer, dark section backgrounds</td>
+            </tr>
+            <tr>
+              <td><span class="palette-swatch-dot" style="background:#1E0C02;"></span></td>
+              <td><code>--secondary-dark</code></td>
+              <td><code>#1E0C02</code></td>
+              <td>Espresso Roast</td>
+              <td>Deepest overlay, footer sub-area</td>
+            </tr>
+            <tr>
+              <td><span class="palette-swatch-dot" style="background:#F2DEC8; border-color:#EDD4B0;"></span></td>
+              <td><code>--secondary-light</code></td>
+              <td><code>#F2DEC8</code></td>
+              <td>Vanilla Parchment</td>
+              <td>Warm card panels, loyalty section bg</td>
+            </tr>
+            <tr>
+              <td><span class="palette-swatch-dot" style="background:#D48C0F;"></span></td>
+              <td><code>--accent</code></td>
+              <td><code>#D48C0F</code></td>
+              <td>Salted Caramel</td>
+              <td>Stars, "New"/"Popular" badges, secondary buttons</td>
+            </tr>
+            <tr>
+              <td><span class="palette-swatch-dot" style="background:#B5750C;"></span></td>
+              <td><code>--accent-dark</code></td>
+              <td><code>#B5750C</code></td>
+              <td>Deep Caramel</td>
+              <td>Hover / pressed state for accent elements</td>
+            </tr>
+            <tr>
+              <td><span class="palette-swatch-dot" style="background:#2AA87A;"></span></td>
+              <td><code>--mint</code></td>
+              <td><code>#2AA87A</code></td>
+              <td>Pistachio Mint</td>
+              <td>Vegan badge, success toast, in-stock indicator</td>
+            </tr>
+            <tr>
+              <td><span class="palette-swatch-dot" style="background:#1E8A63;"></span></td>
+              <td><code>--mint-dark</code></td>
+              <td><code>#1E8A63</code></td>
+              <td>Deep Pistachio</td>
+              <td>Mint hover / pressed state</td>
+            </tr>
+            <tr>
+              <td><span class="palette-swatch-dot" style="background:#D4F5EA; border-color:#2AA87A;"></span></td>
+              <td><code>--mint-light</code></td>
+              <td><code>#D4F5EA</code></td>
+              <td>Mint Whisper</td>
+              <td>Mint tint, alert background, card accent</td>
+            </tr>
+            <tr>
+              <td><span class="palette-swatch-dot" style="background:#FFF8EF; border-color:#EDD4B0;"></span></td>
+              <td><code>--bg-light</code></td>
+              <td><code>#FFF8EF</code></td>
+              <td>Vanilla Cream</td>
+              <td>Main page background, input fields, modals</td>
+            </tr>
+            <tr>
+              <td><span class="palette-swatch-dot" style="background:#FDE8CC; border-color:#EDD4B0;"></span></td>
+              <td><code>--bg-mid</code></td>
+              <td><code>#FDE8CC</code></td>
+              <td>Soft Peach</td>
+              <td>Cards, alternating sections, about page, loyalty</td>
+            </tr>
+            <tr>
+              <td><span class="palette-swatch-dot" style="background:#EDD4B0; border-color:#D4B896;"></span></td>
+              <td><code>--border-color</code></td>
+              <td><code>#EDD4B0</code></td>
+              <td>Almond</td>
+              <td>Input borders, card dividers, ruled lines</td>
+            </tr>
+            <tr>
+              <td><span class="palette-swatch-dot" style="background:#2C1206;"></span></td>
+              <td><code>--text-dark</code></td>
+              <td><code>#2C1206</code></td>
+              <td>Espresso</td>
+              <td>H1–H6 headings, body paragraphs, icons</td>
+            </tr>
+            <tr>
+              <td><span class="palette-swatch-dot" style="background:#6B3820;"></span></td>
+              <td><code>--text-mid</code></td>
+              <td><code>#6B3820</code></td>
+              <td>Mocha</td>
+              <td>Subheadings, meta text, secondary descriptions</td>
+            </tr>
+            <tr>
+              <td><span class="palette-swatch-dot" style="background:#A0714D;"></span></td>
+              <td><code>--text-light</code></td>
+              <td><code>#A0714D</code></td>
+              <td>Latte</td>
+              <td>Captions, placeholders, helper text, dates</td>
+            </tr>
+            <tr>
+              <td><span class="palette-swatch-dot" style="background:#C0392B;"></span></td>
+              <td><code>--red</code></td>
+              <td><code>#C0392B</code></td>
+              <td>Cherry Red</td>
+              <td>Sale banners, "HOT DEAL" badges, flash sale timers, bold CTAs</td>
+            </tr>
+            <tr>
+              <td><span class="palette-swatch-dot" style="background:#96281B;"></span></td>
+              <td><code>--red-dark</code></td>
+              <td><code>#96281B</code></td>
+              <td>Deep Cherry</td>
+              <td>Hover / pressed state for red CTA elements</td>
+            </tr>
+            <tr>
+              <td><span class="palette-swatch-dot" style="background:#FADBD8; border-color:#C0392B;"></span></td>
+              <td><code>--red-light</code></td>
+              <td><code>#FADBD8</code></td>
+              <td>Cherry Blush</td>
+              <td>Alert tints, card highlights, gentle error backgrounds</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <div class="sep"></div>
+
+  <!-- ════════════════════════════════════════════════════════════
+       SECTION 3 — TINT SCALES
+       ════════════════════════════════════════════════════════════ -->
+  <section style="padding: 64px 0;">
+    <div class="container">
+      <div class="pal-sec-hd">
+        <span class="eyebrow eyebrow-mint">Tint Scales</span>
+        <h2>Colour Families &amp; Tint Ranges</h2>
+        <p>Each primary hue has a full light-to-dark range for flexible application.</p>
+      </div>
+
+      <!-- Strawberry tint scale -->
+      <p style="font-weight:700; margin-bottom:8px; font-family:var(--font-brand);">Strawberry Blossom Family</p>
+      <div class="tint-row" style="margin-bottom:6px;">
+        <div class="tint-cell" style="background:#FFE0E9;" title="#FFE0E9 — Light"></div>
+        <div class="tint-cell" style="background:#F7AABB;" title="#F7AABB — Soft"></div>
+        <div class="tint-cell" style="background:#F07294;" title="#F07294 — Mid-light"></div>
+        <div class="tint-cell" style="background:#E8486A;" title="#E8486A — Base"></div>
+        <div class="tint-cell" style="background:#C43057;" title="#C43057 — Dark"></div>
+        <div class="tint-cell" style="background:#A01844;" title="#A01844 — Deeper"></div>
+        <div class="tint-cell" style="background:#7A0A30;" title="#7A0A30 — Deepest"></div>
+      </div>
+      <div class="d-flex gap-4" style="margin-bottom:32px; font-size:0.7rem; color:var(--text-light);">
+        <span style="flex:1;text-align:center;">Light</span>
+        <span style="flex:1;text-align:center;">Soft</span>
+        <span style="flex:1;text-align:center;">Mid</span>
+        <span style="flex:1;text-align:center; font-weight:700; color:var(--primary);">Base</span>
+        <span style="flex:1;text-align:center;">Dark</span>
+        <span style="flex:1;text-align:center;">Deeper</span>
+        <span style="flex:1;text-align:center;">Deepest</span>
+      </div>
+
+      <!-- Caramel tint scale -->
+      <p style="font-weight:700; margin-bottom:8px; font-family:var(--font-brand);">Salted Caramel Family</p>
+      <div class="tint-row" style="margin-bottom:6px;">
+        <div class="tint-cell" style="background:#FFF3D0;" title="#FFF3D0 — Light"></div>
+        <div class="tint-cell" style="background:#FFD980;" title="#FFD980 — Soft"></div>
+        <div class="tint-cell" style="background:#F0B040;" title="#F0B040 — Mid-light"></div>
+        <div class="tint-cell" style="background:#D48C0F;" title="#D48C0F — Base"></div>
+        <div class="tint-cell" style="background:#B5750C;" title="#B5750C — Dark"></div>
+        <div class="tint-cell" style="background:#8E5A08;" title="#8E5A08 — Deeper"></div>
+        <div class="tint-cell" style="background:#664005;" title="#664005 — Deepest"></div>
+      </div>
+      <div class="d-flex gap-4" style="margin-bottom:32px; font-size:0.7rem; color:var(--text-light);">
+        <span style="flex:1;text-align:center;">Light</span>
+        <span style="flex:1;text-align:center;">Soft</span>
+        <span style="flex:1;text-align:center;">Mid</span>
+        <span style="flex:1;text-align:center; font-weight:700; color:var(--accent);">Base</span>
+        <span style="flex:1;text-align:center;">Dark</span>
+        <span style="flex:1;text-align:center;">Deeper</span>
+        <span style="flex:1;text-align:center;">Deepest</span>
+      </div>
+
+      <!-- Mint tint scale -->
+      <p style="font-weight:700; margin-bottom:8px; font-family:var(--font-brand);">Pistachio Mint Family</p>
+      <div class="tint-row" style="margin-bottom:6px;">
+        <div class="tint-cell" style="background:#D4F5EA;" title="#D4F5EA — Light"></div>
+        <div class="tint-cell" style="background:#8EDEC0;" title="#8EDEC0 — Soft"></div>
+        <div class="tint-cell" style="background:#52C49D;" title="#52C49D — Mid-light"></div>
+        <div class="tint-cell" style="background:#2AA87A;" title="#2AA87A — Base"></div>
+        <div class="tint-cell" style="background:#1E8A63;" title="#1E8A63 — Dark"></div>
+        <div class="tint-cell" style="background:#15684B;" title="#15684B — Deeper"></div>
+        <div class="tint-cell" style="background:#0D4632;" title="#0D4632 — Deepest"></div>
+      </div>
+      <div class="d-flex gap-4" style="margin-bottom:32px; font-size:0.7rem; color:var(--text-light);">
+        <span style="flex:1;text-align:center;">Light</span>
+        <span style="flex:1;text-align:center;">Soft</span>
+        <span style="flex:1;text-align:center;">Mid</span>
+        <span style="flex:1;text-align:center; font-weight:700; color:var(--mint);">Base</span>
+        <span style="flex:1;text-align:center;">Dark</span>
+        <span style="flex:1;text-align:center;">Deeper</span>
+        <span style="flex:1;text-align:center;">Deepest</span>
+      </div>
+
+      <!-- Cherry Red tint scale -->
+      <p style="font-weight:700; margin-bottom:8px; font-family:var(--font-brand);">Cherry Red Family</p>
+      <div class="tint-row" style="margin-bottom:6px;">
+        <div class="tint-cell" style="background:#FADBD8;" title="#FADBD8 — Light"></div>
+        <div class="tint-cell" style="background:#F1948A;" title="#F1948A — Soft"></div>
+        <div class="tint-cell" style="background:#E04B3A;" title="#E04B3A — Mid-light"></div>
+        <div class="tint-cell" style="background:#C0392B;" title="#C0392B — Base"></div>
+        <div class="tint-cell" style="background:#96281B;" title="#96281B — Dark"></div>
+        <div class="tint-cell" style="background:#6E1A10;" title="#6E1A10 — Deeper"></div>
+        <div class="tint-cell" style="background:#460D08;" title="#460D08 — Deepest"></div>
+      </div>
+      <div class="d-flex gap-4" style="margin-bottom:32px; font-size:0.7rem; color:var(--text-light);">
+        <span style="flex:1;text-align:center;">Light</span>
+        <span style="flex:1;text-align:center;">Soft</span>
+        <span style="flex:1;text-align:center;">Mid</span>
+        <span style="flex:1;text-align:center; font-weight:700; color:var(--red);">Base</span>
+        <span style="flex:1;text-align:center;">Dark</span>
+        <span style="flex:1;text-align:center;">Deeper</span>
+        <span style="flex:1;text-align:center;">Deepest</span>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="sep"></div>
+
+  <!-- ════════════════════════════════════════════════════════════
+       SECTION 4 — GRADIENTS
+       ════════════════════════════════════════════════════════════ -->
+  <section id="gradients" style="padding: 64px 0; background: var(--bg-mid);">
+    <div class="container">
+      <div class="pal-sec-hd">
+        <span class="eyebrow eyebrow-chocolate">Gradients</span>
+        <h2>Premium Palette Gradients</h2>
+        <p>Named gradient utilities available via CSS classes throughout the site.</p>
+      </div>
+
+      <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(230px,1fr)); gap:20px;">
+
+        <div>
+          <div class="grad-strip grad-h-strawberry-caramel"></div>
+          <div class="grad-label">grad-h-strawberry-caramel</div>
+        </div>
+        <div>
+          <div class="grad-strip grad-h-caramel-mint"></div>
+          <div class="grad-label">grad-h-caramel-mint</div>
+        </div>
+        <div>
+          <div class="grad-strip grad-h-strawberry-mint"></div>
+          <div class="grad-label">grad-h-strawberry-mint</div>
+        </div>
+        <div>
+          <div class="grad-strip grad-h-chocolate-caramel"></div>
+          <div class="grad-label">grad-h-chocolate-caramel</div>
+        </div>
+        <div>
+          <div class="grad-strip grad-d-neapolitan"></div>
+          <div class="grad-label">grad-d-neapolitan (Strawberry · Caramel · Chocolate)</div>
+        </div>
+        <div>
+          <div class="grad-strip grad-d-sorbet"></div>
+          <div class="grad-label">grad-d-sorbet (Strawberry → Mint)</div>
+        </div>
+        <div>
+          <div class="grad-strip grad-d-sunrise"></div>
+          <div class="grad-label">grad-d-sunrise (Blush → Vanilla → Peach)</div>
+        </div>
+        <div>
+          <div class="grad-strip grad-animated"></div>
+          <div class="grad-label">grad-animated (looping 8 s)</div>
+        </div>
+        <div>
+          <div class="grad-strip grad-h-red-chocolate"></div>
+          <div class="grad-label">grad-h-red-chocolate (Cherry Red → Dark Chocolate)</div>
+        </div>
+        <div>
+          <div class="grad-strip grad-h-red-caramel"></div>
+          <div class="grad-label">grad-h-red-caramel (Cherry Red → Salted Caramel)</div>
+        </div>
+        <div>
+          <div class="grad-strip grad-d-red"></div>
+          <div class="grad-label">grad-d-red (Cherry Blush → Cherry Red)</div>
+        </div>
+
+      </div>
+
+      <!-- Gradient text examples -->
+      <div style="margin-top:40px;">
+        <p style="font-size:0.85rem; margin-bottom:16px; font-weight:600;">Gradient text examples</p>
+        <div style="display:flex; gap:24px; flex-wrap:wrap; align-items:center;">
+          <span class="display-md grad-text-strawberry-caramel">Strawberry &amp; Caramel</span>
+          <span class="display-md grad-text-caramel-mint">Caramel &amp; Mint</span>
+          <span class="display-md grad-text-neapolitan">Neapolitan</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="sep"></div>
+
+  <!-- ════════════════════════════════════════════════════════════
+       SECTION 5 — COMPONENT SHOWCASE
+       ════════════════════════════════════════════════════════════ -->
+  <section id="components" style="padding: 64px 0;">
+    <div class="container">
+      <div class="pal-sec-hd">
+        <span class="eyebrow eyebrow-strawberry">Components</span>
+        <h2>Ready-to-Use Components</h2>
+        <p>Every component below is powered by the palette utility classes.</p>
+      </div>
+
+      <div class="demo-grid">
+
+        <!-- Buttons -->
+        <div class="demo-card">
+          <h3>Flavour Buttons</h3>
+          <div class="demo-row" style="flex-direction:column; align-items:flex-start;">
+            <button class="btn-flavour btn-strawberry">🍓 Strawberry Blossom</button>
+            <button class="btn-flavour btn-caramel">🍮 Salted Caramel</button>
+            <button class="btn-flavour btn-mint">🍃 Pistachio Mint</button>
+            <button class="btn-flavour btn-chocolate">🍫 Dark Chocolate</button>
+            <button class="btn-flavour btn-vanilla">🍦 Vanilla Ghost</button>
+          </div>
+        </div>
+
+        <!-- Outlined buttons -->
+        <div class="demo-card">
+          <h3>Outlined Variants</h3>
+          <div class="demo-row" style="flex-direction:column; align-items:flex-start;">
+            <button class="btn-flavour btn-strawberry-outline">Strawberry Outline</button>
+            <button class="btn-flavour btn-caramel-outline">Caramel Outline</button>
+            <button class="btn-flavour btn-mint-outline">Mint Outline</button>
+            <button class="btn-flavour btn-chocolate-outline">Chocolate Outline</button>
+          </div>
+        </div>
+
+        <!-- Badges -->
+        <div class="demo-card">
+          <h3>Badges &amp; Tags</h3>
+          <div class="demo-row">
+            <span class="badge-base badge-strawberry">New</span>
+            <span class="badge-base badge-caramel">Popular</span>
+            <span class="badge-base badge-mint">Vegan</span>
+            <span class="badge-base badge-chocolate">Premium</span>
+            <span class="badge-base badge-strawberry-soft">Seasonal</span>
+            <span class="badge-base badge-caramel-soft">Limited</span>
+            <span class="badge-base badge-mint-soft">Fresh</span>
+          </div>
+        </div>
+
+        <!-- Taste chips -->
+        <div class="demo-card">
+          <h3>Taste Profile Chips</h3>
+          <div class="demo-row">
+            <span class="taste-chip taste-sweet">🍬 Sweet</span>
+            <span class="taste-chip taste-creamy">🥛 Creamy</span>
+            <span class="taste-chip taste-fresh">🌿 Fresh</span>
+            <span class="taste-chip taste-rich">🍫 Rich</span>
+            <span class="taste-chip taste-tangy">🍋 Tangy</span>
+            <span class="taste-chip taste-nutty">🥜 Nutty</span>
+          </div>
+        </div>
+
+        <!-- Alerts -->
+        <div class="demo-card">
+          <h3>Alert Variants</h3>
+          <div style="display:flex; flex-direction:column; gap:10px;">
+            <div class="alert-premium alert-strawberry">
+              <i class="fa-solid fa-circle-exclamation alert-premium-icon"></i>
+              <div><div class="alert-premium-title">New Flavour Alert</div>Strawberry Sorbet is now available!</div>
+            </div>
+            <div class="alert-premium alert-caramel">
+              <i class="fa-solid fa-star alert-premium-icon"></i>
+              <div><div class="alert-premium-title">Limited Offer</div>Salted Caramel 20% off today only.</div>
+            </div>
+            <div class="alert-premium alert-mint">
+              <i class="fa-solid fa-leaf alert-premium-icon"></i>
+              <div><div class="alert-premium-title">Vegan Options</div>Pistachio Mint is 100% plant-based.</div>
+            </div>
+            <div class="alert-red">
+              <i class="fa-solid fa-fire alert-premium-icon"></i>
+              <div><div class="alert-premium-title">Flash Sale — 50% Off!</div>Cherry Red hot deal ends in 2 hours.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cherry Red components -->
+        <div class="demo-card">
+          <h3>Cherry Red Components</h3>
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <div class="demo-row">
+              <button class="btn-flavour btn-red">🍒 Hot Deal</button>
+              <button class="btn-flavour btn-red-outline">Cherry Outline</button>
+            </div>
+            <div class="demo-row">
+              <span class="badge-red badge-base">SALE</span>
+              <span class="badge-red-soft badge-base">-50%</span>
+              <span class="badge-red-border badge-base">HOT</span>
+              <span class="taste-chip taste-bold">🌶️ Bold</span>
+            </div>
+            <div class="promo-card-premium promo-card-red" style="padding:18px; border-radius:var(--radius-md);">
+              <span class="promo-badge">🔥 Limited</span>
+              <p class="promo-title" style="font-size:1.1rem;">Flash Sale — 50% Off!</p>
+              <p class="promo-desc" style="font-size:0.8rem;">Cherry Red Sorbet and Dark Chocolate Truffle.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Promo cards -->
+        <div class="demo-card">
+          <h3>Promo Cards</h3>
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <div class="promo-card-premium promo-card-strawberry" style="padding:18px; border-radius:var(--radius-md);">
+              <span class="promo-badge">Flash Sale</span>
+              <p class="promo-title" style="font-size:1.1rem;">Buy 2 Get 1 Free</p>
+              <p class="promo-desc" style="font-size:0.8rem;">On all strawberry flavours this weekend.</p>
+            </div>
+            <div class="promo-card-premium promo-card-mint" style="padding:18px; border-radius:var(--radius-md);">
+              <p class="promo-title" style="font-size:1.1rem;">New: Pistachio Sorbet</p>
+              <p class="promo-desc" style="font-size:0.8rem;">Fresh, dairy-free, and absolutely delicious.</p>
+            </div>
+            <div class="promo-card-premium promo-card-red" style="padding:18px; border-radius:var(--radius-md);">
+              <span class="promo-badge">🔥 Today Only</span>
+              <p class="promo-title" style="font-size:1.1rem;">50% Off Cherry Scoops</p>
+              <p class="promo-desc" style="font-size:0.8rem;">Cherry Red — our boldest, most indulgent flavour.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rating block -->
+        <div class="demo-card">
+          <h3>Star Ratings</h3>
+          <div style="display:flex; flex-direction:column; gap:14px;">
+            <div class="rating-block">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="rating-score">5.0</span>
+              <span class="rating-count">(284 reviews)</span>
+            </div>
+            <div class="rating-block">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-regular fa-star star-empty"></i>
+              </div>
+              <span class="rating-score">4.0</span>
+              <span class="rating-count">(96 reviews)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Progress / popularity meters -->
+        <div class="demo-card">
+          <h3>Flavour Popularity</h3>
+          <div style="display:flex; flex-direction:column; gap:14px;">
+            <div>
+              <div class="meter-label">
+                <span class="meter-label-name">Strawberry</span>
+                <span class="meter-label-value">94%</span>
+              </div>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar-fill progress-bar-fill-strawberry" style="width:94%;"></div>
+              </div>
+            </div>
+            <div>
+              <div class="meter-label">
+                <span class="meter-label-name">Salted Caramel</span>
+                <span class="meter-label-value" style="color:var(--accent);">87%</span>
+              </div>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar-fill progress-bar-fill-caramel" style="width:87%;"></div>
+              </div>
+            </div>
+            <div>
+              <div class="meter-label">
+                <span class="meter-label-name">Pistachio Mint</span>
+                <span class="meter-label-value" style="color:var(--mint);">76%</span>
+              </div>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar-fill progress-bar-fill-mint" style="width:76%;"></div>
+              </div>
+            </div>
+            <div>
+              <div class="meter-label">
+                <span class="meter-label-name">Dark Chocolate</span>
+                <span class="meter-label-value" style="color:var(--secondary);">82%</span>
+              </div>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar-fill progress-bar-fill-chocolate" style="width:82%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Flavour pills / selector -->
+        <div class="demo-card">
+          <h3>Flavour Selector Pills</h3>
+          <div class="demo-row">
+            <button class="flavour-pill active">
+              <span class="swatch swatch-strawberry"></span> Strawberry
+            </button>
+            <button class="flavour-pill flavour-pill-caramel">
+              <span class="swatch swatch-caramel"></span> Caramel
+            </button>
+            <button class="flavour-pill flavour-pill-mint">
+              <span class="swatch swatch-mint"></span> Mint
+            </button>
+            <button class="flavour-pill flavour-pill-chocolate">
+              <span class="swatch swatch-chocolate"></span> Chocolate
+            </button>
+          </div>
+        </div>
+
+        <!-- Tier cards -->
+        <div class="demo-card">
+          <h3>Loyalty Tiers</h3>
+          <div style="display:flex; flex-direction:column; gap:10px;">
+            <div class="tier-card tier-card-bronze">
+              <strong style="font-family:var(--font-brand);">🥉 Bronze Scooper</strong>
+              <p style="font-size:0.8rem; margin:4px 0 0; color:var(--text-mid);">0 – 499 pts · 5% off</p>
+            </div>
+            <div class="tier-card tier-card-silver">
+              <strong style="font-family:var(--font-brand);">🥈 Silver Scooper</strong>
+              <p style="font-size:0.8rem; margin:4px 0 0; color:var(--text-mid);">500 – 999 pts · 10% off</p>
+            </div>
+            <div class="tier-card tier-card-gold">
+              <strong style="font-family:var(--font-brand);">🥇 Gold Scooper</strong>
+              <p style="font-size:0.8rem; margin:4px 0 0; color:var(--text-mid);">1000+ pts · 20% off</p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /demo-grid -->
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════
+       SECTION 6 — CSS SNIPPET
+       ════════════════════════════════════════════════════════════ -->
+  <section style="padding: 64px 0; background: var(--secondary);">
+    <div class="container">
+      <div class="pal-sec-hd">
+        <span class="eyebrow eyebrow-white">Developer Guide</span>
+        <h2 style="color:#fff;">Using the Palette in CSS</h2>
+        <p style="color:rgba(255,255,255,0.75);">Copy any token directly into your own components.</p>
+      </div>
+
+      <pre style="
+        background: var(--secondary-dark);
+        color: var(--secondary-light);
+        padding: 28px;
+        border-radius: var(--radius-lg);
+        overflow-x: auto;
+        font-size: 0.82rem;
+        line-height: 1.8;
+        border: 1px solid rgba(255,255,255,0.10);
+      "><code>/* ── Import (already in style.css) ──────────────────── */
+:root {
+  /* PRIMARY — Strawberry Blossom */
+  --primary:        #E8486A;   /* buttons, links, badges   */
+  --primary-dark:   #C43057;   /* hover / pressed          */
+  --primary-light:  #FFE0E9;   /* tint backgrounds         */
+
+  /* SECONDARY — Dark Chocolate */
+  --secondary:      #3A1A08;   /* navbar, footer           */
+  --secondary-dark: #1E0C02;   /* deepest overlays         */
+  --secondary-light:#F2DEC8;   /* warm panels              */
+
+  /* ACCENT — Salted Caramel */
+  --accent:         #D48C0F;   /* stars, "Popular" badges  */
+  --accent-dark:    #B5750C;   /* caramel hover            */
+
+  /* MINT — Pistachio Mint */
+  --mint:           #2AA87A;   /* vegan, fresh, success    */
+  --mint-dark:      #1E8A63;   /* mint hover               */
+  --mint-light:     #D4F5EA;   /* mint tint                */
+
+  /* BACKGROUNDS */
+  --bg-light:       #FFF8EF;   /* page background          */
+  --bg-mid:         #FDE8CC;   /* cards, alt sections      */
+  --border-color:   #EDD4B0;   /* dividers, input borders  */
+
+  /* TEXT SCALE */
+  --text-dark:      #2C1206;   /* headings, body           */
+  --text-mid:       #6B3820;   /* secondary text           */
+  --text-light:     #A0714D;   /* captions, placeholders   */
+}
+
+/* ── Example button ─────────────────────────────────── */
+.btn-order-now {
+  background: var(--primary);
+  color:      #fff;
+  padding:    12px 28px;
+  border-radius: 9999px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+.btn-order-now:hover {
+  background: var(--primary-dark);
+  box-shadow: 0 6px 20px rgba(232,72,106,0.40);
+  transform:  translateY(-2px);
+}
+
+/* ── Example card ───────────────────────────────────── */
+.ice-cream-card {
+  background:    var(--bg-white);
+  border:        1px solid var(--border-color);
+  border-top:    4px solid var(--primary);
+  border-radius: 20px;
+  padding:       24px;
+  box-shadow:    0 4px 20px rgba(232,72,106,0.12);
+}
+.ice-cream-card:hover {
+  transform:  translateY(-6px);
+  box-shadow: 0 8px 40px rgba(232,72,106,0.18);
+}</code></pre>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer class="pal-footer">
+    <p>
+      <strong>IceWorld Premium Ice Cream</strong> &nbsp;·&nbsp;
+      Colour palette designed for luxury dessert brands &nbsp;·&nbsp;
+      <a href="index.html">← Return to homepage</a>
+    </p>
+    <p style="margin-top:8px; font-size:0.75rem; opacity:0.6;">
+      All colours documented in <code>css/style.css</code> as CSS Custom Properties.
+    </p>
+  </footer>
+
+</body>
+</html>

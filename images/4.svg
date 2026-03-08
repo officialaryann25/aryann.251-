@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500">
+  <defs>
+    <radialGradient id="bg4" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#e8d5f7"/>
+      <stop offset="100%" stop-color="#fff0f8"/>
+    </radialGradient>
+    <radialGradient id="scoop4a" cx="38%" cy="32%" r="62%">
+      <stop offset="0%" stop-color="#ffd480"/>
+      <stop offset="100%" stop-color="#ffb347"/>
+    </radialGradient>
+    <radialGradient id="scoop4b" cx="38%" cy="32%" r="62%">
+      <stop offset="0%" stop-color="#b8f080"/>
+      <stop offset="100%" stop-color="#74c440"/>
+    </radialGradient>
+    <radialGradient id="scoop4c" cx="38%" cy="32%" r="62%">
+      <stop offset="0%" stop-color="#c4a8f8"/>
+      <stop offset="100%" stop-color="#9b59d0"/>
+    </radialGradient>
+    <filter id="shadow4">
+      <feDropShadow dx="4" dy="8" stdDeviation="10" flood-color="#7c3aed" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+  <rect width="400" height="500" fill="url(#bg4)" rx="20"/>
+  <!-- Background sparkles -->
+  <path d="M60,60 L65,48 L70,60 L82,65 L70,70 L65,82 L60,70 L48,65 Z" fill="#ffb347" opacity="0.4"/>
+  <path d="M330,100 L334,91 L338,100 L347,104 L338,108 L334,117 L330,108 L321,104 Z" fill="#ff6b9d" opacity="0.4"/>
+  <path d="M50,330 L54,322 L58,330 L66,334 L58,338 L54,346 L50,338 L42,334 Z" fill="#7c3aed" opacity="0.35"/>
+  <path d="M350,360 L353,354 L356,360 L362,363 L356,366 L353,372 L350,366 L344,363 Z" fill="#34d399" opacity="0.4"/>
+  <!-- More decorative dots -->
+  <circle cx="80" cy="150" r="7" fill="#ff6b9d" opacity="0.2"/>
+  <circle cx="320" cy="200" r="9" fill="#ffb347" opacity="0.22"/>
+  <circle cx="60" cy="430" r="6" fill="#7c3aed" opacity="0.2"/>
+  <circle cx="350" cy="440" r="8" fill="#34d399" opacity="0.2"/>
+  <!-- Tall waffle cone -->
+  <polygon points="200,470 105,220 295,220" fill="#c8860a" filter="url(#shadow4)"/>
+  <!-- Cone highlights/shadow -->
+  <polygon points="200,470 105,220 150,220" fill="#a06208" opacity="0.3"/>
+  <!-- Cone grid horizontal -->
+  <line x1="115" y1="240" x2="285" y2="240" stroke="#8a5005" stroke-width="2" opacity="0.5"/>
+  <line x1="122" y1="260" x2="278" y2="260" stroke="#8a5005" stroke-width="2" opacity="0.5"/>
+  <line x1="129" y1="280" x2="271" y2="280" stroke="#8a5005" stroke-width="2" opacity="0.5"/>
+  <line x1="136" y1="300" x2="264" y2="300" stroke="#8a5005" stroke-width="2" opacity="0.5"/>
+  <line x1="143" y1="320" x2="257" y2="320" stroke="#8a5005" stroke-width="2" opacity="0.5"/>
+  <line x1="150" y1="340" x2="250" y2="340" stroke="#8a5005" stroke-width="2" opacity="0.5"/>
+  <line x1="157" y1="360" x2="243" y2="360" stroke="#8a5005" stroke-width="2" opacity="0.5"/>
+  <line x1="164" y1="380" x2="236" y2="380" stroke="#8a5005" stroke-width="2" opacity="0.5"/>
+  <line x1="171" y1="400" x2="229" y2="400" stroke="#8a5005" stroke-width="2" opacity="0.5"/>
+  <line x1="178" y1="420" x2="222" y2="420" stroke="#8a5005" stroke-width="2" opacity="0.5"/>
+  <!-- Cone grid diagonal -->
+  <line x1="105" y1="220" x2="200" y2="470" stroke="#8a5005" stroke-width="1.5" opacity="0.4"/>
+  <line x1="135" y1="220" x2="208" y2="470" stroke="#8a5005" stroke-width="1.5" opacity="0.4"/>
+  <line x1="165" y1="220" x2="204" y2="470" stroke="#8a5005" stroke-width="1.5" opacity="0.4"/>
+  <line x1="200" y1="220" x2="200" y2="470" stroke="#8a5005" stroke-width="1.5" opacity="0.4"/>
+  <line x1="235" y1="220" x2="196" y2="470" stroke="#8a5005" stroke-width="1.5" opacity="0.4"/>
+  <line x1="265" y1="220" x2="192" y2="470" stroke="#8a5005" stroke-width="1.5" opacity="0.4"/>
+  <line x1="295" y1="220" x2="200" y2="470" stroke="#8a5005" stroke-width="1.5" opacity="0.4"/>
+  <!-- Bottom scoop: Mango orange -->
+  <ellipse cx="200" cy="225" rx="92" ry="82" fill="url(#scoop4a)"/>
+  <path d="M125,225 Q155,200 185,222 Q202,198 220,220 Q247,198 278,222" fill="none" stroke="#e8900a" stroke-width="2.5" opacity="0.5"/>
+  <ellipse cx="175" cy="208" rx="20" ry="13" fill="white" opacity="0.28"/>
+  <!-- Rainbow sprinkles on mango scoop -->
+  <rect x="138" y="210" width="14" height="5" rx="2.5" fill="#ff6b9d" transform="rotate(-25,145,212)"/>
+  <rect x="248" y="208" width="14" height="5" rx="2.5" fill="#7c3aed" transform="rotate(20,255,210)"/>
+  <rect x="190" y="195" width="12" height="5" rx="2.5" fill="#34d399" transform="rotate(45,196,197)"/>
+  <rect x="218" y="215" width="10" height="5" rx="2.5" fill="#ff3d7f" transform="rotate(-10,223,217)"/>
+  <!-- Middle scoop: Pistachio green -->
+  <ellipse cx="200" cy="162" rx="80" ry="74" fill="url(#scoop4b)"/>
+  <path d="M135,162 Q160,138 188,158 Q204,136 222,156 Q248,136 268,160" fill="none" stroke="#5aa830" stroke-width="2.5" opacity="0.5"/>
+  <ellipse cx="178" cy="147" rx="18" ry="12" fill="white" opacity="0.3"/>
+  <!-- Sprinkles on pistachio -->
+  <rect x="142" y="150" width="12" height="5" rx="2.5" fill="#ff6b9d" transform="rotate(30,148,152)"/>
+  <rect x="244" y="148" width="12" height="5" rx="2.5" fill="#ffb347" transform="rotate(-20,250,150)"/>
+  <rect x="195" y="135" width="10" height="4" rx="2" fill="#e63946" transform="rotate(50,200,137)"/>
+  <!-- Top scoop: Blueberry purple -->
+  <ellipse cx="200" cy="106" rx="68" ry="64" fill="url(#scoop4c)"/>
+  <path d="M145,108 Q168,85 192,105 Q206,84 220,103 Q240,84 258,106" fill="none" stroke="#7020b0" stroke-width="2.5" opacity="0.5"/>
+  <ellipse cx="180" cy="93" rx="16" ry="10" fill="white" opacity="0.32"/>
+  <!-- Sprinkles on purple scoop -->
+  <rect x="152" y="95" width="12" height="5" rx="2.5" fill="#ffb347" transform="rotate(-15,158,97)"/>
+  <rect x="228" y="92" width="12" height="5" rx="2.5" fill="#ff6b9d" transform="rotate(25,234,94)"/>
+  <rect x="190" y="82" width="10" height="4" rx="2" fill="#34d399" transform="rotate(40,195,84)"/>
+  <!-- Top sparkle stars -->
+  <path d="M200,44 L204,36 L208,44 L216,48 L208,52 L204,60 L200,52 L192,48 Z" fill="#ffb347"/>
+  <path d="M155,70 L158,64 L161,70 L167,73 L161,76 L158,82 L155,76 L149,73 Z" fill="#ff6b9d" opacity="0.8"/>
+  <path d="M245,68 L248,62 L251,68 L257,71 L251,74 L248,80 L245,74 L239,71 Z" fill="#c4a8f8" opacity="0.8"/>
+  <text x="200" y="492" text-anchor="middle" font-family="Poppins,sans-serif" font-size="14" fill="#5c2a0f" opacity="0.7">Rainbow Triple Scoop</text>
+</svg>

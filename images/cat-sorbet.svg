@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+<defs>
+  <radialGradient id="bgG" cx="50%" cy="50%" r="70%">
+    <stop offset="0%" stop-color="#FFF8EF"/>
+    <stop offset="100%" stop-color="#FDE8CC"/>
+  </radialGradient>
+  
+</defs>
+
+  <rect width="200" height="200" rx="20" fill="url(#bgG)"/>
+  <!-- bowl -->
+  <path d="M60,120 Q60,170 100,172 Q140,170 140,120 Z" fill="#FFF8EF" stroke="#EDD4B0" stroke-width="1.5"/>
+  <ellipse cx="100" cy="120" rx="40" ry="12" fill="#EDD4B0" stroke="#A0714D" stroke-width="1"/>
+  <!-- sorbets in bowl -->
+  <circle cx="86" cy="108" r="22" fill="#C0392B" stroke="#96281B" stroke-width="1.5"/>
+  <circle cx="115" cy="107" r="20" fill="#FF7043" stroke="#D48C0F" stroke-width="1.5"/>
+  <circle cx="100" cy="90" r="18" fill="#FFC107" stroke="#D48C0F" stroke-width="1"/>
+  <!-- leaf garnish -->
+  <path d="M100,72 Q110,60 118,68 Q110,78 100,72 Z" fill="#2AA87A"/>
+</svg>

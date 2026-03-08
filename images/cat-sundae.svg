@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+<defs>
+  <radialGradient id="bgG" cx="50%" cy="50%" r="70%">
+    <stop offset="0%" stop-color="#FFF8EF"/>
+    <stop offset="100%" stop-color="#FDE8CC"/>
+  </radialGradient>
+  
+</defs>
+
+  <rect width="200" height="200" rx="20" fill="url(#bgG)"/>
+  <!-- glass body -->
+  <path d="M70,160 L80,95 L120,95 L130,160 Z" fill="#FFF8EF" stroke="#EDD4B0" stroke-width="1.5"/>
+  <!-- glass base -->
+  <rect x="85" y="160" width="30" height="8" rx="4" fill="#EDD4B0"/>
+  <rect x="78" y="168" width="44" height="5" rx="2.5" fill="#A0714D"/>
+  <!-- ice cream scoops in glass -->
+  <ellipse cx="100" cy="95" rx="25" ry="12" fill="#E8486A" stroke="#C43057" stroke-width="1"/>
+  <ellipse cx="90" cy="82" rx="18" ry="16" fill="#FFE0E9" stroke="#E8486A" stroke-width="1"/>
+  <ellipse cx="112" cy="80" rx="16" ry="15" fill="#D48C0F" stroke="#6B3820" stroke-width="1"/>
+  <!-- cream on top -->
+  <ellipse cx="100" cy="66" rx="12" ry="9" fill="#fff" stroke="#EDD4B0" stroke-width="1"/>
+  <circle cx="100" cy="57" r="5" fill="#fff"/>
+  <!-- cherry -->
+  <circle cx="100" cy="52" r="5" fill="#C0392B" stroke="#8B1A1A" stroke-width="0.5"/>
+  <!-- drizzle -->
+  <path d="M88,90 Q82,104 90,115" fill="none" stroke="#D48C0F" stroke-width="2" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,2343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menu – IceWorld</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome 6.5.0 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- External stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    /* =====================================================
+       CSS CUSTOM PROPERTIES (DESIGN TOKENS)
+    ===================================================== */
+    :root {
+      /* Premium Ice Cream Palette */
+      --primary:    #E8486A; /* Strawberry Blossom */
+      --secondary:  #3A1A08; /* Dark Chocolate */
+      --accent:     #D48C0F; /* Salted Caramel */
+      --mint:       #2AA87A; /* Pistachio Mint */
+      --bg-light:   #FFF8EF; /* Vanilla Cream */
+      --bg-mid:     #FDE8CC; /* Soft Peach */
+
+      --primary-dark:   #C43057;
+      --primary-light:  #FFE0E9;
+      --accent-dark:    #B5750C;
+      --mint-dark:      #1E8A63;
+      --mint-light:     #D4F5EA;
+
+      --text-dark:  #2C1206; /* Espresso */
+      --text-mid:   #6B3820; /* Mocha */
+      --text-light: #A0714D; /* Latte */
+      --white:      #ffffff;
+
+      --shadow-sm:  0 2px 8px rgba(0,0,0,0.08);
+      --shadow-md:  0 6px 24px rgba(0,0,0,0.12);
+      --shadow-lg:  0 12px 40px rgba(0,0,0,0.16);
+      --shadow-card: 0 4px 20px rgba(232,72,106,0.12);
+      --shadow-card-hover: 0 14px 40px rgba(232,72,106,0.28);
+
+      --radius-sm:  8px;
+      --radius-md:  16px;
+      --radius-lg:  24px;
+      --radius-xl:  32px;
+      --radius-pill: 9999px;
+
+      --transition: 0.3s ease;
+      --transition-fast: 0.18s ease;
+
+      --font-body:    'Poppins', sans-serif;
+      --font-heading: 'Montserrat', sans-serif;
+    }
+
+    /* =====================================================
+       KEYFRAME ANIMATIONS
+    ===================================================== */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-60px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(60px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-12px); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50%       { transform: scale(1.06); }
+    }
+
+    @keyframes sparkle {
+      0%   { opacity: 0; transform: scale(0) rotate(0deg); }
+      50%  { opacity: 1; transform: scale(1.2) rotate(180deg); }
+      100% { opacity: 0; transform: scale(0) rotate(360deg); }
+    }
+
+    @keyframes reveal {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes shimmer {
+      0%   { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+
+    @keyframes heartBeat {
+      0%, 100% { transform: scale(1); }
+      14%       { transform: scale(1.3); }
+      28%       { transform: scale(1); }
+      42%       { transform: scale(1.3); }
+      70%       { transform: scale(1); }
+    }
+
+    @keyframes badgePop {
+      0%   { transform: scale(0); }
+      70%  { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    /* =====================================================
+       GLOBAL RESET & BASE
+    ===================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    button {
+      cursor: pointer;
+      font-family: var(--font-body);
+      border: none;
+      outline: none;
+    }
+
+    input, select {
+      font-family: var(--font-body);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* =====================================================
+       HEADER & NAVIGATION
+    ===================================================== */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--white);
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow var(--transition);
+    }
+
+    .header.scrolled {
+      box-shadow: var(--shadow-md);
+    }
+
+    .header-top {
+      background: var(--secondary);
+      color: var(--white);
+      font-size: 0.8rem;
+      padding: 8px 0;
+    }
+
+    .header-top .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .header-top-left,
+    .header-top-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .header-top-left span,
+    .header-top-right span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      opacity: 0.9;
+    }
+
+    .header-top-left i,
+    .header-top-right i {
+      color: var(--accent);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 10px;
+    }
+
+    .social-links a {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      transition: background var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .social-links a:hover {
+      background: var(--primary);
+      transform: scale(1.15);
+    }
+
+    .navbar {
+      background: var(--white);
+      padding: 14px 0;
+    }
+
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 1.2rem;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .logo-text {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--secondary);
+      letter-spacing: -0.5px;
+    }
+
+    .logo-accent {
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      list-style: none;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-mid);
+      transition: color var(--transition-fast), background var(--transition-fast);
+      position: relative;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: 50%;
+      transform: translateX(-50%) scaleX(0);
+      width: 60%;
+      height: 2px;
+      background: var(--primary);
+      border-radius: 2px;
+      transition: transform var(--transition-fast);
+    }
+
+    .nav-link.active::after,
+    .nav-link:hover::after {
+      transform: translateX(-50%) scaleX(1);
+    }
+
+    .has-dropdown {
+      position: relative;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      min-width: 200px;
+      background: var(--white);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+      padding: 10px 0;
+      list-style: none;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all var(--transition-fast);
+      z-index: 200;
+    }
+
+    .has-dropdown:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 9px 18px;
+      font-size: 0.875rem;
+      color: var(--text-mid);
+      transition: color var(--transition-fast), background var(--transition-fast);
+    }
+
+    .dropdown-menu a:hover {
+      color: var(--primary);
+      background: var(--bg-light);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-icon {
+      position: relative;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--bg-mid);
+      border: none;
+      color: var(--text-mid);
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .btn-icon:hover {
+      background: var(--primary);
+      color: var(--white);
+      transform: scale(1.1);
+    }
+
+    .badge {
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      min-width: 18px;
+      height: 18px;
+      border-radius: var(--radius-pill);
+      background: var(--primary);
+      color: var(--white);
+      font-size: 0.65rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 4px;
+      animation: badgePop 0.3s ease;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      width: 42px;
+      height: 42px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      padding: 10px;
+      border-radius: var(--radius-sm);
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text-mid);
+      border-radius: 2px;
+      transition: all var(--transition-fast);
+    }
+
+    /* =====================================================
+       PAGE HERO BANNER
+    ===================================================== */
+    .page-hero {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      min-height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Ccircle cx='40' cy='40' r='30' fill='rgba(255,255,255,0.04)'/%3E%3C/svg%3E") repeat;
+      pointer-events: none;
+    }
+
+    .page-hero::after {
+      content: '🍦';
+      position: absolute;
+      font-size: 8rem;
+      opacity: 0.07;
+      right: 5%;
+      bottom: -10px;
+      pointer-events: none;
+    }
+
+    .page-hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .page-hero h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 900;
+      color: var(--white);
+      margin-bottom: 14px;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.18);
+      animation: fadeInUp 0.7s ease both;
+    }
+
+    .page-hero-subtitle {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 22px;
+      animation: fadeInUp 0.7s 0.15s ease both;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.8);
+      animation: fadeInUp 0.7s 0.3s ease both;
+    }
+
+    .breadcrumb a {
+      color: rgba(255,255,255,0.9);
+      transition: color var(--transition-fast);
+    }
+
+    .breadcrumb a:hover {
+      color: var(--white);
+      text-decoration: underline;
+    }
+
+    .breadcrumb-sep {
+      opacity: 0.6;
+    }
+
+    /* =====================================================
+       FILTER BAR
+    ===================================================== */
+    .filter-bar {
+      position: sticky;
+      top: 70px;
+      z-index: 100;
+      background: var(--white);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      padding: 16px 0;
+    }
+
+    .filter-bar .container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .filter-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      flex: 1;
+    }
+
+    .filter-tab {
+      padding: 8px 18px;
+      border-radius: var(--radius-pill);
+      border: 2px solid var(--bg-mid);
+      background: var(--bg-light);
+      color: var(--text-mid);
+      font-size: 0.82rem;
+      font-weight: 600;
+      font-family: var(--font-body);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      white-space: nowrap;
+    }
+
+    .filter-tab:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    .filter-tab.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: var(--white);
+      box-shadow: 0 4px 14px rgba(232,72,106,0.35);
+    }
+
+    .filter-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .search-wrap {
+      position: relative;
+    }
+
+    .search-wrap i {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-light);
+      font-size: 0.85rem;
+      pointer-events: none;
+    }
+
+    #menu-search {
+      width: 200px;
+      padding: 9px 14px 9px 34px;
+      border: 2px solid var(--bg-mid);
+      border-radius: var(--radius-pill);
+      font-size: 0.85rem;
+      background: var(--bg-light);
+      color: var(--text-dark);
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    #menu-search:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(232,72,106,0.15);
+    }
+
+    #menu-search::placeholder {
+      color: var(--text-light);
+    }
+
+    #sort-select {
+      padding: 9px 32px 9px 14px;
+      border: 2px solid var(--bg-mid);
+      border-radius: var(--radius-pill);
+      font-size: 0.85rem;
+      background: var(--bg-light);
+      color: var(--text-mid);
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238a7060' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      cursor: pointer;
+      transition: border-color var(--transition-fast);
+    }
+
+    #sort-select:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+
+    .price-filter {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.82rem;
+      color: var(--text-mid);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    #price-range {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 120px;
+      height: 4px;
+      border-radius: 4px;
+      background: linear-gradient(to right, var(--primary) 0%, var(--primary) 100%, var(--bg-mid) 100%);
+      outline: none;
+      cursor: pointer;
+    }
+
+    #price-range::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--primary);
+      box-shadow: 0 2px 8px rgba(232,72,106,0.4);
+      cursor: pointer;
+      transition: transform var(--transition-fast);
+    }
+
+    #price-range::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+    }
+
+    .results-count {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      white-space: nowrap;
+      margin-left: auto;
+      font-weight: 500;
+    }
+
+    /* =====================================================
+       MENU SECTIONS
+    ===================================================== */
+    .menu-main {
+      padding: 50px 0 60px;
+      background: var(--bg-light);
+    }
+
+    .menu-section {
+      margin-bottom: 60px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .section-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 1.3rem;
+      flex-shrink: 0;
+      box-shadow: 0 4px 14px rgba(232,72,106,0.3);
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--secondary);
+    }
+
+    .section-title span {
+      color: var(--primary);
+    }
+
+    .section-divider {
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(to right, var(--primary), var(--accent));
+      border-radius: 4px;
+      margin-top: 8px;
+    }
+
+    /* =====================================================
+       PRODUCT GRID
+    ===================================================== */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    /* =====================================================
+       PRODUCT CARD
+    ===================================================== */
+    .product-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform var(--transition), box-shadow var(--transition);
+      position: relative;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-card-hover);
+    }
+
+    /* Image placeholder */
+    .product-img-placeholder {
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-img-placeholder::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.08));
+    }
+
+    .placeholder-classic {
+      background: linear-gradient(135deg, #ffe0ec 0%, #ffd6e7 100%);
+    }
+
+    .placeholder-sundae {
+      background: linear-gradient(135deg, #fff0d6 0%, #ffe4b5 100%);
+    }
+
+    .placeholder-milkshake {
+      background: linear-gradient(135deg, #e0f0ff 0%, #c8e6ff 100%);
+    }
+
+    .placeholder-gelato {
+      background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+    }
+
+    .placeholder-sorbet {
+      background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+    }
+
+    .placeholder-waffle {
+      background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+    }
+
+    .product-img-placeholder .card-icon {
+      position: relative;
+      z-index: 1;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+      transition: transform var(--transition);
+    }
+
+    .product-card:hover .card-icon {
+      transform: scale(1.12) rotate(-5deg);
+    }
+
+    /* Badges */
+    .card-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      z-index: 2;
+    }
+
+    .badge-classic   { background: var(--primary); color: var(--white); }
+    .badge-sundae    { background: var(--accent); color: var(--secondary); }
+    .badge-milkshake { background: #4fc3f7; color: var(--white); }
+    .badge-gelato    { background: #66bb6a; color: var(--white); }
+    .badge-sorbet    { background: #ab47bc; color: var(--white); }
+    .badge-waffle    { background: var(--secondary); color: var(--white); }
+    .badge-sale      { background: #e53935; color: var(--white); }
+
+    .badge-sale-tag {
+      position: absolute;
+      top: 12px;
+      right: 48px;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      font-size: 0.68rem;
+      font-weight: 700;
+      background: #e53935;
+      color: var(--white);
+      z-index: 2;
+      letter-spacing: 0.3px;
+    }
+
+    /* Wishlist button */
+    .btn-wishlist {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 3;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--white);
+      border: none;
+      color: #ccc;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      transition: color var(--transition-fast), transform var(--transition-fast), background var(--transition-fast);
+    }
+
+    .btn-wishlist:hover {
+      color: var(--primary);
+      transform: scale(1.15);
+    }
+
+    .btn-wishlist.wishlisted {
+      color: var(--primary);
+      animation: heartBeat 0.8s ease;
+    }
+
+    /* Card body */
+    .product-body {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: 8px;
+    }
+
+    .product-name {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--secondary);
+      line-height: 1.3;
+    }
+
+    .product-desc {
+      font-size: 0.82rem;
+      color: var(--text-light);
+      line-height: 1.55;
+      flex: 1;
+    }
+
+    .product-price {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .price-current {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .price-old {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      text-decoration: line-through;
+    }
+
+    .product-footer {
+      padding: 0 16px 16px;
+    }
+
+    .btn-add-cart {
+      width: 100%;
+      padding: 11px 16px;
+      border-radius: var(--radius-sm);
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: var(--white);
+      font-size: 0.875rem;
+      font-weight: 600;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: opacity var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+      box-shadow: 0 4px 14px rgba(232,72,106,0.3);
+    }
+
+    .btn-add-cart:hover {
+      opacity: 0.92;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(232,72,106,0.4);
+    }
+
+    .btn-add-cart:active {
+      transform: translateY(0);
+    }
+
+    /* =====================================================
+       REVEAL ANIMATION
+    ===================================================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =====================================================
+       EMPTY STATE
+    ===================================================== */
+    .empty-state {
+      text-align: center;
+      padding: 80px 24px;
+      color: var(--text-light);
+    }
+
+    .empty-state i {
+      color: var(--bg-mid);
+      margin-bottom: 20px;
+    }
+
+    .empty-state h3 {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--text-mid);
+      margin-bottom: 10px;
+    }
+
+    .empty-state p {
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+    }
+
+    .empty-state button {
+      padding: 11px 28px;
+      border-radius: var(--radius-pill);
+      background: var(--primary);
+      color: var(--white);
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: opacity var(--transition-fast);
+    }
+
+    .empty-state button:hover {
+      opacity: 0.85;
+    }
+
+    /* =====================================================
+       SCROLL TO TOP
+    ===================================================== */
+    .scroll-to-top {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 500;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: var(--white);
+      font-size: 1rem;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 20px rgba(232,72,106,0.4);
+      cursor: pointer;
+      transition: transform var(--transition-fast), opacity var(--transition-fast);
+    }
+
+    .scroll-to-top:hover {
+      transform: translateY(-3px);
+    }
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+    .footer {
+      background: var(--secondary);
+      color: rgba(255,255,255,0.85);
+    }
+
+    .footer-top {
+      padding: 56px 0 40px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.4fr;
+      gap: 40px;
+    }
+
+    .footer-brand .logo {
+      margin-bottom: 16px;
+    }
+
+    .footer-brand .logo-text {
+      color: var(--white);
+    }
+
+    .footer-brand-desc {
+      font-size: 0.875rem;
+      line-height: 1.7;
+      opacity: 0.8;
+      margin-bottom: 20px;
+    }
+
+    .footer-brand .social-links a {
+      background: rgba(255,255,255,0.1);
+    }
+
+    .footer-heading {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 18px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-heading::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 32px;
+      height: 3px;
+      background: var(--primary);
+      border-radius: 3px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      font-size: 0.875rem;
+      opacity: 0.8;
+      transition: opacity var(--transition-fast), color var(--transition-fast), padding-left var(--transition-fast);
+    }
+
+    .footer-links a:hover {
+      opacity: 1;
+      color: var(--primary);
+      padding-left: 6px;
+    }
+
+    .footer-contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-contact-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.875rem;
+    }
+
+    .footer-contact-list i {
+      color: var(--primary);
+      width: 16px;
+      flex-shrink: 0;
+    }
+
+    .footer-contact-list a {
+      opacity: 0.8;
+      transition: opacity var(--transition-fast), color var(--transition-fast);
+    }
+
+    .footer-contact-list a:hover {
+      opacity: 1;
+      color: var(--primary);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding: 20px 0;
+    }
+
+    .footer-bottom-grid {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-copyright {
+      font-size: 0.82rem;
+      opacity: 0.7;
+    }
+
+    .footer-copyright i {
+      color: var(--primary);
+    }
+
+    .footer-legal {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-legal a {
+      font-size: 0.8rem;
+      opacity: 0.65;
+      transition: opacity var(--transition-fast);
+    }
+
+    .footer-legal a:hover {
+      opacity: 1;
+      color: var(--primary);
+    }
+
+    /* =====================================================
+       RESPONSIVE BREAKPOINTS
+    ===================================================== */
+    @media (max-width: 1100px) {
+      .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .filter-bar .container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .filter-controls {
+        width: 100%;
+        justify-content: flex-start;
+      }
+
+      #menu-search {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .results-count {
+        margin-left: 0;
+      }
+
+      .header-top {
+        display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        flex-direction: column;
+        padding: 16px;
+        box-shadow: var(--shadow-md);
+        border-top: 1px solid var(--bg-mid);
+        gap: 4px;
+        z-index: 200;
+      }
+
+      .nav-links.nav-open {
+        display: flex;
+      }
+
+      .nav-link {
+        padding: 12px 16px;
+        border-radius: var(--radius-sm);
+        width: 100%;
+      }
+
+      .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        padding-left: 16px;
+        background: var(--bg-light);
+        border-radius: var(--radius-sm);
+        margin-top: 4px;
+      }
+
+      .has-dropdown:hover .dropdown-menu {
+        transform: none;
+      }
+
+      .navbar {
+        position: relative;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .section-title {
+        font-size: 1.4rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .filter-tabs {
+        gap: 6px;
+      }
+
+      .filter-tab {
+        font-size: 0.78rem;
+        padding: 6px 12px;
+      }
+
+      .page-hero {
+        min-height: 220px;
+        padding: 40px 16px;
+      }
+
+      .footer-bottom-grid {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-legal {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===================================================
+       SHARED HEADER
+  ==================================================== -->
+  <header id="main-header" class="header" role="banner">
+    <div class="header-top">
+      <div class="container">
+        <div class="header-top-left">
+          <span><i class="fas fa-phone-alt"></i> +91 87501 41860</span>
+          <span><i class="fas fa-envelope"></i> mahisehrawat2006@gmail.com</span>
+        </div>
+        <div class="header-top-right">
+          <span><i class="fas fa-clock"></i> Open: 10am – 11pm, 7 days a week</span>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav id="main-nav" class="navbar" role="navigation" aria-label="Main navigation">
+      <div class="container">
+        <a href="index.html" class="logo" aria-label="IceWorld Home">
+          <span class="logo-icon"><i class="fas fa-ice-cream"></i></span>
+          <span class="logo-text">Ice<span class="logo-accent">World</span></span>
+        </a>
+        <ul class="nav-links" id="nav-links" role="list">
+          <li class="has-dropdown">
+            <a href="menu.html" class="nav-link active" aria-current="page">Menu <i class="fas fa-chevron-down"></i></a>
+            <ul class="dropdown-menu" role="list">
+              <li><a href="menu.html#classic-scoops">Classic Scoops</a></li>
+              <li><a href="menu.html#sundaes">Sundaes</a></li>
+              <li><a href="menu.html#milkshakes">Milkshakes</a></li>
+              <li><a href="menu.html#gelato">Gelato</a></li>
+              <li><a href="menu.html#sorbet">Sorbet &amp; Vegan</a></li>
+              <li><a href="menu.html#waffles">Waffles &amp; Crepes</a></li>
+            </ul>
+          </li>
+          <li><a href="about.html" class="nav-link">About Us</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button class="btn-icon" id="wishlist-btn" aria-label="Wishlist">
+            <i class="fas fa-heart"></i>
+            <span class="badge" id="wishlist-count" hidden>0</span>
+          </button>
+          <button class="btn-icon" id="cart-btn" aria-label="Shopping cart">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="badge" id="cart-count">0</span>
+          </button>
+          <button class="hamburger" id="hamburger-btn" aria-label="Open menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===================================================
+       PAGE HERO
+  ==================================================== -->
+  <section class="page-hero" aria-label="Menu page hero">
+    <div class="page-hero-content">
+      <h1>Our Full Menu 🍦</h1>
+      <p class="page-hero-subtitle">Explore all our handcrafted flavours — 18 signature creations, with seasonal specials all year</p>
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html"><i class="fas fa-home"></i> Home</a>
+        <span class="breadcrumb-sep"><i class="fas fa-chevron-right"></i></span>
+        <span>Menu</span>
+      </nav>
+    </div>
+  </section>
+
+  <!-- ===================================================
+       FILTER BAR
+  ==================================================== -->
+  <section class="filter-bar" id="filter-bar" aria-label="Menu filters">
+    <div class="container">
+      <div class="filter-tabs" role="group" aria-label="Filter by category">
+        <button class="filter-tab active" data-filter="all">All</button>
+        <button class="filter-tab" data-filter="classic">Classic Scoops</button>
+        <button class="filter-tab" data-filter="sundae">Sundaes</button>
+        <button class="filter-tab" data-filter="milkshake">Milkshakes</button>
+        <button class="filter-tab" data-filter="gelato">Gelato</button>
+        <button class="filter-tab" data-filter="sorbet">Sorbet &amp; Vegan</button>
+        <button class="filter-tab" data-filter="waffle">Waffles &amp; Crepes</button>
+      </div>
+      <div class="filter-controls">
+        <div class="search-wrap">
+          <i class="fas fa-search"></i>
+          <input type="search" id="menu-search" placeholder="Search flavours…" aria-label="Search menu" />
+        </div>
+        <select id="sort-select" aria-label="Sort menu items">
+          <option value="default">Sort by: Featured</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+          <option value="name-asc">Name: A–Z</option>
+        </select>
+        <div class="price-filter">
+          <label for="price-range">Max Price: ₹<span id="price-display">2000</span></label>
+          <input type="range" id="price-range" min="100" max="2000" value="2000" step="50" aria-label="Maximum price filter" />
+        </div>
+        <p class="results-count" id="results-count" aria-live="polite">Showing 18 items</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================
+       MAIN MENU CONTENT
+  ==================================================== -->
+  <main class="menu-main" id="menu-content" aria-label="Menu items">
+    <div class="container">
+
+      <!-- =============================================
+           SECTION 1: CLASSIC SCOOPS
+      ============================================== -->
+      <section class="menu-section reveal" id="classic-scoops" aria-labelledby="classic-heading">
+        <div class="section-header">
+          <div class="section-icon" aria-hidden="true">
+            <i class="fas fa-ice-cream"></i>
+          </div>
+          <div>
+            <h2 class="section-title" id="classic-heading">Classic <span>Scoops</span></h2>
+            <div class="section-divider"></div>
+          </div>
+        </div>
+
+        <div class="product-grid">
+
+          <!-- Card 1: Double Vanilla Dream -->
+          <article class="product-card reveal"
+                   data-category="classic"
+                   data-price="419"
+                   data-name="double vanilla dream"
+                   aria-label="Double Vanilla Dream product card">
+            <div class="product-img-wrapper">
+              <img src="images/1.svg" alt="Double Vanilla Dream" class="product-card-img" loading="lazy" />
+            </div>
+            <span class="card-badge badge-classic">Classic</span>
+            <span class="badge-sale-tag">Sale</span>
+            <button class="btn-wishlist" aria-label="Add Double Vanilla Dream to wishlist">
+              <i class="fas fa-heart"></i>
+            </button>
+            <div class="product-body">
+              <h3 class="product-name">Double Vanilla Dream</h3>
+              <p class="product-desc">Rich double vanilla bean ice cream with a creamy, dreamy texture. Made from hand-sourced vanilla pods.</p>
+              <div class="product-price">
+                <span class="price-current">₹419</span>
+                <span class="price-old">₹579</span>
+              </div>
+            </div>
+            <div class="product-footer">
+              <button class="btn-add-cart" aria-label="Add Double Vanilla Dream to cart">
+                <i class="fas fa-cart-plus"></i> Add to Cart
+              </button>
+            </div>
+          </article>
+
+          <!-- Card 2: Fresh Strawberry Swirl -->
+          <article class="product-card reveal"
+                   data-category="classic"
+                   data-price="459"
+                   data-name="fresh strawberry swirl"
+                   aria-label="Fresh Strawberry Swirl product card">
+            <div class="product-img-wrapper">
+              <img src="images/2.svg" alt="Fresh Strawberry Swirl" class="product-card-img" loading="lazy" />
+            </div>
+            <span class="card-badge badge-classic">Classic</span>
+            <button class="btn-wishlist" aria-label="Add Fresh Strawberry Swirl to wishlist">
+              <i class="fas fa-heart"></i>
+            </button>
+            <div class="product-body">
+              <h3 class="product-name">Fresh Strawberry Swirl</h3>
+              <p class="product-desc">Fresh strawberries swirled into our signature cream base. Bursting with natural fruit flavour every bite.</p>
+              <div class="product-price">
+                <span class="price-current">₹459</span>
+              </div>
+            </div>
+            <div class="product-footer">
+              <button class="btn-add-cart" aria-label="Add Fresh Strawberry Swirl to cart">
+                <i class="fas fa-cart-plus"></i> Add to Cart
+              </button>
+            </div>
+          </article>
+
+          <!-- Card 3: Triple Choco Blast -->
+          <article class="product-card reveal"
+                   data-category="classic"
+                   data-price="499"
+                   data-name="triple choco blast"
+                   aria-label="Triple Choco Blast product card">
+            <div class="product-img-wrapper">
+              <img src="images/3.svg" alt="Triple Choco Blast" class="product-card-img" loading="lazy" />
+            </div>
+            <span class="card-badge badge-classic">Classic</span>
+            <button class="btn-wishlist" aria-label="Add Triple Choco Blast to wishlist">
+              <i class="fas fa-heart"></i>
+            </button>
+            <div class="product-body">
+              <h3 class="product-name">Triple Choco Blast</h3>
+              <p class="product-desc">Three types of chocolate blended into one spectacular scoop. Dark, milk, and white chocolate united.</p>
+              <div class="product-price">
+                <span class="price-current">₹499</span>
+              </div>
+            </div>
+            <div class="product-footer">
+              <button class="btn-add-cart" aria-label="Add Triple Choco Blast to cart">
+                <i class="fas fa-cart-plus"></i> Add to Cart
+              </button>
+            </div>
+          </article>
+
+          <!-- Card 4: Mint Choc Chip -->
+          <article class="product-card reveal"
+                   data-category="classic"
+                   data-price="439"
+                   data-name="mint choc chip"
+                   aria-label="Mint Choc Chip product card">
+            <div class="product-img-wrapper">
+              <img src="images/4.svg" alt="Mint Choc Chip" class="product-card-img" loading="lazy" />
+            </div>
+            <span class="card-badge badge-classic">Classic</span>
+            <button class="btn-wishlist" aria-label="Add Mint Choc Chip to wishlist">
+              <i class="fas fa-heart"></i>
+            </button>
+            <div class="product-body">
+              <h3 class="product-name">Mint Choc Chip</h3>
+              <p class="product-desc">Cool refreshing mint ice cream loaded with chocolate chips. A timeless pairing loved by generations.</p>
+              <div class="product-price">
+                <span class="price-current">₹439</span>
+              </div>
+            </div>
+            <div class="product-footer">
+              <button class="btn-add-cart" aria-label="Add Mint Choc Chip to cart">
+                <i class="fas fa-cart-plus"></i> Add to Cart
+              </button>
+            </div>
+          </article>
+
+          <!-- Card 5: Butter Pecan Scoop -->
+          <article class="product-card reveal"
+                   data-category="classic"
+                   data-price="479"
+                   data-name="butter pecan scoop"
+                   aria-label="Butter Pecan Scoop product card">
+            <div class="product-img-wrapper">
+              <img src="images/1.svg" alt="Butter Pecan Scoop" class="product-card-img" loading="lazy" />
+            </div>
+            <span class="card-badge badge-classic">Classic</span>
+            <button class="btn-wishlist" aria-label="Add Butter Pecan Scoop to wishlist">
+              <i class="fas fa-heart"></i>
+            </button>
+            <div class="product-body">
+              <h3 class="product-name">Butter Pecan Scoop</h3>
+              <p class="product-desc">Buttery ice cream with roasted pecan pieces throughout. Rich, nutty, and utterly satisfying.</p>
+              <div class="product-price">
+                <span class="price-current">₹479</span>
+              </div>
+            </div>
+            <div class="product-footer">
+              <button class="btn-add-cart" aria-label="Add Butter Pecan Scoop to cart">
+                <i class="fas fa-cart-plus"></i> Add to Cart
+              </button>
+            </div>
+          </article>
+
+        </div><!-- /.product-grid -->
+      </section>
+
+      <!-- =============================================
+           SECTION 2: SUNDAES
+      ============================================== -->
+      <section class="menu-section reveal" id="sundaes" aria-labelledby="sundaes-heading">
+        <div class="section-header">
+          <div class="section-icon" aria-hidden="true">
+            <i class="fas fa-sun"></i>
+          </div>
+          <div>
+            <h2 class="section-title" id="sundaes-heading"><span>Sundaes</span></h2>
+            <div class="section-divider"></div>
+          </div>
+        </div>
+
+        <div class="product-grid">
+
+          <!-- Card 6: Chocolate Fudge Sundae -->
+          <article class="product-card reveal"
+                   data-category="sundae"
+                   data-price="749"
+                   data-name="chocolate fudge sundae"
+                   aria-label="Chocolate Fudge Sundae product card">
+            <div class="product-img-wrapper">
+              <img src="images/2.svg" alt="Chocolate Fudge Sundae" class="product-card-img" loading="lazy" />
+            </div>
+            <span class="card-badge badge-sundae">Sundae</span>
+            <span class="badge-sale-tag">Sale</span>
+            <button class="btn-wishlist" aria-label="Add Chocolate Fudge Sundae to wishlist">
+              <i class="fas fa-heart"></i>
+            </button>
+            <div class="product-body">
+              <h3 class="product-name">Chocolate Fudge Sundae</h3>
+              <p class="product-desc">Three scoops topped with hot fudge, whipped cream and cherry. The ultimate indulgence in every spoonful.</p>
+              <div class="product-price">
+                <span class="price-current">₹749</span>
+                <span class="price-old">₹999</span>
+              </div>
+            </div>
+            <div class="product-footer">
+              <button class="btn-add-cart" aria-label="Add Chocolate Fudge Sundae to cart">
+                <i class="fas fa-cart-plus"></i> Add to Cart
+              </button>
+            </div>
+          </article>
+
+          <!-- Card 7: Rainbow Sprinkle Sundae -->
+          <article class="product-card reveal"
+                   data-category="sundae"
+                   data-price="789"
+                   data-name="rainbow sprinkle sundae"
+                   aria-label="Rainbow Sprinkle Sundae product card">
+            <div class="product-img-wrapper">
+              <img src="images/3.svg" alt="Rainbow Sprinkle Sundae" class="product-card-img" loading="lazy" />
+            </div>
+            <span class="card-badge badge-sundae">Sundae</span>
+            <button class="btn-wishlist" aria-label="Add Rainbow Sprinkle Sundae to wishlist">
+              <i class="fas fa-heart"></i>
+            </button>
+            <div class="product-body">
+              <h3 class="product-name">Rainbow Sprinkle Sundae</h3>
+              <p class="product-desc">Colourful sundae with rainbow sprinkles and fruit sauce. Vibrant, joyful, and absolutely delicious.</p>
+              <div class="product-price">
+                <span class="price-current">₹789</span>
+              </div>
+            </div>
+            <div class="product-footer">
+              <button class="btn-add-cart" aria-label="Add Rainbow Sprinkle Sundae to cart">
+                <i class="fas fa-cart-plus"></i> Add to Cart
+              </button>
+            </div>
+          </article>
+
+          <!-- Card 8: Banana Split Classic -->
+          <article class="product-card reveal"
+                   data-category="sundae"
+                   data-price="659"
+                   data-name="banana split classic"
+                   aria-label="Banana Split Classic product card">
+            <div class="product-img-wrapper">
+              <img src="images/4.svg" alt="Banana Split Classic" class="product-card-img" loading="lazy" />
+            </div>
+            <span class="card-badge badge-sundae">Sundae</span>
+            <button class="btn-wishlist" aria-label="Add Banana Split Classic to wishlist">
+              <i class="fas fa-heart"></i>
+            </button>
+            <div class="product-body">
+              <h3 class="product-name">Banana Split Classic</h3>
+              <p class="product-desc">Banana split with three flavours, nuts, and whipped cream. A classic American dessert perfected with love.</p>
+              <div class="product-price">
+                <span class="price-current">₹659</span>
+              </div>
+            </div>
+            <div class="product-footer">
+              <button class="btn-add-cart" aria-label="Add Banana Split Classic to cart">
+                <i class="fas fa-cart-plus"></i> Add to Cart
+              </button>
+            </div>
+          </article>
+
+        </div><!-- /.product-grid -->
+      </section>
+
+      <!-- =============================================
+           SECTION 3: MILKSHAKES
+      ============================================== -->
+      <section class="menu-section reveal" id="milkshakes" aria-labelledby="milkshakes-heading">
+        <div class="section-header">
+          <div class="section-icon" aria-hidden="true">
+            <i class="fas fa-blender"></i>
+          </div>
+          <div>
+            <h2 class="section-title" id="milkshakes-heading">Milk<span>shakes</span></h2>
+            <div class="section-divider"></div>
+          </div>
+        </div>
+
+        <div class="product-grid">
+
+          <!-- Card 9: Oreo Crunch Milkshake -->
+          <article class="product-card reveal"
+                   data-category="milkshake"
+                   data-price="579"
+                   data-name="oreo crunch milkshake"
+                   aria-label="Oreo Crunch Milkshake product card">
+            <div class="product-img-wrapper">
+              <img src="images/1.svg" alt="Oreo Crunch Milkshake" class="product-card-img" loading="lazy" />
+            </div>
+            <span class="card-badge badge-milkshake">Milkshake</span>
+            <button class="btn-wishlist" aria-label="Add Oreo Crunch Milkshake to wishlist">
+              <i class="fas fa-heart"></i>
+            </button>
+            <div class="product-body">
+              <h3 class="product-name">Oreo Crunch Milkshake</h3>
+              <p class="product-desc">Thick and creamy milkshake blended with crushed Oreo cookies. Served with a generous whipped cream top.</p>
+              <div class="product-price">
+                <span class="price-current">₹579</span>
+              </div>
+            </div>
+            <div class="product-footer">
+              <button class="btn-add-cart" aria-label="Add Oreo Crunch Milkshake to cart">
+                <i class="fas fa-cart-plus"></i> Add to Cart
+              </button>
+            </div>
+          </article>
+
+          <!-- Card 10: Strawberry Bliss Shake -->
+          <article class="product-card reveal"
+                   data-category="milkshake"
+                   data-price="619"
+                   data-name="strawberry bliss shake"
+                   aria-label="Strawberry Bliss Shake product card">
+            <div class="product-img-wrapper">
+              <img src="images/2.svg" alt="Strawberry Bliss Shake" class="product-card-img" loading="lazy" />
+            </div>
+            <span class="card-badge badge-milkshake">Milkshake</span>
+            <button class="btn-wishlist" aria-label="Add Strawberry Bliss Shake to wishlist">
+              <i class="fas fa-heart"></i>
+            </button>
+            <div class="product-body">
+              <h3 class="product-name">Strawberry Bliss Shake</h3>
+              <p class="product-desc">Fresh strawberry milkshake with a velvety smooth texture. Made with real fruit and our creamiest ice cream.</p>
+              <div class="product-price">
+                <span class="price-current">₹619</span>
+              </div>
+            </div>
+            <div class="product-footer">
+              <button class="btn-add-cart" aria-label="Add Strawberry Bliss Shake to cart">
+                <i class="fas fa-cart-plus"></i> Add to Cart
+              </button>
+            </div>
+          </article>
+
+        </div><!-- /.product-grid -->
+      </section>
+
+      <!-- =============================================
+           SECTION 4: GELATO
+      ============================================== -->
+      <section class="menu-section reveal" id="gelato" aria-labelledby="gelato-heading">
+        <div class="section-header">
+          <div class="section-icon" aria-hidden="true">
+            <i class="fas fa-star"></i>
+          </div>
+          <div>
+            <h2 class="section-title" id="gelato-heading">Artisan <span>Gelato</span></h2>
+            <div class="section-divider"></div>
+          </div>
+        </div>
+
+        <div class="product-grid">
+
+          <!-- Card 11: Pistachio Gelato -->
+          <article class="product-card reveal"
+                   data-category="gelato"
+                   data-price="499"
+                   data-name="pistachio gelato"
+                   aria-label="Pistachio Gelato product card">
+            <div class="product-img-wrapper">
+              <img src="images/3.svg" alt="Pistachio Gelato" class="product-card-img" loading="lazy" />
+            </div>
+            <span class="card-badge badge-gelato">Gelato</span>
+            <button class="btn-wishlist" aria-label="Add Pistachio Gelato to wishlist">
+              <i class="fas fa-heart"></i>
+            </button>
+            <div class="product-body">
+              <h3 class="product-name">Pistachio Gelato</h3>
+              <p class="product-desc">Authentic Italian-style gelato made with Sicilian pistachios. Dense, silky, and irresistibly nutty.</p>
+              <div class="product-price">
+                <span class="price-current">₹499</span>
+              </div>
+            </div>
+            <div class="product-footer">
+              <button class="btn-add-cart" aria-label="Add Pistachio Gelato to cart">
+                <i class="fas fa-cart-plus"></i> Add to Cart
+              </button>
+            </div>
+          </article>
+
+          <!-- Card 12: Hazelnut Espresso Gelato -->
+          <article class="product-card reveal"
+                   data-category="gelato"
+                   data-price="539"
+                   data-name="hazelnut espresso gelato"
+                   aria-label="Hazelnut Espresso Gelato product card">
+            <div class="product-img-wrapper">
+              <img src="images/4.svg" alt="Hazelnut Espresso Gelato" class="product-card-img" loading="lazy" />
+            </div>
+            <span class="card-badge badge-gelato">Gelato</span>
+            <button class="btn-wishlist" aria-label="Add Hazelnut Espresso Gelato to wishlist">
+              <i class="fas fa-heart"></i>
+            </button>
+            <div class="product-body">
+              <h3 class="product-name">Hazelnut Espresso Gelato</h3>
+              <p class="product-desc">Rich hazelnut gelato with an espresso swirl for coffee lovers. The perfect pick-me-up dessert.</p>
+              <div class="product-price">
+                <span class="price-current">₹539</span>
+              </div>
+            </div>
+            <div class="product-footer">
+              <button class="btn-add-cart" aria-label="Add Hazelnut Espresso Gelato to cart">
+                <i class="fas fa-cart-plus"></i> Add to Cart
+              </button>
+            </div>
+          </article>
+
+        </div><!-- /.product-grid -->
+      </section>
+
+      <!-- =============================================
+           SECTION 5: SORBET & VEGAN
+      ============================================== -->
+      <section class="menu-section reveal" id="sorbet" aria-labelledby="sorbet-heading">
+        <div class="section-header">
+          <div class="section-icon" aria-hidden="true">
+            <i class="fas fa-leaf"></i>
+          </div>
+          <div>
+            <h2 class="section-title" id="sorbet-heading">Sorbet <span>&amp; Vegan</span></h2>
+            <div class="section-divider"></div>
+          </div>
+        </div>
+
+        <div class="product-grid">
+
+          <!-- Card 13: Mango Tango Sorbet -->
+          <article class="product-card reveal"
+                   data-category="sorbet"
+                   data-price="379"
+                   data-name="mango tango sorbet"
+                   aria-label="Mango Tango Sorbet product card">
+            <div class="product-img-wrapper">
+              <img src="images/1.svg" alt="Mango Tango Sorbet" class="product-card-img" loading="lazy" />
+            </div>
+            <span class="card-badge badge-sorbet">Sorbet</span>
+            <button class="btn-wishlist" aria-label="Add Mango Tango Sorbet to wishlist">
+              <i class="fas fa-heart"></i>
+            </button>
+            <div class="product-body">
+              <h3 class="product-name">Mango Tango Sorbet</h3>
+              <p class="product-desc">100% fruit sorbet made from Alphonso mangoes. Vegan, dairy-free, and gloriously tropical.</p>
+              <div class="product-price">
+                <span class="price-current">₹379</span>
+              </div>
+            </div>
+            <div class="product-footer">
+              <button class="btn-add-cart" aria-label="Add Mango Tango Sorbet to cart">
+                <i class="fas fa-cart-plus"></i> Add to Cart
+              </button>
+            </div>
+          </article>
+
+          <!-- Card 14: Raspberry Lemon Sorbet -->
+          <article class="product-card reveal"
+                   data-category="sorbet"
+                   data-price="359"
+                   data-name="raspberry lemon sorbet"
+                   aria-label="Raspberry Lemon Sorbet product card">
+            <div class="product-img-wrapper">
+              <img src="images/2.svg" alt="Raspberry Lemon Sorbet" class="product-card-img" loading="lazy" />
+            </div>
+            <span class="card-badge badge-sorbet">Sorbet</span>
+            <button class="btn-wishlist" aria-label="Add Raspberry Lemon Sorbet to wishlist">
+              <i class="fas fa-heart"></i>
+            </button>
+            <div class="product-body">
+              <h3 class="product-name">Raspberry Lemon Sorbet</h3>
+              <p class="product-desc">Zesty raspberry and lemon sorbet, dairy-free and refreshing. A palate-cleansing summer delight.</p>
+              <div class="product-price">
+                <span class="price-current">₹359</span>
+              </div>
+            </div>
+            <div class="product-footer">
+              <button class="btn-add-cart" aria-label="Add Raspberry Lemon Sorbet to cart">
+                <i class="fas fa-cart-plus"></i> Add to Cart
+              </button>
+            </div>
+          </article>
+
+          <!-- Card 15: Lychee Sorbet -->
+          <article class="product-card reveal"
+                   data-category="sorbet"
+                   data-price="519"
+                   data-name="lychee sorbet"
+                   aria-label="Lychee Sorbet product card">
+            <div class="product-img-wrapper">
+              <img src="images/3.svg" alt="Lychee Sorbet" class="product-card-img" loading="lazy" />
+            </div>
+            <span class="card-badge badge-sorbet">Sorbet</span>
+            <button class="btn-wishlist" aria-label="Add Lychee Sorbet to wishlist">
+              <i class="fas fa-heart"></i>
+            </button>
+            <div class="product-body">
+              <h3 class="product-name">Lychee Sorbet</h3>
+              <p class="product-desc">Exotic lychee sorbet with floral notes. Vegan and gluten-free. Light, perfumed, and utterly unique.</p>
+              <div class="product-price">
+                <span class="price-current">₹519</span>
+              </div>
+            </div>
+            <div class="product-footer">
+              <button class="btn-add-cart" aria-label="Add Lychee Sorbet to cart">
+                <i class="fas fa-cart-plus"></i> Add to Cart
+              </button>
+            </div>
+          </article>
+
+        </div><!-- /.product-grid -->
+      </section>
+
+      <!-- =============================================
+           SECTION 6: WAFFLES & CREPES
+      ============================================== -->
+      <section class="menu-section reveal" id="waffles" aria-labelledby="waffles-heading">
+        <div class="section-header">
+          <div class="section-icon" aria-hidden="true">
+            <i class="fas fa-cookie-bite"></i>
+          </div>
+          <div>
+            <h2 class="section-title" id="waffles-heading">Waffles <span>&amp; Crepes</span></h2>
+            <div class="section-divider"></div>
+          </div>
+        </div>
+
+        <div class="product-grid">
+
+          <!-- Card 16: Belgian Waffle Stack -->
+          <article class="product-card reveal"
+                   data-category="waffle"
+                   data-price="919"
+                   data-name="belgian waffle stack"
+                   aria-label="Belgian Waffle Stack product card">
+            <div class="product-img-wrapper">
+              <img src="images/4.svg" alt="Belgian Waffle Stack" class="product-card-img" loading="lazy" />
+            </div>
+            <span class="card-badge badge-waffle">Waffle</span>
+            <span class="badge-sale-tag">Sale</span>
+            <button class="btn-wishlist" aria-label="Add Belgian Waffle Stack to wishlist">
+              <i class="fas fa-heart"></i>
+            </button>
+            <div class="product-body">
+              <h3 class="product-name">Belgian Waffle Stack</h3>
+              <p class="product-desc">Belgian waffles stacked with ice cream scoops and toppings. Crispy outside, fluffy inside — sheer perfection.</p>
+              <div class="product-price">
+                <span class="price-current">₹919</span>
+                <span class="price-old">₹1,159</span>
+              </div>
+            </div>
+            <div class="product-footer">
+              <button class="btn-add-cart" aria-label="Add Belgian Waffle Stack to cart">
+                <i class="fas fa-cart-plus"></i> Add to Cart
+              </button>
+            </div>
+          </article>
+
+          <!-- Card 17: Nutella Crepe Delight -->
+          <article class="product-card reveal"
+                   data-category="waffle"
+                   data-price="829"
+                   data-name="nutella crepe delight"
+                   aria-label="Nutella Crepe Delight product card">
+            <div class="product-img-wrapper">
+              <img src="images/1.svg" alt="Nutella Crepe Delight" class="product-card-img" loading="lazy" />
+            </div>
+            <span class="card-badge badge-waffle">Waffle</span>
+            <button class="btn-wishlist" aria-label="Add Nutella Crepe Delight to wishlist">
+              <i class="fas fa-heart"></i>
+            </button>
+            <div class="product-body">
+              <h3 class="product-name">Nutella Crepe Delight</h3>
+              <p class="product-desc">Thin crepes filled with Nutella and vanilla ice cream. Folded into quarters and dusted with powdered sugar.</p>
+              <div class="product-price">
+                <span class="price-current">₹829</span>
+              </div>
+            </div>
+            <div class="product-footer">
+              <button class="btn-add-cart" aria-label="Add Nutella Crepe Delight to cart">
+                <i class="fas fa-cart-plus"></i> Add to Cart
+              </button>
+            </div>
+          </article>
+
+          <!-- Card 18: Dark Choco Waffle -->
+          <article class="product-card reveal"
+                   data-category="waffle"
+                   data-price="959"
+                   data-name="dark choco waffle"
+                   aria-label="Dark Choco Waffle product card">
+            <div class="product-img-wrapper">
+              <img src="images/2.svg" alt="Dark Choco Waffle" class="product-card-img" loading="lazy" />
+            </div>
+            <span class="card-badge badge-waffle">Waffle</span>
+            <span class="badge-sale-tag">Sale</span>
+            <button class="btn-wishlist" aria-label="Add Dark Choco Waffle to wishlist">
+              <i class="fas fa-heart"></i>
+            </button>
+            <div class="product-body">
+              <h3 class="product-name">Dark Choco Waffle</h3>
+              <p class="product-desc">Dark chocolate waffle with premium chocolate ice cream. Intensely chocolatey for the true connoisseur.</p>
+              <div class="product-price">
+                <span class="price-current">₹959</span>
+                <span class="price-old">₹1,249</span>
+              </div>
+            </div>
+            <div class="product-footer">
+              <button class="btn-add-cart" aria-label="Add Dark Choco Waffle to cart">
+                <i class="fas fa-cart-plus"></i> Add to Cart
+              </button>
+            </div>
+          </article>
+
+        </div><!-- /.product-grid -->
+      </section>
+
+      <!-- =============================================
+           EMPTY STATE
+      ============================================== -->
+      <div class="empty-state" id="empty-state" hidden role="status" aria-live="polite">
+        <i class="fas fa-search fa-3x" aria-hidden="true"></i>
+        <h3>No results found</h3>
+        <p>Try a different search term or adjust the filters.</p>
+        <button id="empty-state-reset">Clear Filters</button>
+      </div>
+
+    </div><!-- /.container -->
+  </main>
+
+  <!-- ===================================================
+       SHARED FOOTER
+  ==================================================== -->
+  <footer id="main-footer" class="footer" role="contentinfo">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+          <!-- Brand column -->
+          <div class="footer-col footer-brand">
+            <a href="index.html" class="logo" aria-label="IceWorld Home">
+              <span class="logo-icon"><i class="fas fa-ice-cream"></i></span>
+              <span class="logo-text">Ice<span class="logo-accent">World</span></span>
+            </a>
+            <p class="footer-brand-desc">Handcrafted ice cream made with love and the finest natural ingredients. Bringing joy one scoop at a time since 2009.</p>
+            <div class="social-links">
+              <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+              <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="footer-col">
+            <h3 class="footer-heading">Quick Links</h3>
+            <ul class="footer-links" role="list">
+              <li><a href="menu.html">Full Menu</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- Categories -->
+          <div class="footer-col">
+            <h3 class="footer-heading">Categories</h3>
+            <ul class="footer-links" role="list">
+              <li><a href="menu.html#classic-scoops">Classic Scoops</a></li>
+              <li><a href="menu.html#sundaes">Sundaes</a></li>
+              <li><a href="menu.html#milkshakes">Milkshakes</a></li>
+              <li><a href="menu.html#gelato">Gelato</a></li>
+              <li><a href="menu.html#sorbet">Sorbet &amp; Vegan</a></li>
+              <li><a href="menu.html#waffles">Waffles &amp; Crepes</a></li>
+            </ul>
+          </div>
+
+          <!-- Our Owners / Contact -->
+          <div class="footer-col">
+            <h3 class="footer-heading">Our Owners</h3>
+            <ul class="footer-contact-list" role="list">
+              <li><i class="fas fa-user-tie" aria-hidden="true"></i><span>Mahi Sehrawat</span></li>
+              <li><i class="fas fa-phone-alt" aria-hidden="true"></i><a href="tel:+918750141860">+91 87501 41860</a></li>
+              <li><i class="fas fa-envelope" aria-hidden="true"></i><a href="mailto:mahisehrawat2006@gmail.com">mahisehrawat2006@gmail.com</a></li>
+              <li><i class="fas fa-user-tie" aria-hidden="true"></i><span>Priyanshi</span></li>
+              <li><i class="fas fa-phone-alt" aria-hidden="true"></i><a href="tel:+918368573180">+91 83685 73180</a></li>
+              <li><i class="fas fa-envelope" aria-hidden="true"></i><a href="mailto:priyadaksh007@gmail.com">priyadaksh007@gmail.com</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="footer-bottom-grid">
+          <p class="footer-copyright">&copy; <span class="footer-year"></span> IceWorld. All rights reserved. Made with <i class="fas fa-heart" aria-hidden="true"></i> and ice cream.</p>
+          <ul class="footer-legal" role="list">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to Top -->
+  <button id="scroll-to-top" class="scroll-to-top" aria-label="Scroll to top" hidden>
+    <i class="fas fa-chevron-up" aria-hidden="true"></i>
+  </button>
+
+  <!-- External JS -->
+  <script src="js/script.js"></script>
+
+  <!-- SHARED INLINE SCRIPT -->
+  <script>
+    // Footer year
+    document.querySelectorAll('.footer-year').forEach(el => el.textContent = new Date().getFullYear());
+
+    // Hamburger menu toggle
+    const ham = document.getElementById('hamburger-btn');
+    const navL = document.getElementById('nav-links');
+    if (ham && navL) {
+      ham.addEventListener('click', () => {
+        const open = ham.getAttribute('aria-expanded') === 'true';
+        ham.setAttribute('aria-expanded', String(!open));
+        navL.classList.toggle('nav-open');
+      });
+    }
+
+    // Sticky header shadow
+    window.addEventListener('scroll', () => {
+      document.getElementById('main-header')?.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Intersection observer for .reveal elements
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('revealed');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Scroll to top button
+    const stt = document.getElementById('scroll-to-top');
+    if (stt) {
+      window.addEventListener('scroll', () => { stt.hidden = window.scrollY < 400; });
+      stt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    }
+
+    // Active nav link based on current page
+    document.querySelectorAll('.nav-link').forEach(a => {
+      if (
+        a.getAttribute('href') === location.pathname.split('/').pop() ||
+        (location.pathname.endsWith('/') && a.getAttribute('href') === 'index.html')
+      ) {
+        a.classList.add('active');
+      }
+    });
+  </script>
+
+  <!-- MENU-SPECIFIC FILTER + SEARCH + SORT SCRIPT -->
+  <script>
+    (function () {
+      const allCards     = Array.from(document.querySelectorAll('.product-card'));
+      const filterTabs   = document.querySelectorAll('.filter-tab');
+      const searchInput  = document.getElementById('menu-search');
+      const sortSelect   = document.getElementById('sort-select');
+      const priceRange   = document.getElementById('price-range');
+      const priceDisplay = document.getElementById('price-display');
+      const resultsCount = document.getElementById('results-count');
+      const emptyState   = document.getElementById('empty-state');
+
+      let currentFilter   = 'all';
+      let currentSearch   = '';
+      let currentSort     = 'default';
+      let currentMaxPrice = 2000;
+
+      function applyFilters() {
+        let visible = allCards.filter(card => {
+          const cat   = card.dataset.category || '';
+          const price = parseInt(card.dataset.price) || 0;
+          const name  = (card.dataset.name || card.querySelector('.product-name')?.textContent || '').toLowerCase();
+          const desc  = (card.querySelector('.product-desc')?.textContent || '').toLowerCase();
+
+          const matchCat    = currentFilter === 'all' || cat === currentFilter;
+          const matchPrice  = price <= currentMaxPrice;
+          const matchSearch = !currentSearch || name.includes(currentSearch) || desc.includes(currentSearch);
+
+          return matchCat && matchPrice && matchSearch;
+        });
+
+        // Sort visible results
+        if (currentSort === 'price-asc') {
+          visible.sort((a, b) => parseInt(a.dataset.price) - parseInt(b.dataset.price));
+        } else if (currentSort === 'price-desc') {
+          visible.sort((a, b) => parseInt(b.dataset.price) - parseInt(a.dataset.price));
+        } else if (currentSort === 'name-asc') {
+          visible.sort((a, b) => {
+            const na = a.querySelector('.product-name')?.textContent || '';
+            const nb = b.querySelector('.product-name')?.textContent || '';
+            return na.localeCompare(nb);
+          });
+        }
+
+        const visibleSet = new Set(visible);
+
+        // Show/hide cards
+        allCards.forEach(card => {
+          card.style.display = visibleSet.has(card) ? '' : 'none';
+        });
+
+        // Reorder visible cards within their parent grid
+        visible.forEach(card => card.parentNode?.appendChild(card));
+
+        // Update results count text
+        const count = visible.length;
+        if (resultsCount) {
+          resultsCount.textContent = `Showing ${count} item${count !== 1 ? 's' : ''}`;
+        }
+
+        // Show/hide empty state
+        if (emptyState) emptyState.hidden = count > 0;
+      }
+
+      // Category filter tab clicks
+      filterTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          filterTabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          currentFilter = tab.dataset.filter;
+          applyFilters();
+        });
+      });
+
+      // Search input
+      if (searchInput) {
+        searchInput.addEventListener('input', () => {
+          currentSearch = searchInput.value.toLowerCase().trim();
+          applyFilters();
+        });
+      }
+
+      // Sort select
+      if (sortSelect) {
+        sortSelect.addEventListener('change', () => {
+          currentSort = sortSelect.value;
+          applyFilters();
+        });
+      }
+
+      // Price range slider
+      if (priceRange) {
+        priceRange.addEventListener('input', () => {
+          currentMaxPrice = parseInt(priceRange.value);
+          if (priceDisplay) priceDisplay.textContent = currentMaxPrice;
+          applyFilters();
+        });
+      }
+
+      // Wishlist toggle
+      document.querySelectorAll('.btn-wishlist').forEach(btn => {
+        btn.addEventListener('click', function () {
+          this.classList.toggle('wishlisted');
+          const countEl = document.getElementById('wishlist-count');
+          if (countEl) {
+            let n = parseInt(countEl.textContent) || 0;
+            n = this.classList.contains('wishlisted') ? n + 1 : Math.max(0, n - 1);
+            countEl.textContent = n;
+            countEl.hidden = n === 0;
+          }
+        });
+      });
+
+      // Add to Cart buttons
+      document.querySelectorAll('.btn-add-cart').forEach(btn => {
+        btn.addEventListener('click', function () {
+          const countEl = document.getElementById('cart-count');
+          if (countEl) {
+            countEl.textContent = parseInt(countEl.textContent || 0) + 1;
+          }
+          const orig = this.innerHTML;
+          this.innerHTML = '<i class="fas fa-check"></i> Added!';
+          this.style.background = '#4caf50';
+          setTimeout(() => {
+            this.innerHTML = orig;
+            this.style.background = '';
+          }, 1500);
+        });
+      });
+
+      // Empty-state "Clear Filters" button
+      const resetBtn = document.getElementById('empty-state-reset');
+      if (resetBtn) resetBtn.addEventListener('click', () => resetFilters());
+
+      // Global reset function (exposed for external callers)
+      window.resetFilters = function () {
+        currentFilter   = 'all';
+        currentSearch   = '';
+        currentSort     = 'default';
+        currentMaxPrice = 2000;
+
+        filterTabs.forEach(t => t.classList.toggle('active', t.dataset.filter === 'all'));
+        if (searchInput)  searchInput.value   = '';
+        if (sortSelect)   sortSelect.value    = 'default';
+        if (priceRange)   { priceRange.value  = 2000; if (priceDisplay) priceDisplay.textContent = 2000; }
+
+        applyFilters();
+      };
+    })();
+  </script>
+
+</body>
+</html>

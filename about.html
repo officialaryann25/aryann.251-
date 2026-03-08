@@ -1,0 +1,1773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us – IceWorld</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    /* ─── CSS Custom Properties ───────────────────────────────────────────── */
+    :root {
+      --primary:    #ff6b9d;
+      --secondary:  #5c2a0f;
+      --accent:     #ffb347;
+      --bg-light:   #fff8f0;
+      --bg-mid:     #f5ede5;
+      --white:      #ffffff;
+      --text-dark:  #2d2d2d;
+      --text-muted: #6c6c6c;
+      --border:     #e8d9cf;
+      --shadow:     0 8px 32px rgba(92, 42, 15, 0.10);
+      --shadow-hover: 0 16px 48px rgba(255, 107, 157, 0.22);
+      --radius:     16px;
+      --radius-sm:  8px;
+      --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* ─── Keyframe Animations ─────────────────────────────────────────────── */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-60px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(60px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50%       { transform: scale(1.07); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      33%       { transform: translateY(-18px) rotate(5deg); }
+      66%       { transform: translateY(-8px) rotate(-4deg); }
+    }
+
+    @keyframes sparkle {
+      0%   { opacity: 0; transform: scale(0) rotate(0deg); }
+      50%  { opacity: 1; transform: scale(1.2) rotate(180deg); }
+      100% { opacity: 0; transform: scale(0) rotate(360deg); }
+    }
+
+    @keyframes counterUp {
+      from { opacity: 0; transform: translateY(30px) scale(0.8); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @keyframes textReveal {
+      from { clip-path: inset(0 100% 0 0); opacity: 0; }
+      to   { clip-path: inset(0 0% 0 0);   opacity: 1; }
+    }
+
+    @keyframes gradientShift {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes rotateSlow {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
+    @keyframes shimmer {
+      0%   { background-position: -200% center; }
+      100% { background-position:  200% center; }
+    }
+
+    /* ─── Reveal / Scroll Animation ──────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(48px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── Page Hero ───────────────────────────────────────────────────────── */
+    .page-hero {
+      min-height: 380px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 90px 24px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-hero {
+      background: linear-gradient(135deg, #ff6b9d 0%, #c2185b 50%, #5c2a0f 100%);
+      background-size: 300% 300%;
+      animation: gradientShift 8s ease infinite;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+
+    .hero-floating-icons {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .hero-floating-icons span {
+      position: absolute;
+      font-size: 2.2rem;
+      opacity: 0.18;
+      animation: float 5s ease-in-out infinite;
+    }
+
+    .hero-floating-icons span:nth-child(1) { top: 15%; left:  8%; animation-delay: 0s;   font-size: 2.8rem; }
+    .hero-floating-icons span:nth-child(2) { top: 55%; left: 90%; animation-delay: 1.5s; font-size: 2.0rem; }
+    .hero-floating-icons span:nth-child(3) { top: 75%; left: 15%; animation-delay: 3s;   font-size: 1.8rem; }
+    .hero-floating-icons span:nth-child(4) { top: 20%; left: 80%; animation-delay: 0.8s; font-size: 2.4rem; }
+    .hero-floating-icons span:nth-child(5) { top: 65%; left: 50%; animation-delay: 2.2s; font-size: 1.6rem; }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-content h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      font-weight: 900;
+      color: var(--white);
+      margin: 0 0 14px;
+      animation: textReveal 1s ease 0.2s both;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.2);
+    }
+
+    .hero-content p.hero-subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      color: rgba(255,255,255,0.88);
+      margin: 0 0 22px;
+      animation: fadeInUp 0.8s ease 0.5s both;
+      max-width: 560px;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.75);
+      animation: fadeInUp 0.8s ease 0.7s both;
+    }
+
+    .breadcrumb a { color: rgba(255,255,255,0.9); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--white); text-decoration: underline; }
+    .breadcrumb i { font-size: 0.65rem; }
+
+    /* ─── Section Common ──────────────────────────────────────────────────── */
+    section { padding: 80px 0; }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-heading {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(1.7rem, 3.5vw, 2.5rem);
+      font-weight: 800;
+      color: var(--secondary);
+      text-align: center;
+      margin: 0 0 10px;
+    }
+
+    .section-subheading {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      margin: 0 0 48px;
+    }
+
+    /* ─── Our Story ───────────────────────────────────────────────────────── */
+    .our-story { background: var(--bg-light); }
+
+    .story-intro {
+      max-width: 780px;
+      margin: 0 auto 56px;
+      text-align: center;
+      font-size: 1.08rem;
+      line-height: 1.85;
+      color: var(--text-dark);
+    }
+
+    /* ─── Timeline ────────────────────────────────────────────────────────── */
+    .timeline {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 0 20px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, var(--primary), var(--accent));
+      transform: translateX(-50%);
+      border-radius: 3px;
+    }
+
+    .timeline-item {
+      display: flex;
+      justify-content: flex-end;
+      padding-right: calc(50% + 40px);
+      margin-bottom: 48px;
+      position: relative;
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .timeline-item:nth-child(even) {
+      justify-content: flex-start;
+      padding-right: 0;
+      padding-left: calc(50% + 40px);
+      transform: translateX(40px);
+    }
+
+    .timeline-item.revealed {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: 50%;
+      top: 18px;
+      transform: translateX(-50%);
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 0.78rem;
+      color: var(--white);
+      box-shadow: 0 4px 16px rgba(255, 107, 157, 0.4);
+      z-index: 2;
+      border: 3px solid var(--white);
+    }
+
+    .timeline-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      box-shadow: var(--shadow);
+      max-width: 380px;
+      border-left: 4px solid var(--primary);
+      transition: box-shadow var(--transition), transform var(--transition);
+    }
+
+    .timeline-card:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-4px);
+    }
+
+    .timeline-item:nth-child(even) .timeline-card {
+      border-left: none;
+      border-right: 4px solid var(--accent);
+    }
+
+    .timeline-card h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--secondary);
+      margin: 0 0 8px;
+    }
+
+    .timeline-card p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    /* ─── Values Section ──────────────────────────────────────────────────── */
+    .values-section { background: var(--bg-mid); }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+    }
+
+    .value-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 36px 24px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      border-top: 4px solid var(--primary);
+      transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .value-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 0;
+      background: linear-gradient(135deg, rgba(255,107,157,0.06), rgba(255,179,71,0.06));
+      transition: height var(--transition);
+    }
+
+    .value-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-6px); border-color: var(--accent); }
+    .value-card:hover::before { height: 100%; }
+
+    .value-icon {
+      font-size: 2.4rem;
+      margin-bottom: 16px;
+      display: block;
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    .value-card h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--secondary);
+      margin: 0 0 10px;
+    }
+
+    .value-card p {
+      font-size: 0.93rem;
+      color: var(--text-muted);
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    /* ─── Owners Section ──────────────────────────────────────────────────── */
+    .owners-section { background: var(--bg-light); }
+
+    .owners-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 36px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .owner-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 40px 32px;
+      box-shadow: var(--shadow);
+      text-align: center;
+      position: relative;
+      border: 2px solid transparent;
+      background-clip: padding-box;
+      transition: box-shadow var(--transition), transform var(--transition);
+    }
+
+    .owner-card::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: calc(var(--radius) + 2px);
+      background: linear-gradient(135deg, var(--primary), var(--accent), var(--secondary));
+      z-index: -1;
+      opacity: 0.5;
+      transition: opacity var(--transition);
+    }
+
+    .owner-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-6px); }
+    .owner-card:hover::before { opacity: 1; }
+
+    .owner-avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--white);
+      margin: 0 auto 20px;
+      box-shadow: 0 6px 24px rgba(255, 107, 157, 0.35);
+      border: 4px solid var(--white);
+      position: relative;
+    }
+
+    .owner-avatar.avatar-1 {
+      background: linear-gradient(135deg, #ff6b9d, #c2185b);
+    }
+
+    .owner-avatar.avatar-2 {
+      background: linear-gradient(135deg, #ffb347, #e65c00);
+    }
+
+    .owner-card h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--secondary);
+      margin: 0 0 4px;
+    }
+
+    .owner-role {
+      display: inline-block;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      color: var(--white);
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+      letter-spacing: 0.04em;
+    }
+
+    .owner-bio {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin-bottom: 20px;
+    }
+
+    .owner-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .owner-contact a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 0.88rem;
+      color: var(--secondary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color var(--transition);
+    }
+
+    .owner-contact a:hover { color: var(--primary); }
+    .owner-contact a i { color: var(--primary); width: 16px; }
+
+    .owner-social {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .owner-social a {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--bg-mid);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--secondary);
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: background var(--transition), color var(--transition), transform var(--transition);
+    }
+
+    .owner-social a:hover {
+      background: var(--primary);
+      color: var(--white);
+      transform: translateY(-3px);
+    }
+
+    /* ─── Team Section ────────────────────────────────────────────────────── */
+    .team-section { background: var(--bg-mid); }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .team-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 32px 24px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: box-shadow var(--transition), transform var(--transition);
+    }
+
+    .team-card:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-8px);
+    }
+
+    .team-avatar {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--white);
+      margin: 0 auto 16px;
+      box-shadow: 0 4px 16px rgba(255, 107, 157, 0.3);
+    }
+
+    .team-card:nth-child(2) .team-avatar { background: linear-gradient(135deg, #ffb347, #e65c00); }
+    .team-card:nth-child(3) .team-avatar { background: linear-gradient(135deg, #56ab2f, #a8e063); }
+    .team-card:nth-child(4) .team-avatar { background: linear-gradient(135deg, #667eea, #764ba2); }
+    .team-card:nth-child(5) .team-avatar { background: linear-gradient(135deg, #f093fb, #f5576c); }
+    .team-card:nth-child(6) .team-avatar { background: linear-gradient(135deg, #4facfe, #00f2fe); }
+
+    .team-card h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--secondary);
+      margin: 0 0 4px;
+    }
+
+    .team-role {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .team-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin: 0 0 14px;
+    }
+
+    .team-social a {
+      display: inline-flex;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--bg-mid);
+      align-items: center;
+      justify-content: center;
+      color: var(--secondary);
+      font-size: 0.78rem;
+      text-decoration: none;
+      margin: 0 3px;
+      transition: background var(--transition), color var(--transition);
+    }
+
+    .team-social a:hover { background: var(--primary); color: var(--white); }
+
+    /* ─── Ingredients Section ─────────────────────────────────────────────── */
+    .ingredients-section { background: var(--bg-light); }
+
+    .ingredients-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+    }
+
+    .ingredient-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 32px 22px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      border-bottom: 4px solid var(--accent);
+      transition: box-shadow var(--transition), transform var(--transition);
+    }
+
+    .ingredient-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-6px); }
+
+    .ingredient-icon {
+      font-size: 2.8rem;
+      display: block;
+      margin-bottom: 14px;
+    }
+
+    .ingredient-card h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--secondary);
+      margin: 0 0 8px;
+    }
+
+    .ingredient-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin: 0;
+      line-height: 1.68;
+    }
+
+    /* ─── Awards Section ──────────────────────────────────────────────────── */
+    .awards-section { background: var(--bg-mid); }
+
+    .awards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .award-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      box-shadow: var(--shadow);
+      transition: box-shadow var(--transition), transform var(--transition);
+      border-left: 4px solid var(--accent);
+    }
+
+    .award-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-5px); }
+
+    .award-emoji {
+      font-size: 2rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .award-info { flex: 1; }
+
+    .award-year {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .award-info h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--secondary);
+      margin: 0 0 4px;
+    }
+
+    .award-info p {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    /* ─── Stats / Counter Section ─────────────────────────────────────────── */
+    .stats-section { background: var(--bg-light); }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+    }
+
+    .stat-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 40px 24px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      border-top: 4px solid var(--primary);
+      animation: counterUp 0.6s ease both;
+      transition: box-shadow var(--transition), transform var(--transition);
+    }
+
+    .stat-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-6px); }
+
+    .counter-number {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 900;
+      color: var(--primary);
+      display: block;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .stat-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .stat-icon {
+      font-size: 1.6rem;
+      color: var(--accent);
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    /* ─── Community Section ───────────────────────────────────────────────── */
+    .community-section {
+      background: linear-gradient(135deg, var(--primary) 0%, #c2185b 60%, var(--secondary) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .community-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='40' cy='40' r='30'/%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .community-section .section-heading,
+    .community-section .section-subheading {
+      color: var(--white);
+      position: relative;
+      z-index: 1;
+    }
+
+    .community-section .section-subheading { color: rgba(255,255,255,0.82); }
+
+    .community-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .community-card {
+      background: rgba(255, 255, 255, 0.14);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.22);
+      border-radius: var(--radius);
+      padding: 36px 28px;
+      text-align: center;
+      transition: background var(--transition), transform var(--transition);
+    }
+
+    .community-card:hover {
+      background: rgba(255, 255, 255, 0.24);
+      transform: translateY(-6px);
+    }
+
+    .community-icon {
+      font-size: 2.6rem;
+      display: block;
+      margin-bottom: 14px;
+    }
+
+    .community-card h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--white);
+      margin: 0 0 10px;
+    }
+
+    .community-card p {
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.85);
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    /* ─── CTA Section ─────────────────────────────────────────────────────── */
+    .cta-section {
+      background: var(--bg-mid);
+      text-align: center;
+      padding: 80px 24px;
+    }
+
+    .cta-section h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 800;
+      color: var(--secondary);
+      margin: 0 0 14px;
+    }
+
+    .cta-section p {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      margin: 0 auto 34px;
+      max-width: 520px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(90deg, var(--primary), #e91e8c);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 14px 32px;
+      border-radius: 50px;
+      box-shadow: 0 6px 24px rgba(255, 107, 157, 0.35);
+      transition: box-shadow var(--transition), transform var(--transition);
+    }
+
+    .btn-primary:hover { box-shadow: 0 10px 36px rgba(255, 107, 157, 0.5); transform: translateY(-3px); }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--secondary);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 14px 32px;
+      border-radius: 50px;
+      border: 2px solid var(--secondary);
+      transition: background var(--transition), color var(--transition), transform var(--transition);
+    }
+
+    .btn-outline:hover { background: var(--secondary); color: var(--white); transform: translateY(-3px); }
+
+    /* ─── Scroll To Top ───────────────────────────────────────────────────── */
+    .scroll-to-top {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: var(--white);
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      box-shadow: 0 4px 18px rgba(255, 107, 157, 0.4);
+      transition: box-shadow var(--transition), transform var(--transition);
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .scroll-to-top:hover { box-shadow: 0 8px 28px rgba(255, 107, 157, 0.6); transform: translateY(-3px); }
+
+    /* ─── Mobile Responsive ───────────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .values-grid,
+      .ingredients-grid { grid-template-columns: repeat(2, 1fr); }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      section { padding: 56px 0; }
+
+      .timeline::before { left: 22px; }
+
+      .timeline-item,
+      .timeline-item:nth-child(even) {
+        justify-content: flex-start;
+        padding-right: 0;
+        padding-left: 68px;
+        transform: translateX(-30px);
+      }
+
+      .timeline-dot { left: 22px; transform: translateX(-50%); width: 44px; height: 44px; font-size: 0.68rem; }
+
+      .timeline-card,
+      .timeline-item:nth-child(even) .timeline-card {
+        max-width: 100%;
+        border-left: 4px solid var(--primary);
+        border-right: none;
+      }
+
+      .owners-grid { grid-template-columns: 1fr; }
+      .team-grid   { grid-template-columns: repeat(2, 1fr); }
+      .awards-grid { grid-template-columns: 1fr; }
+      .community-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 580px) {
+      .values-grid,
+      .ingredients-grid,
+      .stats-grid,
+      .team-grid { grid-template-columns: 1fr; }
+
+      .cta-buttons { flex-direction: column; align-items: center; }
+
+      .timeline-item,
+      .timeline-item:nth-child(even) { padding-left: 58px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ====================================================
+       SHARED HEADER
+  ===================================================== -->
+  <header id="main-header" class="header" role="banner">
+    <div class="header-top">
+      <div class="container">
+        <div class="header-top-left">
+          <span><i class="fas fa-phone-alt"></i> +91 87501 41860</span>
+          <span><i class="fas fa-envelope"></i> mahisehrawat2006@gmail.com</span>
+        </div>
+        <div class="header-top-right">
+          <span><i class="fas fa-clock"></i> Open: 10am – 11pm, 7 days a week</span>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav id="main-nav" class="navbar" role="navigation" aria-label="Main navigation">
+      <div class="container">
+        <a href="index.html" class="logo" aria-label="IceWorld Home">
+          <span class="logo-icon"><i class="fas fa-ice-cream"></i></span>
+          <span class="logo-text">Ice<span class="logo-accent">World</span></span>
+        </a>
+        <ul class="nav-links" id="nav-links" role="list">
+          <li class="has-dropdown">
+            <a href="menu.html" class="nav-link">Menu <i class="fas fa-chevron-down"></i></a>
+            <ul class="dropdown-menu" role="list">
+              <li><a href="menu.html#classic-scoops">Classic Scoops</a></li>
+              <li><a href="menu.html#sundaes">Sundaes</a></li>
+              <li><a href="menu.html#milkshakes">Milkshakes</a></li>
+              <li><a href="menu.html#gelato">Gelato</a></li>
+              <li><a href="menu.html#sorbet">Sorbet &amp; Vegan</a></li>
+              <li><a href="menu.html#waffles">Waffles &amp; Crepes</a></li>
+            </ul>
+          </li>
+          <li><a href="about.html" class="nav-link active" aria-current="page">About Us</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button class="btn-icon" id="wishlist-btn" aria-label="Wishlist">
+            <i class="fas fa-heart"></i>
+            <span class="badge" id="wishlist-count" hidden>0</span>
+          </button>
+          <button class="btn-icon" id="cart-btn" aria-label="Shopping cart">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="badge" id="cart-count">0</span>
+          </button>
+          <button class="hamburger" id="hamburger-btn" aria-label="Open menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ====================================================
+         PAGE HERO
+    ===================================================== -->
+    <section class="page-hero about-hero" aria-label="About page hero">
+      <div class="hero-floating-icons" aria-hidden="true">
+        <span>🍦</span>
+        <span>🍧</span>
+        <span>🍨</span>
+        <span>🍦</span>
+        <span>🍧</span>
+      </div>
+      <div class="hero-content">
+        <h1 class="text-reveal">Our Sweet Story 🍦</h1>
+        <p class="hero-subtitle">From a small family kitchen to your favourite ice cream destination</p>
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html"><i class="fas fa-home"></i> Home</a>
+          <i class="fas fa-chevron-right" aria-hidden="true"></i>
+          <span aria-current="page">About Us</span>
+        </nav>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         OUR STORY SECTION
+    ===================================================== -->
+    <section class="our-story reveal" aria-label="Our story">
+      <div class="container">
+        <h2 class="section-heading">How It All Began 🌟</h2>
+        <p class="section-subheading">A dream, a scoop, and a whole lot of love</p>
+
+        <p class="story-intro">
+          In 2009, two passionate food lovers — <strong>Mahi Sehrawat</strong> and <strong>Priyanshi</strong> — set out on
+          a delicious mission: to bring handcrafted, honest, and joyful ice cream to every corner of the city. Starting
+          from a cozy 200 sq ft parlour with nothing but family recipes, boundless passion, and eight carefully
+          crafted flavours, IceWorld was born. Over the years, their unwavering commitment to quality, creativity,
+          and community has transformed that humble little shop into one of the city's most loved dessert destinations.
+          Every scoop you enjoy today carries the warmth of that original kitchen and the dedication of an entire team
+          that believes ice cream is not just food — it's a feeling.
+        </p>
+
+        <!-- Timeline -->
+        <div class="timeline" aria-label="IceWorld timeline">
+
+          <!-- 2009 -->
+          <div class="timeline-item reveal">
+            <div class="timeline-dot" aria-hidden="true">2009</div>
+            <div class="timeline-card">
+              <h3>🌱 The Sweet Beginning</h3>
+              <p>
+                Mahi Sehrawat and Priyanshi opened the first IceWorld parlour in a cozy 200 sq ft space with just
+                8 flavours and a dream to bring handcrafted happiness to every customer. Word spread quickly through
+                the neighbourhood, and queues formed outside their tiny shop within the first week.
+              </p>
+            </div>
+          </div>
+
+          <!-- 2012 -->
+          <div class="timeline-item reveal">
+            <div class="timeline-dot" aria-hidden="true">2012</div>
+            <div class="timeline-card">
+              <h3>🥇 First Award</h3>
+              <p>
+                IceWorld won the 'Best Artisan Ice Cream' award at the Delhi Food Festival. We expanded our menu
+                to 25 flavours and hired our first full-time pastry chef. This recognition put IceWorld firmly on
+                the city's culinary map and inspired the team to push creative boundaries even further.
+              </p>
+            </div>
+          </div>
+
+          <!-- 2015 -->
+          <div class="timeline-item reveal">
+            <div class="timeline-dot" aria-hidden="true">2015</div>
+            <div class="timeline-card">
+              <h3>🏙️ Expansion Time</h3>
+              <p>
+                Opened three new locations across the city. Introduced our signature Belgian Waffle Stack and the
+                now-legendary Chocolate Fudge Sundae. Each new outlet was designed with a unique theme while
+                maintaining the warm, welcoming atmosphere that our original customers had come to love.
+              </p>
+            </div>
+          </div>
+
+          <!-- 2018 -->
+          <div class="timeline-item reveal">
+            <div class="timeline-dot" aria-hidden="true">2018</div>
+            <div class="timeline-card">
+              <h3>📱 Going Online</h3>
+              <p>
+                Launched our online ordering platform and delivery service. Within months, we were delivering 500+
+                orders per day to happy customers. The platform also allowed us to introduce limited-edition flavours
+                and special seasonal boxes that customers could pre-order online.
+              </p>
+            </div>
+          </div>
+
+          <!-- 2021 -->
+          <div class="timeline-item reveal">
+            <div class="timeline-dot" aria-hidden="true">2021</div>
+            <div class="timeline-card">
+              <h3>🎉 100K Milestone</h3>
+              <p>
+                Celebrated serving our 100,000th customer! Expanded into gelato and vegan sorbet categories to cater
+                to all dietary preferences. Launched our IceWorld Loyalty Programme, allowing our most dedicated fans
+                to earn rewards with every single scoop they enjoy.
+              </p>
+            </div>
+          </div>
+
+          <!-- 2024 -->
+          <div class="timeline-item reveal">
+            <div class="timeline-dot" aria-hidden="true">2024</div>
+            <div class="timeline-card">
+              <h3>✨ Present Day</h3>
+              <p>
+                Today IceWorld offers 50+ handcrafted flavours, a loyalty programme with 50,000 members, and
+                continues to innovate with new seasonal specials every week. We are prouder than ever of the
+                community we have built and remain committed to delivering joy, one scoop at a time.
+              </p>
+            </div>
+          </div>
+
+        </div>
+        <!-- /Timeline -->
+
+      </div>
+    </section>
+
+    <!-- ====================================================
+         MISSION & VALUES
+    ===================================================== -->
+    <section class="values-section reveal" aria-label="Our values">
+      <div class="container">
+        <h2 class="section-heading">Our Mission &amp; Values</h2>
+        <p class="section-subheading">Everything we do is guided by four core principles</p>
+
+        <div class="values-grid">
+
+          <div class="value-card">
+            <span class="value-icon" role="img" aria-label="Trophy">🏆</span>
+            <h3>Quality First</h3>
+            <p>
+              We use only the finest natural ingredients sourced from trusted farms. No artificial colours,
+              no preservatives — just pure, honest goodness in every single scoop we serve. Quality is not
+              a choice for us; it is a promise we make to every customer.
+            </p>
+          </div>
+
+          <div class="value-card">
+            <span class="value-icon" role="img" aria-label="Leaf">🌿</span>
+            <h3>Always Fresh</h3>
+            <p>
+              Every batch is made fresh daily. We never serve yesterday's ice cream. Our commitment to
+              freshness is non-negotiable. Our production team begins work at 5am every morning so that
+              fresh batches are ready when we open at 10am.
+            </p>
+          </div>
+
+          <div class="value-card">
+            <span class="value-icon" role="img" aria-label="Smiling face">😊</span>
+            <h3>Joy in Every Scoop</h3>
+            <p>
+              We believe ice cream should make you smile. Every product is designed to create a moment of
+              pure joy. From our whimsical flavour names to our cheerful store décor, every element of
+              the IceWorld experience is crafted to bring happiness.
+            </p>
+          </div>
+
+          <div class="value-card">
+            <span class="value-icon" role="img" aria-label="Handshake">🤝</span>
+            <h3>Community Love</h3>
+            <p>
+              We're deeply connected to our local community. We source locally, hire locally, and give back
+              through regular community events. IceWorld is not just a brand — it's a neighbour, a friend,
+              and a celebration of the city we call home.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         OWNER PROFILES
+    ===================================================== -->
+    <section class="owners-section reveal" aria-label="Our owners">
+      <div class="container">
+        <h2 class="section-heading">Meet the Founders ❤️</h2>
+        <p class="section-subheading">The passionate people behind IceWorld</p>
+
+        <div class="owners-grid">
+
+          <!-- Mahi Sehrawat -->
+          <article class="owner-card" aria-label="Mahi Sehrawat, Founder and CEO">
+            <div class="owner-avatar avatar-1" aria-hidden="true">MS</div>
+            <h3>Mahi Sehrawat</h3>
+            <span class="owner-role">Founder &amp; CEO</span>
+            <p class="owner-bio">
+              Mahi founded IceWorld in 2009 with a passion for creating handcrafted desserts. With a culinary
+              arts background and an entrepreneurial spirit, she transformed a small family recipe book into a
+              thriving ice cream empire. Mahi personally approves every new flavour before it hits the menu,
+              ensuring that each creation meets her exacting standards of taste, texture, and originality.
+            </p>
+            <div class="owner-contact">
+              <a href="tel:+918750141860" aria-label="Call Mahi Sehrawat">
+                <i class="fas fa-phone-alt" aria-hidden="true"></i>
+                +91 87501 41860
+              </a>
+              <a href="mailto:mahisehrawat2006@gmail.com" aria-label="Email Mahi Sehrawat">
+                <i class="fas fa-envelope" aria-hidden="true"></i>
+                mahisehrawat2006@gmail.com
+              </a>
+            </div>
+            <div class="owner-social" aria-label="Mahi's social profiles">
+              <a href="#" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+              <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+              <a href="#" aria-label="Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+              <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+            </div>
+          </article>
+
+          <!-- Priyanshi -->
+          <article class="owner-card" aria-label="Priyanshi, Co-Founder and Creative Director">
+            <div class="owner-avatar avatar-2" aria-hidden="true">P</div>
+            <h3>Priyanshi</h3>
+            <span class="owner-role">Co-Founder &amp; Creative Director</span>
+            <p class="owner-bio">
+              Priyanshi brings the creative vision to IceWorld. As Co-Founder and Creative Director, she designs
+              our unique flavour combinations, store aesthetics, and the memorable customer experience. Her
+              background in food science and design makes every visit to IceWorld an artistic experience.
+              Priyanshi also leads our sustainability initiatives and community outreach programmes.
+            </p>
+            <div class="owner-contact">
+              <a href="tel:+918368573180" aria-label="Call Priyanshi">
+                <i class="fas fa-phone-alt" aria-hidden="true"></i>
+                +91 83685 73180
+              </a>
+              <a href="mailto:priyadaksh007@gmail.com" aria-label="Email Priyanshi">
+                <i class="fas fa-envelope" aria-hidden="true"></i>
+                priyadaksh007@gmail.com
+              </a>
+            </div>
+            <div class="owner-social" aria-label="Priyanshi's social profiles">
+              <a href="#" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+              <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+              <a href="#" aria-label="Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+              <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         TEAM SECTION
+    ===================================================== -->
+    <section class="team-section reveal" aria-label="Our team">
+      <div class="container">
+        <h2 class="section-heading">The IceWorld Family 👨‍🍳</h2>
+        <p class="section-subheading">The talented individuals who make the magic happen every day</p>
+
+        <div class="team-grid">
+
+          <article class="team-card">
+            <div class="team-avatar" aria-hidden="true">RK</div>
+            <h3>Chef Rajesh Kumar</h3>
+            <span class="team-role">Head Pastry Chef</span>
+            <p>
+              The gelato wizard behind our most loved flavours. With 12 years of experience in artisan
+              ice cream and Italian gelato techniques, Rajesh brings unmatched expertise to every batch.
+            </p>
+            <div class="team-social" aria-label="Rajesh Kumar's social profiles">
+              <a href="#" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+              <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+            </div>
+          </article>
+
+          <article class="team-card">
+            <div class="team-avatar" aria-hidden="true">SS</div>
+            <h3>Chef Sunita Sharma</h3>
+            <span class="team-role">Ice Cream Artisan</span>
+            <p>
+              Creates our seasonal specials and experimental flavours. Sunita's adventurous palate and
+              deep knowledge of spices and botanicals make her seasonal creations highly anticipated.
+            </p>
+            <div class="team-social" aria-label="Sunita Sharma's social profiles">
+              <a href="#" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+              <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+            </div>
+          </article>
+
+          <article class="team-card">
+            <div class="team-avatar" aria-hidden="true">AM</div>
+            <h3>Arjun Mehta</h3>
+            <span class="team-role">Delivery Manager</span>
+            <p>
+              Ensures your order arrives fresh and on time, every single time. Arjun oversees a fleet of
+              20 refrigerated delivery vehicles and a team of dedicated delivery partners.
+            </p>
+            <div class="team-social" aria-label="Arjun Mehta's social profiles">
+              <a href="#" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+              <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+            </div>
+          </article>
+
+          <article class="team-card">
+            <div class="team-avatar" aria-hidden="true">KP</div>
+            <h3>Kavya Patel</h3>
+            <span class="team-role">Customer Experience Lead</span>
+            <p>
+              Makes every customer feel special and handles all feedback with care. Kavya's empathy and
+              attention to detail have earned IceWorld a 4.9-star average rating across all platforms.
+            </p>
+            <div class="team-social" aria-label="Kavya Patel's social profiles">
+              <a href="#" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+              <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+            </div>
+          </article>
+
+          <article class="team-card">
+            <div class="team-avatar" aria-hidden="true">RS</div>
+            <h3>Rohit Singh</h3>
+            <span class="team-role">Operations Manager</span>
+            <p>
+              Keeps everything running smoothly across all our locations. Rohit's logistics background
+              and sharp eye for process improvements help IceWorld maintain consistency at every outlet.
+            </p>
+            <div class="team-social" aria-label="Rohit Singh's social profiles">
+              <a href="#" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+              <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+            </div>
+          </article>
+
+          <article class="team-card">
+            <div class="team-avatar" aria-hidden="true">DN</div>
+            <h3>Deepa Nair</h3>
+            <span class="team-role">Marketing &amp; Social Media</span>
+            <p>
+              Shares our ice cream stories and brings new customers through the door. Deepa's creative
+              content has grown IceWorld's Instagram following to over 200,000 engaged fans.
+            </p>
+            <div class="team-social" aria-label="Deepa Nair's social profiles">
+              <a href="#" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+              <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         INGREDIENTS & QUALITY
+    ===================================================== -->
+    <section class="ingredients-section reveal" aria-label="Our ingredients">
+      <div class="container">
+        <h2 class="section-heading">Only the Best Ingredients 🌿</h2>
+        <p class="section-subheading">We never compromise on what goes into your scoop</p>
+
+        <div class="ingredients-grid">
+
+          <div class="ingredient-card">
+            <span class="ingredient-icon" role="img" aria-label="Glass of milk">🥛</span>
+            <h3>Farm-Fresh Dairy</h3>
+            <p>
+              All our dairy comes from certified organic farms in Maharashtra. Rich, creamy, and full of
+              natural goodness. We visit our farm partners quarterly to ensure animal welfare and
+              sustainable farming practices are upheld to the highest standards.
+            </p>
+          </div>
+
+          <div class="ingredient-card">
+            <span class="ingredient-icon" role="img" aria-label="Strawberry">🍓</span>
+            <h3>Seasonal Fruits</h3>
+            <p>
+              Fruits are sourced fresh from local farmers at peak season. From Alphonso mangoes to
+              Mahabaleshwar strawberries — only the ripest, most flavourful fruits make it into our
+              parlour. We never use fruit concentrates or artificial flavour compounds.
+            </p>
+          </div>
+
+          <div class="ingredient-card">
+            <span class="ingredient-icon" role="img" aria-label="Chocolate bar">🍫</span>
+            <h3>Premium Chocolate</h3>
+            <p>
+              We use Belgian Callebaut chocolate for our chocolate-based products. Rich, complex, and
+              absolutely indulgent. Each batch is carefully tempered by our pastry chefs to achieve
+              the perfect glossy finish and satisfying snap in our chocolate-coated treats.
+            </p>
+          </div>
+
+          <div class="ingredient-card">
+            <span class="ingredient-icon" role="img" aria-label="Chestnut">🌰</span>
+            <h3>Natural Nuts</h3>
+            <p>
+              Hand-selected pistachios, hazelnuts, and pecans roasted in-house for maximum flavour
+              and freshness. We source our nuts from certified suppliers and roast small batches
+              daily to ensure optimal crunch and aroma in every bowl and cone we serve.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         AWARDS & RECOGNITION
+    ===================================================== -->
+    <section class="awards-section reveal" aria-label="Awards">
+      <div class="container">
+        <h2 class="section-heading">Awards &amp; Recognition 🏆</h2>
+        <p class="section-subheading">Proud milestones on our journey of sweet excellence</p>
+
+        <div class="awards-grid">
+
+          <div class="award-card">
+            <span class="award-emoji" role="img" aria-label="Gold medal">🥇</span>
+            <div class="award-info">
+              <span class="award-year">Delhi Food Festival 2012</span>
+              <h3>Best Artisan Ice Cream</h3>
+              <p>Our very first major accolade, awarded by a panel of the city's top food critics.</p>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <span class="award-emoji" role="img" aria-label="Star">⭐</span>
+            <div class="award-info">
+              <span class="award-year">FSSAI 2015</span>
+              <h3>5-Star Hygiene Rating</h3>
+              <p>Awarded the highest possible hygiene and safety rating by the Food Safety Authority.</p>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <span class="award-emoji" role="img" aria-label="Trophy">🏆</span>
+            <div class="award-info">
+              <span class="award-year">Times Food Awards 2017</span>
+              <h3>Most Loved Dessert Brand</h3>
+              <p>Voted by over 50,000 readers as the city's most beloved dessert destination.</p>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <span class="award-emoji" role="img" aria-label="Green leaf">🌿</span>
+            <div class="award-info">
+              <span class="award-year">Green India Awards 2019</span>
+              <h3>Best Vegan Dessert Option</h3>
+              <p>Recognised for our outstanding range of plant-based and vegan sorbet options.</p>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <span class="award-emoji" role="img" aria-label="Diamond">💎</span>
+            <div class="award-info">
+              <span class="award-year">Indian Culinary Institute 2021</span>
+              <h3>Premium Quality Seal</h3>
+              <p>Certified for maintaining premium ingredient standards and artisan production methods.</p>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <span class="award-emoji" role="img" aria-label="Military medal">🎖️</span>
+            <div class="award-info">
+              <span class="award-year">Zomato Partner Award 2023</span>
+              <h3>Outstanding Customer Experience</h3>
+              <p>Ranked #1 dessert outlet for customer satisfaction across Zomato's partner network.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         STATS / NUMBERS SECTION
+    ===================================================== -->
+    <section class="stats-section reveal" aria-label="Our achievements">
+      <div class="container">
+        <h2 class="section-heading">IceWorld in Numbers</h2>
+        <p class="section-subheading">Numbers that tell the story of your trust and our passion</p>
+
+        <div class="stats-grid">
+
+          <div class="stat-card">
+            <span class="stat-icon" aria-hidden="true"><i class="fas fa-ice-cream"></i></span>
+            <span
+              class="counter-number"
+              data-target="50"
+              data-suffix="+"
+              aria-label="50 plus flavours"
+            >0</span>
+            <span class="stat-label">Flavours</span>
+          </div>
+
+          <div class="stat-card">
+            <span class="stat-icon" aria-hidden="true"><i class="fas fa-users"></i></span>
+            <span
+              class="counter-number"
+              data-target="100000"
+              data-suffix="+"
+              aria-label="100,000 plus happy customers"
+            >0</span>
+            <span class="stat-label">Happy Customers</span>
+          </div>
+
+          <div class="stat-card">
+            <span class="stat-icon" aria-hidden="true"><i class="fas fa-history"></i></span>
+            <span
+              class="counter-number"
+              data-target="15"
+              data-suffix=" Yrs"
+              aria-label="15 years of experience"
+            >0</span>
+            <span class="stat-label">Years of Experience</span>
+          </div>
+
+          <div class="stat-card">
+            <span class="stat-icon" aria-hidden="true"><i class="fas fa-star"></i></span>
+            <span
+              class="counter-number"
+              data-target="49"
+              data-suffix="★"
+              aria-label="4.9 star average rating"
+            >0</span>
+            <span class="stat-label">Average Rating</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         COMMUNITY INVOLVEMENT
+    ===================================================== -->
+    <section class="community-section reveal" aria-label="Community">
+      <div class="container">
+        <h2 class="section-heading">Giving Back to Our Community 🤝</h2>
+        <p class="section-subheading">Because a great business is built on the strength of the community around it</p>
+
+        <div class="community-grid">
+
+          <div class="community-card">
+            <span class="community-icon" role="img" aria-label="School">🏫</span>
+            <h3>School Treats Programme</h3>
+            <p>
+              Every month, we donate complimentary ice cream to 5 local schools as part of our commitment
+              to spreading joy among children. We have reached over 10,000 young smiles through this initiative.
+            </p>
+          </div>
+
+          <div class="community-card">
+            <span class="community-icon" role="img" aria-label="Green heart">💚</span>
+            <h3>Eco-Friendly Packaging</h3>
+            <p>
+              100% biodegradable cups, spoons, and packaging across all our outlets and delivery orders.
+              We eliminated single-use plastics entirely in 2020 and continue to explore even more
+              sustainable alternatives every year.
+            </p>
+          </div>
+
+          <div class="community-card">
+            <span class="community-icon" role="img" aria-label="Seedling">🌱</span>
+            <h3>Local Farmer Support</h3>
+            <p>
+              We partner with 20+ local farmers for fresh ingredients, guaranteeing them fair prices and
+              long-term contracts. This ensures that the prosperity of IceWorld flows back into the
+              agricultural communities that nourish everything we create.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         CTA SECTION
+    ===================================================== -->
+    <section class="cta-section reveal" aria-label="Call to action">
+      <div class="container">
+        <h2>Ready to Experience IceWorld? 🍦</h2>
+        <p>
+          Come visit us, explore our full menu online, or get in touch with our friendly team.
+          We would love to make your day a little sweeter.
+        </p>
+        <div class="cta-buttons">
+          <a href="menu.html" class="btn-primary">
+            <i class="fas fa-utensils" aria-hidden="true"></i>
+            Explore Our Menu
+          </a>
+          <a href="contact.html" class="btn-outline">
+            <i class="fas fa-envelope" aria-hidden="true"></i>
+            Contact Us
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ====================================================
+       SHARED FOOTER
+  ===================================================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+
+          <div class="footer-col footer-brand">
+            <a href="index.html" class="logo footer-logo" aria-label="IceWorld Home">
+              <span class="logo-icon"><i class="fas fa-ice-cream"></i></span>
+              <span class="logo-text">Ice<span class="logo-accent">World</span></span>
+            </a>
+            <p class="footer-tagline">Handcrafted happiness, one scoop at a time. Pure ingredients, pure joy.</p>
+            <div class="footer-social" aria-label="Social media links">
+              <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h4 class="footer-heading">Quick Links</h4>
+            <ul class="footer-links" role="list">
+              <li><a href="menu.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Menu</a></li>
+              <li><a href="about.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> About Us</a></li>
+              <li><a href="contact.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4 class="footer-heading">Our Menu</h4>
+            <ul class="footer-links" role="list">
+              <li><a href="menu.html#classic-scoops"><i class="fas fa-chevron-right" aria-hidden="true"></i> Classic Scoops</a></li>
+              <li><a href="menu.html#sundaes"><i class="fas fa-chevron-right" aria-hidden="true"></i> Sundaes</a></li>
+              <li><a href="menu.html#milkshakes"><i class="fas fa-chevron-right" aria-hidden="true"></i> Milkshakes</a></li>
+              <li><a href="menu.html#gelato"><i class="fas fa-chevron-right" aria-hidden="true"></i> Gelato</a></li>
+              <li><a href="menu.html#sorbet"><i class="fas fa-chevron-right" aria-hidden="true"></i> Sorbet &amp; Vegan</a></li>
+              <li><a href="menu.html#waffles"><i class="fas fa-chevron-right" aria-hidden="true"></i> Waffles &amp; Crepes</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4 class="footer-heading">Contact Us</h4>
+            <address class="footer-contact" aria-label="Contact information">
+              <p>
+                <i class="fas fa-phone-alt" aria-hidden="true"></i>
+                <a href="tel:+918750141860">+91 87501 41860</a>
+              </p>
+              <p>
+                <i class="fas fa-envelope" aria-hidden="true"></i>
+                <a href="mailto:mahisehrawat2006@gmail.com">mahisehrawat2006@gmail.com</a>
+              </p>
+              <p>
+                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                IceWorld Parlour, Sector 15, Delhi, India
+              </p>
+              <p>
+                <i class="fas fa-clock" aria-hidden="true"></i>
+                Open daily: 10am – 11pm
+              </p>
+            </address>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p>
+          &copy; <span class="footer-year"></span> IceWorld. All rights reserved. Made with
+          <i class="fas fa-heart" aria-label="love" style="color:var(--primary);"></i> in India.
+        </p>
+        <p>
+          <a href="privacy.html">Privacy Policy</a> &nbsp;|&nbsp;
+          <a href="terms.html">Terms of Service</a> &nbsp;|&nbsp;
+          <a href="sitemap.html">Sitemap</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to Top Button -->
+  <button id="scroll-to-top" class="scroll-to-top" aria-label="Scroll to top" hidden>
+    <i class="fas fa-chevron-up" aria-hidden="true"></i>
+  </button>
+
+  <!-- External Script -->
+  <script src="js/script.js"></script>
+
+  <!-- Shared Inline Script -->
+  <script>
+    document.querySelectorAll('.footer-year').forEach(el => el.textContent = new Date().getFullYear());
+    const ham = document.getElementById('hamburger-btn');
+    const navL = document.getElementById('nav-links');
+    if (ham && navL) {
+      ham.addEventListener('click', () => {
+        const open = ham.getAttribute('aria-expanded') === 'true';
+        ham.setAttribute('aria-expanded', String(!open));
+        navL.classList.toggle('nav-open');
+      });
+    }
+    window.addEventListener('scroll', () => {
+      document.getElementById('main-header')?.classList.toggle('scrolled', window.scrollY > 60);
+    });
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); observer.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    const stt = document.getElementById('scroll-to-top');
+    if (stt) {
+      window.addEventListener('scroll', () => { stt.hidden = window.scrollY < 400; });
+      stt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    }
+    document.querySelectorAll('.nav-link').forEach(a => {
+      if (a.getAttribute('href') === location.pathname.split('/').pop() ||
+          (location.pathname.endsWith('/') && a.getAttribute('href') === 'index.html')) {
+        a.classList.add('active');
+      }
+    });
+  </script>
+
+  <!-- Counter Animation Script -->
+  <script>
+    (function() {
+      function animateCounter(el) {
+        const target = parseInt(el.dataset.target) || 0;
+        const duration = 2000;
+        const step = target / (duration / 16);
+        let current = 0;
+        const timer = setInterval(() => {
+          current += step;
+          if (current >= target) {
+            current = target;
+            clearInterval(timer);
+          }
+          // Special handling: if target is 49 display as 4.9
+          if (target === 49) {
+            el.textContent = (Math.floor(current) / 10).toFixed(1) + (el.dataset.suffix || '');
+          } else {
+            el.textContent = Math.floor(current).toLocaleString('en-IN') + (el.dataset.suffix || '');
+          }
+        }, 16);
+      }
+
+      const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            counterObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+
+      document.querySelectorAll('.counter-number').forEach(el => counterObserver.observe(el));
+    })();
+  </script>
+
+</body>
+</html>

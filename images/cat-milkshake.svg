@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+<defs>
+  <radialGradient id="bgG" cx="50%" cy="50%" r="70%">
+    <stop offset="0%" stop-color="#FFF8EF"/>
+    <stop offset="100%" stop-color="#FDE8CC"/>
+  </radialGradient>
+  
+</defs>
+
+  <rect width="200" height="200" rx="20" fill="url(#bgG)"/>
+  <!-- cup -->
+  <path d="M75,165 L80,95 L120,95 L125,165 Z" fill="#FFE0E9" stroke="#E8486A" stroke-width="1.5"/>
+  <!-- cup bottom -->
+  <ellipse cx="100" cy="165" rx="25" ry="5" fill="#E8486A" opacity="0.5"/>
+  <!-- lid -->
+  <ellipse cx="100" cy="95" rx="22" ry="7" fill="#E8486A" stroke="#C43057" stroke-width="1.5"/>
+  <!-- whipped cream -->
+  <path d="M85,95 Q88,80 100,75 Q112,80 115,95" fill="#fff" stroke="#EDD4B0" stroke-width="1"/>
+  <circle cx="100" cy="72" r="8" fill="#fff"/>
+  <!-- straw -->
+  <rect x="108" y="55" width="6" height="60" rx="3" fill="#E8486A" opacity="0.8"/>
+  <rect x="110" y="55" width="2" height="60" rx="1" fill="#FFE0E9"/>
+  <!-- bubbles on cup -->
+  <circle cx="88" cy="120" r="4" fill="#E8486A" opacity="0.25"/>
+  <circle cx="112" cy="135" r="3" fill="#E8486A" opacity="0.2"/>
+  <circle cx="95" cy="145" r="3.5" fill="#E8486A" opacity="0.2"/>
+</svg>

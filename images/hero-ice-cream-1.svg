@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500">
+  <defs>
+    <radialGradient id="bg1" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#fff8f0"/>
+      <stop offset="100%" stop-color="#fde9d9"/>
+    </radialGradient>
+    <radialGradient id="scoop1a" cx="40%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#fffdf5"/>
+      <stop offset="100%" stop-color="#f0e0b0"/>
+    </radialGradient>
+    <radialGradient id="scoop1b" cx="40%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#fef9e7"/>
+      <stop offset="100%" stop-color="#e8d080"/>
+    </radialGradient>
+    <filter id="shadow1">
+      <feDropShadow dx="4" dy="8" stdDeviation="10" flood-color="#c87941" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+  <!-- Background -->
+  <rect width="400" height="500" fill="url(#bg1)" rx="20"/>
+  <!-- Decorative dots -->
+  <circle cx="50" cy="60" r="8" fill="#ffb347" opacity="0.3"/>
+  <circle cx="340" cy="80" r="12" fill="#ff6b9d" opacity="0.25"/>
+  <circle cx="30" cy="420" r="10" fill="#ff6b9d" opacity="0.2"/>
+  <circle cx="360" cy="380" r="7" fill="#ffb347" opacity="0.3"/>
+  <circle cx="80" cy="200" r="5" fill="#5c2a0f" opacity="0.15"/>
+  <circle cx="320" cy="250" r="6" fill="#ff6b9d" opacity="0.2"/>
+  <!-- Waffle cone body -->
+  <polygon points="200,460 110,230 290,230" fill="#c8860a" filter="url(#shadow1)"/>
+  <!-- Cone grid lines horizontal -->
+  <line x1="120" y1="250" x2="280" y2="250" stroke="#a06208" stroke-width="2" opacity="0.6"/>
+  <line x1="128" y1="270" x2="272" y2="270" stroke="#a06208" stroke-width="2" opacity="0.6"/>
+  <line x1="136" y1="290" x2="264" y2="290" stroke="#a06208" stroke-width="2" opacity="0.6"/>
+  <line x1="144" y1="310" x2="256" y2="310" stroke="#a06208" stroke-width="2" opacity="0.6"/>
+  <line x1="152" y1="330" x2="248" y2="330" stroke="#a06208" stroke-width="2" opacity="0.6"/>
+  <line x1="160" y1="350" x2="240" y2="350" stroke="#a06208" stroke-width="2" opacity="0.6"/>
+  <line x1="168" y1="370" x2="232" y2="370" stroke="#a06208" stroke-width="2" opacity="0.6"/>
+  <line x1="176" y1="390" x2="224" y2="390" stroke="#a06208" stroke-width="2" opacity="0.6"/>
+  <!-- Cone grid lines diagonal left -->
+  <line x1="110" y1="230" x2="200" y2="460" stroke="#a06208" stroke-width="1.5" opacity="0.5"/>
+  <line x1="140" y1="230" x2="210" y2="460" stroke="#a06208" stroke-width="1.5" opacity="0.5"/>
+  <line x1="170" y1="230" x2="220" y2="460" stroke="#a06208" stroke-width="1.5" opacity="0.5"/>
+  <line x1="200" y1="230" x2="200" y2="460" stroke="#a06208" stroke-width="1.5" opacity="0.5"/>
+  <line x1="230" y1="230" x2="195" y2="460" stroke="#a06208" stroke-width="1.5" opacity="0.5"/>
+  <line x1="260" y1="230" x2="205" y2="460" stroke="#a06208" stroke-width="1.5" opacity="0.5"/>
+  <line x1="290" y1="230" x2="200" y2="460" stroke="#a06208" stroke-width="1.5" opacity="0.5"/>
+  <!-- Bottom scoop -->
+  <ellipse cx="200" cy="235" rx="90" ry="80" fill="url(#scoop1b)" stroke="#d4b860" stroke-width="2"/>
+  <path d="M130,235 Q155,210 180,230 Q200,210 220,228 Q245,208 270,232" fill="none" stroke="#c8a840" stroke-width="2.5" opacity="0.6"/>
+  <path d="M138,250 Q165,235 195,248 Q220,232 260,246" fill="none" stroke="#c8a840" stroke-width="2" opacity="0.45"/>
+  <!-- Top scoop -->
+  <ellipse cx="200" cy="165" rx="78" ry="72" fill="url(#scoop1a)" stroke="#ddd8b0" stroke-width="2"/>
+  <path d="M138,163 Q162,142 188,160 Q205,140 224,158 Q245,138 265,161" fill="none" stroke="#c8c090" stroke-width="2.5" opacity="0.5"/>
+  <!-- Vanilla specks on top scoop -->
+  <line x1="175" y1="155" x2="177" y2="162" stroke="#b8a060" stroke-width="1.5"/>
+  <line x1="195" y1="148" x2="197" y2="155" stroke="#b8a060" stroke-width="1.5"/>
+  <line x1="215" y1="153" x2="217" y2="160" stroke="#b8a060" stroke-width="1.5"/>
+  <line x1="185" y1="170" x2="187" y2="177" stroke="#b8a060" stroke-width="1.5"/>
+  <line x1="210" y1="168" x2="212" y2="175" stroke="#b8a060" stroke-width="1.5"/>
+  <!-- Highlight on top scoop -->
+  <ellipse cx="178" cy="148" rx="18" ry="12" fill="white" opacity="0.35"/>
+  <!-- Strawberry on top -->
+  <ellipse cx="200" cy="98" rx="20" ry="22" fill="#e63946"/>
+  <path d="M185,100 Q200,82 215,100" fill="none" stroke="#c82030" stroke-width="2"/>
+  <circle cx="193" cy="106" r="2.5" fill="#ffeb9c"/>
+  <circle cx="202" cy="100" r="2.5" fill="#ffeb9c"/>
+  <circle cx="210" cy="108" r="2.5" fill="#ffeb9c"/>
+  <path d="M195,79 Q200,68 205,79" fill="#4caf50" stroke="#388e3c" stroke-width="1.5"/>
+  <!-- Sprinkles -->
+  <rect x="160" y="120" width="12" height="5" rx="2.5" fill="#ff6b9d" transform="rotate(-30,166,122)"/>
+  <rect x="225" y="115" width="12" height="5" rx="2.5" fill="#7c3aed" transform="rotate(20,231,117)"/>
+  <rect x="172" y="108" width="12" height="5" rx="2.5" fill="#ffb347" transform="rotate(45,178,110)"/>
+  <rect x="215" y="128" width="10" height="4" rx="2" fill="#34d399" transform="rotate(-15,220,130)"/>
+  <!-- Label -->
+</svg>

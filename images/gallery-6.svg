@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280">
+  <rect width="400" height="280" rx="12" fill="#FDE8CC"/>
+  
+  <rect x="0" y="0" width="400" height="280" rx="12" fill="#FFE0E9"/>
+  <!-- Person 1 -->
+  <circle cx="120" cy="80" r="35" fill="#FDE8CC"/>
+  <circle cx="120" cy="62" r="22" fill="#FDDBB4"/>
+  <ellipse cx="120" cy="46" rx="22" ry="12" fill="#3A1A08" opacity="0.7"/>
+  <path d="M110,72 Q120,80 130,72" fill="none" stroke="#2C1206" stroke-width="2" stroke-linecap="round"/>
+  <!-- cone p1 -->
+  <polygon points="120,130 108,108 132,108" fill="#D48C0F" stroke="#6B3820" stroke-width="1"/>
+  <circle cx="120" cy="100" r="14" fill="#E8486A" stroke="#C43057" stroke-width="1"/>
+  <!-- Person 2 -->
+  <circle cx="280" cy="80" r="35" fill="#D4F5EA"/>
+  <circle cx="280" cy="62" r="22" fill="#F8D0A8"/>
+  <ellipse cx="280" cy="46" rx="22" ry="12" fill="#6B3820" opacity="0.7"/>
+  <path d="M270,72 Q280,80 290,72" fill="none" stroke="#2C1206" stroke-width="2" stroke-linecap="round"/>
+  <!-- sundae p2 -->
+  <path d="M268,130 L272,110 L288,110 L292,130 Z" fill="#FFF8EF" stroke="#EDD4B0" stroke-width="1"/>
+  <circle cx="280" cy="105" r="10" fill="#2AA87A" stroke="#1E8A63" stroke-width="1"/>
+  <!-- table -->
+  <rect x="60" y="190" width="280" height="15" rx="4" fill="#EDD4B0"/>
+  <rect x="90" y="205" width="12" height="50" rx="3" fill="#EDD4B0"/>
+  <rect x="298" y="205" width="12" height="50" rx="3" fill="#EDD4B0"/>
+</svg>

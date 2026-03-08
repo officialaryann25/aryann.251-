@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+<defs>
+  <radialGradient id="bgG" cx="50%" cy="50%" r="70%">
+    <stop offset="0%" stop-color="#FFF8EF"/>
+    <stop offset="100%" stop-color="#FDE8CC"/>
+  </radialGradient>
+  
+</defs>
+
+  <rect width="200" height="200" rx="20" fill="url(#bgG)"/>
+  <!-- waffle base -->
+  <rect x="60" y="138" width="80" height="22" rx="6" fill="#D48C0F" stroke="#6B3820" stroke-width="1.5"/>
+  <!-- waffle grid lines -->
+  <line x1="72" y1="138" x2="72" y2="160" stroke="#6B3820" stroke-width="1" opacity="0.4"/>
+  <line x1="84" y1="138" x2="84" y2="160" stroke="#6B3820" stroke-width="1" opacity="0.4"/>
+  <line x1="96" y1="138" x2="96" y2="160" stroke="#6B3820" stroke-width="1" opacity="0.4"/>
+  <line x1="108" y1="138" x2="108" y2="160" stroke="#6B3820" stroke-width="1" opacity="0.4"/>
+  <line x1="120" y1="138" x2="120" y2="160" stroke="#6B3820" stroke-width="1" opacity="0.4"/>
+  <line x1="60" y1="146" x2="140" y2="146" stroke="#6B3820" stroke-width="1" opacity="0.4"/>
+  <line x1="60" y1="153" x2="140" y2="153" stroke="#6B3820" stroke-width="1" opacity="0.4"/>
+  <!-- ice cream scoop 1 -->
+  <circle cx="84" cy="122" r="24" fill="#FFE0E9" stroke="#E8486A" stroke-width="1.5"/>
+  <!-- ice cream scoop 2 -->
+  <circle cx="116" cy="120" r="22" fill="#D48C0F" stroke="#6B3820" stroke-width="1.5"/>
+  <!-- whipped cream -->
+  <ellipse cx="100" cy="98" rx="16" ry="12" fill="#fff" stroke="#EDD4B0" stroke-width="1"/>
+  <circle cx="100" cy="88" r="9" fill="#fff"/>
+  <!-- cherry -->
+  <circle cx="100" cy="80" r="6" fill="#C0392B" stroke="#96281B" stroke-width="0.5"/>
+  <!-- drizzle -->
+  <path d="M90,130 Q96,145 88,152" fill="none" stroke="#D48C0F" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M112,128 Q118,143 112,150" fill="none" stroke="#D48C0F" stroke-width="2.5" stroke-linecap="round"/>
+</svg>

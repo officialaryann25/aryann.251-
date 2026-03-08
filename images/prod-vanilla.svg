@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 220">
+<defs>
+  <radialGradient id="pbg" cx="50%" cy="40%" r="70%">
+    <stop offset="0%" stop-color="#FFFDF5"/>
+    <stop offset="100%" stop-color="#FDE8CC"/>
+  </radialGradient>
+</defs>
+<rect width="280" height="220" rx="16" fill="url(#pbg)"/>
+  <polygon points="140,200 95,120 185,120" fill="#D48C0F" stroke="#6B3820" stroke-width="1.5"/>
+  <circle cx="140" cy="106" r="36" fill="#FFF8EF" stroke="#EDD4B0" stroke-width="2"/>
+  <circle cx="140" cy="75" r="30" fill="#FFF0C8" stroke="#FFF3D0" stroke-width="1.5"/>
+  <circle cx="140" cy="52" r="10" fill="#fff" stroke="#EDD4B0" stroke-width="1"/>
+</svg>

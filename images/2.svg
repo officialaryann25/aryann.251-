@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500">
+  <defs>
+    <radialGradient id="bg2" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#fff3e8"/>
+      <stop offset="100%" stop-color="#f5e6d8"/>
+    </radialGradient>
+    <radialGradient id="bowl2" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#e8f4ff"/>
+      <stop offset="100%" stop-color="#d0e8fa"/>
+    </radialGradient>
+    <radialGradient id="scoop2a" cx="35%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#7a3a12"/>
+      <stop offset="100%" stop-color="#3d1a06"/>
+    </radialGradient>
+    <radialGradient id="scoop2b" cx="35%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#d4894a"/>
+      <stop offset="100%" stop-color="#a06020"/>
+    </radialGradient>
+    <radialGradient id="scoop2c" cx="35%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#5a2008"/>
+      <stop offset="100%" stop-color="#2a0e02"/>
+    </radialGradient>
+    <filter id="shadow2">
+      <feDropShadow dx="3" dy="6" stdDeviation="8" flood-color="#5c2a0f" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  <rect width="400" height="500" fill="url(#bg2)" rx="20"/>
+  <!-- Decorative circles -->
+  <circle cx="60" cy="70" r="30" fill="#ffb347" opacity="0.15"/>
+  <circle cx="340" cy="420" r="25" fill="#5c2a0f" opacity="0.1"/>
+  <circle cx="350" cy="100" r="15" fill="#ff6b9d" opacity="0.2"/>
+  <circle cx="40" cy="390" r="18" fill="#c87941" opacity="0.2"/>
+  <!-- Sundae glass stem and base -->
+  <rect x="185" y="390" width="30" height="40" rx="6" fill="#b0cce8"/>
+  <ellipse cx="200" cy="430" rx="55" ry="16" fill="#9ab8d8"/>
+  <!-- Sundae glass bowl -->
+  <path d="M100,280 Q100,420 200,420 Q300,420 300,280 Z" fill="url(#bowl2)" stroke="#88b8d8" stroke-width="3" filter="url(#shadow2)"/>
+  <path d="M100,280 Q200,260 300,280" fill="none" stroke="#aad0f0" stroke-width="2"/>
+  <!-- Glass shine -->
+  <path d="M115,300 Q120,380 130,400" fill="none" stroke="white" stroke-width="4" opacity="0.4"/>
+  <!-- Scoop 1 (dark choc, back) -->
+  <ellipse cx="175" cy="275" rx="62" ry="56" fill="url(#scoop2c)"/>
+  <ellipse cx="162" cy="260" rx="15" ry="10" fill="white" opacity="0.15"/>
+  <!-- Scoop 2 (caramel, middle) -->
+  <ellipse cx="225" cy="268" rx="60" ry="55" fill="url(#scoop2b)"/>
+  <ellipse cx="212" cy="254" rx="14" ry="9" fill="white" opacity="0.18"/>
+  <!-- Scoop 3 (chocolate, front) -->
+  <ellipse cx="200" cy="252" rx="65" ry="60" fill="url(#scoop2a)"/>
+  <ellipse cx="184" cy="236" rx="18" ry="12" fill="white" opacity="0.2"/>
+  <!-- Fudge drizzle -->
+  <path d="M155,210 Q162,230 150,248 Q158,265 148,280" fill="none" stroke="#2a0e02" stroke-width="6" stroke-linecap="round"/>
+  <path d="M200,200 Q208,220 198,240 Q207,255 200,272" fill="none" stroke="#2a0e02" stroke-width="6" stroke-linecap="round"/>
+  <path d="M240,208 Q248,228 238,246 Q247,263 240,280" fill="none" stroke="#2a0e02" stroke-width="6" stroke-linecap="round"/>
+  <!-- Whipped cream swirl -->
+  <ellipse cx="200" cy="200" rx="40" ry="20" fill="white"/>
+  <path d="M165,200 Q175,182 185,195 Q192,176 200,190 Q208,174 215,188 Q226,178 235,196" fill="none" stroke="white" stroke-width="8" stroke-linecap="round"/>
+  <ellipse cx="200" cy="184" rx="12" ry="8" fill="white"/>
+  <!-- Wafer sticks -->
+  <rect x="145" y="195" width="10" height="60" rx="3" fill="#e8c878" transform="rotate(-20,150,225)"/>
+  <rect x="248" y="190" width="10" height="60" rx="3" fill="#e8c878" transform="rotate(18,253,220)"/>
+  <!-- Cherry -->
+  <circle cx="200" cy="174" r="14" fill="#cc0020"/>
+  <circle cx="194" cy="167" r="4" fill="#e83040" opacity="0.6"/>
+  <path d="M200,161 Q205,148 218,142" fill="none" stroke="#338833" stroke-width="3" stroke-linecap="round"/>
+  <!-- Sprinkles in bowl -->
+  <rect x="155" y="340" width="14" height="5" rx="2.5" fill="#ff6b9d" transform="rotate(25,162,342)"/>
+  <rect x="220" y="350" width="14" height="5" rx="2.5" fill="#7c3aed" transform="rotate(-15,227,352)"/>
+  <rect x="175" y="360" width="12" height="5" rx="2.5" fill="#ffb347" transform="rotate(40,181,362)"/>
+  <rect x="240" y="330" width="12" height="5" rx="2.5" fill="#34d399" transform="rotate(-30,246,332)"/>
+  <text x="200" y="492" text-anchor="middle" font-family="Poppins,sans-serif" font-size="14" fill="#5c2a0f" opacity="0.7">Chocolate Fudge Sundae</text>
+</svg>
