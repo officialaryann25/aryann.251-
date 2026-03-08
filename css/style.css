@@ -4,31 +4,31 @@
 
 /* ---- CSS Custom Properties ---- */
 :root {
-  /* Violet Purple */
-  --primary:        #7c3aed;
-  --primary-dark:   #6d28d9;
-  --primary-light:  #ede9fe;
-  /* Deep Navy */
-  --secondary:      #1e1b4b;
-  --secondary-dark: #0f0e2e;
-  --secondary-light:#ede9fe;
-  /* Teal Mint */
-  --accent:         #06d6a0;
-  --accent-dark:    #04b98a;
+  /* Strawberry Rose */
+  --primary:        #FF4E88;
+  --primary-dark:   #E03474;
+  --primary-light:  #FFE8F3;
+  /* Chocolate Brown */
+  --secondary:      #3E1C00;
+  --secondary-dark: #220F00;
+  --secondary-light:#F5DEC8;
+  /* Golden Caramel */
+  --accent:         #FFA726;
+  --accent-dark:    #E08F00;
   --success:        #28a745;
   --danger:         #dc3545;
   --warning:        #ffc107;
   --info:           #17a2b8;
 
-  /* Text scale */
-  --text-dark:      #1e1b4b;
-  --text-mid:       #4c1d95;
-  --text-light:     #7c69b8;
-  /* Cool white backgrounds */
+  /* Warm Chocolate text scale */
+  --text-dark:      #2A1006;
+  --text-mid:       #6B3A1F;
+  --text-light:     #A0714D;
+  /* Warm Cream backgrounds */
   --bg-white:       #ffffff;
-  --bg-light:       #f5f3ff;
-  --bg-mid:         #ede9fe;
-  --border-color:   #ddd6fe;
+  --bg-light:       #FFFBF5;
+  --bg-mid:         #FFF3E8;
+  --border-color:   #F0D5B8;
 
   /* Poppins (body) + Montserrat (headings/brand) */
   --font-body:      'Poppins', sans-serif;
@@ -40,11 +40,11 @@
   --radius-xl:      32px;
   --radius-full:    9999px;
 
-  /* Warm chocolate-brown shadows */
-  --shadow-sm:      0 2px 8px rgba(124,58,237,0.08);
-  --shadow-md:      0 4px 20px rgba(124,58,237,0.12);
-  --shadow-lg:      0 8px 40px rgba(124,58,237,0.18);
-  --shadow-xl:      0 16px 60px rgba(124,58,237,0.22);
+  /* Rose-tinted warm shadows */
+  --shadow-sm:      0 2px 8px rgba(255,78,136,0.08);
+  --shadow-md:      0 4px 20px rgba(255,78,136,0.12);
+  --shadow-lg:      0 8px 40px rgba(255,78,136,0.18);
+  --shadow-xl:      0 16px 60px rgba(255,78,136,0.22);
 
   --transition:     all 0.3s ease;
   --transition-slow:all 0.6s ease;
@@ -152,7 +152,7 @@
   gap: 60px;
   align-items: center;
 }
-.loyalty-section .section-tagline { background: rgba(124,58,237,0.2); color: var(--primary-light); }
+.loyalty-section .section-tagline { background: rgba(255,78,136,0.2); color: var(--primary-light); }
 .loyalty-section .section-title { color: #fff; }
 .loyalty-section > .container > .loyalty-grid > .loyalty-content > p { color: rgba(255,255,255,0.75); margin-bottom: 28px; }
 .loyalty-tiers { display: flex; flex-direction: column; gap: 14px; margin-bottom: 32px; }
@@ -313,7 +313,7 @@ address { font-style: normal; }
   background: var(--primary-dark);
   border-color: var(--primary-dark);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(124,58,237,0.4);
+  box-shadow: 0 6px 20px rgba(255,78,136,0.4);
 }
 .btn-outline {
   background: transparent;
@@ -889,7 +889,7 @@ address { font-style: normal; }
   transition: var(--transition);
   outline: none;
 }
-.form-control:focus { border-color: var(--primary); background: #fff; box-shadow: 0 0 0 4px rgba(124,58,237,0.12); }
+.form-control:focus { border-color: var(--primary); background: #fff; box-shadow: 0 0 0 4px rgba(255,78,136,0.12); }
 .form-control.error { border-color: var(--danger); background: #fff5f5; }
 .form-control.success { border-color: var(--success); }
 textarea.form-control { resize: vertical; min-height: 120px; }
@@ -1129,7 +1129,7 @@ textarea.form-control { resize: vertical; min-height: 120px; }
   position: absolute;
   width: 420px; height: 420px;
   border-radius: 40% 60% 55% 45% / 45% 40% 60% 55%;
-  background: rgba(124,58,237,0.15);
+  background: rgba(255,78,136,0.15);
   animation: blobMorph 8s ease-in-out infinite;
   z-index: 0;
 }
@@ -1189,7 +1189,7 @@ textarea.form-control { resize: vertical; min-height: 120px; }
 .slider-dot {
   width: 10px; height: 10px;
   border-radius: var(--radius-full);
-  background: rgba(124,58,237,0.3);
+  background: rgba(255,78,136,0.3);
   border: 2px solid var(--primary);
   transition: var(--transition);
   cursor: pointer;
@@ -1680,7 +1680,7 @@ textarea.form-control { resize: vertical; min-height: 120px; }
 .gallery-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(124,58,237,0.7);
+  background: rgba(255,78,136,0.7);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2013,8 +2013,8 @@ textarea.form-control { resize: vertical; min-height: 120px; }
   100% { background-position: 0%   50%; }
 }
 @keyframes glowPulse {
-  0%, 100% { box-shadow: 0 0 6px rgba(124,58,237,0.3); }
-  50%       { box-shadow: 0 0 20px rgba(124,58,237,0.7), 0 0 40px rgba(6,214,160,0.3); }
+  0%, 100% { box-shadow: 0 0 6px rgba(255,78,136,0.3); }
+  50%       { box-shadow: 0 0 20px rgba(255,78,136,0.7), 0 0 40px rgba(255,167,38,0.3); }
 }
 @keyframes wiggle {
   0%, 100% { transform: rotate(-5deg); }
@@ -2034,7 +2034,7 @@ textarea.form-control { resize: vertical; min-height: 120px; }
   height: 200px;
   overflow: hidden;
   border-radius: var(--radius-md) var(--radius-md) 0 0;
-  background: linear-gradient(135deg, #ede9fe, #f5f3ff);
+  background: linear-gradient(135deg, #FFE8F3, #FFFBF5);
 }
 .product-card-img {
   width: 100%;
@@ -2045,5 +2045,5 @@ textarea.form-control { resize: vertical; min-height: 120px; }
 }
 .product-card:hover .product-card-img {
   transform: scale(1.14) translateY(-8px) rotate(-2deg);
-  filter: drop-shadow(0 10px 20px rgba(124,58,237,0.4));
+  filter: drop-shadow(0 10px 20px rgba(255,78,136,0.4));
 }
