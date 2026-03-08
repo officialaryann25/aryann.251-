@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About IceWorld – Our story, ingredients, mission and the passionate team behind premium handcrafted ice cream since 2014.">
+    <title>About Us – IceWorld Premium Ice Cream Shop</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ===================== LOADING SCREEN ===================== -->
+    <div id="loading-screen">
+        <div class="loader-logo">🍦 IceWorld</div>
+        <div class="loader-dots">
+            <span></span><span></span><span></span>
+        </div>
+    </div>
+
+    <!-- ===================== TOAST CONTAINER ===================== -->
+    <div id="toast-container"></div>
+
+    <!-- ===================== SCROLL TO TOP ===================== -->
+    <button id="scroll-top" title="Scroll to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- ===================== CART OVERLAY + SIDEBAR ===================== -->
+    <div class="cart-overlay"></div>
+    <aside class="cart-sidebar" aria-label="Shopping Cart">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-cart"></i> Your Cart</h3>
+            <button class="cart-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items"></div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span class="cart-total-price">₹0</span>
+            </div>
+            <button class="checkout-btn">
+                <i class="fas fa-credit-card"></i> Proceed to Checkout
+            </button>
+        </div>
+    </aside>
+
+    <!-- ===================== WISHLIST MODAL ===================== -->
+    <div class="wishlist-page" role="dialog" aria-label="Wishlist">
+        <div class="wishlist-modal">
+            <div class="wishlist-header">
+                <h3><i class="fas fa-heart" style="color:var(--primary)"></i> My Wishlist</h3>
+                <button class="wishlist-close cart-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="wishlist-items"></div>
+        </div>
+    </div>
+
+    <!-- ===================== NAVBAR ===================== -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo" aria-label="IceWorld Home">
+                <div class="logo-icon">🍦</div>
+                <span class="logo-text">IceWorld</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="about.html" class="active">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <div class="nav-search" role="search">
+                <input type="search" placeholder="Search ice cream..." aria-label="Search products">
+                <button aria-label="Search"><i class="fas fa-search"></i></button>
+            </div>
+
+            <div class="nav-actions">
+                <button class="nav-icon-btn dark-toggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="nav-icon-btn wishlist-open-btn" aria-label="Wishlist">
+                    <i class="far fa-heart"></i>
+                    <span class="badge wishlist-badge" style="display:none">0</span>
+                </button>
+                <button class="nav-icon-btn cart-open-btn" aria-label="Shopping cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="badge cart-badge" style="display:none">0</span>
+                </button>
+                <a href="#" class="btn-login" id="login-btn">
+                    <i class="fas fa-user"></i> Login
+                </a>
+                <button class="hamburger" aria-label="Toggle menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" role="navigation">
+        <a href="index.html">🏠 Home</a>
+        <a href="menu.html">🍦 Menu</a>
+        <a href="about.html" class="active">💛 About Us</a>
+        <a href="contact.html">📞 Contact</a>
+    </div>
+
+    <!-- ===================== PAGE HERO ===================== -->
+    <section class="page-hero" aria-label="About page header">
+        <div class="container">
+            <div class="page-hero-content">
+                <span class="section-tag">💛 Who We Are</span>
+                <h1>About IceWorld</h1>
+                <p>A passion project turned into a premium dessert destination loved by thousands</p>
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span>›</span>
+                    <span>About Us</span>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== OUR STORY ===================== -->
+    <section id="our-story" aria-label="Our Story">
+        <div class="container">
+            <div class="about-story">
+
+                <!-- Image Stack -->
+                <div class="about-img-stack animate-on-scroll">
+                    <div class="about-img-main">🍨</div>
+                    <div class="about-img-secondary">🍓</div>
+                </div>
+
+                <!-- Text Content -->
+                <div class="about-text animate-on-scroll delay-2">
+                    <span class="section-tag">📖 Our Story</span>
+                    <h2 class="section-title">Born from a Love of Ice Cream</h2>
+                    <p>
+                        IceWorld began in 2014 as a small cart at the corner of a busy Delhi street.
+                        Founded by Mahi Sehrawat and Priyanshi, two childhood friends who shared an
+                        unbreakable bond over their love for ice cream, the dream was simple – to share
+                        that joy with the world.
+                    </p>
+                    <p>
+                        What started with 5 handcrafted flavors sold from a modest cart has grown into
+                        a beloved premium ice cream brand serving over 5,000 happy customers across
+                        Delhi NCR. Today, IceWorld is synonymous with quality, creativity, and the
+                        pure happiness of a perfectly crafted scoop.
+                    </p>
+                    <p>
+                        We believe ice cream isn't just a dessert — it's an emotion. Every flavor we
+                        create tells a story, carries a memory, and brings people together. That's why
+                        we pour our hearts into every batch we make.
+                    </p>
+                    <a href="menu.html" class="btn btn-primary" style="margin-top:1.2rem;">
+                        <i class="fas fa-utensils"></i> Explore Our Menu
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== ANIMATED STATS ===================== -->
+    <section class="stats-section" aria-label="Our achievements">
+        <div class="container">
+            <div class="stats-grid">
+
+                <div class="stat-item animate-on-scroll">
+                    <div class="stat-number">
+                        <span data-counter="100" data-suffix="+">0+</span>
+                    </div>
+                    <div class="stat-label">🍦 Ice Cream Flavors</div>
+                </div>
+
+                <div class="stat-item animate-on-scroll delay-1">
+                    <div class="stat-number">
+                        <span data-counter="5000" data-suffix="+">0+</span>
+                    </div>
+                    <div class="stat-label">😊 Happy Customers</div>
+                </div>
+
+                <div class="stat-item animate-on-scroll delay-2">
+                    <div class="stat-number">
+                        <span data-counter="10" data-suffix=" Yrs">0 Yrs</span>
+                    </div>
+                    <div class="stat-label">🏆 Years of Experience</div>
+                </div>
+
+                <div class="stat-item animate-on-scroll delay-3">
+                    <div class="stat-number">
+                        <span data-counter="50" data-suffix="K+">0K+</span>
+                    </div>
+                    <div class="stat-label">🍨 Scoops Served</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== OUR INGREDIENTS ===================== -->
+    <section id="our-ingredients" style="background:var(--gradient-soft);" aria-label="Our Ingredients">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">🌿 Pure &amp; Natural</span>
+                <h2 class="section-title">Our Ingredients</h2>
+                <p class="section-subtitle">We believe what goes in matters just as much as what comes out. Only the finest, freshest ingredients for you.</p>
+            </div>
+
+            <div class="ingredients-grid">
+
+                <div class="ingredient-card animate-on-scroll">
+                    <span class="ingredient-icon">🥛</span>
+                    <h3>Fresh Farm Milk</h3>
+                    <p>Sourced daily from certified local dairy farms, our milk is pure, full-fat, and free of additives for the creamiest texture.</p>
+                </div>
+
+                <div class="ingredient-card animate-on-scroll delay-1">
+                    <span class="ingredient-icon">🍓</span>
+                    <h3>Real Fruits</h3>
+                    <p>We use only real, fresh, seasonal fruits – no artificial flavors or syrups. Every berry, mango, and strawberry is picked at peak ripeness.</p>
+                </div>
+
+                <div class="ingredient-card animate-on-scroll delay-2">
+                    <span class="ingredient-icon">🌼</span>
+                    <h3>Saffron &amp; Spices</h3>
+                    <p>Premium Kashmiri saffron, cardamom and natural spices add authentic Indian flavor to our signature recipes.</p>
+                </div>
+
+                <div class="ingredient-card animate-on-scroll delay-3">
+                    <span class="ingredient-icon">🍫</span>
+                    <h3>Belgian Chocolate</h3>
+                    <p>Only single-origin Belgian chocolate goes into our chocolate creations – rich, velvety, and irresistibly indulgent.</p>
+                </div>
+
+                <div class="ingredient-card animate-on-scroll delay-4">
+                    <span class="ingredient-icon">🌰</span>
+                    <h3>Premium Nuts</h3>
+                    <p>Hand-selected pistachios, almonds, cashews, and walnuts sourced from trusted farms for the perfect crunch.</p>
+                </div>
+
+                <div class="ingredient-card animate-on-scroll delay-5">
+                    <span class="ingredient-icon">🍯</span>
+                    <h3>Natural Sweeteners</h3>
+                    <p>We use pure cane sugar, organic honey, and natural jaggery – no high-fructose corn syrup or artificial sweeteners.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== OUR MISSION ===================== -->
+    <section id="our-mission" aria-label="Our Mission">
+        <div class="container">
+            <div class="about-story">
+
+                <!-- Mission Text -->
+                <div class="about-text animate-on-scroll">
+                    <span class="section-tag">🎯 Our Mission</span>
+                    <h2 class="section-title">Spreading Joy, One Scoop at a Time</h2>
+                    <p>
+                        Our mission is to create moments of pure happiness through exceptional ice cream.
+                        We are committed to using only the finest natural ingredients, maintaining
+                        the highest standards of hygiene, and continuously innovating to bring
+                        new and exciting flavors to our customers.
+                    </p>
+                    <p>
+                        We believe that great ice cream has the power to make any moment memorable –
+                        whether it's celebrating a birthday, cooling off on a hot day, or simply
+                        treating yourself because you deserve it.
+                    </p>
+
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; margin-top:1.8rem;">
+                        <div style="background:rgba(255,126,179,0.08); border:1px solid var(--glass-border); border-radius:var(--border-radius-sm); padding:1.2rem; text-align:center;">
+                            <div style="font-size:2rem; margin-bottom:0.5rem;">🌿</div>
+                            <h4 style="font-size:0.95rem; margin-bottom:0.3rem;">Eco Friendly</h4>
+                            <p style="font-size:0.8rem;">Sustainable packaging &amp; practices</p>
+                        </div>
+                        <div style="background:rgba(255,126,179,0.08); border:1px solid var(--glass-border); border-radius:var(--border-radius-sm); padding:1.2rem; text-align:center;">
+                            <div style="font-size:2rem; margin-bottom:0.5rem;">🏆</div>
+                            <h4 style="font-size:0.95rem; margin-bottom:0.3rem;">Award Winning</h4>
+                            <p style="font-size:0.8rem;">Best dessert brand 2022 &amp; 2023</p>
+                        </div>
+                        <div style="background:rgba(255,126,179,0.08); border:1px solid var(--glass-border); border-radius:var(--border-radius-sm); padding:1.2rem; text-align:center;">
+                            <div style="font-size:2rem; margin-bottom:0.5rem;">🤝</div>
+                            <h4 style="font-size:0.95rem; margin-bottom:0.3rem;">Community First</h4>
+                            <p style="font-size:0.8rem;">Supporting local farmers &amp; suppliers</p>
+                        </div>
+                        <div style="background:rgba(255,126,179,0.08); border:1px solid var(--glass-border); border-radius:var(--border-radius-sm); padding:1.2rem; text-align:center;">
+                            <div style="font-size:2rem; margin-bottom:0.5rem;">💡</div>
+                            <h4 style="font-size:0.95rem; margin-bottom:0.3rem;">Always Innovating</h4>
+                            <p style="font-size:0.8rem;">New seasonal flavors every month</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mission Image -->
+                <div class="about-img-stack animate-on-scroll delay-2">
+                    <div class="about-img-main" style="font-size:8rem;">🍧</div>
+                    <div class="about-img-secondary" style="font-size:4rem;">🏆</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== CUSTOMER REVIEWS ===================== -->
+    <section id="reviews" style="background:var(--gradient-soft);" aria-label="Customer Reviews">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">💬 What People Say</span>
+                <h2 class="section-title">Customer Reviews</h2>
+                <p class="section-subtitle">Don't just take our word for it – hear from our happy customers!</p>
+            </div>
+
+            <div class="reviews-grid">
+
+                <div class="review-card animate-on-scroll">
+                    <div class="review-quote">"</div>
+                    <p class="review-text">IceWorld has the most amazing ice cream I've ever tasted! The Kesar Pista flavor is absolutely divine. I visit at least twice a week and never get bored. Truly premium quality!</p>
+                    <div class="review-author">
+                        <div class="reviewer-avatar">P</div>
+                        <div class="reviewer-info">
+                            <div class="name">Priya Sharma</div>
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card animate-on-scroll delay-1">
+                    <div class="review-quote">"</div>
+                    <p class="review-text">Best dessert shop in Delhi! The Black Forest ice cream is out of this world. The service is quick, packaging is eco-friendly, and delivery is always on time. 5 stars!</p>
+                    <div class="review-author">
+                        <div class="reviewer-avatar">R</div>
+                        <div class="reviewer-info">
+                            <div class="name">Rahul Verma</div>
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card animate-on-scroll delay-2">
+                    <div class="review-quote">"</div>
+                    <p class="review-text">My kids absolutely love the Rainbow Cone from IceWorld. No artificial colors, all natural, and tastes incredible. This is our family's go-to dessert place every weekend!</p>
+                    <div class="review-author">
+                        <div class="reviewer-avatar">A</div>
+                        <div class="reviewer-info">
+                            <div class="name">Anjali Mehta</div>
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card animate-on-scroll delay-3">
+                    <div class="review-quote">"</div>
+                    <p class="review-text">The Banana Split Sundae is absolutely worth every rupee. Generously loaded, perfectly balanced flavors, and the presentation is Instagram-worthy. Highly recommend!</p>
+                    <div class="review-author">
+                        <div class="reviewer-avatar">S</div>
+                        <div class="reviewer-info">
+                            <div class="name">Sanjay Kapoor</div>
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card animate-on-scroll delay-4">
+                    <div class="review-quote">"</div>
+                    <p class="review-text">IceWorld is not just ice cream – it's an experience! The Tiramisu Dream is unlike anything I've had before. Rich, creamy, and deeply satisfying. Will order again!</p>
+                    <div class="review-author">
+                        <div class="reviewer-avatar">N</div>
+                        <div class="reviewer-info">
+                            <div class="name">Neha Gupta</div>
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card animate-on-scroll delay-5">
+                    <div class="review-quote">"</div>
+                    <p class="review-text">Ordered the Mango Magic and Strawberry Delight for a party. Everyone loved them! The flavors are intense and natural. IceWorld never disappoints. Perfect for every occasion!</p>
+                    <div class="review-author">
+                        <div class="reviewer-avatar">V</div>
+                        <div class="reviewer-info">
+                            <div class="name">Vikram Singh</div>
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== TEAM MEMBERS ===================== -->
+    <section id="team" aria-label="Our Team">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">👥 Meet the Team</span>
+                <h2 class="section-title">The People Behind IceWorld</h2>
+                <p class="section-subtitle">Our passionate team works tirelessly to bring you the best ice cream experience</p>
+            </div>
+
+            <div class="team-grid">
+
+                <div class="team-card animate-on-scroll">
+                    <div class="team-avatar">👩</div>
+                    <h4>Mahi Sehrawat</h4>
+                    <p class="role">Co-Founder &amp; CEO</p>
+                    <p style="font-size:0.82rem; color:var(--text-muted);">Mahi's vision and passion for premium quality has driven IceWorld from a cart to a beloved brand.</p>
+                    <div class="social-links" style="justify-content:center; margin-top:0.8rem;">
+                        <a href="#" aria-label="Instagram" style="width:32px;height:32px;font-size:0.9rem;"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn" style="width:32px;height:32px;font-size:0.9rem;"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="team-card animate-on-scroll delay-1">
+                    <div class="team-avatar">👩</div>
+                    <h4>Priyanshi</h4>
+                    <p class="role">Co-Founder &amp; Creative Director</p>
+                    <p style="font-size:0.82rem; color:var(--text-muted);">Priyanshi's creative flair designs every new flavor and ensures each scoop is a work of art.</p>
+                    <div class="social-links" style="justify-content:center; margin-top:0.8rem;">
+                        <a href="#" aria-label="Instagram" style="width:32px;height:32px;font-size:0.9rem;"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn" style="width:32px;height:32px;font-size:0.9rem;"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="team-card animate-on-scroll delay-2">
+                    <div class="team-avatar">👨‍🍳</div>
+                    <h4>Chef Arjun Kapoor</h4>
+                    <p class="role">Head Ice Cream Chef</p>
+                    <p style="font-size:0.82rem; color:var(--text-muted);">With 15 years of experience in premium desserts, Arjun crafts every flavor to perfection.</p>
+                    <div class="social-links" style="justify-content:center; margin-top:0.8rem;">
+                        <a href="#" aria-label="Instagram" style="width:32px;height:32px;font-size:0.9rem;"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="team-card animate-on-scroll delay-3">
+                    <div class="team-avatar">👨</div>
+                    <h4>Rohan Sharma</h4>
+                    <p class="role">Operations Manager</p>
+                    <p style="font-size:0.82rem; color:var(--text-muted);">Rohan ensures every order is fulfilled on time with the highest quality standards and fresh ingredients.</p>
+                    <div class="social-links" style="justify-content:center; margin-top:0.8rem;">
+                        <a href="#" aria-label="LinkedIn" style="width:32px;height:32px;font-size:0.9rem;"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== CTA SECTION ===================== -->
+    <div class="promo-banner" style="margin-top:0;">
+        <div class="container">
+            <div class="promo-content">
+                <div class="promo-text">
+                    <h2>Ready to Experience IceWorld? 🍦</h2>
+                    <p>Browse our full menu and order your favorite scoops today!</p>
+                </div>
+                <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+                    <a href="menu.html" class="btn btn-white btn-glow">
+                        <i class="fas fa-utensils"></i> View Menu
+                    </a>
+                    <a href="contact.html" class="btn" style="background:transparent; border:2px solid white; color:white;">
+                        <i class="fas fa-phone"></i> Contact Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer" aria-label="Footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="nav-logo" style="margin-bottom:1rem;">
+                        <div class="logo-icon">🍦</div>
+                        <span class="logo-text">IceWorld</span>
+                    </div>
+                    <p>Premium handcrafted ice cream made with love since 2014.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4>Quick Links</h4>
+                    <nav class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="menu.html">Menu</a>
+                        <a href="about.html">About Us</a>
+                        <a href="contact.html">Contact</a>
+                    </nav>
+                </div>
+
+                <div>
+                    <h4>About</h4>
+                    <nav class="footer-links">
+                        <a href="about.html#our-story">Our Story</a>
+                        <a href="about.html#our-ingredients">Ingredients</a>
+                        <a href="about.html#our-mission">Our Mission</a>
+                        <a href="about.html#reviews">Reviews</a>
+                        <a href="about.html#team">Our Team</a>
+                    </nav>
+                </div>
+
+                <div class="footer-contact">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-map-marker-alt contact-icon"></i> 123 Sweet Street, Delhi – 110001</p>
+                    <p><i class="fas fa-clock contact-icon"></i> Mon–Sun: 10 AM – 11 PM</p>
+
+                    <div class="footer-owner">
+                        <h5>👑 Owner – Mahi Sehrawat</h5>
+                        <p><i class="fas fa-phone contact-icon"></i> +91 8750141860</p>
+                        <p><i class="fas fa-envelope contact-icon"></i> mahisehrawat2006@gmail.com</p>
+                    </div>
+                    <div class="footer-owner">
+                        <h5>👑 Owner – Priyanshi</h5>
+                        <p><i class="fas fa-phone contact-icon"></i> +91 8368573180</p>
+                        <p><i class="fas fa-envelope contact-icon"></i> priyadaksh007@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; width:100%;">
+                <p>© 2024 IceWorld. Made with <span class="heart">❤️</span> by Mahi Sehrawat &amp; Priyanshi</p>
+                <p>
+                    <a href="#" style="color:rgba(255,255,255,0.5); font-size:0.82rem;">Privacy Policy</a>
+                    &nbsp;|&nbsp;
+                    <a href="#" style="color:rgba(255,255,255,0.5); font-size:0.82rem;">Terms</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        document.querySelector('#login-btn')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            showToast('Login feature coming soon! 🔐', '🍦');
+        });
+    </script>
+
+</body>
+</html>
