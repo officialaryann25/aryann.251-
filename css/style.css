@@ -512,7 +512,9 @@ section { padding: 5rem 0; }
    ============================================================ */
 .hero {
   min-height: 100vh;
-  background: linear-gradient(135deg, #fff0f5 0%, var(--cream) 30%, #fff5e6 60%, #f0e8ff 100%);
+  background:
+    linear-gradient(135deg, rgba(255,240,245,0.88) 0%, rgba(255,248,240,0.82) 30%, rgba(255,245,230,0.85) 60%, rgba(240,232,255,0.82) 100%),
+    url('../images/banner/hero-banner.svg') center / cover no-repeat;
   display: flex;
   align-items: center;
   padding-top: 80px;
@@ -706,25 +708,44 @@ section { padding: 5rem 0; }
   position: relative;
 }
 .product-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-8px) scale(1.02);
   box-shadow: var(--shadow-lg);
   border-color: rgba(255,179,198,0.4);
 }
 .card-img-wrap {
   position: relative;
-  height: 200px;
+  height: 220px;
   background: linear-gradient(135deg, var(--pink-light), var(--peach-light));
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
 }
+/* Product image – fills the card top section */
+.card-img-wrap .card-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+  z-index: 1;
+  transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+  display: block;
+}
+/* Image zoom on card hover */
+.product-card:hover .card-img {
+  transform: scale(1.08);
+}
 .card-img-wrap .card-emoji {
   font-size: 6rem;
+  position: relative;
+  z-index: 0;
   transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
   filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
 }
 .product-card:hover .card-emoji { transform: scale(1.2) rotate(5deg); }
+/* Badge and wishlist float above the image */
 .card-badge {
   position: absolute;
   top: 1rem; left: 1rem;
@@ -736,6 +757,7 @@ section { padding: 5rem 0; }
   border-radius: var(--radius-full);
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  z-index: 2;
 }
 .card-badge.best { background: var(--gold); color: var(--chocolate); }
 .card-badge.new  { background: var(--mint); color: #1a6b3a; }
@@ -750,6 +772,7 @@ section { padding: 5rem 0; }
   cursor: pointer;
   transition: var(--transition);
   box-shadow: var(--shadow-sm);
+  z-index: 2;
 }
 .card-wishlist:hover, .card-wishlist.active { background: var(--pink); color: var(--white); }
 .card-body { padding: 1.2rem; }
@@ -1262,7 +1285,9 @@ footer {
    MENU PAGE SPECIFICS
    ============================================================ */
 .menu-hero {
-  background: linear-gradient(135deg, var(--pink-light) 0%, var(--peach-light) 50%, var(--cream) 100%);
+  background:
+    linear-gradient(135deg, rgba(255,224,233,0.85) 0%, rgba(255,238,221,0.80) 50%, rgba(255,248,240,0.85) 100%),
+    url('../images/banner/menu-banner.svg') center / cover no-repeat;
   padding: 8rem 0 4rem;
   text-align: center;
 }
@@ -1359,7 +1384,9 @@ footer {
    ABOUT PAGE
    ============================================================ */
 .about-hero {
-  background: linear-gradient(135deg, var(--cream), var(--pink-light), var(--peach-light));
+  background:
+    linear-gradient(135deg, rgba(255,248,240,0.87) 0%, rgba(255,224,233,0.82) 50%, rgba(255,238,221,0.85) 100%),
+    url('../images/banner/about-banner.svg') center / cover no-repeat;
   padding: 8rem 0 4rem;
   text-align: center;
 }
@@ -1462,7 +1489,9 @@ footer {
    CONTACT PAGE
    ============================================================ */
 .contact-hero {
-  background: linear-gradient(135deg, var(--peach-light), var(--pink-light), var(--cream));
+  background:
+    linear-gradient(135deg, rgba(255,238,221,0.87) 0%, rgba(255,224,233,0.82) 50%, rgba(255,248,240,0.85) 100%),
+    url('../images/banner/contact-banner.svg') center / cover no-repeat;
   padding: 8rem 0 4rem;
   text-align: center;
 }

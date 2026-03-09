@@ -3,60 +3,67 @@
    Shared across all JS files
    ==================================================== */
 
+/* Resolve image base path: root pages vs pages/ sub-directory */
+const IMG_BASE = (function() {
+  try {
+    return window.location.pathname.includes('/pages/') ? '../images/' : 'images/';
+  } catch(e) { return 'images/'; }
+}());
+
 const PRODUCTS = [
   // Classic Ice Cream
-  { id:1,  name:"Vanilla Dream",        category:"classic",  price:149, oldPrice:179, rating:4.8, reviews:245, emoji:"🍦", badge:"",      desc:"Rich Madagascar vanilla with creamy texture",       tags:["vanilla","classic","sweet"] },
-  { id:2,  name:"Strawberry Delight",   category:"classic",  price:159, oldPrice:189, rating:4.7, reviews:198, emoji:"🍓", badge:"best",   desc:"Fresh strawberry chunks in premium cream",          tags:["strawberry","fruit","classic"] },
-  { id:3,  name:"Chocolate Fudge",      category:"classic",  price:169, oldPrice:199, rating:4.9, reviews:312, emoji:"🍫", badge:"best",   desc:"Dark Belgian chocolate with fudge swirls",         tags:["chocolate","fudge","classic"] },
-  { id:4,  name:"Mango Magic",          category:"classic",  price:159, oldPrice:189, rating:4.6, reviews:167, emoji:"🥭", badge:"new",    desc:"Alphonso mango with a tropical twist",             tags:["mango","tropical","fruit"] },
-  { id:5,  name:"Blueberry Cream",      category:"classic",  price:169, oldPrice:199, rating:4.5, reviews:143, emoji:"🫐", badge:"",       desc:"Wild blueberries in silky vanilla cream",           tags:["blueberry","fruit","cream"] },
-  { id:6,  name:"Caramel Swirl",        category:"classic",  price:179, oldPrice:209, rating:4.7, reviews:221, emoji:"🍮", badge:"",       desc:"Buttery caramel ribbons in smooth ice cream",       tags:["caramel","sweet","classic"] },
-  { id:7,  name:"Pistachio Royal",      category:"classic",  price:199, oldPrice:229, rating:4.8, reviews:189, emoji:"🌿", badge:"",       desc:"Real pistachio nuts in a premium cream base",       tags:["pistachio","nuts","classic"] },
-  { id:8,  name:"Cookies & Cream",      category:"classic",  price:169, oldPrice:199, rating:4.9, reviews:287, emoji:"🍪", badge:"best",   desc:"Oreo cookies crushed into dreamy vanilla cream",    tags:["oreo","cookies","classic"] },
-  { id:9,  name:"Butterscotch Bliss",   category:"classic",  price:159, oldPrice:189, rating:4.6, reviews:156, emoji:"🧈", badge:"",       desc:"Classic butterscotch with toffee bits",            tags:["butterscotch","toffee","classic"] },
-  { id:10, name:"Mint Choco Chip",      category:"classic",  price:169, oldPrice:199, rating:4.7, reviews:203, emoji:"🌱", badge:"",       desc:"Refreshing mint with chocolate chips",             tags:["mint","chocolate","classic"] },
-  { id:11, name:"Rose Gulkand",         category:"classic",  price:179, oldPrice:209, rating:4.5, reviews:132, emoji:"🌹", badge:"new",    desc:"Fragrant rose petals with Indian gulkand",          tags:["rose","gulkand","floral"] },
-  { id:12, name:"Kesar Pista",          category:"classic",  price:199, oldPrice:249, rating:4.8, reviews:178, emoji:"🌟", badge:"",       desc:"Saffron and pistachio, the Indian classic",         tags:["kesar","pista","indian"] },
+  { id:1,  name:"Vanilla Dream",        category:"classic",  price:149, oldPrice:179, rating:4.8, reviews:245, emoji:"🍦", badge:"",      image:"classic/vanilla.svg",          desc:"Rich Madagascar vanilla with creamy texture",       tags:["vanilla","classic","sweet"] },
+  { id:2,  name:"Strawberry Delight",   category:"classic",  price:159, oldPrice:189, rating:4.7, reviews:198, emoji:"🍓", badge:"best",  image:"classic/strawberry.svg",        desc:"Fresh strawberry chunks in premium cream",          tags:["strawberry","fruit","classic"] },
+  { id:3,  name:"Chocolate Fudge",      category:"classic",  price:169, oldPrice:199, rating:4.9, reviews:312, emoji:"🍫", badge:"best",  image:"classic/chocolate.svg",         desc:"Dark Belgian chocolate with fudge swirls",         tags:["chocolate","fudge","classic"] },
+  { id:4,  name:"Mango Magic",          category:"classic",  price:159, oldPrice:189, rating:4.6, reviews:167, emoji:"🥭", badge:"new",   image:"classic/mango.svg",             desc:"Alphonso mango with a tropical twist",             tags:["mango","tropical","fruit"] },
+  { id:5,  name:"Blueberry Cream",      category:"classic",  price:169, oldPrice:199, rating:4.5, reviews:143, emoji:"🫐", badge:"",      image:"classic/blueberry.svg",         desc:"Wild blueberries in silky vanilla cream",           tags:["blueberry","fruit","cream"] },
+  { id:6,  name:"Caramel Swirl",        category:"classic",  price:179, oldPrice:209, rating:4.7, reviews:221, emoji:"🍮", badge:"",      image:"classic/caramel.svg",           desc:"Buttery caramel ribbons in smooth ice cream",       tags:["caramel","sweet","classic"] },
+  { id:7,  name:"Pistachio Royal",      category:"classic",  price:199, oldPrice:229, rating:4.8, reviews:189, emoji:"🌿", badge:"",      image:"classic/pistachio.svg",         desc:"Real pistachio nuts in a premium cream base",       tags:["pistachio","nuts","classic"] },
+  { id:8,  name:"Cookies & Cream",      category:"classic",  price:169, oldPrice:199, rating:4.9, reviews:287, emoji:"🍪", badge:"best",  image:"classic/cookies-cream.svg",     desc:"Oreo cookies crushed into dreamy vanilla cream",    tags:["oreo","cookies","classic"] },
+  { id:9,  name:"Butterscotch Bliss",   category:"classic",  price:159, oldPrice:189, rating:4.6, reviews:156, emoji:"🧈", badge:"",      image:"classic/butterscotch.svg",      desc:"Classic butterscotch with toffee bits",            tags:["butterscotch","toffee","classic"] },
+  { id:10, name:"Mint Choco Chip",      category:"classic",  price:169, oldPrice:199, rating:4.7, reviews:203, emoji:"🌱", badge:"",      image:"classic/mint-choco.svg",        desc:"Refreshing mint with chocolate chips",             tags:["mint","chocolate","classic"] },
+  { id:11, name:"Rose Gulkand",         category:"classic",  price:179, oldPrice:209, rating:4.5, reviews:132, emoji:"🌹", badge:"new",   image:"classic/rose-gulkand.svg",      desc:"Fragrant rose petals with Indian gulkand",          tags:["rose","gulkand","floral"] },
+  { id:12, name:"Kesar Pista",          category:"classic",  price:199, oldPrice:249, rating:4.8, reviews:178, emoji:"🌟", badge:"",      image:"classic/kesar-pista.svg",       desc:"Saffron and pistachio, the Indian classic",         tags:["kesar","pista","indian"] },
 
   // Premium Ice Cream
-  { id:13, name:"Truffle Heaven",       category:"premium",  price:299, oldPrice:349, rating:5.0, reviews:145, emoji:"🍫", badge:"best",   desc:"Belgian truffle and dark chocolate ganache",        tags:["truffle","chocolate","premium"] },
-  { id:14, name:"Salted Caramel Gold",  category:"premium",  price:279, oldPrice:329, rating:4.9, reviews:167, emoji:"🥇", badge:"",       desc:"Sea salt flakes in golden caramel gelato",          tags:["caramel","salted","premium"] },
-  { id:15, name:"Matcha Zen",           category:"premium",  price:269, oldPrice:319, rating:4.8, reviews:134, emoji:"🍵", badge:"new",    desc:"Premium Japanese matcha with white chocolate",      tags:["matcha","japanese","premium"] },
-  { id:16, name:"Lavender Honey",       category:"premium",  price:289, oldPrice:339, rating:4.7, reviews:121, emoji:"💜", badge:"",       desc:"French lavender with wild honey swirls",           tags:["lavender","honey","floral"] },
-  { id:17, name:"Champagne Sorbet",     category:"premium",  price:319, oldPrice:379, rating:4.8, reviews:98,  emoji:"🥂", badge:"",       desc:"Light champagne and citrus sorbet",                tags:["champagne","sorbet","premium"] },
-  { id:18, name:"Black Sesame Royale",  category:"premium",  price:299, oldPrice:349, rating:4.9, reviews:112, emoji:"⚫", badge:"new",    desc:"Nutty black sesame in velvety cream",              tags:["sesame","nutty","premium"] },
-  { id:19, name:"Tahitian Vanilla",     category:"premium",  price:329, oldPrice:389, rating:5.0, reviews:89,  emoji:"✨", badge:"best",   desc:"Rare Tahitian vanilla pods gelato",                tags:["vanilla","tahitian","premium"] },
-  { id:20, name:"Hazelnut Praline",     category:"premium",  price:299, oldPrice:349, rating:4.8, reviews:145, emoji:"🌰", badge:"",       desc:"Roasted hazelnuts and praline in cream",           tags:["hazelnut","praline","premium"] },
-  { id:21, name:"Tiramisu Dream",       category:"premium",  price:289, oldPrice:339, rating:4.9, reviews:178, emoji:"☕", badge:"best",   desc:"Italian tiramisu in a frozen gelato form",          tags:["tiramisu","coffee","premium"] },
-  { id:22, name:"Raspberry Coulis",     category:"premium",  price:279, oldPrice:329, rating:4.7, reviews:134, emoji:"🫙", badge:"",       desc:"Fresh raspberry coulis swirled in cream",          tags:["raspberry","fruit","premium"] },
-  { id:23, name:"Coconut Lychee",       category:"premium",  price:269, oldPrice:319, rating:4.6, reviews:109, emoji:"🥥", badge:"",       desc:"Tropical coconut cream with lychee pieces",        tags:["coconut","lychee","tropical"] },
-  { id:24, name:"Saffron Rose",         category:"premium",  price:339, oldPrice:399, rating:4.9, reviews:97,  emoji:"🌺", badge:"",       desc:"Premium saffron with rose water gelato",           tags:["saffron","rose","indian"] },
+  { id:13, name:"Truffle Heaven",       category:"premium",  price:299, oldPrice:349, rating:5.0, reviews:145, emoji:"🍫", badge:"best",  image:"premium/truffle.svg",           desc:"Belgian truffle and dark chocolate ganache",        tags:["truffle","chocolate","premium"] },
+  { id:14, name:"Salted Caramel Gold",  category:"premium",  price:279, oldPrice:329, rating:4.9, reviews:167, emoji:"🥇", badge:"",      image:"premium/salted-caramel.svg",    desc:"Sea salt flakes in golden caramel gelato",          tags:["caramel","salted","premium"] },
+  { id:15, name:"Matcha Zen",           category:"premium",  price:269, oldPrice:319, rating:4.8, reviews:134, emoji:"🍵", badge:"new",   image:"premium/matcha.svg",            desc:"Premium Japanese matcha with white chocolate",      tags:["matcha","japanese","premium"] },
+  { id:16, name:"Lavender Honey",       category:"premium",  price:289, oldPrice:339, rating:4.7, reviews:121, emoji:"💜", badge:"",      image:"premium/lavender.svg",          desc:"French lavender with wild honey swirls",           tags:["lavender","honey","floral"] },
+  { id:17, name:"Champagne Sorbet",     category:"premium",  price:319, oldPrice:379, rating:4.8, reviews:98,  emoji:"🥂", badge:"",      image:"premium/champagne.svg",         desc:"Light champagne and citrus sorbet",                tags:["champagne","sorbet","premium"] },
+  { id:18, name:"Black Sesame Royale",  category:"premium",  price:299, oldPrice:349, rating:4.9, reviews:112, emoji:"⚫", badge:"new",   image:"premium/black-sesame.svg",      desc:"Nutty black sesame in velvety cream",              tags:["sesame","nutty","premium"] },
+  { id:19, name:"Tahitian Vanilla",     category:"premium",  price:329, oldPrice:389, rating:5.0, reviews:89,  emoji:"✨", badge:"best",  image:"premium/tahitian-vanilla.svg",  desc:"Rare Tahitian vanilla pods gelato",                tags:["vanilla","tahitian","premium"] },
+  { id:20, name:"Hazelnut Praline",     category:"premium",  price:299, oldPrice:349, rating:4.8, reviews:145, emoji:"🌰", badge:"",      image:"premium/hazelnut.svg",          desc:"Roasted hazelnuts and praline in cream",           tags:["hazelnut","praline","premium"] },
+  { id:21, name:"Tiramisu Dream",       category:"premium",  price:289, oldPrice:339, rating:4.9, reviews:178, emoji:"☕", badge:"best",  image:"premium/tiramisu.svg",          desc:"Italian tiramisu in a frozen gelato form",          tags:["tiramisu","coffee","premium"] },
+  { id:22, name:"Raspberry Coulis",     category:"premium",  price:279, oldPrice:329, rating:4.7, reviews:134, emoji:"🫙", badge:"",      image:"premium/raspberry.svg",         desc:"Fresh raspberry coulis swirled in cream",          tags:["raspberry","fruit","premium"] },
+  { id:23, name:"Coconut Lychee",       category:"premium",  price:269, oldPrice:319, rating:4.6, reviews:109, emoji:"🥥", badge:"",      image:"premium/coconut-lychee.svg",    desc:"Tropical coconut cream with lychee pieces",        tags:["coconut","lychee","tropical"] },
+  { id:24, name:"Saffron Rose",         category:"premium",  price:339, oldPrice:399, rating:4.9, reviews:97,  emoji:"🌺", badge:"",      image:"premium/saffron-rose.svg",      desc:"Premium saffron with rose water gelato",           tags:["saffron","rose","indian"] },
 
   // Ice Cream Cones
-  { id:25, name:"Classic Waffle Cone",  category:"cones",    price:129, oldPrice:149, rating:4.7, reviews:234, emoji:"🍦", badge:"best",   desc:"Crispy waffle cone with vanilla soft serve",       tags:["waffle","vanilla","cone"] },
-  { id:26, name:"Choco Dip Cone",       category:"cones",    price:149, oldPrice:179, rating:4.8, reviews:198, emoji:"🍫", badge:"",       desc:"Belgian chocolate dipped waffle cone",             tags:["chocolate","dip","cone"] },
-  { id:27, name:"Strawberry Cone",      category:"cones",    price:139, oldPrice:169, rating:4.6, reviews:167, emoji:"🍓", badge:"",       desc:"Strawberry swirl in a crunchy cone",               tags:["strawberry","cone","fruit"] },
-  { id:28, name:"Rainbow Cone",         category:"cones",    price:159, oldPrice:189, rating:4.9, reviews:289, emoji:"🌈", badge:"best",   desc:"Five colorful flavors in one tall cone",           tags:["rainbow","mixed","cone"] },
-  { id:29, name:"Nutty Buddy Cone",     category:"cones",    price:169, oldPrice:199, rating:4.7, reviews:156, emoji:"🥜", badge:"",       desc:"Mixed nuts and caramel in waffle cone",            tags:["nuts","caramel","cone"] },
-  { id:30, name:"Mango Kulfi Cone",     category:"cones",    price:149, oldPrice:179, rating:4.8, reviews:212, emoji:"🥭", badge:"new",    desc:"Indian mango kulfi in a crispy cone",              tags:["mango","kulfi","cone"] },
+  { id:25, name:"Classic Waffle Cone",  category:"cones",    price:129, oldPrice:149, rating:4.7, reviews:234, emoji:"🍦", badge:"best",  image:"cone/waffle-cone.svg",          desc:"Crispy waffle cone with vanilla soft serve",       tags:["waffle","vanilla","cone"] },
+  { id:26, name:"Choco Dip Cone",       category:"cones",    price:149, oldPrice:179, rating:4.8, reviews:198, emoji:"🍫", badge:"",      image:"cone/choco-dip-cone.svg",       desc:"Belgian chocolate dipped waffle cone",             tags:["chocolate","dip","cone"] },
+  { id:27, name:"Strawberry Cone",      category:"cones",    price:139, oldPrice:169, rating:4.6, reviews:167, emoji:"🍓", badge:"",      image:"cone/strawberry-cone.svg",      desc:"Strawberry swirl in a crunchy cone",               tags:["strawberry","cone","fruit"] },
+  { id:28, name:"Rainbow Cone",         category:"cones",    price:159, oldPrice:189, rating:4.9, reviews:289, emoji:"🌈", badge:"best",  image:"cone/rainbow-cone.svg",         desc:"Five colorful flavors in one tall cone",           tags:["rainbow","mixed","cone"] },
+  { id:29, name:"Nutty Buddy Cone",     category:"cones",    price:169, oldPrice:199, rating:4.7, reviews:156, emoji:"🥜", badge:"",      image:"cone/nutty-cone.svg",           desc:"Mixed nuts and caramel in waffle cone",            tags:["nuts","caramel","cone"] },
+  { id:30, name:"Mango Kulfi Cone",     category:"cones",    price:149, oldPrice:179, rating:4.8, reviews:212, emoji:"🥭", badge:"new",   image:"cone/mango-kulfi.svg",          desc:"Indian mango kulfi in a crispy cone",              tags:["mango","kulfi","cone"] },
 
   // Ice Cream Cups
-  { id:31, name:"Gelato Cup",           category:"cups",     price:119, oldPrice:149, rating:4.6, reviews:187, emoji:"🍨", badge:"",       desc:"Italian-style gelato in a charming cup",           tags:["gelato","cup","italian"] },
-  { id:32, name:"Brownie Cup",          category:"cups",     price:179, oldPrice:209, rating:4.9, reviews:234, emoji:"🍫", badge:"best",   desc:"Warm brownie with cold ice cream cup",             tags:["brownie","chocolate","cup"] },
-  { id:33, name:"Fruit Parfait Cup",    category:"cups",     price:159, oldPrice:189, rating:4.7, reviews:167, emoji:"🍑", badge:"",       desc:"Layered fresh fruits and cream in a cup",          tags:["fruit","parfait","cup"] },
-  { id:34, name:"Choco Volcano Cup",    category:"cups",     price:189, oldPrice:219, rating:4.9, reviews:198, emoji:"🌋", badge:"new",    desc:"Chocolate lava with ice cream topping",            tags:["chocolate","lava","cup"] },
-  { id:35, name:"Berry Blast Cup",      category:"cups",     price:149, oldPrice:179, rating:4.7, reviews:145, emoji:"🫐", badge:"",       desc:"Mixed berries and sorbet in a cup",                tags:["berries","sorbet","cup"] },
-  { id:36, name:"Peanut Butter Cup",    category:"cups",     price:169, oldPrice:199, rating:4.8, reviews:178, emoji:"🥜", badge:"",       desc:"Creamy peanut butter with chocolate cup",          tags:["peanut","butter","cup"] },
+  { id:31, name:"Gelato Cup",           category:"cups",     price:119, oldPrice:149, rating:4.6, reviews:187, emoji:"🍨", badge:"",      image:"cup/gelato-cup.svg",            desc:"Italian-style gelato in a charming cup",           tags:["gelato","cup","italian"] },
+  { id:32, name:"Brownie Cup",          category:"cups",     price:179, oldPrice:209, rating:4.9, reviews:234, emoji:"🍫", badge:"best",  image:"cup/brownie-cup.svg",           desc:"Warm brownie with cold ice cream cup",             tags:["brownie","chocolate","cup"] },
+  { id:33, name:"Fruit Parfait Cup",    category:"cups",     price:159, oldPrice:189, rating:4.7, reviews:167, emoji:"🍑", badge:"",      image:"cup/fruit-parfait-cup.svg",     desc:"Layered fresh fruits and cream in a cup",          tags:["fruit","parfait","cup"] },
+  { id:34, name:"Choco Volcano Cup",    category:"cups",     price:189, oldPrice:219, rating:4.9, reviews:198, emoji:"🌋", badge:"new",   image:"cup/choco-volcano-cup.svg",     desc:"Chocolate lava with ice cream topping",            tags:["chocolate","lava","cup"] },
+  { id:35, name:"Berry Blast Cup",      category:"cups",     price:149, oldPrice:179, rating:4.7, reviews:145, emoji:"🫐", badge:"",      image:"cup/berry-blast-cup.svg",       desc:"Mixed berries and sorbet in a cup",                tags:["berries","sorbet","cup"] },
+  { id:36, name:"Peanut Butter Cup",    category:"cups",     price:169, oldPrice:199, rating:4.8, reviews:178, emoji:"🥜", badge:"",      image:"cup/peanut-butter-cup.svg",     desc:"Creamy peanut butter with chocolate cup",          tags:["peanut","butter","cup"] },
 
   // Ice Cream Sundaes
-  { id:37, name:"Classic Hot Fudge",    category:"sundae",   price:219, oldPrice:259, rating:4.9, reviews:312, emoji:"🍫", badge:"best",   desc:"Hot fudge sauce over vanilla scoops",              tags:["hot fudge","classic","sundae"] },
-  { id:38, name:"Banana Split",         category:"sundae",   price:229, oldPrice:269, rating:4.8, reviews:267, emoji:"🍌", badge:"best",   desc:"Classic banana split with 3 flavors",              tags:["banana","split","sundae"] },
-  { id:39, name:"Strawberry Supreme",   category:"sundae",   price:219, oldPrice:259, rating:4.7, reviews:189, emoji:"🍓", badge:"",       desc:"Strawberry compote over creamy scoops",            tags:["strawberry","sundae","fruit"] },
-  { id:40, name:"Rainbow Sundae",       category:"sundae",   price:249, oldPrice:289, rating:4.9, reviews:234, emoji:"🌈", badge:"new",    desc:"Colorful sprinkles and rainbow toppings",          tags:["rainbow","colorful","sundae"] },
-  { id:41, name:"Caramel Crunch",       category:"sundae",   price:229, oldPrice:269, rating:4.8, reviews:198, emoji:"🍮", badge:"",       desc:"Salted caramel with praline crunch sundae",        tags:["caramel","crunch","sundae"] },
-  { id:42, name:"Choco Peanut Butter",  category:"sundae",   price:239, oldPrice:279, rating:4.9, reviews:223, emoji:"🥜", badge:"",       desc:"Chocolate sauce meets peanut butter sundae",       tags:["chocolate","peanut","sundae"] },
-  { id:43, name:"Tropical Sundae",      category:"sundae",   price:239, oldPrice:279, rating:4.7, reviews:156, emoji:"🏝️", badge:"",      desc:"Mango, coconut and passionfruit sundae",           tags:["tropical","mango","sundae"] },
-  { id:44, name:"Monster Sundae",       category:"sundae",   price:349, oldPrice:399, rating:4.9, reviews:145, emoji:"👾", badge:"new",    desc:"6 scoops, 4 toppings, 2 sauces - massive!",        tags:["big","loaded","sundae"] },
+  { id:37, name:"Classic Hot Fudge",    category:"sundae",   price:219, oldPrice:259, rating:4.9, reviews:312, emoji:"🍫", badge:"best",  image:"sundae/hot-fudge-sundae.svg",   desc:"Hot fudge sauce over vanilla scoops",              tags:["hot fudge","classic","sundae"] },
+  { id:38, name:"Banana Split",         category:"sundae",   price:229, oldPrice:269, rating:4.8, reviews:267, emoji:"🍌", badge:"best",  image:"sundae/banana-split.svg",       desc:"Classic banana split with 3 flavors",              tags:["banana","split","sundae"] },
+  { id:39, name:"Strawberry Supreme",   category:"sundae",   price:219, oldPrice:259, rating:4.7, reviews:189, emoji:"🍓", badge:"",      image:"sundae/strawberry-supreme.svg", desc:"Strawberry compote over creamy scoops",            tags:["strawberry","sundae","fruit"] },
+  { id:40, name:"Rainbow Sundae",       category:"sundae",   price:249, oldPrice:289, rating:4.9, reviews:234, emoji:"🌈", badge:"new",   image:"sundae/rainbow-sundae.svg",     desc:"Colorful sprinkles and rainbow toppings",          tags:["rainbow","colorful","sundae"] },
+  { id:41, name:"Caramel Crunch",       category:"sundae",   price:229, oldPrice:269, rating:4.8, reviews:198, emoji:"🍮", badge:"",      image:"sundae/caramel-crunch-sundae.svg", desc:"Salted caramel with praline crunch sundae",     tags:["caramel","crunch","sundae"] },
+  { id:42, name:"Choco Peanut Butter",  category:"sundae",   price:239, oldPrice:279, rating:4.9, reviews:223, emoji:"🥜", badge:"",      image:"sundae/choco-pb-sundae.svg",    desc:"Chocolate sauce meets peanut butter sundae",       tags:["chocolate","peanut","sundae"] },
+  { id:43, name:"Tropical Sundae",      category:"sundae",   price:239, oldPrice:279, rating:4.7, reviews:156, emoji:"🏝️", badge:"",      image:"sundae/tropical-sundae.svg",    desc:"Mango, coconut and passionfruit sundae",           tags:["tropical","mango","sundae"] },
+  { id:44, name:"Monster Sundae",       category:"sundae",   price:349, oldPrice:399, rating:4.9, reviews:145, emoji:"👾", badge:"new",   image:"sundae/monster-sundae.svg",     desc:"6 scoops, 4 toppings, 2 sauces - massive!",        tags:["big","loaded","sundae"] },
 ];
 
 /* ---- Helpers ---- */
@@ -73,9 +80,14 @@ function createProductCard(product, size = 'normal') {
   const badgeHtml = product.badge
     ? `<span class="card-badge ${product.badge}">${product.badge === 'best' ? '🏆 Best Seller' : product.badge === 'new' ? '✨ New' : product.badge}</span>`
     : '';
+  const imgSrc = product.image ? IMG_BASE + product.image : '';
+  const imgHtml = imgSrc
+    ? `<img class="card-img" src="${imgSrc}" alt="${product.name}" loading="lazy" onerror="this.style.display='none'">`
+    : '';
   return `
     <div class="product-card reveal tilt-card" data-id="${product.id}" data-category="${product.category}" data-tags="${product.tags.join(',')}">
       <div class="card-img-wrap zoom-wrap">
+        ${imgHtml}
         <span class="card-emoji">${product.emoji}</span>
         ${badgeHtml}
         <button class="card-wishlist" onclick="toggleWishlist(this, ${product.id})" title="Wishlist">♡</button>
