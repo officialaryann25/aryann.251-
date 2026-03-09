@@ -80,9 +80,13 @@ function createProductCard(product, size = 'normal') {
   const badgeHtml = product.badge
     ? `<span class="card-badge ${product.badge}">${product.badge === 'best' ? '🏆 Best Seller' : product.badge === 'new' ? '✨ New' : product.badge}</span>`
     : '';
-  const imgSrc = product.image ? IMG_BASE + product.image : '';
-  const imgHtml = imgSrc
-    ? `<img class="card-img" src="${imgSrc}" alt="${product.name}" loading="lazy" onerror="this.style.display='none'">`
+  const imgBase = product.image ? IMG_BASE + product.image : '';
+  const imgHtml = imgBase
+    ? `<picture>
+        <source srcset="${imgBase.replace(/\.png$/, '.webp')}" type="image/webp">
+        <source srcset="${imgBase.replace(/\.png$/, '.jpg')}" type="image/jpeg">
+        <img class="card-img" src="${imgBase}" alt="${product.name}" loading="lazy" onerror="this.style.display='none'">
+      </picture>`
     : '';
   return `
     <div class="product-card reveal tilt-card" data-id="${product.id}" data-category="${product.category}" data-tags="${product.tags.join(',')}">

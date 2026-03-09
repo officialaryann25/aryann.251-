@@ -1630,3 +1630,76 @@ footer {
 .mt-3 { margin-top:2rem; }
 .mb-1 { margin-bottom:0.5rem; }
 .mb-2 { margin-bottom:1rem; }
+
+/* ============================================================
+   WEBP BANNER OVERRIDES (html.webp class set by webp-detect.js)
+   ============================================================ */
+html.webp .hero {
+  background-image:
+    linear-gradient(135deg, rgba(255,240,245,0.88) 0%, rgba(255,248,240,0.82) 30%, rgba(255,245,230,0.85) 60%, rgba(240,232,255,0.82) 100%),
+    url('../images/banner/hero-banner.webp');
+}
+html.webp .menu-hero {
+  background-image:
+    linear-gradient(135deg, rgba(255,224,233,0.85) 0%, rgba(255,238,221,0.80) 50%, rgba(255,248,240,0.85) 100%),
+    url('../images/banner/menu-banner.webp');
+}
+html.webp .about-hero {
+  background-image:
+    linear-gradient(135deg, rgba(255,248,240,0.87) 0%, rgba(255,224,233,0.82) 50%, rgba(255,238,221,0.85) 100%),
+    url('../images/banner/about-banner.webp');
+}
+html.webp .contact-hero {
+  background-image:
+    linear-gradient(135deg, rgba(255,238,221,0.87) 0%, rgba(255,224,233,0.82) 50%, rgba(255,248,240,0.85) 100%),
+    url('../images/banner/contact-banner.webp');
+}
+
+/* ============================================================
+   CATEGORY PAGE BANNER BACKGROUNDS (PNG default + WEBP override)
+   ============================================================ */
+.sub-hero-classic {
+  background: linear-gradient(135deg,rgba(255,232,240,0.88),rgba(255,240,245,0.85),rgba(255,238,221,0.88)),
+    url('../images/banner/classic-banner.png') center/cover no-repeat;
+}
+html.webp .sub-hero-classic {
+  background-image:
+    linear-gradient(135deg,rgba(255,232,240,0.88),rgba(255,240,245,0.85),rgba(255,238,221,0.88)),
+    url('../images/banner/classic-banner.webp');
+}
+.sub-hero-cones {
+  background: linear-gradient(135deg,rgba(232,245,232,0.88),rgba(240,255,232,0.85),rgba(255,238,221,0.88)),
+    url('../images/banner/cone-banner.png') center/cover no-repeat;
+}
+html.webp .sub-hero-cones {
+  background-image:
+    linear-gradient(135deg,rgba(232,245,232,0.88),rgba(240,255,232,0.85),rgba(255,238,221,0.88)),
+    url('../images/banner/cone-banner.webp');
+}
+.sub-hero-cups {
+  background: linear-gradient(135deg,rgba(232,240,255,0.88),rgba(240,245,255,0.85),rgba(255,238,221,0.88)),
+    url('../images/banner/cup-banner.png') center/cover no-repeat;
+}
+html.webp .sub-hero-cups {
+  background-image:
+    linear-gradient(135deg,rgba(232,240,255,0.88),rgba(240,245,255,0.85),rgba(255,238,221,0.88)),
+    url('../images/banner/cup-banner.webp');
+}
+.sub-hero-sundae {
+  background: linear-gradient(135deg,rgba(255,240,224,0.88),rgba(255,250,224,0.85),rgba(255,238,221,0.88)),
+    url('../images/banner/sundae-banner.png') center/cover no-repeat;
+}
+html.webp .sub-hero-sundae {
+  background-image:
+    linear-gradient(135deg,rgba(255,240,224,0.88),rgba(255,250,224,0.85),rgba(255,238,221,0.88)),
+    url('../images/banner/sundae-banner.webp');
+}
+.sub-hero-premium {
+  background: linear-gradient(135deg,rgba(255,240,232,0.88),rgba(255,245,238,0.85),rgba(255,238,221,0.88)),
+    url('../images/banner/premium-banner.png') center/cover no-repeat;
+}
+html.webp .sub-hero-premium {
+  background-image:
+    linear-gradient(135deg,rgba(255,240,232,0.88),rgba(255,245,238,0.85),rgba(255,238,221,0.88)),
+    url('../images/banner/premium-banner.webp');
+}
