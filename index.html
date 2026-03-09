@@ -87,13 +87,57 @@
     </div>
 
     <div class="hero-visual" id="hero-visual">
-      <div class="hero-main-img" id="hero-main-img">🍨</div>
-      <div class="floating-item fi-1">🍦</div>
-      <div class="floating-item fi-2">🍫</div>
-      <div class="floating-item fi-3">🍓</div>
-      <div class="floating-item fi-4">🌟</div>
-      <div class="floating-item fi-5">🍧</div>
-      <div class="floating-item fi-6">🥭</div>
+      <!-- Main centre image: swap src paths with your own transparent PNG/WEBP/JPG -->
+      <div class="hero-main-img" id="hero-main-img">
+        <picture>
+          <source srcset="images/classic/vanilla.webp" type="image/webp">
+          <source srcset="images/classic/vanilla.jpg"  type="image/jpeg">
+          <img src="images/classic/vanilla.png" alt="Premium Ice Cream" loading="eager">
+        </picture>
+      </div>
+      <!-- Floating icons: swap src paths with your own transparent PNGs -->
+      <div class="floating-item fi-1">
+        <picture>
+          <source srcset="images/cone/waffle-cone.webp" type="image/webp">
+          <source srcset="images/cone/waffle-cone.jpg"  type="image/jpeg">
+          <img src="images/cone/waffle-cone.png" alt="Waffle Cone" loading="lazy">
+        </picture>
+      </div>
+      <div class="floating-item fi-2">
+        <picture>
+          <source srcset="images/classic/chocolate.webp" type="image/webp">
+          <source srcset="images/classic/chocolate.jpg"  type="image/jpeg">
+          <img src="images/classic/chocolate.png" alt="Chocolate Ice Cream" loading="lazy">
+        </picture>
+      </div>
+      <div class="floating-item fi-3">
+        <picture>
+          <source srcset="images/classic/strawberry.webp" type="image/webp">
+          <source srcset="images/classic/strawberry.jpg"  type="image/jpeg">
+          <img src="images/classic/strawberry.png" alt="Strawberry Ice Cream" loading="lazy">
+        </picture>
+      </div>
+      <div class="floating-item fi-4">
+        <picture>
+          <source srcset="images/premium/tahitian-vanilla.webp" type="image/webp">
+          <source srcset="images/premium/tahitian-vanilla.jpg"  type="image/jpeg">
+          <img src="images/premium/tahitian-vanilla.png" alt="Premium Vanilla" loading="lazy">
+        </picture>
+      </div>
+      <div class="floating-item fi-5">
+        <picture>
+          <source srcset="images/sundae/rainbow-sundae.webp" type="image/webp">
+          <source srcset="images/sundae/rainbow-sundae.jpg"  type="image/jpeg">
+          <img src="images/sundae/rainbow-sundae.png" alt="Rainbow Sundae" loading="lazy">
+        </picture>
+      </div>
+      <div class="floating-item fi-6">
+        <picture>
+          <source srcset="images/classic/mango.webp" type="image/webp">
+          <source srcset="images/classic/mango.jpg"  type="image/jpeg">
+          <img src="images/classic/mango.png" alt="Mango Ice Cream" loading="lazy">
+        </picture>
+      </div>
     </div>
   </div>
 </section>
