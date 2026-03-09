@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="IceWorld – Premium handcrafted ice cream. Experience 150+ flavors of luxury ice cream made with love.">
+  <title>IceWorld – Taste the Magic of Premium Ice Cream</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍦</text></svg>">
+  <script src="js/webp-detect.js"></script>
+</head>
+<body>
+
+<!-- Scroll Progress -->
+<div id="scroll-progress"></div>
+
+<!-- Loader -->
+<div class="loader" id="loader">
+  <div class="loader-icon">🍦</div>
+  <div class="loader-text">IceWorld</div>
+  <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+</div>
+
+<!-- ============ NAVIGATION ============ -->
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-logo">
+    <span class="logo-icon">🍦</span>
+    <span class="logo-text">IceWorld</span>
+  </a>
+
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="menu.html">Menu</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+
+  <div class="nav-icons">
+    <button class="nav-icon-btn" data-open-search title="Search">🔍</button>
+    <button class="nav-icon-btn" data-open-cart title="Cart">
+      🛒 <span class="cart-count" style="display:none">0</span>
+    </button>
+    <button class="nav-icon-btn" title="Login" onclick="showToast('Login coming soon! 🍦','info')">👤</button>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="hero-container">
+    <div class="hero-content">
+      <div class="hero-badge">🏆 #1 Premium Ice Cream Brand</div>
+      <h1 class="hero-title">
+        WELCOME TO<br>
+        <span class="highlight">ICE WORLD</span>
+      </h1>
+      <p class="hero-subtitle">
+        Experience premium handcrafted ice cream flavors made with love.
+        Over 44 unique flavors crafted with the finest ingredients from around the world.
+      </p>
+      <div class="hero-btns">
+        <a href="menu.html" class="btn btn-primary btn-ripple">
+          <span>🍦</span> Explore Menu
+        </a>
+        <a href="menu.html" class="btn btn-secondary btn-ripple" style="color:var(--chocolate);border-color:var(--chocolate)">
+          <span>🛒</span> Order Now
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-number" data-count="150" data-suffix="+">0+</div>
+          <div class="stat-label">Flavors</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-count="10000" data-suffix="+">0+</div>
+          <div class="stat-label">Happy Customers</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-count="5" data-suffix="★">0★</div>
+          <div class="stat-label">Rating</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual" id="hero-visual">
+      <!-- Main centre image: swap src paths with your own transparent PNG/WEBP/JPG -->
+      <div class="hero-main-img" id="hero-main-img">
+        <picture>
+          <source srcset="images/classic/vanilla.webp" type="image/webp">
+          <source srcset="images/classic/vanilla.jpg"  type="image/jpeg">
+          <img src="images/classic/vanilla.png" alt="Premium Ice Cream" loading="eager">
+        </picture>
+      </div>
+      <!-- Floating icons: swap src paths with your own transparent PNGs -->
+      <div class="floating-item fi-1">
+        <picture>
+          <source srcset="images/cone/waffle-cone.webp" type="image/webp">
+          <source srcset="images/cone/waffle-cone.jpg"  type="image/jpeg">
+          <img src="images/cone/waffle-cone.png" alt="Waffle Cone" loading="lazy">
+        </picture>
+      </div>
+      <div class="floating-item fi-2">
+        <picture>
+          <source srcset="images/classic/chocolate.webp" type="image/webp">
+          <source srcset="images/classic/chocolate.jpg"  type="image/jpeg">
+          <img src="images/classic/chocolate.png" alt="Chocolate Ice Cream" loading="lazy">
+        </picture>
+      </div>
+      <div class="floating-item fi-3">
+        <picture>
+          <source srcset="images/classic/strawberry.webp" type="image/webp">
+          <source srcset="images/classic/strawberry.jpg"  type="image/jpeg">
+          <img src="images/classic/strawberry.png" alt="Strawberry Ice Cream" loading="lazy">
+        </picture>
+      </div>
+      <div class="floating-item fi-4">
+        <picture>
+          <source srcset="images/premium/tahitian-vanilla.webp" type="image/webp">
+          <source srcset="images/premium/tahitian-vanilla.jpg"  type="image/jpeg">
+          <img src="images/premium/tahitian-vanilla.png" alt="Premium Vanilla" loading="lazy">
+        </picture>
+      </div>
+      <div class="floating-item fi-5">
+        <picture>
+          <source srcset="images/sundae/rainbow-sundae.webp" type="image/webp">
+          <source srcset="images/sundae/rainbow-sundae.jpg"  type="image/jpeg">
+          <img src="images/sundae/rainbow-sundae.png" alt="Rainbow Sundae" loading="lazy">
+        </picture>
+      </div>
+      <div class="floating-item fi-6">
+        <picture>
+          <source srcset="images/classic/mango.webp" type="image/webp">
+          <source srcset="images/classic/mango.jpg"  type="image/jpeg">
+          <img src="images/classic/mango.png" alt="Mango Ice Cream" loading="lazy">
+        </picture>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <div class="marquee-item"><span>🍦</span> Classic Ice Cream</div>
+    <div class="marquee-item"><span>🍫</span> Chocolate Delights</div>
+    <div class="marquee-item"><span>🍓</span> Fruit Flavors</div>
+    <div class="marquee-item"><span>🥭</span> Tropical Bliss</div>
+    <div class="marquee-item"><span>🍨</span> Premium Gelato</div>
+    <div class="marquee-item"><span>🧁</span> Sundae Specials</div>
+    <div class="marquee-item"><span>🌿</span> Pistachio Royal</div>
+    <div class="marquee-item"><span>✨</span> Artisan Creations</div>
+    <!-- duplicate for seamless loop -->
+    <div class="marquee-item"><span>🍦</span> Classic Ice Cream</div>
+    <div class="marquee-item"><span>🍫</span> Chocolate Delights</div>
+    <div class="marquee-item"><span>🍓</span> Fruit Flavors</div>
+    <div class="marquee-item"><span>🥭</span> Tropical Bliss</div>
+    <div class="marquee-item"><span>🍨</span> Premium Gelato</div>
+    <div class="marquee-item"><span>🧁</span> Sundae Specials</div>
+    <div class="marquee-item"><span>🌿</span> Pistachio Royal</div>
+    <div class="marquee-item"><span>✨</span> Artisan Creations</div>
+  </div>
+</div>
+
+<!-- ============ FEATURED PRODUCTS ============ -->
+<section class="products-section" id="featured">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-badge">⭐ Handpicked Favorites</span>
+      <h2 class="section-title">Popular <span>Ice Cream</span></h2>
+      <div class="divider"></div>
+      <p class="section-subtitle">Our most-loved flavors, crafted fresh every day with premium ingredients</p>
+    </div>
+    <div class="products-grid stagger-children" id="featured-grid">
+      <!-- Populated by script.js -->
+    </div>
+    <div class="text-center mt-3">
+      <a href="menu.html" class="btn btn-primary btn-ripple">View All Flavors 🍦</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BEST SELLING SLIDER ============ -->
+<section class="best-selling" id="best-selling">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-badge">🏆 Top Picks</span>
+      <h2 class="section-title">Most <span>Selling</span> Ice Cream</h2>
+      <div class="divider"></div>
+      <p class="section-subtitle">The flavors our customers can't stop ordering</p>
+    </div>
+    <div class="slider-wrapper">
+      <button class="slider-btn prev" id="slider-prev">‹</button>
+      <div class="slider-container">
+        <div class="slider-track" id="slider-track">
+          <!-- Populated by script.js -->
+        </div>
+      </div>
+      <button class="slider-btn next" id="slider-next">›</button>
+    </div>
+    <div class="slider-dots" id="slider-dots"></div>
+  </div>
+</section>
+
+<!-- ============ CATEGORIES ============ -->
+<section class="categories-section" id="categories">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-badge">📂 Browse by Category</span>
+      <h2 class="section-title">Explore <span>Categories</span></h2>
+      <div class="divider"></div>
+      <p class="section-subtitle">Find your perfect flavor from our curated categories</p>
+    </div>
+    <div class="categories-grid stagger-children">
+      <a href="pages/classic-icecream.html" class="category-card c1 reveal">
+        <span class="category-emoji">🍦</span>
+        <div class="category-name">Classic Ice Cream</div>
+        <div class="category-count">12+ flavors</div>
+        <div class="category-arrow">→</div>
+      </a>
+      <a href="pages/premium-icecream.html" class="category-card c2 reveal delay-1">
+        <span class="category-emoji">✨</span>
+        <div class="category-name">Premium Ice Cream</div>
+        <div class="category-count">12+ flavors</div>
+        <div class="category-arrow">→</div>
+      </a>
+      <a href="pages/icecream-cones.html" class="category-card c3 reveal delay-2">
+        <span class="category-emoji">🍧</span>
+        <div class="category-name">Ice Cream Cones</div>
+        <div class="category-count">6+ styles</div>
+        <div class="category-arrow">→</div>
+      </a>
+      <a href="pages/icecream-cups.html" class="category-card c4 reveal delay-3">
+        <span class="category-emoji">🍨</span>
+        <div class="category-name">Ice Cream Cups</div>
+        <div class="category-count">6+ styles</div>
+        <div class="category-arrow">→</div>
+      </a>
+      <a href="pages/icecream-sundae.html" class="category-card c5 reveal delay-4">
+        <span class="category-emoji">🌈</span>
+        <div class="category-name">Ice Cream Sundaes</div>
+        <div class="category-count">8+ creations</div>
+        <div class="category-arrow">→</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROMO BANNER ============ -->
+<section class="promo-section">
+  <div class="container">
+    <div class="promo-content reveal">
+      <span class="section-badge">🎉 Special Offer</span>
+      <h2 class="section-title">Get <span>20% OFF</span> Your First Order!</h2>
+      <p>Use code <strong>ICEWORLD20</strong> at checkout. Premium flavors, unforgettable taste.</p>
+      <a href="menu.html" class="btn btn-secondary btn-ripple btn-glow" style="color:var(--white);">
+        🛒 Order Now &amp; Save
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-badge">💬 Customer Love</span>
+      <h2 class="section-title">What People <span>Say</span></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="testimonials-grid stagger-children">
+      <div class="testimonial-card reveal">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">The Chocolate Fudge is absolutely divine! IceWorld has ruined all other ice creams for me. Worth every rupee!</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">😍</div>
+          <div class="author-info">
+            <h4>Priya Sharma</h4>
+            <p>⭐⭐⭐⭐⭐ · Delhi</p>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal delay-1">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">Truffle Heaven is the best premium ice cream I've ever had. The texture is silky smooth and the flavor is out of this world!</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">🤩</div>
+          <div class="author-info">
+            <h4>Rohit Verma</h4>
+            <p>⭐⭐⭐⭐⭐ · Mumbai</p>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal delay-2">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">I ordered the Banana Split Sundae for my daughter's birthday. She loved it so much! Amazing presentation and taste.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">🥰</div>
+          <div class="author-info">
+            <h4>Sneha Gupta</h4>
+            <p>⭐⭐⭐⭐⭐ · Jaipur</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NEWSLETTER ============ -->
+<section class="newsletter">
+  <div class="container">
+    <div class="newsletter-box reveal">
+      <span class="section-badge">📧 Stay Updated</span>
+      <h2 class="section-title">Get Sweet <span>Deals</span></h2>
+      <p>Subscribe to our newsletter and be the first to know about new flavors and exclusive offers.</p>
+      <form class="newsletter-form" onsubmit="return false">
+        <input type="email" placeholder="Enter your email address…" required>
+        <button type="submit" class="btn btn-primary btn-ripple">Subscribe 🍦</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand reveal">
+        <div class="nav-logo">
+          <span class="logo-icon">🍦</span>
+          <span class="logo-text">IceWorld</span>
+        </div>
+        <p class="footer-desc">
+          Taste the Magic of Premium Ice Cream. Handcrafted with love using the finest ingredients,
+          IceWorld brings you 150+ flavors of pure happiness.
+        </p>
+        <div class="social-links">
+          <a href="#" class="social-link" title="Instagram">📸</a>
+          <a href="#" class="social-link" title="Facebook">👍</a>
+          <a href="#" class="social-link" title="Twitter">🐦</a>
+        </div>
+      </div>
+
+      <div class="reveal delay-1">
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">→ Home</a></li>
+          <li><a href="menu.html">→ Menu</a></li>
+          <li><a href="about.html">→ About Us</a></li>
+          <li><a href="contact.html">→ Contact</a></li>
+          <li><a href="pages/classic-icecream.html">→ Classic Ice Cream</a></li>
+          <li><a href="pages/premium-icecream.html">→ Premium Ice Cream</a></li>
+        </ul>
+      </div>
+
+      <div class="reveal delay-2">
+        <h4 class="footer-heading">Categories</h4>
+        <ul class="footer-links">
+          <li><a href="pages/icecream-cones.html">→ Ice Cream Cones</a></li>
+          <li><a href="pages/icecream-cups.html">→ Ice Cream Cups</a></li>
+          <li><a href="pages/icecream-sundae.html">→ Ice Cream Sundaes</a></li>
+          <li><a href="menu.html?cat=classic">→ Classic Flavors</a></li>
+          <li><a href="menu.html?cat=premium">→ Premium Flavors</a></li>
+        </ul>
+      </div>
+
+      <div class="reveal delay-3">
+        <h4 class="footer-heading">Contact Us</h4>
+        <div class="footer-contact-item">
+          <div class="icon">👤</div>
+          <div class="info">
+            <strong>Mahi Sehrawat</strong>
+            <a href="tel:+918750141860">+91 8750141860</a>
+            <a href="mailto:mahisehrawat2006@gmail.com">mahisehrawat2006@gmail.com</a>
+          </div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="icon">👤</div>
+          <div class="info">
+            <strong>Priyanshi</strong>
+            <a href="tel:+918368573180">+91 8368573180</a>
+            <a href="mailto:priyadaksh007@gmail.com">priyadaksh007@gmail.com</a>
+          </div>
+        </div>
+        <form class="newsletter-form mt-2" onsubmit="return false" style="padding:0.3rem 0.3rem 0.3rem 0.8rem;border-radius:30px">
+          <input type="email" placeholder="Newsletter email…" style="font-size:0.8rem" required>
+          <button type="submit" class="btn btn-primary btn-sm btn-ripple">Join</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 IceWorld. Made with 🍦 by Mahi Sehrawat &amp; Priyanshi</p>
+      <p><a href="#">Privacy Policy</a> · <a href="#">Terms of Service</a></p>
+    </div>
+  </div>
+</footer>
+
+<!-- Cart Sidebar -->
+<div class="cart-overlay" id="cart-overlay"></div>
+<div class="cart-sidebar" id="cart-sidebar">
+  <div class="cart-header">
+    <h2>🛒 Your Cart</h2>
+    <button class="cart-close" id="cart-close">✕</button>
+  </div>
+  <div class="cart-items" id="cart-items"></div>
+  <div class="cart-footer">
+    <div class="cart-total">
+      <span>Total:</span>
+      <span id="cart-total">₹0</span>
+    </div>
+    <button class="btn-checkout btn-ripple" id="btn-checkout">Place Order 🍦</button>
+  </div>
+</div>
+
+<!-- Search Overlay -->
+<div class="search-overlay" id="search-overlay">
+  <button class="search-close" id="search-close">✕</button>
+  <div class="search-box">
+    <div class="search-input-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input-overlay" placeholder="Search ice cream flavors…" autocomplete="off">
+    </div>
+    <div class="search-results" id="search-results">
+      <p style="color:rgba(255,255,255,0.5);text-align:center;padding:1rem">Type to search ice creams…</p>
+    </div>
+  </div>
+</div>
+
+<!-- Scroll to top -->
+<button class="scroll-top" id="scroll-top" title="Back to top">↑</button>
+
+<!-- Toast Container -->
+<div id="toast-container" class="toast-container"></div>
+
+<!-- Scripts (order matters) -->
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/search.js"></script>
+<script src="js/animation.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
